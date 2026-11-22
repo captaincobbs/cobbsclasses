@@ -8,10 +8,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Include="assets\cobbsclasses\config\character_classes.json" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Reference Include="VintagestoryAPI">
       <HintPath>$(VINTAGE_STORY)/VintagestoryAPI.dll</HintPath>
       <Private>false</Private>
@@ -30,6 +26,6 @@
   </Content>
 </ItemGroup>
 
-<ProjectExtensions><VisualStudio><UserProperties assets_4cobbsclasses_4config_4character_3classes_1json__JsonSchema="https://www.schemastore.org/minecraft-lang.json" /></VisualStudio></ProjectExtensions>
+<ProjectExtensions><VisualStudio><UserProperties /></VisualStudio></ProjectExtensions>
 
 </Project>

@@ -1,5 +1,4 @@
 ﻿[
-  // Disable base-game classes
   {
     "enabled": false,
     "code": "commoner",
@@ -36,8 +35,6 @@
     "traits": [],
     "gear": []
   },
-
-  // Producer classes
   {
     "enabled": true,
     "code": "cobbs-commoner",
@@ -52,36 +49,42 @@
   },
   {
     "enabled": true,
-    "code": "cobbs-sailor",
+    "code": "cobbs-herbalist",
     "traits": [
-      "sailor-recipes",
-      "sailor-sealegs",
-      "sailor-fisherman",
-      "sailor-dryoff"
+      "herbalist-greenthumb",
+      "herbalist-transplanting",
+      "herbalist-beekeeper",
+      "herbalist-natural-remedies"
     ],
     "gear": [
-      { "type": "item", "code": "game:clothes-head-thrumcap" },
-      { "type": "item", "code": "game:clothes-upperbodyover-arcticfisher" },
-      { "type": "item", "code": "game:clothes-upperbody-arctic" },
-      { "type": "item", "code": "game:clothes-lowerbody-arcticfisher" },
-      { "type": "item", "code": "game:clothes-foot-wool-lined-knee-high-boots" }
+      { "type": "Item", "code": "game:clothes-shoulder-forestponcho" },
+      { "type": "Item", "code": "game:clothes-upperbody-kirtlegreen" },
+      { "type": "Item", "code": "game:clothes-face-headbandvine" },
+      { "type": "Item", "code": "game:clothes-neck-pomander" },
+      { "type": "Item", "code": "game:clothes-lowerbody-homespun-pants" },
+      { "type": "Item", "code": "game:clothes-waist-peasantapron" },
+      { "type": "Item", "code": "game:clothes-foot-midsummer" }
     ]
   },
   {
     "enabled": true,
-    "code": "cobbs-lumberjack",
+    "code": "cobbs-homesteader",
     "traits": [
-      "lumberjack-recipes",
-      "lumberjack-treefeller",
-      "lumberjack-outdoorsman",
-      "lumberjack-treespeaker"
+      "homesteader-recipes",
+      "homesteader-greenthumb",
+      "homesteader-farmhand",
+      "homesteader-laborer",
+      "homesteader-worldweary"
     ],
     "gear": [
-      { "type": "item", "code": "game:clothes-upperbodyover-great-steppe-mantle" },
-      { "type": "item", "code": "game:clothes-upperbody-great-steppe-shirt" },
-      { "type": "item", "code": "game:clothes-lowerbody-homespun-pants" },
-      { "type": "item", "code": "game:clothes-hand-survivor" },
-      { "type": "item", "code": "game:clothes-foot-great-steppe-boots" }
+			{ "type": "item", "code": "game:clothes-head-straw-hat" },
+			{ "type": "item", "code": "game:clothes-upperbody-commoner-shirt" },
+			{ "type": "item", "code": "game:clothes-lowerbody-workmans-gown" },
+			{ "type": "item", "code": "game:clothes-foot-worn-leather-boots" },
+			{ "type": "item", "code": "game:clothes-hand-heavy-leather-gloves" },
+			{ "type": "item", "code": "game:clothes-waist-linen-rope" },
+			{ "type": "item", "code": "game:clothes-nadiya-face-grain" },
+			{ "type": "item", "code": "game:clothes-upperbodyover-commoner-coat" }
     ]
   },
   {
@@ -105,6 +108,23 @@
   },
   {
     "enabled": true,
+    "code": "cobbs-lumberjack",
+    "traits": [
+      "lumberjack-recipes",
+      "lumberjack-treefeller",
+      "lumberjack-outdoorsman",
+      "lumberjack-treespeaker"
+    ],
+    "gear": [
+      { "type": "item", "code": "game:clothes-upperbodyover-great-steppe-mantle" },
+      { "type": "item", "code": "game:clothes-upperbody-great-steppe-shirt" },
+      { "type": "item", "code": "game:clothes-lowerbody-homespun-pants" },
+      { "type": "item", "code": "game:clothes-hand-survivor" },
+      { "type": "item", "code": "game:clothes-foot-great-steppe-boots" }
+    ]
+  },
+  {
+    "enabled": true,
     "code": "cobbs-malefactor",
     "traits": [
       "malefactor-recipes",
@@ -112,28 +132,6 @@
       "malefactor-bare-necessities",
       "malefactor-scavenging",
       "malefactor-isolated"
-    ],
-    "gear": [
-      { "type": "item", "code": "game:clothes-upperbody-malefactor-shirt" },
-      { "type": "item", "code": "game:clothes-upperbodyover-malefactor-tunic" },
-      { "type": "item", "code": "game:clothes-shoulder-malefactor-cloak" },
-      { "type": "item", "code": "game:clothes-lowerbody-malefactor-trousers" },
-      { "type": "item", "code": "game:clothes-foot-malefactor-boots" },
-      { "type": "item", "code": "game:clothes-neck-malefactor-pendant" },
-      { "type": "item", "code": "game:clothes-face-malefactor-mask" },
-      { "type": "item", "code": "game:clothes-hand-malefactor-gloves" },
-      { "type": "item", "code": "game:clothes-waist-malefactor-sash" }
-    ]
-  },
-  {
-    "enabled": true,
-    "code": "cobbs-homesteader",
-    "traits": [
-      "homesteader-recipes",
-      "homesteader-greenthumb",
-      "homesteader-farmhand",
-      "homesteader-laborer",
-      "homesteader-worldweary"
     ],
     "gear": [
       { "type": "item", "code": "game:clothes-upperbody-malefactor-shirt" },
@@ -170,25 +168,6 @@
   },
   {
     "enabled": true,
-    "code": "cobbs-herbalist",
-    "traits": [
-      "herbalist-greenthumb",
-      "herbalist-transplanting",
-      "herbalist-beekeeper",
-      "herbalist-natural-remedies"
-    ],
-    "gear": [
-      { "type": "Item", "code": "game:clothes-shoulder-forestponcho" },
-      { "type": "Item", "code": "game:clothes-upperbody-kirtlegreen" },
-      { "type": "Item", "code": "game:clothes-face-headbandvine" },
-      { "type": "Item", "code": "game:clothes-neck-pomander" },
-      { "type": "Item", "code": "game:clothes-lowerbody-homespun-pants" },
-      { "type": "Item", "code": "game:clothes-waist-peasantapron" },
-      { "type": "Item", "code": "game:clothes-foot-midsummer" }
-    ]
-  },
-  {
-    "enabled": true,
     "code": "cobbs-potter",
     "traits": [
       "potter-earthworks",
@@ -205,8 +184,74 @@
       { "type": "Item", "code": "game:clothes-foot-hobnailboots" }
     ]
   },
-
-  // Processor classes
+  {
+    "enabled": true,
+    "code": "cobbs-sailor",
+    "traits": [
+      "sailor-recipes",
+      "sailor-sealegs",
+      "sailor-fisherman",
+      "sailor-dryoff"
+    ],
+    "gear": [
+      { "type": "item", "code": "game:clothes-head-thrumcap" },
+      { "type": "item", "code": "game:clothes-upperbodyover-arcticfisher" },
+      { "type": "item", "code": "game:clothes-upperbody-arctic" },
+      { "type": "item", "code": "game:clothes-lowerbody-arcticfisher" },
+      { "type": "item", "code": "game:clothes-foot-wool-lined-knee-high-boots" }
+    ]
+  },
+  {
+    "enabled": true,
+    "code": "cobbs-alchemist",
+    "traits": [
+      "alchemist-transmutation",
+      "alchemist-bulk-brewer",
+      "alchemist-potioncraft",
+      "alchemist-built-immunity"
+    ],
+    "gear": [
+      { "type": "Item", "code": "game:clothes-waist-alchemist" },
+      { "type": "Item", "code": "game:clothes-upperbody-alchemist" },
+      { "type": "Item", "code": "game:clothes-shoulder-alchemist" },
+      { "type": "Item", "code": "game:clothes-lowerbody-alchemist" },
+      { "type": "Item", "code": "game:clothes-head-alchemist" },
+      { "type": "Item", "code": "game:clothes-foot-alchemist" }
+    ]
+  },
+  {
+    "enabled": true,
+    "code": "cobbs-butcher",
+    "traits": [
+      "butcher-clean-cut",
+      "butcher-steady",
+      "butcher-preserving",
+      "butcher-leatherworker"
+    ],
+    "gear": [
+      { "type": "item", "code": "game:clothes-shoulder-apronplain" },
+      { "type": "item", "code": "game:clothes-upperbody-surgeon" },
+      { "type": "item", "code": "game:clothes-lowerbody-marketeer" },
+      { "type": "item", "code": "game:clothes-foot-surgeon" }
+    ]
+  },
+  {
+    "enabled": true,
+    "code": "cobbs-carpenter",
+    "traits": [
+      "carpenter-workyard-master",
+      "carpenter-carpentry",
+      "carpenter-cooper",
+      "carpenter-nothing-without-a-hilt"
+    ],
+    "gear": [
+      { "type": "Item", "code": "game:clothes-shoulder-apronplain" },
+      { "type": "Item", "code": "game:clothes-upperbody-woolen-shirt" },
+      { "type": "Item", "code": "game:clothes-lowerbody-warn-woolen-pants" },
+      { "type": "Item", "code": "game:clothes-waist-heavy-belt" },
+      { "type": "Item", "code": "game:clothes-foot-metalcap-boots" }
+    ]
+  },
   {
     "enabled": true,
     "code": "cobbs-mason",
@@ -228,18 +273,38 @@
   },
   {
     "enabled": true,
-    "code": "cobbs-butcher",
+    "code": "cobbs-scribe",
     "traits": [
-      "butcher-clean-cut",
-      "butcher-steady",
-      "butcher-preserving",
-      "butcher-leatherworker"
+      "scribe-scrivener",
+      "scribe-penmanship",
+      "scribe-cartography",
+      "scribe-bookworm"
     ],
     "gear": [
-      { "type": "item", "code": "game:clothes-shoulder-apronplain" },
-      { "type": "item", "code": "game:clothes-upperbody-surgeon" },
-      { "type": "item", "code": "game:clothes-lowerbody-marketeer" },
-      { "type": "item", "code": "game:clothes-foot-surgeon" }
+      { "type": "Item", "code": "game:clothes-shoulder-scribe" },
+      { "type": "Item", "code": "game:clothes-upperbody-scribe" },
+      { "type": "Item", "code": "game:clothes-hand-scribe" },
+      { "type": "Item", "code": "game:clothes-lowerbody-scribe" },
+      { "type": "Item", "code": "game:clothes-waist-scribe" },
+      { "type": "Item", "code": "game:clothes-foot-scribe" }
+    ]
+  },
+  {
+    "enabled": true,
+    "code": "cobbs-smelter",
+    "traits": [
+      "smelter-recipes",
+      "smelter-forgehand",
+      "smelter-casting",
+      "smelter-glassworking"
+    ],
+    "gear": [
+      { "type": "Item", "code": "game:clothes-shoulder-apronblack" },
+      { "type": "Item", "code": "game:clothes-upperbody-arctic-fisher" },
+      { "type": "Item", "code": "game:clothes-lowerbody-wanderer" },
+      { "type": "Item", "code": "game:clothes-hand-heavy-leather-gloves" },
+      { "type": "Item", "code": "game:clothes-waist-sturdy-belt" },
+      { "type": "Item", "code": "game:clothes-foot-metalcap-boots" }
     ]
   },
   {
@@ -264,77 +329,39 @@
   },
   {
     "enabled": true,
-    "code": "cobbs-alchemist",
+    "code": "cobbs-artisan",
     "traits": [
-      "alchemist-transmutation",
-      "alchemist-bulk-brewer",
-      "alchemist-potioncraft",
-      "alchemist-built-immunity"
+      "artisan-painter",
+      "artisan-adornment",
+      "artisan-decorator",
+      "artisan-sculptor"
     ],
     "gear": [
-      { "type": "Item", "code": "game:clothes-waist-alchemist" },
-      { "type": "Item", "code": "game:clothes-upperbody-alchemist" },
-      { "type": "Item", "code": "game:clothes-shoulder-alchemist" },
-      { "type": "Item", "code": "game:clothes-lowerbody-alchemist" },
-      { "type": "Item", "code": "game:clothes-head-alchemist" },
-      { "type": "Item", "code": "game:clothes-foot-alchemist" }
+      { "type": "item", "code": "game:clothes-shoulder-artisans-scarf" },
+      { "type": "item", "code": "game:clothes-upperbody-tailor-blouse" },
+      { "type": "item", "code": "game:clothes-lowerbody-workmans-gown" },
+      { "type": "item", "code": "game:clothes-foot-aristocrat-shoes" },
+      { "type": "item", "code": "game:clothes-hand-scribe" },
+      { "type": "item", "code": "game:clothes-upperbodyover-cobalt-mantle" }
     ]
   },
   {
     "enabled": true,
-    "code": "cobbs-carpenter",
+    "code": "cobbs-blackguard",
     "traits": [
-      "carpenter-workyard-master",
-      "carpenter-carpentry",
-      "carpenter-cooper",
-      "carpenter-nothing-without-a-hilt"
+      "blackguard-big-eater",
+      "blackguard-well-worn",
+      "blackguard-buff",
+      "blackguard-tough"
     ],
     "gear": [
-      { "type": "Item", "code": "game:clothes-shoulder-apronplain" },
-      { "type": "Item", "code": "game:clothes-upperbody-woolen-shirt" },
-      { "type": "Item", "code": "game:clothes-lowerbody-warn-woolen-pants" },
-      { "type": "Item", "code": "game:clothes-waist-heavy-belt" },
-      { "type": "Item", "code": "game:clothes-foot-metalcap-boots" }
+      { "type": "item", "code": "game:clothes-upperbody-blackguard-shirt" },
+      { "type": "item", "code": "game:clothes-lowerbody-blackguard-leggings" },
+      { "type": "item", "code": "game:clothes-foot-blackguard-shoes" },
+      { "type": "item", "code": "game:clothes-emblem-blackguard-pin" },
+      { "type": "item", "code": "game:clothes-waist-blackguard-belt" }
     ]
   },
-  {
-    "enabled": true,
-    "code": "cobbs-smelter",
-    "traits": [
-      "smelter-recipes",
-      "smelter-forgehand",
-      "smelter-casting",
-      "smelter-glassworking"
-    ],
-    "gear": [
-      { "type": "Item", "code": "game:clothes-shoulder-apronblack" },
-      { "type": "Item", "code": "game:clothes-upperbody-arctic-fisher" },
-      { "type": "Item", "code": "game:clothes-lowerbody-wanderer" },
-      { "type": "Item", "code": "game:clothes-hand-heavy-leather-gloves" },
-      { "type": "Item", "code": "game:clothes-waist-sturdy-belt" },
-      { "type": "Item", "code": "game:clothes-foot-metalcap-boots" }
-    ]
-  },
-  {
-    "enabled": true,
-    "code": "cobbs-scribe",
-    "traits": [
-      "scribe-scrivener",
-      "scribe-penmanship",
-      "scribe-cartography",
-      "scribe-bookworm"
-    ],
-    "gear": [
-      { "type": "Item", "code": "game:clothes-shoulder-scribe" },
-      { "type": "Item", "code": "game:clothes-upperbody-scribe" },
-      { "type": "Item", "code": "game:clothes-hand-scribe" },
-      { "type": "Item", "code": "game:clothes-lowerbody-scribe" },
-      { "type": "Item", "code": "game:clothes-waist-scribe" },
-      { "type": "Item", "code": "game:clothes-foot-scribe" }
-    ]
-  },
-
-  // Consumer classes
   {
     "enabled": true,
     "code": "cobbs-caravaneer",
@@ -357,57 +384,22 @@
   },
   {
     "enabled": true,
-    "code": "cobbs-ranger",
+    "code": "cobbs-chef",
     "traits": [
-      "ranger-fletching",
-      "ranger-weapon-of-choice",
-      "ranger-fleetfoot",
-      "ranger-knowing-mushrooms"
+      "chef-secret-ingredient",
+      "chef-food-storage",
+      "chef-mealboxes",
+      "chef-personal-touch"
     ],
     "gear": [
-      { "type": "Item", "code": "game:clothes-head-bycocket" },
-      { "type": "Item", "code": "game:clothes-shoulder-woolen-scarf" },
-      { "type": "Item", "code": "game:clothes-upperbody-kirtlegreen" },
-      { "type": "Item", "code": "game:clothes-lowerbody-workmans-gown" },
-      { "type": "Item", "code": "game:clothes-neck-pinecone-amulet" },
-      { "type": "Item", "code": "game:clothes-hand-beggar" },
-      { "type": "Item", "code": "game:clothes-waist-wanderer" }
-    ]
-  },
-  {
-    "enabled": true,
-    "code": "cobbs-blackguard",
-    "traits": [
-      "blackguard-big-eater",
-      "blackguard-well-worn",
-      "blackguard-buff",
-      "blackguard-tough"
-    ],
-    "gear": [
-      { "type": "item", "code": "game:clothes-upperbody-blackguard-shirt" },
-      { "type": "item", "code": "game:clothes-lowerbody-blackguard-leggings" },
-      { "type": "item", "code": "game:clothes-foot-blackguard-shoes" },
-      { "type": "item", "code": "game:clothes-emblem-blackguard-pin" },
-      { "type": "item", "code": "game:clothes-waist-blackguard-belt" }
-    ]
-  },
-  {
-    "enabled": true,
-    "code": "cobbs-knight",
-    "traits": [
-      "knight-juggernaut",
-      "knight-bulwark",
-      "knight-protector",
-      "knight-repulse-the-rust"
-    ],
-    "gear": [
-      { "type": "Item", "code": "game:clothes-head-squire-hood" },
-      { "type": "Item", "code": "game:clothes-shoulder-squire-tunic" },
-      { "type": "Item", "code": "game:clothes-upperbody-squire-shirt" },
-      { "type": "Item", "code": "game:clothes-lowerbody-squire-pants" },
-      { "type": "Item", "code": "game:clothes-emblem-squire" },
-      { "type": "Item", "code": "game:clothes-arm-squire-bracers" },
-      { "type": "Item", "code": "game:clothes-waist-squire" }
+			{ "type": "item", "code": "game:clothes-lowerbody-pastoral-pants" },
+			{ "type": "item", "code": "game:clothes-upperbody-scribe" },
+			{ "type": "item", "code": "game:clothes-waist-peasant-strap" },
+			{ "type": "item", "code": "game:clothes-foot-high-leather-boots" },
+			{ "type": "item", "code": "game:clothes-upperbodyover-surgeon" },
+			{ "type": "item", "code": "game:clothes-head-minstrel-hat" },
+			{ "type": "item", "code": "game:clothes-hand-minstrel-gloves" },
+			{ "type": "item", "code": "game:clothes-face-survivor" }
     ]
   },
   {
@@ -432,48 +424,50 @@
   },
   {
     "enabled": true,
+    "code": "cobbs-knight",
+    "traits": [
+      "knight-juggernaut",
+      "knight-bulwark",
+      "knight-protector",
+      "knight-repulse-the-rust"
+    ],
+    "gear": [
+      { "type": "Item", "code": "game:clothes-head-squire-hood" },
+      { "type": "Item", "code": "game:clothes-shoulder-squire-tunic" },
+      { "type": "Item", "code": "game:clothes-upperbody-squire-shirt" },
+      { "type": "Item", "code": "game:clothes-lowerbody-squire-pants" },
+      { "type": "Item", "code": "game:clothes-emblem-squire" },
+      { "type": "Item", "code": "game:clothes-arm-squire-bracers" },
+      { "type": "Item", "code": "game:clothes-waist-squire" }
+    ]
+  },
+  {
+    "enabled": true,
+    "code": "cobbs-ranger",
+    "traits": [
+      "ranger-fletching",
+      "ranger-weapon-of-choice",
+      "ranger-fleetfoot",
+      "ranger-knowing-mushrooms"
+    ],
+    "gear": [
+      { "type": "Item", "code": "game:clothes-head-bycocket" },
+      { "type": "Item", "code": "game:clothes-shoulder-woolen-scarf" },
+      { "type": "Item", "code": "game:clothes-upperbody-kirtlegreen" },
+      { "type": "Item", "code": "game:clothes-lowerbody-workmans-gown" },
+      { "type": "Item", "code": "game:clothes-neck-pinecone-amulet" },
+      { "type": "Item", "code": "game:clothes-hand-beggar" },
+      { "type": "Item", "code": "game:clothes-waist-wanderer" }
+    ]
+  },
+  {
+    "enabled": true,
     "code": "cobbs-rotwalker",
     "traits": [
       "rotwalker-embrace-the-storm",
       "rotwalker-mysticism",
       "rotwalker-warding",
       "rotwalker-recipes"
-    ],
-    "gear": [
-      { "type": "item", "code": "game:clothes-head-rotwalker" },
-      { "type": "item", "code": "game:clothes-shoulder-rotwalker" },
-      { "type": "item", "code": "game:clothes-upperbodyover-rotwalker" },
-      { "type": "item", "code": "game:clothes-lowerbody-rotwalker" },
-      { "type": "item", "code": "game:clothes-neck-gear-amulet-rusty" },
-      { "type": "item", "code": "game:clothes-face-rotwalker" }
-    ]
-  },
-  {
-    "enabled": true,
-    "code": "cobbs-artisan",
-    "traits": [
-      "artisan-painter",
-      "artisan-adornment",
-      "artisan-decorator",
-      "artisan-sculptor"
-    ],
-    "gear": [
-      { "type": "item", "code": "game:clothes-shoulder-artisans-scarf" },
-      { "type": "item", "code": "game:clothes-upperbody-tailor-blouse" },
-      { "type": "item", "code": "game:clothes-lowerbody-workmans-gown" },
-      { "type": "item", "code": "game:clothes-foot-aristocrat-shoes" },
-      { "type": "item", "code": "game:clothes-hand-scribe" },
-      { "type": "item", "code": "game:clothes-upperbodyover-cobalt-mantle" }
-    ]
-  },
-  {
-    "enabled": true,
-    "code": "cobbs-chef",
-    "traits": [
-      "chef-secret-ingredient",
-      "chef-food-storage",
-      "chef-mealboxes",
-      "chef-personal-touch"
     ],
     "gear": [
       { "type": "item", "code": "game:clothes-head-rotwalker" },

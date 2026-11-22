@@ -1,9 +1,502 @@
 [
   {
-    "code": "cobbs-deepminer",
+    "code": "herbalist-greenthumb",
+    "type": "positive",
+    "attributes": {}
+  },
+  {
+    "code": "herbalist-transplanting",
+    "type": "positive",
+    "attributes": {}
+  },
+  {
+    "code": "herbalist-beekeeper",
+    "type": "positive",
+    "attributes": {}
+  },
+  {
+    "code": "herbalist-natural-remedies",
+    "type": "positive",
+    "attributes": {}
+  },
+  {
+    "code": "homesteader-recipes",
+    "type": "positive",
+    "attributes": {}
+  },
+  {
+    "code": "homesteader-greenthumb",
+    "type": "positive",
+    "attributes": {}
+  },
+  {
+    "code": "homesteader-farmhand",
+    "type": "positive",
+    "attributes": {}
+  },
+  {
+    "code": "homesteader-laborer",
+    "type": "positive",
+    "attributes": {}
+  },
+  {
+    "code": "homesteader-worldweary",
+    "type": "positive",
+    "attributes": {}
+  },
+  {
+    "code": "hunter-recipes",
+    "type": "positive",
+    "attributes": {}
+  },
+  {
+    "code": "hunter-dressing",
+    "type": "positive",
+    "attributes": {}
+  },
+  {
+    "code": "hunter-weapons",
+    "type": "positive",
+    "attributes": {}
+  },
+  {
+    "code": "hunter-creeping",
+    "type": "positive",
+    "attributes": {}
+  },
+  {
+    "code": "lumberjack-recipes",
+    "type": "positive",
+    "attributes": {}
+  },
+  {
+    "code": "lumberjack-treefeller",
+    "type": "positive",
+    "attributes": {}
+  },
+  {
+    "code": "lumberjack-outdoorsman",
+    "type": "positive",
+    "attributes": {}
+  },
+  {
+    "code": "lumberjack-treespeaker",
+    "type": "positive",
+    "attributes": {}
+  },
+  {
+    "code": "malefactor-recipes",
+    "type": "positive",
+    "attributes": {}
+  },
+  {
+    "code": "malefactor-sneaking",
+    "type": "positive",
+    "attributes": {}
+  },
+  {
+    "code": "malefactor-bare-necessities",
+    "type": "positive",
+    "attributes": {}
+  },
+  {
+    "code": "malefactor-scavenging",
+    "type": "positive",
+    "attributes": {}
+  },
+  {
+    "code": "malefactor-isolated",
+    "type": "positive",
+    "attributes": {}
+  },
+  {
+    "code": "miner-recipes",
+    "type": "positive",
+    "attributes": {}
+  },
+  {
+    "code": "miner-prospector",
     "type": "positive",
     "attributes": {
-      "miningSpeedMul": 1.0
+      "miningSpeedMul": 0.5,
+      "oreDropRate": 0.25
     }
+  },
+  {
+    "code": "miner-cavedelver",
+    "type": "positive",
+    "attributes": {}
+  },
+  {
+    "code": "miner-light",
+    "type": "positive",
+    "attributes": {}
+  },
+  {
+    "code": "miner-agoraphobia",
+    "type": "negative",
+    "attributes": {
+      "surfaceStabilityLoss": -0.008
+    }
+  },
+  {
+    "code": "potter-earthworks",
+    "type": "positive",
+    "attributes": {}
+  },
+  {
+    "code": "potter-molder",
+    "type": "positive",
+    "attributes": {}
+  },
+  {
+    "code": "potter-brickmaker",
+    "type": "positive",
+    "attributes": {}
+  },
+  {
+    "code": "potter-ceramicist",
+    "type": "positive",
+    "attributes": {}
+  },
+  {
+    "code": "sailor-recipes",
+    "type": "positive",
+    "attributes": {}
+  },
+  {
+    "code": "sailor-sealegs",
+    "type": "positive",
+    "attributes": {}
+  },
+  {
+    "code": "sailor-fisherman",
+    "type": "positive",
+    "attributes": {}
+  },
+  {
+    "code": "sailor-dryoff",
+    "type": "positive",
+    "attributes": {}
+  },
+  {
+    "code": "alchemist-transmutation",
+    "type": "positive",
+    "attributes": {}
+  },
+  {
+    "code": "alchemist-bulk-brewer",
+    "type": "positive",
+    "attributes": {}
+  },
+  {
+    "code": "alchemist-potioncraft",
+    "type": "positive",
+    "attributes": {}
+  },
+  {
+    "code": "alchemist-built-immunity",
+    "type": "positive",
+    "attributes": {}
+  },
+  {
+    "code": "butcher-clean-cut",
+    "type": "positive",
+    "attributes": {}
+  },
+  {
+    "code": "butcher-steady",
+    "type": "positive",
+    "attributes": {}
+  },
+  {
+    "code": "butcher-preserving",
+    "type": "positive",
+    "attributes": {}
+  },
+  {
+    "code": "butcher-leatherworker",
+    "type": "positive",
+    "attributes": {}
+  },
+  {
+    "code": "carpenter-workyard-master",
+    "type": "positive",
+    "attributes": {}
+  },
+  {
+    "code": "carpenter-carpentry",
+    "type": "positive",
+    "attributes": {}
+  },
+  {
+    "code": "carpenter-cooper",
+    "type": "positive",
+    "attributes": {}
+  },
+  {
+    "code": "carpenter-nothing-without-a-hilt",
+    "type": "positive",
+    "attributes": {}
+  },
+  {
+    "code": "mason-quarrier",
+    "type": "positive",
+    "attributes": {}
+  },
+  {
+    "code": "mason-bricklayer",
+    "type": "positive",
+    "attributes": {}
+  },
+  {
+    "code": "mason-earthshaker",
+    "type": "positive",
+    "attributes": {}
+  },
+  {
+    "code": "mason-workplace-standards",
+    "type": "positive",
+    "attributes": {}
+  },
+  {
+    "code": "scribe-scrivener",
+    "type": "positive",
+    "attributes": {}
+  },
+  {
+    "code": "scribe-penmanship",
+    "type": "positive",
+    "attributes": {}
+  },
+  {
+    "code": "scribe-cartography",
+    "type": "positive",
+    "attributes": {}
+  },
+  {
+    "code": "scribe-bookworm",
+    "type": "positive",
+    "attributes": {}
+  },
+  {
+    "code": "smelter-recipes",
+    "type": "positive",
+    "attributes": {}
+  },
+  {
+    "code": "smelter-forgehand",
+    "type": "positive",
+    "attributes": {}
+  },
+  {
+    "code": "smelter-casting",
+    "type": "positive",
+    "attributes": {}
+  },
+  {
+    "code": "smelter-glassworking",
+    "type": "positive",
+    "attributes": {}
+  },
+  {
+    "code": "tailor-spinster",
+    "type": "positive",
+    "attributes": {}
+  },
+  {
+    "code": "tailor-patching",
+    "type": "positive",
+    "attributes": {}
+  },
+  {
+    "code": "tailor-professional-dress",
+    "type": "positive",
+    "attributes": {}
+  },
+  {
+    "code": "tailor-adornment",
+    "type": "positive",
+    "attributes": {}
+  },
+  {
+    "code": "artisan-painter",
+    "type": "positive",
+    "attributes": {}
+  },
+  {
+    "code": "artisan-adornment",
+    "type": "positive",
+    "attributes": {}
+  },
+  {
+    "code": "artisan-decorator",
+    "type": "positive",
+    "attributes": {}
+  },
+  {
+    "code": "artisan-sculptor",
+    "type": "positive",
+    "attributes": {}
+  },
+  {
+    "code": "blackguard-big-eater",
+    "type": "positive",
+    "attributes": {}
+  },
+  {
+    "code": "blackguard-well-worn",
+    "type": "positive",
+    "attributes": {}
+  },
+  {
+    "code": "blackguard-buff",
+    "type": "positive",
+    "attributes": {}
+  },
+  {
+    "code": "blackguard-tough",
+    "type": "positive",
+    "attributes": {}
+  },
+  {
+    "code": "caravaneer-connections",
+    "type": "positive",
+    "attributes": {}
+  },
+  {
+    "code": "caravaneer-hauling",
+    "type": "positive",
+    "attributes": {}
+  },
+  {
+    "code": "caravaneer-well-traveled",
+    "type": "positive",
+    "attributes": {}
+  },
+  {
+    "code": "caravaneer-many-faces",
+    "type": "positive",
+    "attributes": {}
+  },
+  {
+    "code": "chef-secret-ingredient",
+    "type": "positive",
+    "attributes": {}
+  },
+  {
+    "code": "chef-food-storage",
+    "type": "positive",
+    "attributes": {}
+  },
+  {
+    "code": "chef-mealboxes",
+    "type": "positive",
+    "attributes": {}
+  },
+  {
+    "code": "chef-personal-touch",
+    "type": "positive",
+    "attributes": {}
+  },
+  {
+    "code": "clockmaker-mechanic",
+    "type": "positive",
+    "attributes": {}
+  },
+  {
+    "code": "clockmaker-locust-whisperer",
+    "type": "positive",
+    "attributes": {}
+  },
+  {
+    "code": "clockmaker-tinkering",
+    "type": "positive",
+    "attributes": {}
+  },
+  {
+    "code": "clockmaker-repurposing",
+    "type": "positive",
+    "attributes": {}
+  },
+  {
+    "code": "knight-juggernaut",
+    "type": "positive",
+    "attributes": {}
+  },
+  {
+    "code": "knight-bulwark",
+    "type": "positive",
+    "attributes": {}
+  },
+  {
+    "code": "knight-protector",
+    "type": "positive",
+    "attributes": {}
+  },
+  {
+    "code": "knight-repulse-the-rust",
+    "type": "positive",
+    "attributes": {}
+  },
+  {
+    "code": "ranger-fletching",
+    "type": "positive",
+    "attributes": {}
+  },
+  {
+    "code": "ranger-weapon-of-choice",
+    "type": "positive",
+    "attributes": {}
+  },
+  {
+    "code": "ranger-fleetfoot",
+    "type": "positive",
+    "attributes": {}
+  },
+  {
+    "code": "ranger-knowing-mushrooms",
+    "type": "positive",
+    "attributes": {}
+  },
+  {
+    "code": "rotwalker-embrace-the-storm",
+    "type": "positive",
+    "attributes": {}
+  },
+  {
+    "code": "rotwalker-mysticism",
+    "type": "positive",
+    "attributes": {}
+  },
+  {
+    "code": "rotwalker-warding",
+    "type": "positive",
+    "attributes": {}
+  },
+  {
+    "code": "rotwalker-recipes",
+    "type": "positive",
+    "attributes": {}
+  },
+  {
+    "code": "smith-pound",
+    "type": "positive",
+    "attributes": {}
+  },
+  {
+    "code": "smith-master",
+    "type": "positive",
+    "attributes": {}
+  },
+  {
+    "code": "smith-hot",
+    "type": "positive",
+    "attributes": {}
+  },
+  {
+    "code": "smith-harvesting",
+    "type": "positive",
+    "attributes": {}
   }
 ]
