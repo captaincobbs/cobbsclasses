@@ -1,0 +1,9 @@
+[
+  {
+    "code": "cobbs-deepminer",
+    "type": "positive",
+    "attributes": {
+      "miningSpeedMul": 1.0
+    }
+  }
+]
