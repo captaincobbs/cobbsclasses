@@ -2,17 +2,29 @@
   {
     "code": "herbalist-greenthumb",
     "type": "positive",
-    "attributes": {}
+    "attributes": {
+      "cropDropRate": 0.1,
+			"wildCropDropRate": 0.6,
+      "hideMealSafety": false,
+      "hideNutritionInfo": false,
+      "hideCraftingInfo": false
+    }
   },
   {
     "code": "herbalist-transplanting",
     "type": "positive",
-    "attributes": {}
+    "attributes": {
+      "cuttingSpoilageRate": -0.5,
+      "cuttingDropRate": 1
+    }
   },
   {
     "code": "herbalist-beekeeper",
     "type": "positive",
-    "attributes": {}
+    "attributes": {
+      "beeDamage": -1,
+      "beeResourceMultiplier": 0.5
+    }
   },
   {
     "code": "herbalist-natural-remedies",
@@ -27,42 +39,68 @@
   {
     "code": "homesteader-greenthumb",
     "type": "positive",
-    "attributes": {}
+    "attributes": {
+      "cropDropRate": 0.3,
+			"wildCropDropRate": 0.3
+    }
   },
   {
     "code": "homesteader-farmhand",
     "type": "positive",
-    "attributes": {}
+    "attributes": {
+      "domesticatedAnimalFear": 0,
+      "animalHarvestRate": 0.5
+    }
   },
   {
     "code": "homesteader-laborer",
     "type": "positive",
-    "attributes": {}
+    "attributes": {
+      "coldTemperatureRange": 3.5,
+      "hotTemperatureRange": 3.5
+    }
   },
   {
     "code": "homesteader-worldweary",
     "type": "positive",
-    "attributes": {}
+    "attributes": {
+    }
   },
   {
     "code": "hunter-recipes",
     "type": "positive",
-    "attributes": {}
+    "attributes": {
+      "hungerrateAlone": -0.1,
+      "hungerrateOutside": -0.15
+    }
   },
   {
     "code": "hunter-dressing",
     "type": "positive",
-    "attributes": {}
+    "attributes": {
+      "animalLootDropRate": 2,
+			"animalHarvestingTime": -0.45
+    }
   },
   {
     "code": "hunter-weapons",
     "type": "positive",
-    "attributes": {}
+    "attributes": {
+      "animalsDamage": 0.4,
+			"knifeDurabilityLoss": -0.25,
+			"rangedWeaponsSpeed": 0.4,
+      "rangedWeaponsAcc": 0.3
+    }
   },
   {
     "code": "hunter-creeping",
     "type": "positive",
-    "attributes": {}
+    "attributes": {
+      "animalSeekingRange": -0.70,
+      "walkspeed": 0.1,
+      "crouchspeed": 1.0,
+      "trackdecay": 0.3
+    }
   },
   {
     "code": "lumberjack-recipes",
@@ -72,17 +110,26 @@
   {
     "code": "lumberjack-treefeller",
     "type": "positive",
-    "attributes": {}
+    "attributes": {
+      "charcoalDropRate": 0.5
+    }
   },
   {
     "code": "lumberjack-outdoorsman",
     "type": "positive",
-    "attributes": {}
+    "attributes": {
+      "maxhealthExtraPoints": 5,
+      "coldTemperatureRange": 3.5,
+      "hotTemperatureRange": 3.5
+    }
   },
   {
     "code": "lumberjack-treespeaker",
     "type": "positive",
-    "attributes": {}
+    "attributes": {
+      "saplingDropRate": 3,
+			"stickDropRate": 0.5
+    }
   },
   {
     "code": "malefactor-recipes",
@@ -92,33 +139,48 @@
   {
     "code": "malefactor-sneaking",
     "type": "positive",
-    "attributes": {}
+    "attributes": {
+      "sneakSpeed": 1,
+      "moveSpeedAlone": 0.2,
+      "jumpHeightAlone": 0.8,
+      "darkvisionStrength": 0.32
+    }
   },
   {
     "code": "malefactor-bare-necessities",
     "type": "positive",
-    "attributes": {}
+    "attributes": {
+      "rawFoodSatiety": 1.0,
+      "clothingDurabilityLoss": -0.4
+    }
   },
   {
     "code": "malefactor-scavenging",
     "type": "positive",
-    "attributes": {}
+    "attributes": {
+      "vesselContentsDropRate": 0.35,
+			"rustyGearDropRate": 1.0
+    }
   },
   {
     "code": "malefactor-isolated",
     "type": "positive",
-    "attributes": {}
+    "attributes": {
+      "stabilityLossFromPlayers": -0.005
+    }
   },
   {
     "code": "miner-recipes",
     "type": "positive",
-    "attributes": {}
+    "attributes": {
+      "pickaxeDurabilityLoss":  0.25
+    }
   },
   {
     "code": "miner-prospector",
     "type": "positive",
     "attributes": {
-      "miningSpeedMul": 0.5,
+      "miningSpeedMul": 1,
       "oreDropRate": 0.25
     }
   },
@@ -133,7 +195,7 @@
     "code": "miner-light",
     "type": "positive",
     "attributes": {
-      "darkvisionStrength": 0.35
+      "darkvisionStrength": 0.4
     }
   },
   {
@@ -146,12 +208,20 @@
   {
     "code": "potter-earthworks",
     "type": "positive",
-    "attributes": {}
+    "attributes": {
+      "clayYield": 0.25,
+      "shovelSpeedMul": 0.5,
+      "panningSpeedMul": 0.5,
+      "panningLuck": 2
+    }
   },
   {
     "code": "potter-molder",
     "type": "positive",
-    "attributes": {}
+    "attributes": {
+      "clayformingPoints": 5,
+      "clayReclaimAmount": 1
+    }
   },
   {
     "code": "potter-brickmaker",
@@ -161,7 +231,9 @@
   {
     "code": "potter-ceramicist",
     "type": "positive",
-    "attributes": {}
+    "attributes": {
+      "potteryCookSpeed": 0.3
+    }
   },
   {
     "code": "sailor-recipes",
@@ -171,22 +243,36 @@
   {
     "code": "sailor-sealegs",
     "type": "positive",
-    "attributes": {}
+    "attributes": {
+      "boatSpeed": 0.5,
+      "swimSpeed": 0.35,
+      "breathCapacity": 0.5
+    }
   },
   {
     "code": "sailor-fisherman",
     "type": "positive",
-    "attributes": {}
+    "attributes": {
+      "fishFilletYield": 0.5,
+      "wormYield": 0.5,
+      "netSpeedMul": 0.5,
+      "fishingRodDurabilityLoss": -0.5
+    }
   },
   {
     "code": "sailor-dryoff",
     "type": "positive",
-    "attributes": {}
+    "attributes": {
+      "coldResistance": 1,
+      "wetResistance": 0.5
+    }
   },
   {
     "code": "alchemist-transmutation",
     "type": "positive",
-    "attributes": {}
+    "attributes": {
+      "millingSpeedMul": 1.0
+    }
   },
   {
     "code": "alchemist-bulk-brewer",
@@ -196,22 +282,40 @@
   {
     "code": "alchemist-potioncraft",
     "type": "positive",
-    "attributes": {}
+    "attributes": {
+      "potionBrewTime": 0.5,
+      "potionDuration": 0.5
+    }
   },
   {
     "code": "alchemist-built-immunity",
     "type": "positive",
-    "attributes": {}
+    "attributes": {
+      "potionPenalty": 0,
+      "spoiltFoodPenalty": 0,
+      "poisonPenalty": 0,
+      "intoxicationPenalty": 0,
+      "hallucinogenPenalty": 0
+    }
   },
   {
     "code": "butcher-clean-cut",
     "type": "positive",
-    "attributes": {}
+    "attributes": {
+      "butcherBonus": 0.3,
+      "ruinedCarcassPenalty": -0.5,
+      "butcherSpeedMul": 1.0
+    }
   },
   {
     "code": "butcher-steady",
     "type": "positive",
-    "attributes": {}
+    "attributes": {
+      "heavyCarryMovespeedAffectedness": -1,
+      "carcassDrainRate": 0.4,
+      "skinningBonus": 0.5,
+      "skinningSpeedMul": 1.0
+    }
   },
   {
     "code": "butcher-preserving",
@@ -226,22 +330,35 @@
   {
     "code": "carpenter-workyard-master",
     "type": "positive",
-    "attributes": {}
+    "attributes": {
+      "boardProductionMultiplier": 0.25,
+      "sawDurabilityLoss": -0.25,
+      "sawingSpeedMul": 0.5,
+      "debarkingSpeedMul": 0.5,
+      "woodChopSpeedMul": 0.5
+    }
   },
   {
     "code": "carpenter-carpentry",
     "type": "positive",
-    "attributes": {}
+    "attributes": {
+      "dismantleFurniture": true
+    }
   },
   {
     "code": "carpenter-cooper",
     "type": "positive",
-    "attributes": {}
+    "attributes": {
+      "barrelSealTime": 0.8
+    }
   },
   {
     "code": "carpenter-nothing-without-a-hilt",
     "type": "positive",
-    "attributes": {}
+    "attributes": {
+      "craftedToolDurability": 1.2,
+      "craftedArrowDurability": 1.2
+    }
   },
   {
     "code": "mason-quarrier",
@@ -256,12 +373,19 @@
   {
     "code": "mason-earthshaker",
     "type": "positive",
-    "attributes": {}
+    "attributes": {
+      "shovelDurabilityLoss":  -0.2,
+      "pickaxeDurabilityLoss":  -0.2,
+      "miningSpeedMul": 0.3,
+      "shovelSpeedMul": 0.3
+    }
   },
   {
     "code": "mason-workplace-standards",
     "type": "positive",
-    "attributes": {}
+    "attributes": {
+      "fallDamageFactor": -0.25
+    }
   },
   {
     "code": "scribe-scrivener",
@@ -271,7 +395,10 @@
   {
     "code": "scribe-penmanship",
     "type": "positive",
-    "attributes": {}
+    "attributes": {
+      "inkDurabilityLoss": -0.5,
+      "labelsFree": true
+    }
   },
   {
     "code": "scribe-cartography",
@@ -286,27 +413,44 @@
   {
     "code": "smelter-recipes",
     "type": "positive",
-    "attributes": {}
+    "attributes": {
+      "bloomeryAmountMul": 0.5,
+      "bloomerySpeedMul": -0.2,
+      "bloomeryRecoveryAmount": 1.0
+    }
   },
   {
     "code": "smelter-forgehand",
     "type": "positive",
-    "attributes": {}
+    "attributes": {
+      "canHoldHotItems": true,
+      "canCraftHotItems": true,
+      "tongDurabilityLoss": -0.2,
+      "hammerDurabilityLoss": -0.2
+    }
   },
   {
     "code": "smelter-casting",
     "type": "positive",
-    "attributes": {}
+    "attributes": {
+      "mechanicalHarvestRate": 3
+    }
   },
   {
     "code": "smelter-glassworking",
     "type": "positive",
-    "attributes": {}
+    "attributes": {
+      "charcoalDropRate": 0.25
+    }
   },
   {
     "code": "tailor-spinster",
     "type": "positive",
-    "attributes": {}
+    "attributes": {
+      "spinningWheelSpeedMul": 1.0,
+      "spindleSpeedMul": 0.5,
+      "loomSpeedMul": 0.5
+    }
   },
   {
     "code": "tailor-patching",
@@ -316,22 +460,33 @@
   {
     "code": "tailor-professional-dress",
     "type": "positive",
-    "attributes": {}
+    "attributes": {
+      "clothesProfessionBonus": true
+    }
   },
   {
     "code": "tailor-adornment",
     "type": "positive",
-    "attributes": {}
+    "attributes": {
+      "clothesPaintMul": -0.5,
+      "sewingDurabilityLoss": -0.3,
+      "sewingThreadMul": -0.4
+    }
   },
   {
     "code": "artisan-painter",
     "type": "positive",
-    "attributes": {}
+    "attributes": {
+      "pigmentCostReduction": -1
+    }
   },
   {
     "code": "artisan-adornment",
     "type": "positive",
-    "attributes": {}
+    "attributes": {
+      "artHungerRate": -0.3,
+      "artMoveSpeed": 0.1
+    }
   },
   {
     "code": "artisan-decorator",
@@ -341,42 +496,68 @@
   {
     "code": "artisan-sculptor",
     "type": "positive",
-    "attributes": {}
+    "attributes": {
+      "chiselDurabilityLoss":  -0.5,
+      "chiselReach": 4
+    }
   },
   {
     "code": "blackguard-big-eater",
     "type": "positive",
-    "attributes": {}
+    "attributes": {
+      "hungerrate": 0.3
+    }
   },
   {
     "code": "blackguard-well-worn",
     "type": "positive",
-    "attributes": {}
+    "attributes": {
+      "shieldDurabilityLoss": -0.25,
+      "meleeDurabilityLoss": -0.25
+    }
   },
   {
     "code": "blackguard-buff",
     "type": "positive",
-    "attributes": {}
+    "attributes": {
+      "armorWalkSpeedAffectedness": -0.5
+    }
   },
   {
     "code": "blackguard-tough",
     "type": "positive",
-    "attributes": {}
+    "attributes": {
+      "maxhealthExtraPoints": 10,
+      "healthRegenRate": 0.25,
+      "foodBuffRate": 0.5
+    }
   },
   {
     "code": "caravaneer-connections",
     "type": "positive",
-    "attributes": {}
+    "attributes": {
+      "merchantSpecialStock": true,
+      "merchantSellModifier": 0.3,
+      "merchantBuyModifier": -0.3,
+      "canMerchantRelation": true
+    }
   },
   {
     "code": "caravaneer-hauling",
     "type": "positive",
-    "attributes": {}
+    "attributes": {
+      "vehicleInventoryMultiplier": 0.5,
+      "animalInventoryMultiplier": 0.5,
+      "backpackInventoryMultiplier": 0.2
+    }
   },
   {
     "code": "caravaneer-well-traveled",
     "type": "positive",
-    "attributes": {}
+    "attributes": {
+      "animalMovespeed": 0.25,
+      "vehicleMovespeed": 0.25
+    }
   },
   {
     "code": "caravaneer-many-faces",
@@ -386,12 +567,16 @@
   {
     "code": "chef-secret-ingredient",
     "type": "positive",
-    "attributes": {}
+    "attributes": {
+      "seasoningSlot": true
+    }
   },
   {
     "code": "chef-food-storage",
     "type": "positive",
-    "attributes": {}
+    "attributes": {
+      "preservedFoodDecayRate": -0.5
+    }
   },
   {
     "code": "chef-mealboxes",
@@ -401,12 +586,18 @@
   {
     "code": "chef-personal-touch",
     "type": "positive",
-    "attributes": {}
+    "attributes": {
+      "foodExtraServings": 0.5,
+      "foodDecayRate": -0.5
+    }
   },
   {
     "code": "clockmaker-mechanic",
     "type": "positive",
-    "attributes": {}
+    "attributes": {
+      "temporalGearTLRepairCost": -1,
+      "rustyGearDropRate": 0.5
+    }
   },
   {
     "code": "clockmaker-locust-whisperer",
@@ -421,27 +612,49 @@
   {
     "code": "clockmaker-repurposing",
     "type": "positive",
-    "attributes": {}
+    "attributes": {
+      "mechanicalsDamage": 0.40
+    }
   },
   {
     "code": "knight-juggernaut",
     "type": "positive",
-    "attributes": {}
+    "attributes": {
+      "armorWalkSpeedAffectedness": -1.0,
+      "armorHealingAffectedness": -1.0,
+      "armorHungerAffectedness": -0.4
+    }
   },
   {
     "code": "knight-bulwark",
     "type": "positive",
-    "attributes": {}
+    "attributes": {
+      "armorDurabilityLoss": -0.25,
+      "shieldDurabilityLoss": -0.25,
+      "knockbackWhileArmor": -0.25,
+      "knockbackWhileBlocking": -1.0
+    }
   },
   {
     "code": "knight-protector",
     "type": "positive",
-    "attributes": {}
+    "attributes": {
+      "damageToHostiles": 0.4,
+      "damageToHostilesDuration": 120.0,
+      "movespeedFromProtector": 0.2,
+      "movespeedFromProtectionDuration": 5.0
+    }
   },
   {
     "code": "knight-repulse-the-rust",
     "type": "positive",
-    "attributes": {}
+    "attributes": {
+      "rustedDamage": 0.4,
+      "stabilityLossResistance": 0.4,
+      "damageReductionPostRevive": 0.5,
+      "damageReductionTemporalStorm": 0.3,
+      "damageReductionReviveDuration": 120.0
+    }
   },
   {
     "code": "ranger-fletching",
@@ -451,17 +664,32 @@
   {
     "code": "ranger-weapon-of-choice",
     "type": "positive",
-    "attributes": {}
+    "attributes": {
+      "rangedWeaponsDamage": 0.2,
+			"bowDrawingStrength": 0.25,
+			"rangedWeaponsSpeed": 1.0,
+      "rangedWeaponsAcc": 0.5
+    }
   },
   {
     "code": "ranger-fleetfoot",
     "type": "positive",
-    "attributes": {}
+    "attributes": {
+      "armorWalkSpeedAffectedness": -0.5,
+      "walkspeed": 0.2,
+      "armorRangedAffectedness": -1,
+      "jumpHeight": 0.5
+    }
   },
   {
     "code": "ranger-knowing-mushrooms",
     "type": "positive",
-    "attributes": {}
+    "attributes": {
+      "eatReagents": true,
+      "coatRaw": true,
+      "coatingDuration": 2,
+      "potionDuration": 0.5
+    }
   },
   {
     "code": "rotwalker-embrace-the-storm",
@@ -486,21 +714,36 @@
   {
     "code": "smith-pound",
     "type": "positive",
-    "attributes": {}
+    "attributes": {
+      "hammerDurabilityLoss": -0.4
+    }
   },
   {
     "code": "smith-master",
     "type": "positive",
-    "attributes": {}
+    "attributes": {
+      "extraTemperingDurability": 0.2,
+      "sharpeningDurabilityLoss": -0.3,
+      "sharpeningMax": 0.1,
+      "quenchingShatterChance": -0.15
+    }
   },
   {
     "code": "smith-hot",
     "type": "positive",
-    "attributes": {}
+    "attributes": {
+      "fireDamage": -0.5,
+      "inventoryHeatRate": -0.5,
+      "canHoldHotItems": true,
+      "canCraftHotItems": true
+    }
   },
   {
     "code": "smith-harvesting",
     "type": "positive",
-    "attributes": {}
+    "attributes": {
+      "mechanicalHarvestRate": 3,
+      "canSalvageMetal": true
+    }
   }
 ]
