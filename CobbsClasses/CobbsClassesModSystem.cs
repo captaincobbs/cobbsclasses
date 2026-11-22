@@ -1,4 +1,5 @@
-﻿using Vintagestory.API.Common;
+﻿using Vintagestory.API.Client;
+using Vintagestory.API.Common;
 
 namespace CobbsClasses;
 
@@ -6,13 +7,17 @@ public class CobbsClassesModSystem : ModSystem
 {
     public override double ExecuteOrder() => 0.6;
 
-    public override void Start(ICoreAPI api)
+    private DarkvisionRenderer? darkvisionRenderer;
+
+    public override void StartClientSide(ICoreClientAPI api)
     {
-        
+        darkvisionRenderer = new(api);
+        api.Event.RegisterRenderer(darkvisionRenderer, EnumRenderStage.Before, "cobbsclasses-darkvision");
     }
 
-    public override void AssetsLoaded(ICoreAPI api)
+    public override void Dispose()
     {
-        
+        darkvisionRenderer?.Dispose();
+        base.Dispose();
     }
 }

@@ -125,12 +125,16 @@
   {
     "code": "miner-cavedelver",
     "type": "positive",
-    "attributes": {}
+    "attributes": {
+      "fallDamageFactor": -0.35
+    }
   },
   {
     "code": "miner-light",
     "type": "positive",
-    "attributes": {}
+    "attributes": {
+      "darkvisionStrength": 0.35
+    }
   },
   {
     "code": "miner-agoraphobia",
