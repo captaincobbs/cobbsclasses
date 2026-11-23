@@ -173,7 +173,7 @@
   "game:trait-rotwalker-warding": "Warding",
   "game:trait-rotwalker-recipes": "Rotwalker Recipes",
 
-    "class-settings-reload-description": "Applies when the world is reloaded.",
+  "class-settings-reload-description": "Applies when the world is reloaded.",
   "unique-recipe-access-disabled": "Disabled",
   "unique-recipe-access-class-only": "Class-only",
   "unique-recipe-access-everyone": "Allow Everyone",
