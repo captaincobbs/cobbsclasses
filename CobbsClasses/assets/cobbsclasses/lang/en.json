@@ -82,6 +82,13 @@
   "game:trait-carpenter-cooper": "Cooper",
   "game:trait-carpenter-nothing-without-a-hilt": "Nothing Without a Hilt",
 
+  "game:characterclass-cobbs-chef": "Chef",
+  "game:characterdesc-cobbs-chef": "A cook who knows how to make a meal their own and pack it for later.",
+  "game:trait-chef-secret-ingredient": "Secret Ingredient",
+  "game:trait-chef-food-storage": "Food Storage",
+  "game:trait-chef-mealboxes": "Mealboxes",
+  "game:trait-chef-personal-touch": "Personal Touch",
+
   "game:characterclass-cobbs-mason": "Mason",
   "game:characterdesc-cobbs-mason": "A builder who works stone from quarry face to finished wall.",
   "game:trait-mason-quarrier": "Quarrier",
@@ -102,6 +109,13 @@
   "game:trait-smelter-forgehand": "Forgehand",
   "game:trait-smelter-casting": "Casting",
   "game:trait-smelter-glassworking": "Glassworking",
+
+  "game:characterclass-cobbs-smith": "Smith",
+  "game:characterdesc-cobbs-smith": "A forge worker who hammers hot metal into tools worth putting to work.",
+  "game:trait-smith-pound": "Pound",
+  "game:trait-smith-master": "Master",
+  "game:trait-smith-hot": "Hot",
+  "game:trait-smith-harvesting": "Harvesting",
 
   "game:characterclass-cobbs-tailor": "Tailor",
   "game:characterdesc-cobbs-tailor": "A clothier who spins fiber, mends garments, and dresses others for work or ceremony.",
@@ -131,13 +145,6 @@
   "game:trait-caravaneer-well-traveled": "Well Traveled",
   "game:trait-caravaneer-many-faces": "Many Faces",
 
-  "game:characterclass-cobbs-chef": "Chef",
-  "game:characterdesc-cobbs-chef": "A cook who knows how to make a meal their own and pack it for later.",
-  "game:trait-chef-secret-ingredient": "Secret Ingredient",
-  "game:trait-chef-food-storage": "Food Storage",
-  "game:trait-chef-mealboxes": "Mealboxes",
-  "game:trait-chef-personal-touch": "Personal Touch",
-
   "game:characterclass-cobbs-clockmaker": "Clockmaker",
   "game:characterdesc-cobbs-clockmaker": "A mechanic who tinkers with old machines, repurposes their parts, and understands locusts.",
   "game:trait-clockmaker-mechanic": "Mechanic",
@@ -164,12 +171,5 @@
   "game:trait-rotwalker-embrace-the-storm": "Embrace the Storm",
   "game:trait-rotwalker-mysticism": "Mysticism",
   "game:trait-rotwalker-warding": "Warding",
-  "game:trait-rotwalker-recipes": "Rotwalker Recipes",
-
-  "game:characterclass-cobbs-smith": "Smith",
-  "game:characterdesc-cobbs-smith": "A forge worker who hammers hot metal into tools worth putting to work.",
-  "game:trait-smith-pound": "Pound",
-  "game:trait-smith-master": "Master",
-  "game:trait-smith-hot": "Hot",
-  "game:trait-smith-harvesting": "Harvesting"
+  "game:trait-rotwalker-recipes": "Rotwalker Recipes"
 }

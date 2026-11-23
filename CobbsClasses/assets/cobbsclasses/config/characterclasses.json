@@ -35,6 +35,7 @@
     "traits": [],
     "gear": []
   },
+
   {
     "enabled": true,
     "code": "cobbs-commoner",
@@ -201,6 +202,7 @@
       { "type": "item", "code": "game:clothes-foot-wool-lined-knee-high-boots" }
     ]
   },
+
   {
     "enabled": true,
     "code": "cobbs-alchemist",
@@ -250,6 +252,26 @@
       { "type": "Item", "code": "game:clothes-lowerbody-warn-woolen-pants" },
       { "type": "Item", "code": "game:clothes-waist-heavy-belt" },
       { "type": "Item", "code": "game:clothes-foot-metalcap-boots" }
+    ]
+  },
+  {
+    "enabled": true,
+    "code": "cobbs-chef",
+    "traits": [
+      "chef-secret-ingredient",
+      "chef-food-storage",
+      "chef-mealboxes",
+      "chef-personal-touch"
+    ],
+    "gear": [
+			{ "type": "item", "code": "game:clothes-lowerbody-pastoral-pants" },
+			{ "type": "item", "code": "game:clothes-upperbody-scribe" },
+			{ "type": "item", "code": "game:clothes-waist-peasant-strap" },
+			{ "type": "item", "code": "game:clothes-foot-high-leather-boots" },
+			{ "type": "item", "code": "game:clothes-upperbodyover-surgeon" },
+			{ "type": "item", "code": "game:clothes-head-minstrel-hat" },
+			{ "type": "item", "code": "game:clothes-hand-minstrel-gloves" },
+			{ "type": "item", "code": "game:clothes-face-survivor" }
     ]
   },
   {
@@ -309,6 +331,25 @@
   },
   {
     "enabled": true,
+    "code": "cobbs-smith",
+    "traits": [
+      "smith-pound",
+      "smith-master",
+      "smith-hot",
+      "smith-harvesting"
+    ],
+    "gear": [
+      { "type": "item", "code": "game:clothes-shoulder-blacksmith-apron" },
+      { "type": "item", "code": "game:clothes-upperbody-homespun-shirt" },
+      { "type": "item", "code": "game:clothes-lowerbody-malefactor-trousers" },
+      { "type": "item", "code": "game:clothes-foot-soldier-boots" },
+      { "type": "item", "code": "game:clothes-hand-heavy-leather-gloves" },
+      { "type": "item", "code": "game:clothes-arm-leather-bracers" },
+      { "type": "item", "code": "game:clothes-waist-heavy-tool-belt" }
+    ]
+  },
+  {
+    "enabled": true,
     "code": "cobbs-tailor",
     "traits": [
       "tailor-spinster",
@@ -327,6 +368,7 @@
       { "type": "item", "code": "game:clothes-upperbodyover-tailor-jacket" }
     ]
   },
+
   {
     "enabled": true,
     "code": "cobbs-artisan",
@@ -380,26 +422,6 @@
       { "type": "Item", "code": "game:clothes-waist-merchant-belt" },
       { "type": "Item", "code": "game:clothes-arm-merchant-bracelet" },
       { "type": "Item", "code": "game:clothes-upperbodyover-spice-merchants-coat" }
-    ]
-  },
-  {
-    "enabled": true,
-    "code": "cobbs-chef",
-    "traits": [
-      "chef-secret-ingredient",
-      "chef-food-storage",
-      "chef-mealboxes",
-      "chef-personal-touch"
-    ],
-    "gear": [
-			{ "type": "item", "code": "game:clothes-lowerbody-pastoral-pants" },
-			{ "type": "item", "code": "game:clothes-upperbody-scribe" },
-			{ "type": "item", "code": "game:clothes-waist-peasant-strap" },
-			{ "type": "item", "code": "game:clothes-foot-high-leather-boots" },
-			{ "type": "item", "code": "game:clothes-upperbodyover-surgeon" },
-			{ "type": "item", "code": "game:clothes-head-minstrel-hat" },
-			{ "type": "item", "code": "game:clothes-hand-minstrel-gloves" },
-			{ "type": "item", "code": "game:clothes-face-survivor" }
     ]
   },
   {
@@ -476,25 +498,6 @@
       { "type": "item", "code": "game:clothes-lowerbody-rotwalker" },
       { "type": "item", "code": "game:clothes-neck-gear-amulet-rusty" },
       { "type": "item", "code": "game:clothes-face-rotwalker" }
-    ]
-  },
-  {
-    "enabled": true,
-    "code": "cobbs-smith",
-    "traits": [
-      "smith-pound",
-      "smith-master",
-      "smith-hot",
-      "smith-harvesting"
-    ],
-    "gear": [
-      { "type": "item", "code": "game:clothes-shoulder-blacksmith-apron" },
-      { "type": "item", "code": "game:clothes-upperbody-homespun-shirt" },
-      { "type": "item", "code": "game:clothes-lowerbody-malefactor-trousers" },
-      { "type": "item", "code": "game:clothes-foot-soldier-boots" },
-      { "type": "item", "code": "game:clothes-hand-heavy-leather-gloves" },
-      { "type": "item", "code": "game:clothes-arm-leather-bracers" },
-      { "type": "item", "code": "game:clothes-waist-heavy-tool-belt" }
     ]
   }
 ]

@@ -63,8 +63,7 @@
   {
     "code": "homesteader-worldweary",
     "type": "positive",
-    "attributes": {
-    }
+    "attributes": {}
   },
   {
     "code": "hunter-recipes",
@@ -96,7 +95,7 @@
     "code": "hunter-creeping",
     "type": "positive",
     "attributes": {
-      "animalSeekingRange": -0.70,
+      "animalSeekingRange": -0.7,
       "walkspeed": 0.1,
       "crouchspeed": 1.0,
       "trackdecay": 0.3
@@ -173,7 +172,7 @@
     "code": "miner-recipes",
     "type": "positive",
     "attributes": {
-      "pickaxeDurabilityLoss":  0.25
+      "pickaxeDurabilityLoss": -0.25
     }
   },
   {
@@ -361,6 +360,33 @@
     }
   },
   {
+    "code": "chef-secret-ingredient",
+    "type": "positive",
+    "attributes": {
+      "seasoningSlot": 1
+    }
+  },
+  {
+    "code": "chef-food-storage",
+    "type": "positive",
+    "attributes": {
+      "preservedFoodDecayRate": -0.5
+    }
+  },
+  {
+    "code": "chef-mealboxes",
+    "type": "positive",
+    "attributes": {}
+  },
+  {
+    "code": "chef-personal-touch",
+    "type": "positive",
+    "attributes": {
+      "foodExtraServings": 0.5,
+      "foodDecayRate": -0.5
+    }
+  },
+  {
     "code": "mason-quarrier",
     "type": "positive",
     "attributes": {}
@@ -374,8 +400,8 @@
     "code": "mason-earthshaker",
     "type": "positive",
     "attributes": {
-      "shovelDurabilityLoss":  -0.2,
-      "pickaxeDurabilityLoss":  -0.2,
+      "shovelDurabilityLoss": -0.2,
+      "pickaxeDurabilityLoss": -0.2,
       "miningSpeedMul": 0.3,
       "shovelSpeedMul": 0.3
     }
@@ -444,6 +470,41 @@
     }
   },
   {
+    "code": "smith-pound",
+    "type": "positive",
+    "attributes": {
+      "hammerDurabilityLoss": -0.4
+    }
+  },
+  {
+    "code": "smith-master",
+    "type": "positive",
+    "attributes": {
+      "extraTemperingDurability": 0.2,
+      "sharpeningDurabilityLoss": -0.3,
+      "sharpeningMax": 0.1,
+      "quenchingShatterChance": -0.15
+    }
+  },
+  {
+    "code": "smith-hot",
+    "type": "positive",
+    "attributes": {
+      "fireDamage": -0.5,
+      "inventoryHeatRate": -0.5,
+      "canHoldHotItems": 1,
+      "canCraftHotItems": 1
+    }
+  },
+  {
+    "code": "smith-harvesting",
+    "type": "positive",
+    "attributes": {
+      "mechanicalHarvestRate": 3,
+      "canSalvageMetal": 1
+    }
+  },
+  {
     "code": "tailor-spinster",
     "type": "positive",
     "attributes": {
@@ -497,7 +558,7 @@
     "code": "artisan-sculptor",
     "type": "positive",
     "attributes": {
-      "chiselDurabilityLoss":  -0.5,
+      "chiselDurabilityLoss": -0.5,
       "chiselReach": 4
     }
   },
@@ -565,33 +626,6 @@
     "attributes": {}
   },
   {
-    "code": "chef-secret-ingredient",
-    "type": "positive",
-    "attributes": {
-      "seasoningSlot": true
-    }
-  },
-  {
-    "code": "chef-food-storage",
-    "type": "positive",
-    "attributes": {
-      "preservedFoodDecayRate": -0.5
-    }
-  },
-  {
-    "code": "chef-mealboxes",
-    "type": "positive",
-    "attributes": {}
-  },
-  {
-    "code": "chef-personal-touch",
-    "type": "positive",
-    "attributes": {
-      "foodExtraServings": 0.5,
-      "foodDecayRate": -0.5
-    }
-  },
-  {
     "code": "clockmaker-mechanic",
     "type": "positive",
     "attributes": {
@@ -613,8 +647,23 @@
     "code": "clockmaker-repurposing",
     "type": "positive",
     "attributes": {
-      "mechanicalsDamage": 0.40
+      "mechanicalsDamage": 0.4
     }
+  },
+  {
+    "code": "druid-lorekeeper",
+    "type": "positive",
+    "attributes": {}
+  },
+  {
+    "code": "clockmaker-locust-whisperer",
+    "type": "positive",
+    "attributes": {}
+  },
+  {
+    "code": "clockmaker-tinkering",
+    "type": "positive",
+    "attributes": {}
   },
   {
     "code": "knight-juggernaut",
@@ -710,40 +759,5 @@
     "code": "rotwalker-recipes",
     "type": "positive",
     "attributes": {}
-  },
-  {
-    "code": "smith-pound",
-    "type": "positive",
-    "attributes": {
-      "hammerDurabilityLoss": -0.4
     }
-  },
-  {
-    "code": "smith-master",
-    "type": "positive",
-    "attributes": {
-      "extraTemperingDurability": 0.2,
-      "sharpeningDurabilityLoss": -0.3,
-      "sharpeningMax": 0.1,
-      "quenchingShatterChance": -0.15
-    }
-  },
-  {
-    "code": "smith-hot",
-    "type": "positive",
-    "attributes": {
-      "fireDamage": -0.5,
-      "inventoryHeatRate": -0.5,
-      "canHoldHotItems": true,
-      "canCraftHotItems": true
-    }
-  },
-  {
-    "code": "smith-harvesting",
-    "type": "positive",
-    "attributes": {
-      "mechanicalHarvestRate": 3,
-      "canSalvageMetal": true
-    }
-  }
 ]
