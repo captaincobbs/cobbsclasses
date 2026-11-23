@@ -180,7 +180,7 @@
       { "type": "Item", "code": "game:clothes-head-furbrim" },
       { "type": "Item", "code": "game:clothes-shoulder-apronbrown" },
       { "type": "Item", "code": "game:clothes-upperbody-homespun-shirt" },
-      { "type": "Item", "code": "game:clothes-pants-surgeon" },
+      { "type": "Item", "code": "game:clothes-lowerbody-surgeon" },
       { "type": "Item", "code": "game:clothes-waist-linen-rope" },
       { "type": "Item", "code": "game:clothes-foot-hobnailboots" }
     ]
@@ -197,7 +197,7 @@
     "gear": [
       { "type": "item", "code": "game:clothes-head-thrumcap" },
       { "type": "item", "code": "game:clothes-upperbodyover-arcticfisher" },
-      { "type": "item", "code": "game:clothes-upperbody-arctic" },
+      { "type": "item", "code": "game:clothes-upperbody-arcticfisher" },
       { "type": "item", "code": "game:clothes-lowerbody-arcticfisher" },
       { "type": "item", "code": "game:clothes-foot-wool-lined-knee-high-boots" }
     ]
@@ -249,7 +249,7 @@
     "gear": [
       { "type": "Item", "code": "game:clothes-shoulder-apronplain" },
       { "type": "Item", "code": "game:clothes-upperbody-woolen-shirt" },
-      { "type": "Item", "code": "game:clothes-lowerbody-warn-woolen-pants" },
+      { "type": "Item", "code": "game:clothes-lowerbody-warm-woolen-pants" },
       { "type": "Item", "code": "game:clothes-waist-heavy-belt" },
       { "type": "Item", "code": "game:clothes-foot-metalcap-boots" }
     ]
@@ -322,7 +322,7 @@
     ],
     "gear": [
       { "type": "Item", "code": "game:clothes-shoulder-apronblack" },
-      { "type": "Item", "code": "game:clothes-upperbody-arctic-fisher" },
+      { "type": "Item", "code": "game:clothes-upperbody-arcticfisher" },
       { "type": "Item", "code": "game:clothes-lowerbody-wanderer" },
       { "type": "Item", "code": "game:clothes-hand-heavy-leather-gloves" },
       { "type": "Item", "code": "game:clothes-waist-sturdy-belt" },
@@ -453,7 +453,15 @@
       "druid-animal-kinship",
       "druid-wildstride"
     ],
-    "gear": []
+    "gear": [
+      { "type": "item", "code": "game:clothes-head-wreathflower" },
+      { "type": "item", "code": "game:clothes-shoulder-ruralhunter" },
+      { "type": "item", "code": "game:clothes-neck-acorn-amulet" },
+      { "type": "item", "code": "game:clothes-upperbodyover-rotwalker" },
+      { "type": "item", "code": "game:clothes-foot-clockmaker-shoes" },
+      { "type": "item", "code": "game:clothes-lowerbody-wanderer" },
+      { "type": "item", "code": "game:clothes-foot-rotwalker" }
+    ]
   },
   {
     "enabled": true,
@@ -469,9 +477,9 @@
       { "type": "Item", "code": "game:clothes-shoulder-squire-tunic" },
       { "type": "Item", "code": "game:clothes-upperbody-squire-shirt" },
       { "type": "Item", "code": "game:clothes-lowerbody-squire-pants" },
-      { "type": "Item", "code": "game:clothes-emblem-squire" },
+      { "type": "Item", "code": "game:clothes-emblem-squire-emblem" },
       { "type": "Item", "code": "game:clothes-arm-squire-bracers" },
-      { "type": "Item", "code": "game:clothes-waist-squire" }
+      { "type": "Item", "code": "game:clothes-waist-squire-belt" }
     ]
   },
   {
