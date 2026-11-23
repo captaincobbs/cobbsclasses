@@ -5,9 +5,9 @@
     "attributes": {
       "cropDropRate": 0.1,
       "wildCropDropRate": 0.6,
-      "hideMealSafety": false,
-      "hideNutritionInfo": false,
-      "hideCraftingInfo": false
+      "hideMealSafety": 0,
+      "hideNutritionInfo": 0,
+      "hideCraftingInfo": 0
     }
   },
   {
@@ -341,7 +341,7 @@
     "code": "carpenter-carpentry",
     "type": "positive",
     "attributes": {
-      "dismantleFurniture": true
+      "dismantleFurniture": 1
     }
   },
   {
@@ -423,7 +423,7 @@
     "type": "positive",
     "attributes": {
       "inkDurabilityLoss": -0.5,
-      "labelsFree": true
+      "labelsFree": 1
     }
   },
   {
@@ -449,8 +449,8 @@
     "code": "smelter-forgehand",
     "type": "positive",
     "attributes": {
-      "canHoldHotItems": true,
-      "canCraftHotItems": true,
+      "canHoldHotItems": 1,
+      "canCraftHotItems": 1,
       "tongDurabilityLoss": -0.2,
       "hammerDurabilityLoss": -0.2
     }
@@ -522,7 +522,7 @@
     "code": "tailor-professional-dress",
     "type": "positive",
     "attributes": {
-      "clothesProfessionBonus": true
+      "clothesProfessionBonus": 1
     }
   },
   {
@@ -597,10 +597,10 @@
     "code": "caravaneer-connections",
     "type": "positive",
     "attributes": {
-      "merchantSpecialStock": true,
+      "merchantSpecialStock": 1,
       "merchantSellModifier": 0.3,
       "merchantBuyModifier": -0.3,
-      "canMerchantRelation": true
+      "canMerchantRelation": 1
     }
   },
   {
@@ -739,8 +739,8 @@
     "code": "ranger-knowing-mushrooms",
     "type": "positive",
     "attributes": {
-      "eatReagents": true,
-      "coatRaw": true,
+      "eatReagents": 1,
+      "coatRaw": 1,
       "coatingDuration": 2,
       "potionDuration": 0.5
     }
