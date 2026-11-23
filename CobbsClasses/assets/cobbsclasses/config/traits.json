@@ -327,39 +327,6 @@
     "attributes": {}
   },
   {
-    "code": "carpenter-workyard-master",
-    "type": "positive",
-    "attributes": {
-      "boardProductionMultiplier": 0.25,
-      "sawDurabilityLoss": -0.25,
-      "sawingSpeedMul": 0.5,
-      "debarkingSpeedMul": 0.5,
-      "woodChopSpeedMul": 0.5
-    }
-  },
-  {
-    "code": "carpenter-carpentry",
-    "type": "positive",
-    "attributes": {
-      "dismantleFurniture": 1
-    }
-  },
-  {
-    "code": "carpenter-cooper",
-    "type": "positive",
-    "attributes": {
-      "barrelSealTime": 0.8
-    }
-  },
-  {
-    "code": "carpenter-nothing-without-a-hilt",
-    "type": "positive",
-    "attributes": {
-      "craftedToolDurability": 1.2,
-      "craftedArrowDurability": 1.2
-    }
-  },
-  {
     "code": "chef-secret-ingredient",
     "type": "positive",
     "attributes": {
@@ -414,12 +381,12 @@
     }
   },
   {
-    "code": "scribe-scrivener",
+    "code": "scholar-scribe",
     "type": "positive",
     "attributes": {}
   },
   {
-    "code": "scribe-penmanship",
+    "code": "scholar-hyperfixation",
     "type": "positive",
     "attributes": {
       "inkDurabilityLoss": -0.5,
@@ -427,47 +394,14 @@
     }
   },
   {
-    "code": "scribe-cartography",
+    "code": "scholar-engraver",
     "type": "positive",
     "attributes": {}
   },
   {
-    "code": "scribe-bookworm",
+    "code": "scholar-bookworm",
     "type": "positive",
     "attributes": {}
-  },
-  {
-    "code": "smelter-recipes",
-    "type": "positive",
-    "attributes": {
-      "bloomeryAmountMul": 0.5,
-      "bloomerySpeedMul": -0.2,
-      "bloomeryRecoveryAmount": 1.0
-    }
-  },
-  {
-    "code": "smelter-forgehand",
-    "type": "positive",
-    "attributes": {
-      "canHoldHotItems": 1,
-      "canCraftHotItems": 1,
-      "tongDurabilityLoss": -0.2,
-      "hammerDurabilityLoss": -0.2
-    }
-  },
-  {
-    "code": "smelter-casting",
-    "type": "positive",
-    "attributes": {
-      "mechanicalHarvestRate": 3
-    }
-  },
-  {
-    "code": "smelter-glassworking",
-    "type": "positive",
-    "attributes": {
-      "charcoalDropRate": 0.25
-    }
   },
   {
     "code": "smith-pound",
@@ -532,6 +466,40 @@
       "clothesPaintMul": -0.5,
       "sewingDurabilityLoss": -0.3,
       "sewingThreadMul": -0.4
+    }
+  },
+  {
+    "code": "workman-smelter",
+    "type": "positive",
+    "attributes": {
+      "bloomeryAmountMul": 0.5,
+      "bloomerySpeedMul": -0.2,
+      "bloomeryRecoveryAmount": 1.0
+    }
+  },
+  {
+    "code": "workman-sawyer",
+    "type": "positive",
+    "attributes": {
+      "boardProductionMultiplier": 0.25,
+      "sawDurabilityLoss": -0.25,
+      "sawingSpeedMul": 0.5,
+      "debarkingSpeedMul": 0.5,
+      "woodChopSpeedMul": 0.5
+    }
+  },
+  {
+    "code": "workman-carpenter",
+    "type": "positive",
+    "attributes": {
+      "dismantleFurniture": 1
+    }
+  },
+  {
+    "code": "workman-glassblower",
+    "type": "positive",
+    "attributes": {
+      "charcoalDropRate": 0.25
     }
   },
   {

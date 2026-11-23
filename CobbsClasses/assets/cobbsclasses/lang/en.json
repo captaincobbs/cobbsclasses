@@ -1,4 +1,13 @@
 {
+  "cobbsclasses:enable-class-setting-label": "Enable class",
+  "cobbsclasses:enable-class-setting-description": "Show this class in character creation.",
+  "cobbsclasses:disable-class-recipe-variants-label": "Disable class recipe variants.",
+  "cobbsclasses:disable-class-recipe-variants-description": "Remove alternate recipes for items players can craft another way.",
+  "cobbsclasses:disable-class-unique-recipes-label": "Disable class unique recipes",
+  "cobbsclasses:disable-class-unique-recipes-description": "Remove recipes for items unique to this class.",
+  "cobbsclasses:": "Applies when the world is reloaded.",
+  "cobbsclasses:class-settings-reload-description": "Applies when the world is reloaded.",
+
   "game:characterclass-cobbs-commoner": "Commoner",
   "game:characterdesc-cobbs-commoner": "A generalist ready to make a living wherever they settle.",
 
@@ -75,13 +84,6 @@
   "game:trait-butcher-preserving": "Preserving",
   "game:trait-butcher-leatherworker": "Leatherworker",
 
-  "game:characterclass-cobbs-carpenter": "Carpenter",
-  "game:characterdesc-cobbs-carpenter": "A woodworker who makes barrels, tool handles, and fittings.",
-  "game:trait-carpenter-workyard-master": "Workyard Master",
-  "game:trait-carpenter-carpentry": "Carpentry",
-  "game:trait-carpenter-cooper": "Cooper",
-  "game:trait-carpenter-nothing-without-a-hilt": "Nothing Without a Hilt",
-
   "game:characterclass-cobbs-chef": "Chef",
   "game:characterdesc-cobbs-chef": "A cook who knows how to make a meal their own and pack it for later.",
   "game:trait-chef-secret-ingredient": "Secret Ingredient",
@@ -96,19 +98,12 @@
   "game:trait-mason-earthshaker": "Earthshaker",
   "game:trait-mason-workplace-standards": "Workplace Standards",
 
-  "game:characterclass-cobbs-scribe": "Scribe",
-  "game:characterdesc-cobbs-scribe": "A practiced pen who draws maps and records what others discover.",
-  "game:trait-scribe-scrivener": "Scrivener",
-  "game:trait-scribe-penmanship": "Penmanship",
-  "game:trait-scribe-cartography": "Cartography",
-  "game:trait-scribe-bookworm": "Bookworm",
-
-  "game:characterclass-cobbs-smelter": "Smelter",
-  "game:characterdesc-cobbs-smelter": "A furnace worker who casts molten metal and shapes glass.",
-  "game:trait-smelter-recipes": "Smelter Recipes",
-  "game:trait-smelter-forgehand": "Forgehand",
-  "game:trait-smelter-casting": "Casting",
-  "game:trait-smelter-glassworking": "Glassworking",
+  "game:characterclass-cobbs-scholar": "Scholar",
+  "game:characterdesc-cobbs-scholar": "Studies old inscriptions, prints maps and manuals, and crafts scrolls, seals, and inscribed jewelry.",
+  "game:trait-scholar-scribe": "Scribe",
+  "game:trait-scholar-hyperfixation": "Hyperfixation",
+  "game:trait-scholar-engraver": "Engraver",
+  "game:trait-scholar-bookworm": "Bookworm",
 
   "game:characterclass-cobbs-smith": "Smith",
   "game:characterdesc-cobbs-smith": "A forge worker who hammers hot metal into tools worth putting to work.",
@@ -123,6 +118,13 @@
   "game:trait-tailor-patching": "Patching",
   "game:trait-tailor-professional-dress": "Professional Dress",
   "game:trait-tailor-adornment": "Adornment",
+
+  "game:characterclass-cobbs-workman": "Workman",
+  "game:characterdesc-cobbs-workman": "A workshop hand who saws timber, recovers useful parts, and fires batches of metal and glass.",
+  "game:trait-workman-smelter": "Smelter",
+  "game:trait-workman-sawyer": "Sawyer",
+  "game:trait-workman-carpenter": "Carpenter",
+  "game:trait-workman-glassblower": "Glassblower",
 
   "game:characterclass-cobbs-artisan": "Artisan",
   "game:characterdesc-cobbs-artisan": "A painter and sculptor who brings color and ornament to everyday surroundings.",

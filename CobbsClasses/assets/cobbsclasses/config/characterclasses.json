@@ -202,7 +202,6 @@
       { "type": "item", "code": "game:clothes-foot-wool-lined-knee-high-boots" }
     ]
   },
-
   {
     "enabled": true,
     "code": "cobbs-alchemist",
@@ -235,23 +234,6 @@
       { "type": "item", "code": "game:clothes-upperbody-surgeon" },
       { "type": "item", "code": "game:clothes-lowerbody-marketeer" },
       { "type": "item", "code": "game:clothes-foot-surgeon" }
-    ]
-  },
-  {
-    "enabled": true,
-    "code": "cobbs-carpenter",
-    "traits": [
-      "carpenter-workyard-master",
-      "carpenter-carpentry",
-      "carpenter-cooper",
-      "carpenter-nothing-without-a-hilt"
-    ],
-    "gear": [
-      { "type": "Item", "code": "game:clothes-shoulder-apronplain" },
-      { "type": "Item", "code": "game:clothes-upperbody-woolen-shirt" },
-      { "type": "Item", "code": "game:clothes-lowerbody-warm-woolen-pants" },
-      { "type": "Item", "code": "game:clothes-waist-heavy-belt" },
-      { "type": "Item", "code": "game:clothes-foot-metalcap-boots" }
     ]
   },
   {
@@ -295,12 +277,12 @@
   },
   {
     "enabled": true,
-    "code": "cobbs-scribe",
+    "code": "cobbs-scholar",
     "traits": [
-      "scribe-scrivener",
-      "scribe-penmanship",
-      "scribe-cartography",
-      "scribe-bookworm"
+      "scholar-scribe",
+      "scholar-hyperfixation",
+      "scholar-engraver",
+      "scholar-bookworm"
     ],
     "gear": [
       { "type": "Item", "code": "game:clothes-shoulder-scribe" },
@@ -309,24 +291,6 @@
       { "type": "Item", "code": "game:clothes-lowerbody-scribe" },
       { "type": "Item", "code": "game:clothes-waist-scribe" },
       { "type": "Item", "code": "game:clothes-foot-scribe" }
-    ]
-  },
-  {
-    "enabled": true,
-    "code": "cobbs-smelter",
-    "traits": [
-      "smelter-recipes",
-      "smelter-forgehand",
-      "smelter-casting",
-      "smelter-glassworking"
-    ],
-    "gear": [
-      { "type": "Item", "code": "game:clothes-shoulder-apronblack" },
-      { "type": "Item", "code": "game:clothes-upperbody-arcticfisher" },
-      { "type": "Item", "code": "game:clothes-lowerbody-wanderer" },
-      { "type": "Item", "code": "game:clothes-hand-heavy-leather-gloves" },
-      { "type": "Item", "code": "game:clothes-waist-sturdy-belt" },
-      { "type": "Item", "code": "game:clothes-foot-metalcap-boots" }
     ]
   },
   {
@@ -368,7 +332,24 @@
       { "type": "item", "code": "game:clothes-upperbodyover-tailor-jacket" }
     ]
   },
-
+  {
+    "enabled": true,
+    "code": "cobbs-workman",
+    "traits": [
+      "workman-smelter",
+      "workman-sawyer",
+      "workman-carpenter",
+      "workman-glassblower"
+    ],
+    "gear": [
+      { "type": "Item", "code": "game:clothes-shoulder-apronblack" },
+      { "type": "Item", "code": "game:clothes-upperbody-arcticfisher" },
+      { "type": "Item", "code": "game:clothes-lowerbody-wanderer" },
+      { "type": "Item", "code": "game:clothes-hand-heavy-leather-gloves" },
+      { "type": "Item", "code": "game:clothes-waist-sturdy-belt" },
+      { "type": "Item", "code": "game:clothes-foot-metalcap-boots" }
+    ]
+  },
   {
     "enabled": true,
     "code": "cobbs-artisan",
