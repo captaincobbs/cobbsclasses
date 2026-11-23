@@ -2,7 +2,7 @@
 
 using Vintagestory.API.Client;
 
-namespace CobbsClasses.src.Renderers
+namespace CobbsClasses.Source.Renderers
 {
     internal sealed class DarkvisionRenderer(ICoreClientAPI clientAPI) : IRenderer
     {
