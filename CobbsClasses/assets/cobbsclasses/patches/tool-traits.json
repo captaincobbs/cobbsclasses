@@ -1,0 +1,382 @@
+[
+  {
+    "op": "addmerge",
+    "file": "game:itemtypes/tool/pickaxe.json",
+    "path": "/behaviors",
+    "value": [
+      {
+        "name": "CobbsToolTraits",
+        "properties": {
+          "speedStat": ["globalSpeedMul", "toolSpeedMul", "pickaxeSpeedMul"],
+          "durabilityLossStat": ["globalDurabilityLoss", "toolDurabilityLoss", "pickaxeDurabilityLoss"],
+          "reachStat":  ["globalReach", "toolReach", "pickaxeReach"]
+        }
+      }
+    ]
+  },
+  {
+    "op": "addmerge",
+    "file": "game:itemtypes/tool/axe-metal.json",
+    "path": "/behaviors",
+    "value": [
+      {
+        "name": "CobbsToolTraits",
+        "properties": {
+          "speedStat": ["globalSpeedMul", "toolSpeedMul", "axeSpeedMul"],
+          "durabilityLossStat": ["globalDurabilityLoss", "toolDurabilityLoss", "axeDurabilityLoss"],
+          "reachStat":  ["globalReach", "toolReach", "axeReach"]
+        }
+      }
+    ]
+  },
+  {
+    "op": "addmerge",
+    "file": "game:itemtypes/tool/axe-stone.json",
+    "path": "/behaviors",
+    "value": [
+      {
+        "name": "CobbsToolTraits",
+        "properties": {
+          "speedStat": ["globalSpeedMul", "toolSpeedMul", "axeSpeedMul"],
+          "durabilityLossStat": ["globalDurabilityLoss", "toolDurabilityLoss", "axeDurabilityLoss"],
+          "reachStat":  ["globalReach", "toolReach", "axeReach"]
+        }
+      }
+    ]
+  },
+  {
+    "op": "addmerge",
+    "file": "game:itemtypes/tool/chisel.json",
+    "path": "/behaviors",
+    "value": [
+      {
+        "name": "CobbsToolTraits",
+        "properties": {
+          "speedStat": ["globalSpeedMul", "toolSpeedMul", "chiselSpeedMul"],
+          "durabilityLossStat": ["globalDurabilityLoss", "toolDurabilityLoss", "chiselDurabilityLoss"],
+          "reachStat":  ["globalReach", "toolReach", "chiselReach"]
+        }
+      }
+    ]
+  },
+  {
+    "op": "addmerge",
+    "file": "game:itemtypes/tool/hammer.json",
+    "path": "/behaviors",
+    "value": [
+      {
+        "name": "CobbsToolTraits",
+        "properties": {
+          "speedStat": ["globalSpeedMul", "toolSpeedMul", "hammerSpeedMul"],
+          "durabilityLossStat": ["globalDurabilityLoss", "toolDurabilityLoss", "hammerDurabilityLoss"],
+          "reachStat":  ["globalReach", "toolReach", "hammerReach"]
+        }
+      }
+    ]
+  },
+  {
+    "op": "addmerge",
+    "file": "game:itemtypes/tool/hoe.json",
+    "path": "/behaviors",
+    "value": [
+      {
+        "name": "CobbsToolTraits",
+        "properties": {
+          "speedStat": ["globalSpeedMul", "toolSpeedMul", "hoeSpeedMul"],
+          "durabilityLossStat": ["globalDurabilityLoss", "toolDurabilityLoss", "hoeDurabilityLoss"],
+          "reachStat":  ["globalReach", "toolReach", "hoeReach"]
+        }
+      }
+    ]
+  },
+  {
+    "op": "addmerge",
+    "file": "game:itemtypes/tool/prospectingpick.json",
+    "path": "/behaviors",
+    "value": [
+      {
+        "name": "CobbsToolTraits",
+        "properties": {
+          "speedStat": ["globalSpeedMul", "toolSpeedMul", "pickaxeSpeedMul"],
+          "durabilityLossStat": ["globalDurabilityLoss", "toolDurabilityLoss", "pickaxeDurabilityLoss"],
+          "reachStat":  ["globalReach", "toolReach", "pickaxeReach"]
+        }
+      }
+    ]
+  },
+  {
+    "op": "addmerge",
+    "file": "game:itemtypes/tool/saw.json",
+    "path": "/behaviors",
+    "value": [
+      {
+        "name": "CobbsToolTraits",
+        "properties": {
+          "speedStat": ["globalSpeedMul", "toolSpeedMul", "sawSpeedMul"],
+          "durabilityLossStat": ["globalDurabilityLoss", "toolDurabilityLoss", "sawDurabilityLoss"],
+          "reachStat":  ["globalReach", "toolReach", "sawReach"]
+        }
+      }
+    ]
+  },
+  {
+    "op": "addmerge",
+    "file": "game:itemtypes/tool/scythe.json",
+    "path": "/behaviors",
+    "value": [
+      {
+        "name": "CobbsToolTraits",
+        "properties": {
+          "speedStat": ["globalSpeedMul", "toolSpeedMul", "scytheSpeedMul"],
+          "durabilityLossStat": ["globalDurabilityLoss", "toolDurabilityLoss", "scytheDurabilityLoss"],
+          "reachStat":  ["globalReach", "toolReach", "scytheReach"]
+        }
+      }
+    ]
+  },
+  {
+    "op": "addmerge",
+    "file": "game:itemtypes/tool/shovel.json",
+    "path": "/behaviors",
+    "value": [
+      {
+        "name": "CobbsToolTraits",
+        "properties": {
+          "speedStat": ["globalSpeedMul", "toolSpeedMul", "shovelSpeedMul"],
+          "durabilityLossStat": ["globalDurabilityLoss", "toolDurabilityLoss", "shovelDurabilityLoss"],
+          "reachStat":  ["globalReach", "toolReach", "shovelReach"]
+        }
+      }
+    ]
+  },
+  {
+    "op": "addmerge",
+    "file": "game:itemtypes/tool/snowshovel.json",
+    "path": "/behaviors",
+    "value": [
+      {
+        "name": "CobbsToolTraits",
+        "properties": {
+          "speedStat": ["globalSpeedMul", "toolSpeedMul", "shovelSpeedMul"],
+          "durabilityLossStat": ["globalDurabilityLoss", "toolDurabilityLoss", "shovelDurabilityLoss"],
+          "reachStat":  ["globalReach", "toolReach", "shovelReach"]
+        }
+      }
+    ]
+  },
+  {
+    "op": "addmerge",
+    "file": "game:itemtypes/tool/tongs.json",
+    "path": "/behaviors",
+    "value": [
+      {
+        "name": "CobbsToolTraits",
+        "properties": {
+          "speedStat": ["globalSpeedMul", "toolSpeedMul", "tongsSpeedMul"],
+          "durabilityLossStat": ["globalDurabilityLoss", "toolDurabilityLoss", "tongsDurabilityLoss"],
+          "reachStat":  ["globalReach", "toolReach", "tongsReach"]
+        }
+      }
+    ]
+  },
+  {
+    "op": "addmerge",
+    "file": "game:itemtypes/tool/tongsmetal.json",
+    "path": "/behaviors",
+    "value": [
+      {
+        "name": "CobbsToolTraits",
+        "properties": {
+          "speedStat": ["globalSpeedMul", "toolSpeedMul", "tongsSpeedMul"],
+          "durabilityLossStat": ["globalDurabilityLoss", "toolDurabilityLoss", "tongsDurabilityLoss"],
+          "reachStat":  ["globalReach", "toolReach", "tongsReach"]
+        }
+      }
+    ]
+  },
+  {
+    "op": "addmerge",
+    "file": "game:itemtypes/tool/wormgrunter.json",
+    "path": "/behaviors",
+    "value": [
+      {
+        "name": "CobbsToolTraits",
+        "properties": {
+          "speedStat": ["globalSpeedMul", "toolSpeedMul", "wormgrunterSpeedMul"],
+          "durabilityLossStat": ["globalDurabilityLoss", "toolDurabilityLoss", "wormgrunterDurabilityLoss"],
+          "reachStat":  ["globalReach", "toolReach", "wormgrunterReach"]
+        }
+      }
+    ]
+  },
+  {
+    "op": "addmerge",
+    "file": "game:itemtypes/tool/wrench.json",
+    "path": "/behaviors",
+    "value": [
+      {
+        "name": "CobbsToolTraits",
+        "properties": {
+          "speedStat": ["globalSpeedMul", "toolSpeedMul", "wrenchSpeedMul"],
+          "durabilityLossStat": ["globalDurabilityLoss", "toolDurabilityLoss", "wrenchDurabilityLoss"],
+          "reachStat":  ["globalReach", "toolReach", "wrenchReach"]
+        }
+      }
+    ]
+  },
+  {
+    "op": "addmerge",
+    "file": "game:itemtypes/tool/fishhook.json",
+    "path": "/behaviors",
+    "value": [
+      {
+        "name": "CobbsToolTraits",
+        "properties": {
+          "speedStat": ["globalSpeedMul", "toolSpeedMul", "fishingSpeedMul"],
+          "durabilityLossStat": ["globalDurabilityLoss", "toolDurabilityLoss", "fishingDurabilityLoss"],
+          "reachStat":  ["globalReach", "toolReach", "fishingReach"]
+        }
+      }
+    ]
+  },
+  {
+    "op": "addmerge",
+    "file": "game:itemtypes/tool/fishingpole.json",
+    "path": "/behaviors",
+    "value": [
+      {
+        "name": "CobbsToolTraits",
+        "properties": {
+          "speedStat": ["globalSpeedMul", "toolSpeedMul", "fishingSpeedMul"],
+          "durabilityLossStat": ["globalDurabilityLoss", "toolDurabilityLoss", "fishingDurabilityLoss"],
+          "reachStat":  ["globalReach", "toolReach", "fishingReach"]
+        }
+      }
+    ]
+  },
+  {
+    "op": "addmerge",
+    "file": "game:itemtypes/tool/inkandquill.json",
+    "path": "/behaviors",
+    "value": [
+      {
+        "name": "CobbsToolTraits",
+        "properties": {
+          "durabilityLossStat": ["globalDurabilityLoss", "toolDurabilityLoss", "writingDurabilityLoss"],
+          "reachStat":  ["globalReach", "toolReach", "writingReach"],
+        }
+      }
+    ]
+  },
+  {
+    "op": "addmerge",
+    "file": "game:itemtypes/tool/cleaver.json",
+    "path": "/behaviors",
+    "value": [
+      {
+        "name": "CobbsToolTraits",
+        "properties": {
+          "durabilityLossStat": ["globalDurabilityLoss", "toolDurabilityLoss", "knifeDurabilityLoss"],
+          "damageStat":  ["globalDamage", "toolDamage", "knifeDamage"]
+        }
+      }
+    ]
+  },
+  {
+    "op": "addmerge",
+    "file": "game:itemtypes/tool/knife.json",
+    "path": "/behaviors",
+    "value": [
+      {
+        "name": "CobbsToolTraits",
+        "properties": {
+          "durabilityLossStat": ["globalDurabilityLoss", "toolDurabilityLoss", "knifeDurabilityLoss"],
+          "damageStat":  ["globalDamage", "toolDamage", "knifeDamage"]
+        }
+      }
+    ]
+  },
+  {
+    "op": "addmerge",
+    "file": "game:itemtypes/tool/blade.json",
+    "path": "/behaviors",
+    "value": [
+      {
+        "name": "CobbsToolTraits",
+        "properties": {
+          "durabilityLossStat": ["globalDurabilityLoss", "weaponDurabilityLoss", "bladeDurabilityLoss"],
+          "damageStat":  ["globalDamage", "weaponDamage", "bladeDamage"]
+        }
+      }
+    ]
+  },
+  {
+    "op": "addmerge",
+    "file": "game:itemtypes/tool/bow.json",
+    "path": "/behaviors",
+    "value": [
+      {
+        "name": "CobbsToolTraits",
+        "properties": {
+          "durabilityLossStat": ["globalDurabilityLoss", "weaponDurabilityLoss", "bowDurabilityLoss"]
+        }
+      }
+    ]
+  },
+  {
+    "op": "addmerge",
+    "file": "game:itemtypes/tool/club.json",
+    "path": "/behaviors",
+    "value": [
+      {
+        "name": "CobbsToolTraits",
+        "properties": {
+          "durabilityLossStat": ["globalDurabilityLoss", "weaponDurabilityLoss", "clubDurabilityLoss"],
+          "damageStat":  ["globalDamage", "weaponDamage", "clubDamage"]
+        }
+      }
+    ]
+  },
+  {
+    "op": "addmerge",
+    "file": "game:itemtypes/tool/spear.json",
+    "path": "/behaviors",
+    "value": [
+      {
+        "name": "CobbsToolTraits",
+        "properties": {
+          "durabilityLossStat": ["globalDurabilityLoss", "weaponDurabilityLoss", "spearDurabilityLoss"],
+          "damageStat":  ["globalDamage", "weaponDamage", "spearDamage"]
+        }
+      }
+    ]
+  },
+  {
+    "op": "addmerge",
+    "file": "game:itemtypes/tool/roundshield.json",
+    "path": "/behaviors",
+    "value": [
+      {
+        "name": "CobbsToolTraits",
+        "properties": {
+          "durabilityLossStat": ["globalDurabilityLoss", "shieldDurabilityLoss"],
+          "damageStat":  ["globalDamage", "shieldDamage"]
+        }
+      }
+    ]
+  },
+  {
+    "op": "addmerge",
+    "file": "game:itemtypes/tool/shield.json",
+    "path": "/behaviors",
+    "value": [
+      {
+        "name": "CobbsToolTraits",
+        "properties": {
+          "durabilityLossStat": ["globalDurabilityLoss", "shieldDurabilityLoss"],
+          "damageStat":  ["globalDamage", "shieldDamage"]
+        }
+      }
+    ]
+  }
+]

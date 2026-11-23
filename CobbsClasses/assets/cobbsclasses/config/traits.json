@@ -534,7 +534,9 @@
     "code": "blackguard-big-eater",
     "type": "positive",
     "attributes": {
-      "hungerrate": 0.3
+      "hungerrate": 0.3,
+      "globalSpeedMulWhenFull": 0.1,
+      "globalSpeedMulWhenSated": 0.1
     }
   },
   {
@@ -651,8 +653,9 @@
     "code": "knight-bulwark",
     "type": "positive",
     "attributes": {
-      "armorDurabilityLoss": -0.25,
-      "shieldDurabilityLoss": -0.25,
+      "armorDurabilityLoss": -0.2,
+      "shieldDurabilityLoss": -0.2,
+      "globalDurabilityLoss": -0.2,
       "knockbackWhileArmor": -0.25,
       "knockbackWhileBlocking": -1.0
     }
