@@ -1,0 +1,740 @@
+{
+  "version": 1,
+  "patches": {
+    "boolean": {
+      "cobbsclasses:config/class-options.json": {
+        "cobbs-commoner-enabled": "cobbs-commoner-enabled",
+        "cobbs-commoner-disable-recipe-variants": "cobbs-commoner-disable-recipe-variants",
+        "cobbs-commoner-disable-unique-recipes": "cobbs-commoner-disable-unique-recipes",
+        "cobbs-herbalist-enabled": "cobbs-herbalist-enabled",
+        "cobbs-herbalist-disable-recipe-variants": "cobbs-herbalist-disable-recipe-variants",
+        "cobbs-herbalist-disable-unique-recipes": "cobbs-herbalist-disable-unique-recipes",
+        "cobbs-homesteader-enabled": "cobbs-homesteader-enabled",
+        "cobbs-homesteader-disable-recipe-variants": "cobbs-homesteader-disable-recipe-variants",
+        "cobbs-homesteader-disable-unique-recipes": "cobbs-homesteader-disable-unique-recipes",
+        "cobbs-hunter-enabled": "cobbs-hunter-enabled",
+        "cobbs-hunter-disable-recipe-variants": "cobbs-hunter-disable-recipe-variants",
+        "cobbs-hunter-disable-unique-recipes": "cobbs-hunter-disable-unique-recipes",
+        "cobbs-lumberjack-enabled": "cobbs-lumberjack-enabled",
+        "cobbs-lumberjack-disable-recipe-variants": "cobbs-lumberjack-disable-recipe-variants",
+        "cobbs-lumberjack-disable-unique-recipes": "cobbs-lumberjack-disable-unique-recipes",
+        "cobbs-malefactor-enabled": "cobbs-malefactor-enabled",
+        "cobbs-malefactor-disable-recipe-variants": "cobbs-malefactor-disable-recipe-variants",
+        "cobbs-malefactor-disable-unique-recipes": "cobbs-malefactor-disable-unique-recipes",
+        "cobbs-miner-enabled": "cobbs-miner-enabled",
+        "cobbs-miner-disable-recipe-variants": "cobbs-miner-disable-recipe-variants",
+        "cobbs-miner-disable-unique-recipes": "cobbs-miner-disable-unique-recipes",
+        "cobbs-potter-enabled": "cobbs-potter-enabled",
+        "cobbs-potter-disable-recipe-variants": "cobbs-potter-disable-recipe-variants",
+        "cobbs-potter-disable-unique-recipes": "cobbs-potter-disable-unique-recipes",
+        "cobbs-sailor-enabled": "cobbs-sailor-enabled",
+        "cobbs-sailor-disable-recipe-variants": "cobbs-sailor-disable-recipe-variants",
+        "cobbs-sailor-disable-unique-recipes": "cobbs-sailor-disable-unique-recipes",
+        "cobbs-alchemist-enabled": "cobbs-alchemist-enabled",
+        "cobbs-alchemist-disable-recipe-variants": "cobbs-alchemist-disable-recipe-variants",
+        "cobbs-alchemist-disable-unique-recipes": "cobbs-alchemist-disable-unique-recipes",
+        "cobbs-butcher-enabled": "cobbs-butcher-enabled",
+        "cobbs-butcher-disable-recipe-variants": "cobbs-butcher-disable-recipe-variants",
+        "cobbs-butcher-disable-unique-recipes": "cobbs-butcher-disable-unique-recipes",
+        "cobbs-chef-enabled": "cobbs-chef-enabled",
+        "cobbs-chef-disable-recipe-variants": "cobbs-chef-disable-recipe-variants",
+        "cobbs-chef-disable-unique-recipes": "cobbs-chef-disable-unique-recipes",
+        "cobbs-mason-enabled": "cobbs-mason-enabled",
+        "cobbs-mason-disable-recipe-variants": "cobbs-mason-disable-recipe-variants",
+        "cobbs-mason-disable-unique-recipes": "cobbs-mason-disable-unique-recipes",
+        "cobbs-scholar-enabled": "cobbs-scholar-enabled",
+        "cobbs-scholar-disable-recipe-variants": "cobbs-scholar-disable-recipe-variants",
+        "cobbs-scholar-disable-unique-recipes": "cobbs-scholar-disable-unique-recipes",
+        "cobbs-smith-enabled": "cobbs-smith-enabled",
+        "cobbs-smith-disable-recipe-variants": "cobbs-smith-disable-recipe-variants",
+        "cobbs-smith-disable-unique-recipes": "cobbs-smith-disable-unique-recipes",
+        "cobbs-tailor-enabled": "cobbs-tailor-enabled",
+        "cobbs-tailor-disable-recipe-variants": "cobbs-tailor-disable-recipe-variants",
+        "cobbs-tailor-disable-unique-recipes": "cobbs-tailor-disable-unique-recipes",
+        "cobbs-workman-enabled": "cobbs-workman-enabled",
+        "cobbs-workman-disable-recipe-variants": "cobbs-workman-disable-recipe-variants",
+        "cobbs-workman-disable-unique-recipes": "cobbs-workman-disable-unique-recipes",
+        "cobbs-artisan-enabled": "cobbs-artisan-enabled",
+        "cobbs-artisan-disable-recipe-variants": "cobbs-artisan-disable-recipe-variants",
+        "cobbs-artisan-disable-unique-recipes": "cobbs-artisan-disable-unique-recipes",
+        "cobbs-blackguard-enabled": "cobbs-blackguard-enabled",
+        "cobbs-blackguard-disable-recipe-variants": "cobbs-blackguard-disable-recipe-variants",
+        "cobbs-blackguard-disable-unique-recipes": "cobbs-blackguard-disable-unique-recipes",
+        "cobbs-caravaneer-enabled": "cobbs-caravaneer-enabled",
+        "cobbs-caravaneer-disable-recipe-variants": "cobbs-caravaneer-disable-recipe-variants",
+        "cobbs-caravaneer-disable-unique-recipes": "cobbs-caravaneer-disable-unique-recipes",
+        "cobbs-clockmaker-enabled": "cobbs-clockmaker-enabled",
+        "cobbs-clockmaker-disable-recipe-variants": "cobbs-clockmaker-disable-recipe-variants",
+        "cobbs-clockmaker-disable-unique-recipes": "cobbs-clockmaker-disable-unique-recipes",
+        "cobbs-druid-enabled": "cobbs-druid-enabled",
+        "cobbs-druid-disable-recipe-variants": "cobbs-druid-disable-recipe-variants",
+        "cobbs-druid-disable-unique-recipes": "cobbs-druid-disable-unique-recipes",
+        "cobbs-knight-enabled": "cobbs-knight-enabled",
+        "cobbs-knight-disable-recipe-variants": "cobbs-knight-disable-recipe-variants",
+        "cobbs-knight-disable-unique-recipes": "cobbs-knight-disable-unique-recipes",
+        "cobbs-ranger-enabled": "cobbs-ranger-enabled",
+        "cobbs-ranger-disable-recipe-variants": "cobbs-ranger-disable-recipe-variants",
+        "cobbs-ranger-disable-unique-recipes": "cobbs-ranger-disable-unique-recipes",
+        "cobbs-rotwalker-enabled": "cobbs-rotwalker-enabled",
+        "cobbs-rotwalker-disable-recipe-variants": "cobbs-rotwalker-disable-recipe-variants",
+        "cobbs-rotwalker-disable-unique-recipes": "cobbs-rotwalker-disable-unique-recipes"
+      }
+    }
+  },
+  "settings": {
+    "boolean": {
+      "cobbs-commoner-enabled": {
+        "name": "cobbs-commoner-enabled",
+        "weight": 2,
+        "comment": "cobbsclasses:enable-class-setting-description",
+        "default": true,
+        "ingui": "cobbsclasses:enable-class-setting-label"
+      },
+      "cobbs-commoner-disable-recipe-variants": {
+        "name": "cobbs-commoner-disable-recipe-variants",
+        "weight": 3,
+        "comment": "cobbsclasses:disable-class-recipe-variants-description",
+        "default": false,
+        "ingui": "cobbsclasses:disable-class-recipe-variants-label"
+      },
+      "cobbs-commoner-disable-unique-recipes": {
+        "name": "cobbs-commoner-disable-unique-recipes",
+        "weight": 4,
+        "comment": "cobbsclasses:disable-class-unique-recipes-description",
+        "default": false,
+        "ingui": "cobbsclasses:disable-class-unique-recipes-label"
+      },
+      "cobbs-herbalist-enabled": {
+        "name": "cobbs-herbalist-enabled",
+        "weight": 6,
+        "comment": "cobbsclasses:enable-class-setting-description",
+        "default": true,
+        "ingui": "cobbsclasses:enable-class-setting-label"
+      },
+      "cobbs-herbalist-disable-recipe-variants": {
+        "name": "cobbs-herbalist-disable-recipe-variants",
+        "weight": 7,
+        "comment": "cobbsclasses:disable-class-recipe-variants-description",
+        "default": false,
+        "ingui": "cobbsclasses:disable-class-recipe-variants-label"
+      },
+      "cobbs-herbalist-disable-unique-recipes": {
+        "name": "cobbs-herbalist-disable-unique-recipes",
+        "weight": 8,
+        "comment": "cobbsclasses:disable-class-unique-recipes-description",
+        "default": false,
+        "ingui": "cobbsclasses:disable-class-unique-recipes-label"
+      },
+      "cobbs-homesteader-enabled": {
+        "name": "cobbs-homesteader-enabled",
+        "weight": 10,
+        "comment": "cobbsclasses:enable-class-setting-description",
+        "default": true,
+        "ingui": "cobbsclasses:enable-class-setting-label"
+      },
+      "cobbs-homesteader-disable-recipe-variants": {
+        "name": "cobbs-homesteader-disable-recipe-variants",
+        "weight": 11,
+        "comment": "cobbsclasses:disable-class-recipe-variants-description",
+        "default": false,
+        "ingui": "cobbsclasses:disable-class-recipe-variants-label"
+      },
+      "cobbs-homesteader-disable-unique-recipes": {
+        "name": "cobbs-homesteader-disable-unique-recipes",
+        "weight": 12,
+        "comment": "cobbsclasses:disable-class-unique-recipes-description",
+        "default": false,
+        "ingui": "cobbsclasses:disable-class-unique-recipes-label"
+      },
+      "cobbs-hunter-enabled": {
+        "name": "cobbs-hunter-enabled",
+        "weight": 14,
+        "comment": "cobbsclasses:enable-class-setting-description",
+        "default": true,
+        "ingui": "cobbsclasses:enable-class-setting-label"
+      },
+      "cobbs-hunter-disable-recipe-variants": {
+        "name": "cobbs-hunter-disable-recipe-variants",
+        "weight": 15,
+        "comment": "cobbsclasses:disable-class-recipe-variants-description",
+        "default": false,
+        "ingui": "cobbsclasses:disable-class-recipe-variants-label"
+      },
+      "cobbs-hunter-disable-unique-recipes": {
+        "name": "cobbs-hunter-disable-unique-recipes",
+        "weight": 16,
+        "comment": "cobbsclasses:disable-class-unique-recipes-description",
+        "default": false,
+        "ingui": "cobbsclasses:disable-class-unique-recipes-label"
+      },
+      "cobbs-lumberjack-enabled": {
+        "name": "cobbs-lumberjack-enabled",
+        "weight": 18,
+        "comment": "cobbsclasses:enable-class-setting-description",
+        "default": true,
+        "ingui": "cobbsclasses:enable-class-setting-label"
+      },
+      "cobbs-lumberjack-disable-recipe-variants": {
+        "name": "cobbs-lumberjack-disable-recipe-variants",
+        "weight": 19,
+        "comment": "cobbsclasses:disable-class-recipe-variants-description",
+        "default": false,
+        "ingui": "cobbsclasses:disable-class-recipe-variants-label"
+      },
+      "cobbs-lumberjack-disable-unique-recipes": {
+        "name": "cobbs-lumberjack-disable-unique-recipes",
+        "weight": 20,
+        "comment": "cobbsclasses:disable-class-unique-recipes-description",
+        "default": false,
+        "ingui": "cobbsclasses:disable-class-unique-recipes-label"
+      },
+      "cobbs-malefactor-enabled": {
+        "name": "cobbs-malefactor-enabled",
+        "weight": 22,
+        "comment": "cobbsclasses:enable-class-setting-description",
+        "default": true,
+        "ingui": "cobbsclasses:enable-class-setting-label"
+      },
+      "cobbs-malefactor-disable-recipe-variants": {
+        "name": "cobbs-malefactor-disable-recipe-variants",
+        "weight": 23,
+        "comment": "cobbsclasses:disable-class-recipe-variants-description",
+        "default": false,
+        "ingui": "cobbsclasses:disable-class-recipe-variants-label"
+      },
+      "cobbs-malefactor-disable-unique-recipes": {
+        "name": "cobbs-malefactor-disable-unique-recipes",
+        "weight": 24,
+        "comment": "cobbsclasses:disable-class-unique-recipes-description",
+        "default": false,
+        "ingui": "cobbsclasses:disable-class-unique-recipes-label"
+      },
+      "cobbs-miner-enabled": {
+        "name": "cobbs-miner-enabled",
+        "weight": 26,
+        "comment": "cobbsclasses:enable-class-setting-description",
+        "default": true,
+        "ingui": "cobbsclasses:enable-class-setting-label"
+      },
+      "cobbs-miner-disable-recipe-variants": {
+        "name": "cobbs-miner-disable-recipe-variants",
+        "weight": 27,
+        "comment": "cobbsclasses:disable-class-recipe-variants-description",
+        "default": false,
+        "ingui": "cobbsclasses:disable-class-recipe-variants-label"
+      },
+      "cobbs-miner-disable-unique-recipes": {
+        "name": "cobbs-miner-disable-unique-recipes",
+        "weight": 28,
+        "comment": "cobbsclasses:disable-class-unique-recipes-description",
+        "default": false,
+        "ingui": "cobbsclasses:disable-class-unique-recipes-label"
+      },
+      "cobbs-potter-enabled": {
+        "name": "cobbs-potter-enabled",
+        "weight": 30,
+        "comment": "cobbsclasses:enable-class-setting-description",
+        "default": true,
+        "ingui": "cobbsclasses:enable-class-setting-label"
+      },
+      "cobbs-potter-disable-recipe-variants": {
+        "name": "cobbs-potter-disable-recipe-variants",
+        "weight": 31,
+        "comment": "cobbsclasses:disable-class-recipe-variants-description",
+        "default": false,
+        "ingui": "cobbsclasses:disable-class-recipe-variants-label"
+      },
+      "cobbs-potter-disable-unique-recipes": {
+        "name": "cobbs-potter-disable-unique-recipes",
+        "weight": 32,
+        "comment": "cobbsclasses:disable-class-unique-recipes-description",
+        "default": false,
+        "ingui": "cobbsclasses:disable-class-unique-recipes-label"
+      },
+      "cobbs-sailor-enabled": {
+        "name": "cobbs-sailor-enabled",
+        "weight": 34,
+        "comment": "cobbsclasses:enable-class-setting-description",
+        "default": true,
+        "ingui": "cobbsclasses:enable-class-setting-label"
+      },
+      "cobbs-sailor-disable-recipe-variants": {
+        "name": "cobbs-sailor-disable-recipe-variants",
+        "weight": 35,
+        "comment": "cobbsclasses:disable-class-recipe-variants-description",
+        "default": false,
+        "ingui": "cobbsclasses:disable-class-recipe-variants-label"
+      },
+      "cobbs-sailor-disable-unique-recipes": {
+        "name": "cobbs-sailor-disable-unique-recipes",
+        "weight": 36,
+        "comment": "cobbsclasses:disable-class-unique-recipes-description",
+        "default": false,
+        "ingui": "cobbsclasses:disable-class-unique-recipes-label"
+      },
+      "cobbs-alchemist-enabled": {
+        "name": "cobbs-alchemist-enabled",
+        "weight": 38,
+        "comment": "cobbsclasses:enable-class-setting-description",
+        "default": true,
+        "ingui": "cobbsclasses:enable-class-setting-label"
+      },
+      "cobbs-alchemist-disable-recipe-variants": {
+        "name": "cobbs-alchemist-disable-recipe-variants",
+        "weight": 39,
+        "comment": "cobbsclasses:disable-class-recipe-variants-description",
+        "default": false,
+        "ingui": "cobbsclasses:disable-class-recipe-variants-label"
+      },
+      "cobbs-alchemist-disable-unique-recipes": {
+        "name": "cobbs-alchemist-disable-unique-recipes",
+        "weight": 40,
+        "comment": "cobbsclasses:disable-class-unique-recipes-description",
+        "default": false,
+        "ingui": "cobbsclasses:disable-class-unique-recipes-label"
+      },
+      "cobbs-butcher-enabled": {
+        "name": "cobbs-butcher-enabled",
+        "weight": 42,
+        "comment": "cobbsclasses:enable-class-setting-description",
+        "default": true,
+        "ingui": "cobbsclasses:enable-class-setting-label"
+      },
+      "cobbs-butcher-disable-recipe-variants": {
+        "name": "cobbs-butcher-disable-recipe-variants",
+        "weight": 43,
+        "comment": "cobbsclasses:disable-class-recipe-variants-description",
+        "default": false,
+        "ingui": "cobbsclasses:disable-class-recipe-variants-label"
+      },
+      "cobbs-butcher-disable-unique-recipes": {
+        "name": "cobbs-butcher-disable-unique-recipes",
+        "weight": 44,
+        "comment": "cobbsclasses:disable-class-unique-recipes-description",
+        "default": false,
+        "ingui": "cobbsclasses:disable-class-unique-recipes-label"
+      },
+      "cobbs-chef-enabled": {
+        "name": "cobbs-chef-enabled",
+        "weight": 46,
+        "comment": "cobbsclasses:enable-class-setting-description",
+        "default": true,
+        "ingui": "cobbsclasses:enable-class-setting-label"
+      },
+      "cobbs-chef-disable-recipe-variants": {
+        "name": "cobbs-chef-disable-recipe-variants",
+        "weight": 47,
+        "comment": "cobbsclasses:disable-class-recipe-variants-description",
+        "default": false,
+        "ingui": "cobbsclasses:disable-class-recipe-variants-label"
+      },
+      "cobbs-chef-disable-unique-recipes": {
+        "name": "cobbs-chef-disable-unique-recipes",
+        "weight": 48,
+        "comment": "cobbsclasses:disable-class-unique-recipes-description",
+        "default": false,
+        "ingui": "cobbsclasses:disable-class-unique-recipes-label"
+      },
+      "cobbs-mason-enabled": {
+        "name": "cobbs-mason-enabled",
+        "weight": 50,
+        "comment": "cobbsclasses:enable-class-setting-description",
+        "default": true,
+        "ingui": "cobbsclasses:enable-class-setting-label"
+      },
+      "cobbs-mason-disable-recipe-variants": {
+        "name": "cobbs-mason-disable-recipe-variants",
+        "weight": 51,
+        "comment": "cobbsclasses:disable-class-recipe-variants-description",
+        "default": false,
+        "ingui": "cobbsclasses:disable-class-recipe-variants-label"
+      },
+      "cobbs-mason-disable-unique-recipes": {
+        "name": "cobbs-mason-disable-unique-recipes",
+        "weight": 52,
+        "comment": "cobbsclasses:disable-class-unique-recipes-description",
+        "default": false,
+        "ingui": "cobbsclasses:disable-class-unique-recipes-label"
+      },
+      "cobbs-scholar-enabled": {
+        "name": "cobbs-scholar-enabled",
+        "weight": 54,
+        "comment": "cobbsclasses:enable-class-setting-description",
+        "default": true,
+        "ingui": "cobbsclasses:enable-class-setting-label"
+      },
+      "cobbs-scholar-disable-recipe-variants": {
+        "name": "cobbs-scholar-disable-recipe-variants",
+        "weight": 55,
+        "comment": "cobbsclasses:disable-class-recipe-variants-description",
+        "default": false,
+        "ingui": "cobbsclasses:disable-class-recipe-variants-label"
+      },
+      "cobbs-scholar-disable-unique-recipes": {
+        "name": "cobbs-scholar-disable-unique-recipes",
+        "weight": 56,
+        "comment": "cobbsclasses:disable-class-unique-recipes-description",
+        "default": false,
+        "ingui": "cobbsclasses:disable-class-unique-recipes-label"
+      },
+      "cobbs-smith-enabled": {
+        "name": "cobbs-smith-enabled",
+        "weight": 58,
+        "comment": "cobbsclasses:enable-class-setting-description",
+        "default": true,
+        "ingui": "cobbsclasses:enable-class-setting-label"
+      },
+      "cobbs-smith-disable-recipe-variants": {
+        "name": "cobbs-smith-disable-recipe-variants",
+        "weight": 59,
+        "comment": "cobbsclasses:disable-class-recipe-variants-description",
+        "default": false,
+        "ingui": "cobbsclasses:disable-class-recipe-variants-label"
+      },
+      "cobbs-smith-disable-unique-recipes": {
+        "name": "cobbs-smith-disable-unique-recipes",
+        "weight": 60,
+        "comment": "cobbsclasses:disable-class-unique-recipes-description",
+        "default": false,
+        "ingui": "cobbsclasses:disable-class-unique-recipes-label"
+      },
+      "cobbs-tailor-enabled": {
+        "name": "cobbs-tailor-enabled",
+        "weight": 62,
+        "comment": "cobbsclasses:enable-class-setting-description",
+        "default": true,
+        "ingui": "cobbsclasses:enable-class-setting-label"
+      },
+      "cobbs-tailor-disable-recipe-variants": {
+        "name": "cobbs-tailor-disable-recipe-variants",
+        "weight": 63,
+        "comment": "cobbsclasses:disable-class-recipe-variants-description",
+        "default": false,
+        "ingui": "cobbsclasses:disable-class-recipe-variants-label"
+      },
+      "cobbs-tailor-disable-unique-recipes": {
+        "name": "cobbs-tailor-disable-unique-recipes",
+        "weight": 64,
+        "comment": "cobbsclasses:disable-class-unique-recipes-description",
+        "default": false,
+        "ingui": "cobbsclasses:disable-class-unique-recipes-label"
+      },
+      "cobbs-workman-enabled": {
+        "name": "cobbs-workman-enabled",
+        "weight": 66,
+        "comment": "cobbsclasses:enable-class-setting-description",
+        "default": true,
+        "ingui": "cobbsclasses:enable-class-setting-label"
+      },
+      "cobbs-workman-disable-recipe-variants": {
+        "name": "cobbs-workman-disable-recipe-variants",
+        "weight": 67,
+        "comment": "cobbsclasses:disable-class-recipe-variants-description",
+        "default": false,
+        "ingui": "cobbsclasses:disable-class-recipe-variants-label"
+      },
+      "cobbs-workman-disable-unique-recipes": {
+        "name": "cobbs-workman-disable-unique-recipes",
+        "weight": 68,
+        "comment": "cobbsclasses:disable-class-unique-recipes-description",
+        "default": false,
+        "ingui": "cobbsclasses:disable-class-unique-recipes-label"
+      },
+      "cobbs-artisan-enabled": {
+        "name": "cobbs-artisan-enabled",
+        "weight": 70,
+        "comment": "cobbsclasses:enable-class-setting-description",
+        "default": true,
+        "ingui": "cobbsclasses:enable-class-setting-label"
+      },
+      "cobbs-artisan-disable-recipe-variants": {
+        "name": "cobbs-artisan-disable-recipe-variants",
+        "weight": 71,
+        "comment": "cobbsclasses:disable-class-recipe-variants-description",
+        "default": false,
+        "ingui": "cobbsclasses:disable-class-recipe-variants-label"
+      },
+      "cobbs-artisan-disable-unique-recipes": {
+        "name": "cobbs-artisan-disable-unique-recipes",
+        "weight": 72,
+        "comment": "cobbsclasses:disable-class-unique-recipes-description",
+        "default": false,
+        "ingui": "cobbsclasses:disable-class-unique-recipes-label"
+      },
+      "cobbs-blackguard-enabled": {
+        "name": "cobbs-blackguard-enabled",
+        "weight": 74,
+        "comment": "cobbsclasses:enable-class-setting-description",
+        "default": true,
+        "ingui": "cobbsclasses:enable-class-setting-label"
+      },
+      "cobbs-blackguard-disable-recipe-variants": {
+        "name": "cobbs-blackguard-disable-recipe-variants",
+        "weight": 75,
+        "comment": "cobbsclasses:disable-class-recipe-variants-description",
+        "default": false,
+        "ingui": "cobbsclasses:disable-class-recipe-variants-label"
+      },
+      "cobbs-blackguard-disable-unique-recipes": {
+        "name": "cobbs-blackguard-disable-unique-recipes",
+        "weight": 76,
+        "comment": "cobbsclasses:disable-class-unique-recipes-description",
+        "default": false,
+        "ingui": "cobbsclasses:disable-class-unique-recipes-label"
+      },
+      "cobbs-caravaneer-enabled": {
+        "name": "cobbs-caravaneer-enabled",
+        "weight": 78,
+        "comment": "cobbsclasses:enable-class-setting-description",
+        "default": true,
+        "ingui": "cobbsclasses:enable-class-setting-label"
+      },
+      "cobbs-caravaneer-disable-recipe-variants": {
+        "name": "cobbs-caravaneer-disable-recipe-variants",
+        "weight": 79,
+        "comment": "cobbsclasses:disable-class-recipe-variants-description",
+        "default": false,
+        "ingui": "cobbsclasses:disable-class-recipe-variants-label"
+      },
+      "cobbs-caravaneer-disable-unique-recipes": {
+        "name": "cobbs-caravaneer-disable-unique-recipes",
+        "weight": 80,
+        "comment": "cobbsclasses:disable-class-unique-recipes-description",
+        "default": false,
+        "ingui": "cobbsclasses:disable-class-unique-recipes-label"
+      },
+      "cobbs-clockmaker-enabled": {
+        "name": "cobbs-clockmaker-enabled",
+        "weight": 82,
+        "comment": "cobbsclasses:enable-class-setting-description",
+        "default": true,
+        "ingui": "cobbsclasses:enable-class-setting-label"
+      },
+      "cobbs-clockmaker-disable-recipe-variants": {
+        "name": "cobbs-clockmaker-disable-recipe-variants",
+        "weight": 83,
+        "comment": "cobbsclasses:disable-class-recipe-variants-description",
+        "default": false,
+        "ingui": "cobbsclasses:disable-class-recipe-variants-label"
+      },
+      "cobbs-clockmaker-disable-unique-recipes": {
+        "name": "cobbs-clockmaker-disable-unique-recipes",
+        "weight": 84,
+        "comment": "cobbsclasses:disable-class-unique-recipes-description",
+        "default": false,
+        "ingui": "cobbsclasses:disable-class-unique-recipes-label"
+      },
+      "cobbs-druid-enabled": {
+        "name": "cobbs-druid-enabled",
+        "weight": 86,
+        "comment": "cobbsclasses:enable-class-setting-description",
+        "default": true,
+        "ingui": "cobbsclasses:enable-class-setting-label"
+      },
+      "cobbs-druid-disable-recipe-variants": {
+        "name": "cobbs-druid-disable-recipe-variants",
+        "weight": 87,
+        "comment": "cobbsclasses:disable-class-recipe-variants-description",
+        "default": false,
+        "ingui": "cobbsclasses:disable-class-recipe-variants-label"
+      },
+      "cobbs-druid-disable-unique-recipes": {
+        "name": "cobbs-druid-disable-unique-recipes",
+        "weight": 88,
+        "comment": "cobbsclasses:disable-class-unique-recipes-description",
+        "default": false,
+        "ingui": "cobbsclasses:disable-class-unique-recipes-label"
+      },
+      "cobbs-knight-enabled": {
+        "name": "cobbs-knight-enabled",
+        "weight": 90,
+        "comment": "cobbsclasses:enable-class-setting-description",
+        "default": true,
+        "ingui": "cobbsclasses:enable-class-setting-label"
+      },
+      "cobbs-knight-disable-recipe-variants": {
+        "name": "cobbs-knight-disable-recipe-variants",
+        "weight": 91,
+        "comment": "cobbsclasses:disable-class-recipe-variants-description",
+        "default": false,
+        "ingui": "cobbsclasses:disable-class-recipe-variants-label"
+      },
+      "cobbs-knight-disable-unique-recipes": {
+        "name": "cobbs-knight-disable-unique-recipes",
+        "weight": 92,
+        "comment": "cobbsclasses:disable-class-unique-recipes-description",
+        "default": false,
+        "ingui": "cobbsclasses:disable-class-unique-recipes-label"
+      },
+      "cobbs-ranger-enabled": {
+        "name": "cobbs-ranger-enabled",
+        "weight": 94,
+        "comment": "cobbsclasses:enable-class-setting-description",
+        "default": true,
+        "ingui": "cobbsclasses:enable-class-setting-label"
+      },
+      "cobbs-ranger-disable-recipe-variants": {
+        "name": "cobbs-ranger-disable-recipe-variants",
+        "weight": 95,
+        "comment": "cobbsclasses:disable-class-recipe-variants-description",
+        "default": false,
+        "ingui": "cobbsclasses:disable-class-recipe-variants-label"
+      },
+      "cobbs-ranger-disable-unique-recipes": {
+        "name": "cobbs-ranger-disable-unique-recipes",
+        "weight": 96,
+        "comment": "cobbsclasses:disable-class-unique-recipes-description",
+        "default": false,
+        "ingui": "cobbsclasses:disable-class-unique-recipes-label"
+      },
+      "cobbs-rotwalker-enabled": {
+        "name": "cobbs-rotwalker-enabled",
+        "weight": 98,
+        "comment": "cobbsclasses:enable-class-setting-description",
+        "default": true,
+        "ingui": "cobbsclasses:enable-class-setting-label"
+      },
+      "cobbs-rotwalker-disable-recipe-variants": {
+        "name": "cobbs-rotwalker-disable-recipe-variants",
+        "weight": 99,
+        "comment": "cobbsclasses:disable-class-recipe-variants-description",
+        "default": false,
+        "ingui": "cobbsclasses:disable-class-recipe-variants-label"
+      },
+      "cobbs-rotwalker-disable-unique-recipes": {
+        "name": "cobbs-rotwalker-disable-unique-recipes",
+        "weight": 100,
+        "comment": "cobbsclasses:disable-class-unique-recipes-description",
+        "default": false,
+        "ingui": "cobbsclasses:disable-class-unique-recipes-label"
+      }
+    }
+  },
+  "formatting": [
+    {
+      "type": "separator",
+      "title": "game:characterclass-cobbs-commoner",
+      "weight": 1
+    },
+    {
+      "type": "separator",
+      "title": "game:characterclass-cobbs-herbalist",
+      "weight": 5
+    },
+    {
+      "type": "separator",
+      "title": "game:characterclass-cobbs-homesteader",
+      "weight": 9
+    },
+    {
+      "type": "separator",
+      "title": "game:characterclass-cobbs-hunter",
+      "weight": 13
+    },
+    {
+      "type": "separator",
+      "title": "game:characterclass-cobbs-lumberjack",
+      "weight": 17
+    },
+    {
+      "type": "separator",
+      "title": "game:characterclass-cobbs-malefactor",
+      "weight": 21
+    },
+    {
+      "type": "separator",
+      "title": "game:characterclass-cobbs-miner",
+      "weight": 25
+    },
+    {
+      "type": "separator",
+      "title": "game:characterclass-cobbs-potter",
+      "weight": 29
+    },
+    {
+      "type": "separator",
+      "title": "game:characterclass-cobbs-sailor",
+      "weight": 33
+    },
+    {
+      "type": "separator",
+      "title": "game:characterclass-cobbs-alchemist",
+      "weight": 37
+    },
+    {
+      "type": "separator",
+      "title": "game:characterclass-cobbs-butcher",
+      "weight": 41
+    },
+    {
+      "type": "separator",
+      "title": "game:characterclass-cobbs-chef",
+      "weight": 45
+    },
+    {
+      "type": "separator",
+      "title": "game:characterclass-cobbs-mason",
+      "weight": 49
+    },
+    {
+      "type": "separator",
+      "title": "game:characterclass-cobbs-scholar",
+      "weight": 53
+    },
+    {
+      "type": "separator",
+      "title": "game:characterclass-cobbs-smith",
+      "weight": 57
+    },
+    {
+      "type": "separator",
+      "title": "game:characterclass-cobbs-tailor",
+      "weight": 61
+    },
+    {
+      "type": "separator",
+      "title": "game:characterclass-cobbs-workman",
+      "weight": 65
+    },
+    {
+      "type": "separator",
+      "title": "game:characterclass-cobbs-artisan",
+      "weight": 69
+    },
+    {
+      "type": "separator",
+      "title": "game:characterclass-cobbs-blackguard",
+      "weight": 73
+    },
+    {
+      "type": "separator",
+      "title": "game:characterclass-cobbs-caravaneer",
+      "weight": 77
+    },
+    {
+      "type": "separator",
+      "title": "game:characterclass-cobbs-clockmaker",
+      "weight": 81
+    },
+    {
+      "type": "separator",
+      "title": "game:characterclass-cobbs-druid",
+      "weight": 85
+    },
+    {
+      "type": "separator",
+      "title": "game:characterclass-cobbs-knight",
+      "weight": 89
+    },
+    {
+      "type": "separator",
+      "title": "game:characterclass-cobbs-ranger",
+      "weight": 93
+    },
+    {
+      "type": "separator",
+      "title": "game:characterclass-cobbs-rotwalker",
+      "weight": 97
+    }
+  ]
+}

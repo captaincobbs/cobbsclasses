@@ -1,0 +1,1254 @@
+{
+  "Configuration": [
+    {
+      "ConfigLabel": "game:characterclass-cobbs-commoner",
+      "Description": "cobbsclasses:class-settings-reload-description",
+      "ConfigSource": "PatchSettings",
+      "ConfigSide": "Server",
+      "Settings": [
+        {
+          "Type": "Boolean",
+          "Label": "cobbsclasses:enable-class-setting-label",
+          "Description": "cobbsclasses:enable-class-setting-description",
+          "Code": "cobbs-commoner-enabled",
+          "Default": true,
+          "Targets": [
+            {
+              "Asset": "cobbsclasses:config/class-options.json",
+              "Path": "cobbs-commoner-enabled",
+              "Side": "Both"
+            }
+          ]
+        },
+        {
+          "Type": "Boolean",
+          "Label": "cobbsclasses:disable-class-recipe-variants-label",
+          "Description": "cobbsclasses:disable-class-recipe-variants-description",
+          "Code": "cobbs-commoner-disable-recipe-variants",
+          "Default": false,
+          "Targets": [
+            {
+              "Asset": "cobbsclasses:config/class-options.json",
+              "Path": "cobbs-commoner-disable-recipe-variants",
+              "Side": "Both"
+            }
+          ]
+        },
+        {
+          "Type": "Boolean",
+          "Label": "cobbsclasses:disable-class-unique-recipes-label",
+          "Description": "cobbsclasses:disable-class-unique-recipes-description",
+          "Code": "cobbs-commoner-disable-unique-recipes",
+          "Default": false,
+          "Targets": [
+            {
+              "Asset": "cobbsclasses:config/class-options.json",
+              "Path": "cobbs-commoner-disable-unique-recipes",
+              "Side": "Both"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ConfigLabel": "game:characterclass-cobbs-herbalist",
+      "Description": "cobbsclasses:class-settings-reload-description",
+      "ConfigSource": "PatchSettings",
+      "ConfigSide": "Server",
+      "Settings": [
+        {
+          "Type": "Boolean",
+          "Label": "cobbsclasses:enable-class-setting-label",
+          "Description": "cobbsclasses:enable-class-setting-description",
+          "Code": "cobbs-herbalist-enabled",
+          "Default": true,
+          "Targets": [
+            {
+              "Asset": "cobbsclasses:config/class-options.json",
+              "Path": "cobbs-herbalist-enabled",
+              "Side": "Both"
+            }
+          ]
+        },
+        {
+          "Type": "Boolean",
+          "Label": "cobbsclasses:disable-class-recipe-variants-label",
+          "Description": "cobbsclasses:disable-class-recipe-variants-description",
+          "Code": "cobbs-herbalist-disable-recipe-variants",
+          "Default": false,
+          "Targets": [
+            {
+              "Asset": "cobbsclasses:config/class-options.json",
+              "Path": "cobbs-herbalist-disable-recipe-variants",
+              "Side": "Both"
+            }
+          ]
+        },
+        {
+          "Type": "Boolean",
+          "Label": "cobbsclasses:disable-class-unique-recipes-label",
+          "Description": "cobbsclasses:disable-class-unique-recipes-description",
+          "Code": "cobbs-herbalist-disable-unique-recipes",
+          "Default": false,
+          "Targets": [
+            {
+              "Asset": "cobbsclasses:config/class-options.json",
+              "Path": "cobbs-herbalist-disable-unique-recipes",
+              "Side": "Both"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ConfigLabel": "game:characterclass-cobbs-homesteader",
+      "Description": "cobbsclasses:class-settings-reload-description",
+      "ConfigSource": "PatchSettings",
+      "ConfigSide": "Server",
+      "Settings": [
+        {
+          "Type": "Boolean",
+          "Label": "cobbsclasses:enable-class-setting-label",
+          "Description": "cobbsclasses:enable-class-setting-description",
+          "Code": "cobbs-homesteader-enabled",
+          "Default": true,
+          "Targets": [
+            {
+              "Asset": "cobbsclasses:config/class-options.json",
+              "Path": "cobbs-homesteader-enabled",
+              "Side": "Both"
+            }
+          ]
+        },
+        {
+          "Type": "Boolean",
+          "Label": "cobbsclasses:disable-class-recipe-variants-label",
+          "Description": "cobbsclasses:disable-class-recipe-variants-description",
+          "Code": "cobbs-homesteader-disable-recipe-variants",
+          "Default": false,
+          "Targets": [
+            {
+              "Asset": "cobbsclasses:config/class-options.json",
+              "Path": "cobbs-homesteader-disable-recipe-variants",
+              "Side": "Both"
+            }
+          ]
+        },
+        {
+          "Type": "Boolean",
+          "Label": "cobbsclasses:disable-class-unique-recipes-label",
+          "Description": "cobbsclasses:disable-class-unique-recipes-description",
+          "Code": "cobbs-homesteader-disable-unique-recipes",
+          "Default": false,
+          "Targets": [
+            {
+              "Asset": "cobbsclasses:config/class-options.json",
+              "Path": "cobbs-homesteader-disable-unique-recipes",
+              "Side": "Both"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ConfigLabel": "game:characterclass-cobbs-hunter",
+      "Description": "cobbsclasses:class-settings-reload-description",
+      "ConfigSource": "PatchSettings",
+      "ConfigSide": "Server",
+      "Settings": [
+        {
+          "Type": "Boolean",
+          "Label": "cobbsclasses:enable-class-setting-label",
+          "Description": "cobbsclasses:enable-class-setting-description",
+          "Code": "cobbs-hunter-enabled",
+          "Default": true,
+          "Targets": [
+            {
+              "Asset": "cobbsclasses:config/class-options.json",
+              "Path": "cobbs-hunter-enabled",
+              "Side": "Both"
+            }
+          ]
+        },
+        {
+          "Type": "Boolean",
+          "Label": "cobbsclasses:disable-class-recipe-variants-label",
+          "Description": "cobbsclasses:disable-class-recipe-variants-description",
+          "Code": "cobbs-hunter-disable-recipe-variants",
+          "Default": false,
+          "Targets": [
+            {
+              "Asset": "cobbsclasses:config/class-options.json",
+              "Path": "cobbs-hunter-disable-recipe-variants",
+              "Side": "Both"
+            }
+          ]
+        },
+        {
+          "Type": "Boolean",
+          "Label": "cobbsclasses:disable-class-unique-recipes-label",
+          "Description": "cobbsclasses:disable-class-unique-recipes-description",
+          "Code": "cobbs-hunter-disable-unique-recipes",
+          "Default": false,
+          "Targets": [
+            {
+              "Asset": "cobbsclasses:config/class-options.json",
+              "Path": "cobbs-hunter-disable-unique-recipes",
+              "Side": "Both"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ConfigLabel": "game:characterclass-cobbs-lumberjack",
+      "Description": "cobbsclasses:class-settings-reload-description",
+      "ConfigSource": "PatchSettings",
+      "ConfigSide": "Server",
+      "Settings": [
+        {
+          "Type": "Boolean",
+          "Label": "cobbsclasses:enable-class-setting-label",
+          "Description": "cobbsclasses:enable-class-setting-description",
+          "Code": "cobbs-lumberjack-enabled",
+          "Default": true,
+          "Targets": [
+            {
+              "Asset": "cobbsclasses:config/class-options.json",
+              "Path": "cobbs-lumberjack-enabled",
+              "Side": "Both"
+            }
+          ]
+        },
+        {
+          "Type": "Boolean",
+          "Label": "cobbsclasses:disable-class-recipe-variants-label",
+          "Description": "cobbsclasses:disable-class-recipe-variants-description",
+          "Code": "cobbs-lumberjack-disable-recipe-variants",
+          "Default": false,
+          "Targets": [
+            {
+              "Asset": "cobbsclasses:config/class-options.json",
+              "Path": "cobbs-lumberjack-disable-recipe-variants",
+              "Side": "Both"
+            }
+          ]
+        },
+        {
+          "Type": "Boolean",
+          "Label": "cobbsclasses:disable-class-unique-recipes-label",
+          "Description": "cobbsclasses:disable-class-unique-recipes-description",
+          "Code": "cobbs-lumberjack-disable-unique-recipes",
+          "Default": false,
+          "Targets": [
+            {
+              "Asset": "cobbsclasses:config/class-options.json",
+              "Path": "cobbs-lumberjack-disable-unique-recipes",
+              "Side": "Both"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ConfigLabel": "game:characterclass-cobbs-malefactor",
+      "Description": "cobbsclasses:class-settings-reload-description",
+      "ConfigSource": "PatchSettings",
+      "ConfigSide": "Server",
+      "Settings": [
+        {
+          "Type": "Boolean",
+          "Label": "cobbsclasses:enable-class-setting-label",
+          "Description": "cobbsclasses:enable-class-setting-description",
+          "Code": "cobbs-malefactor-enabled",
+          "Default": true,
+          "Targets": [
+            {
+              "Asset": "cobbsclasses:config/class-options.json",
+              "Path": "cobbs-malefactor-enabled",
+              "Side": "Both"
+            }
+          ]
+        },
+        {
+          "Type": "Boolean",
+          "Label": "cobbsclasses:disable-class-recipe-variants-label",
+          "Description": "cobbsclasses:disable-class-recipe-variants-description",
+          "Code": "cobbs-malefactor-disable-recipe-variants",
+          "Default": false,
+          "Targets": [
+            {
+              "Asset": "cobbsclasses:config/class-options.json",
+              "Path": "cobbs-malefactor-disable-recipe-variants",
+              "Side": "Both"
+            }
+          ]
+        },
+        {
+          "Type": "Boolean",
+          "Label": "cobbsclasses:disable-class-unique-recipes-label",
+          "Description": "cobbsclasses:disable-class-unique-recipes-description",
+          "Code": "cobbs-malefactor-disable-unique-recipes",
+          "Default": false,
+          "Targets": [
+            {
+              "Asset": "cobbsclasses:config/class-options.json",
+              "Path": "cobbs-malefactor-disable-unique-recipes",
+              "Side": "Both"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ConfigLabel": "game:characterclass-cobbs-miner",
+      "Description": "cobbsclasses:class-settings-reload-description",
+      "ConfigSource": "PatchSettings",
+      "ConfigSide": "Server",
+      "Settings": [
+        {
+          "Type": "Boolean",
+          "Label": "cobbsclasses:enable-class-setting-label",
+          "Description": "cobbsclasses:enable-class-setting-description",
+          "Code": "cobbs-miner-enabled",
+          "Default": true,
+          "Targets": [
+            {
+              "Asset": "cobbsclasses:config/class-options.json",
+              "Path": "cobbs-miner-enabled",
+              "Side": "Both"
+            }
+          ]
+        },
+        {
+          "Type": "Boolean",
+          "Label": "cobbsclasses:disable-class-recipe-variants-label",
+          "Description": "cobbsclasses:disable-class-recipe-variants-description",
+          "Code": "cobbs-miner-disable-recipe-variants",
+          "Default": false,
+          "Targets": [
+            {
+              "Asset": "cobbsclasses:config/class-options.json",
+              "Path": "cobbs-miner-disable-recipe-variants",
+              "Side": "Both"
+            }
+          ]
+        },
+        {
+          "Type": "Boolean",
+          "Label": "cobbsclasses:disable-class-unique-recipes-label",
+          "Description": "cobbsclasses:disable-class-unique-recipes-description",
+          "Code": "cobbs-miner-disable-unique-recipes",
+          "Default": false,
+          "Targets": [
+            {
+              "Asset": "cobbsclasses:config/class-options.json",
+              "Path": "cobbs-miner-disable-unique-recipes",
+              "Side": "Both"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ConfigLabel": "game:characterclass-cobbs-potter",
+      "Description": "cobbsclasses:class-settings-reload-description",
+      "ConfigSource": "PatchSettings",
+      "ConfigSide": "Server",
+      "Settings": [
+        {
+          "Type": "Boolean",
+          "Label": "cobbsclasses:enable-class-setting-label",
+          "Description": "cobbsclasses:enable-class-setting-description",
+          "Code": "cobbs-potter-enabled",
+          "Default": true,
+          "Targets": [
+            {
+              "Asset": "cobbsclasses:config/class-options.json",
+              "Path": "cobbs-potter-enabled",
+              "Side": "Both"
+            }
+          ]
+        },
+        {
+          "Type": "Boolean",
+          "Label": "cobbsclasses:disable-class-recipe-variants-label",
+          "Description": "cobbsclasses:disable-class-recipe-variants-description",
+          "Code": "cobbs-potter-disable-recipe-variants",
+          "Default": false,
+          "Targets": [
+            {
+              "Asset": "cobbsclasses:config/class-options.json",
+              "Path": "cobbs-potter-disable-recipe-variants",
+              "Side": "Both"
+            }
+          ]
+        },
+        {
+          "Type": "Boolean",
+          "Label": "cobbsclasses:disable-class-unique-recipes-label",
+          "Description": "cobbsclasses:disable-class-unique-recipes-description",
+          "Code": "cobbs-potter-disable-unique-recipes",
+          "Default": false,
+          "Targets": [
+            {
+              "Asset": "cobbsclasses:config/class-options.json",
+              "Path": "cobbs-potter-disable-unique-recipes",
+              "Side": "Both"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ConfigLabel": "game:characterclass-cobbs-sailor",
+      "Description": "cobbsclasses:class-settings-reload-description",
+      "ConfigSource": "PatchSettings",
+      "ConfigSide": "Server",
+      "Settings": [
+        {
+          "Type": "Boolean",
+          "Label": "cobbsclasses:enable-class-setting-label",
+          "Description": "cobbsclasses:enable-class-setting-description",
+          "Code": "cobbs-sailor-enabled",
+          "Default": true,
+          "Targets": [
+            {
+              "Asset": "cobbsclasses:config/class-options.json",
+              "Path": "cobbs-sailor-enabled",
+              "Side": "Both"
+            }
+          ]
+        },
+        {
+          "Type": "Boolean",
+          "Label": "cobbsclasses:disable-class-recipe-variants-label",
+          "Description": "cobbsclasses:disable-class-recipe-variants-description",
+          "Code": "cobbs-sailor-disable-recipe-variants",
+          "Default": false,
+          "Targets": [
+            {
+              "Asset": "cobbsclasses:config/class-options.json",
+              "Path": "cobbs-sailor-disable-recipe-variants",
+              "Side": "Both"
+            }
+          ]
+        },
+        {
+          "Type": "Boolean",
+          "Label": "cobbsclasses:disable-class-unique-recipes-label",
+          "Description": "cobbsclasses:disable-class-unique-recipes-description",
+          "Code": "cobbs-sailor-disable-unique-recipes",
+          "Default": false,
+          "Targets": [
+            {
+              "Asset": "cobbsclasses:config/class-options.json",
+              "Path": "cobbs-sailor-disable-unique-recipes",
+              "Side": "Both"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ConfigLabel": "game:characterclass-cobbs-alchemist",
+      "Description": "cobbsclasses:class-settings-reload-description",
+      "ConfigSource": "PatchSettings",
+      "ConfigSide": "Server",
+      "Settings": [
+        {
+          "Type": "Boolean",
+          "Label": "cobbsclasses:enable-class-setting-label",
+          "Description": "cobbsclasses:enable-class-setting-description",
+          "Code": "cobbs-alchemist-enabled",
+          "Default": true,
+          "Targets": [
+            {
+              "Asset": "cobbsclasses:config/class-options.json",
+              "Path": "cobbs-alchemist-enabled",
+              "Side": "Both"
+            }
+          ]
+        },
+        {
+          "Type": "Boolean",
+          "Label": "cobbsclasses:disable-class-recipe-variants-label",
+          "Description": "cobbsclasses:disable-class-recipe-variants-description",
+          "Code": "cobbs-alchemist-disable-recipe-variants",
+          "Default": false,
+          "Targets": [
+            {
+              "Asset": "cobbsclasses:config/class-options.json",
+              "Path": "cobbs-alchemist-disable-recipe-variants",
+              "Side": "Both"
+            }
+          ]
+        },
+        {
+          "Type": "Boolean",
+          "Label": "cobbsclasses:disable-class-unique-recipes-label",
+          "Description": "cobbsclasses:disable-class-unique-recipes-description",
+          "Code": "cobbs-alchemist-disable-unique-recipes",
+          "Default": false,
+          "Targets": [
+            {
+              "Asset": "cobbsclasses:config/class-options.json",
+              "Path": "cobbs-alchemist-disable-unique-recipes",
+              "Side": "Both"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ConfigLabel": "game:characterclass-cobbs-butcher",
+      "Description": "cobbsclasses:class-settings-reload-description",
+      "ConfigSource": "PatchSettings",
+      "ConfigSide": "Server",
+      "Settings": [
+        {
+          "Type": "Boolean",
+          "Label": "cobbsclasses:enable-class-setting-label",
+          "Description": "cobbsclasses:enable-class-setting-description",
+          "Code": "cobbs-butcher-enabled",
+          "Default": true,
+          "Targets": [
+            {
+              "Asset": "cobbsclasses:config/class-options.json",
+              "Path": "cobbs-butcher-enabled",
+              "Side": "Both"
+            }
+          ]
+        },
+        {
+          "Type": "Boolean",
+          "Label": "cobbsclasses:disable-class-recipe-variants-label",
+          "Description": "cobbsclasses:disable-class-recipe-variants-description",
+          "Code": "cobbs-butcher-disable-recipe-variants",
+          "Default": false,
+          "Targets": [
+            {
+              "Asset": "cobbsclasses:config/class-options.json",
+              "Path": "cobbs-butcher-disable-recipe-variants",
+              "Side": "Both"
+            }
+          ]
+        },
+        {
+          "Type": "Boolean",
+          "Label": "cobbsclasses:disable-class-unique-recipes-label",
+          "Description": "cobbsclasses:disable-class-unique-recipes-description",
+          "Code": "cobbs-butcher-disable-unique-recipes",
+          "Default": false,
+          "Targets": [
+            {
+              "Asset": "cobbsclasses:config/class-options.json",
+              "Path": "cobbs-butcher-disable-unique-recipes",
+              "Side": "Both"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ConfigLabel": "game:characterclass-cobbs-chef",
+      "Description": "cobbsclasses:class-settings-reload-description",
+      "ConfigSource": "PatchSettings",
+      "ConfigSide": "Server",
+      "Settings": [
+        {
+          "Type": "Boolean",
+          "Label": "cobbsclasses:enable-class-setting-label",
+          "Description": "cobbsclasses:enable-class-setting-description",
+          "Code": "cobbs-chef-enabled",
+          "Default": true,
+          "Targets": [
+            {
+              "Asset": "cobbsclasses:config/class-options.json",
+              "Path": "cobbs-chef-enabled",
+              "Side": "Both"
+            }
+          ]
+        },
+        {
+          "Type": "Boolean",
+          "Label": "cobbsclasses:disable-class-recipe-variants-label",
+          "Description": "cobbsclasses:disable-class-recipe-variants-description",
+          "Code": "cobbs-chef-disable-recipe-variants",
+          "Default": false,
+          "Targets": [
+            {
+              "Asset": "cobbsclasses:config/class-options.json",
+              "Path": "cobbs-chef-disable-recipe-variants",
+              "Side": "Both"
+            }
+          ]
+        },
+        {
+          "Type": "Boolean",
+          "Label": "cobbsclasses:disable-class-unique-recipes-label",
+          "Description": "cobbsclasses:disable-class-unique-recipes-description",
+          "Code": "cobbs-chef-disable-unique-recipes",
+          "Default": false,
+          "Targets": [
+            {
+              "Asset": "cobbsclasses:config/class-options.json",
+              "Path": "cobbs-chef-disable-unique-recipes",
+              "Side": "Both"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ConfigLabel": "game:characterclass-cobbs-mason",
+      "Description": "cobbsclasses:class-settings-reload-description",
+      "ConfigSource": "PatchSettings",
+      "ConfigSide": "Server",
+      "Settings": [
+        {
+          "Type": "Boolean",
+          "Label": "cobbsclasses:enable-class-setting-label",
+          "Description": "cobbsclasses:enable-class-setting-description",
+          "Code": "cobbs-mason-enabled",
+          "Default": true,
+          "Targets": [
+            {
+              "Asset": "cobbsclasses:config/class-options.json",
+              "Path": "cobbs-mason-enabled",
+              "Side": "Both"
+            }
+          ]
+        },
+        {
+          "Type": "Boolean",
+          "Label": "cobbsclasses:disable-class-recipe-variants-label",
+          "Description": "cobbsclasses:disable-class-recipe-variants-description",
+          "Code": "cobbs-mason-disable-recipe-variants",
+          "Default": false,
+          "Targets": [
+            {
+              "Asset": "cobbsclasses:config/class-options.json",
+              "Path": "cobbs-mason-disable-recipe-variants",
+              "Side": "Both"
+            }
+          ]
+        },
+        {
+          "Type": "Boolean",
+          "Label": "cobbsclasses:disable-class-unique-recipes-label",
+          "Description": "cobbsclasses:disable-class-unique-recipes-description",
+          "Code": "cobbs-mason-disable-unique-recipes",
+          "Default": false,
+          "Targets": [
+            {
+              "Asset": "cobbsclasses:config/class-options.json",
+              "Path": "cobbs-mason-disable-unique-recipes",
+              "Side": "Both"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ConfigLabel": "game:characterclass-cobbs-scholar",
+      "Description": "cobbsclasses:class-settings-reload-description",
+      "ConfigSource": "PatchSettings",
+      "ConfigSide": "Server",
+      "Settings": [
+        {
+          "Type": "Boolean",
+          "Label": "cobbsclasses:enable-class-setting-label",
+          "Description": "cobbsclasses:enable-class-setting-description",
+          "Code": "cobbs-scholar-enabled",
+          "Default": true,
+          "Targets": [
+            {
+              "Asset": "cobbsclasses:config/class-options.json",
+              "Path": "cobbs-scholar-enabled",
+              "Side": "Both"
+            }
+          ]
+        },
+        {
+          "Type": "Boolean",
+          "Label": "cobbsclasses:disable-class-recipe-variants-label",
+          "Description": "cobbsclasses:disable-class-recipe-variants-description",
+          "Code": "cobbs-scholar-disable-recipe-variants",
+          "Default": false,
+          "Targets": [
+            {
+              "Asset": "cobbsclasses:config/class-options.json",
+              "Path": "cobbs-scholar-disable-recipe-variants",
+              "Side": "Both"
+            }
+          ]
+        },
+        {
+          "Type": "Boolean",
+          "Label": "cobbsclasses:disable-class-unique-recipes-label",
+          "Description": "cobbsclasses:disable-class-unique-recipes-description",
+          "Code": "cobbs-scholar-disable-unique-recipes",
+          "Default": false,
+          "Targets": [
+            {
+              "Asset": "cobbsclasses:config/class-options.json",
+              "Path": "cobbs-scholar-disable-unique-recipes",
+              "Side": "Both"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ConfigLabel": "game:characterclass-cobbs-smith",
+      "Description": "cobbsclasses:class-settings-reload-description",
+      "ConfigSource": "PatchSettings",
+      "ConfigSide": "Server",
+      "Settings": [
+        {
+          "Type": "Boolean",
+          "Label": "cobbsclasses:enable-class-setting-label",
+          "Description": "cobbsclasses:enable-class-setting-description",
+          "Code": "cobbs-smith-enabled",
+          "Default": true,
+          "Targets": [
+            {
+              "Asset": "cobbsclasses:config/class-options.json",
+              "Path": "cobbs-smith-enabled",
+              "Side": "Both"
+            }
+          ]
+        },
+        {
+          "Type": "Boolean",
+          "Label": "cobbsclasses:disable-class-recipe-variants-label",
+          "Description": "cobbsclasses:disable-class-recipe-variants-description",
+          "Code": "cobbs-smith-disable-recipe-variants",
+          "Default": false,
+          "Targets": [
+            {
+              "Asset": "cobbsclasses:config/class-options.json",
+              "Path": "cobbs-smith-disable-recipe-variants",
+              "Side": "Both"
+            }
+          ]
+        },
+        {
+          "Type": "Boolean",
+          "Label": "cobbsclasses:disable-class-unique-recipes-label",
+          "Description": "cobbsclasses:disable-class-unique-recipes-description",
+          "Code": "cobbs-smith-disable-unique-recipes",
+          "Default": false,
+          "Targets": [
+            {
+              "Asset": "cobbsclasses:config/class-options.json",
+              "Path": "cobbs-smith-disable-unique-recipes",
+              "Side": "Both"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ConfigLabel": "game:characterclass-cobbs-tailor",
+      "Description": "cobbsclasses:class-settings-reload-description",
+      "ConfigSource": "PatchSettings",
+      "ConfigSide": "Server",
+      "Settings": [
+        {
+          "Type": "Boolean",
+          "Label": "cobbsclasses:enable-class-setting-label",
+          "Description": "cobbsclasses:enable-class-setting-description",
+          "Code": "cobbs-tailor-enabled",
+          "Default": true,
+          "Targets": [
+            {
+              "Asset": "cobbsclasses:config/class-options.json",
+              "Path": "cobbs-tailor-enabled",
+              "Side": "Both"
+            }
+          ]
+        },
+        {
+          "Type": "Boolean",
+          "Label": "cobbsclasses:disable-class-recipe-variants-label",
+          "Description": "cobbsclasses:disable-class-recipe-variants-description",
+          "Code": "cobbs-tailor-disable-recipe-variants",
+          "Default": false,
+          "Targets": [
+            {
+              "Asset": "cobbsclasses:config/class-options.json",
+              "Path": "cobbs-tailor-disable-recipe-variants",
+              "Side": "Both"
+            }
+          ]
+        },
+        {
+          "Type": "Boolean",
+          "Label": "cobbsclasses:disable-class-unique-recipes-label",
+          "Description": "cobbsclasses:disable-class-unique-recipes-description",
+          "Code": "cobbs-tailor-disable-unique-recipes",
+          "Default": false,
+          "Targets": [
+            {
+              "Asset": "cobbsclasses:config/class-options.json",
+              "Path": "cobbs-tailor-disable-unique-recipes",
+              "Side": "Both"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ConfigLabel": "game:characterclass-cobbs-workman",
+      "Description": "cobbsclasses:class-settings-reload-description",
+      "ConfigSource": "PatchSettings",
+      "ConfigSide": "Server",
+      "Settings": [
+        {
+          "Type": "Boolean",
+          "Label": "cobbsclasses:enable-class-setting-label",
+          "Description": "cobbsclasses:enable-class-setting-description",
+          "Code": "cobbs-workman-enabled",
+          "Default": true,
+          "Targets": [
+            {
+              "Asset": "cobbsclasses:config/class-options.json",
+              "Path": "cobbs-workman-enabled",
+              "Side": "Both"
+            }
+          ]
+        },
+        {
+          "Type": "Boolean",
+          "Label": "cobbsclasses:disable-class-recipe-variants-label",
+          "Description": "cobbsclasses:disable-class-recipe-variants-description",
+          "Code": "cobbs-workman-disable-recipe-variants",
+          "Default": false,
+          "Targets": [
+            {
+              "Asset": "cobbsclasses:config/class-options.json",
+              "Path": "cobbs-workman-disable-recipe-variants",
+              "Side": "Both"
+            }
+          ]
+        },
+        {
+          "Type": "Boolean",
+          "Label": "cobbsclasses:disable-class-unique-recipes-label",
+          "Description": "cobbsclasses:disable-class-unique-recipes-description",
+          "Code": "cobbs-workman-disable-unique-recipes",
+          "Default": false,
+          "Targets": [
+            {
+              "Asset": "cobbsclasses:config/class-options.json",
+              "Path": "cobbs-workman-disable-unique-recipes",
+              "Side": "Both"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ConfigLabel": "game:characterclass-cobbs-artisan",
+      "Description": "cobbsclasses:class-settings-reload-description",
+      "ConfigSource": "PatchSettings",
+      "ConfigSide": "Server",
+      "Settings": [
+        {
+          "Type": "Boolean",
+          "Label": "cobbsclasses:enable-class-setting-label",
+          "Description": "cobbsclasses:enable-class-setting-description",
+          "Code": "cobbs-artisan-enabled",
+          "Default": true,
+          "Targets": [
+            {
+              "Asset": "cobbsclasses:config/class-options.json",
+              "Path": "cobbs-artisan-enabled",
+              "Side": "Both"
+            }
+          ]
+        },
+        {
+          "Type": "Boolean",
+          "Label": "cobbsclasses:disable-class-recipe-variants-label",
+          "Description": "cobbsclasses:disable-class-recipe-variants-description",
+          "Code": "cobbs-artisan-disable-recipe-variants",
+          "Default": false,
+          "Targets": [
+            {
+              "Asset": "cobbsclasses:config/class-options.json",
+              "Path": "cobbs-artisan-disable-recipe-variants",
+              "Side": "Both"
+            }
+          ]
+        },
+        {
+          "Type": "Boolean",
+          "Label": "cobbsclasses:disable-class-unique-recipes-label",
+          "Description": "cobbsclasses:disable-class-unique-recipes-description",
+          "Code": "cobbs-artisan-disable-unique-recipes",
+          "Default": false,
+          "Targets": [
+            {
+              "Asset": "cobbsclasses:config/class-options.json",
+              "Path": "cobbs-artisan-disable-unique-recipes",
+              "Side": "Both"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ConfigLabel": "game:characterclass-cobbs-blackguard",
+      "Description": "cobbsclasses:class-settings-reload-description",
+      "ConfigSource": "PatchSettings",
+      "ConfigSide": "Server",
+      "Settings": [
+        {
+          "Type": "Boolean",
+          "Label": "cobbsclasses:enable-class-setting-label",
+          "Description": "cobbsclasses:enable-class-setting-description",
+          "Code": "cobbs-blackguard-enabled",
+          "Default": true,
+          "Targets": [
+            {
+              "Asset": "cobbsclasses:config/class-options.json",
+              "Path": "cobbs-blackguard-enabled",
+              "Side": "Both"
+            }
+          ]
+        },
+        {
+          "Type": "Boolean",
+          "Label": "cobbsclasses:disable-class-recipe-variants-label",
+          "Description": "cobbsclasses:disable-class-recipe-variants-description",
+          "Code": "cobbs-blackguard-disable-recipe-variants",
+          "Default": false,
+          "Targets": [
+            {
+              "Asset": "cobbsclasses:config/class-options.json",
+              "Path": "cobbs-blackguard-disable-recipe-variants",
+              "Side": "Both"
+            }
+          ]
+        },
+        {
+          "Type": "Boolean",
+          "Label": "cobbsclasses:disable-class-unique-recipes-label",
+          "Description": "cobbsclasses:disable-class-unique-recipes-description",
+          "Code": "cobbs-blackguard-disable-unique-recipes",
+          "Default": false,
+          "Targets": [
+            {
+              "Asset": "cobbsclasses:config/class-options.json",
+              "Path": "cobbs-blackguard-disable-unique-recipes",
+              "Side": "Both"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ConfigLabel": "game:characterclass-cobbs-caravaneer",
+      "Description": "cobbsclasses:class-settings-reload-description",
+      "ConfigSource": "PatchSettings",
+      "ConfigSide": "Server",
+      "Settings": [
+        {
+          "Type": "Boolean",
+          "Label": "cobbsclasses:enable-class-setting-label",
+          "Description": "cobbsclasses:enable-class-setting-description",
+          "Code": "cobbs-caravaneer-enabled",
+          "Default": true,
+          "Targets": [
+            {
+              "Asset": "cobbsclasses:config/class-options.json",
+              "Path": "cobbs-caravaneer-enabled",
+              "Side": "Both"
+            }
+          ]
+        },
+        {
+          "Type": "Boolean",
+          "Label": "cobbsclasses:disable-class-recipe-variants-label",
+          "Description": "cobbsclasses:disable-class-recipe-variants-description",
+          "Code": "cobbs-caravaneer-disable-recipe-variants",
+          "Default": false,
+          "Targets": [
+            {
+              "Asset": "cobbsclasses:config/class-options.json",
+              "Path": "cobbs-caravaneer-disable-recipe-variants",
+              "Side": "Both"
+            }
+          ]
+        },
+        {
+          "Type": "Boolean",
+          "Label": "cobbsclasses:disable-class-unique-recipes-label",
+          "Description": "cobbsclasses:disable-class-unique-recipes-description",
+          "Code": "cobbs-caravaneer-disable-unique-recipes",
+          "Default": false,
+          "Targets": [
+            {
+              "Asset": "cobbsclasses:config/class-options.json",
+              "Path": "cobbs-caravaneer-disable-unique-recipes",
+              "Side": "Both"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ConfigLabel": "game:characterclass-cobbs-clockmaker",
+      "Description": "cobbsclasses:class-settings-reload-description",
+      "ConfigSource": "PatchSettings",
+      "ConfigSide": "Server",
+      "Settings": [
+        {
+          "Type": "Boolean",
+          "Label": "cobbsclasses:enable-class-setting-label",
+          "Description": "cobbsclasses:enable-class-setting-description",
+          "Code": "cobbs-clockmaker-enabled",
+          "Default": true,
+          "Targets": [
+            {
+              "Asset": "cobbsclasses:config/class-options.json",
+              "Path": "cobbs-clockmaker-enabled",
+              "Side": "Both"
+            }
+          ]
+        },
+        {
+          "Type": "Boolean",
+          "Label": "cobbsclasses:disable-class-recipe-variants-label",
+          "Description": "cobbsclasses:disable-class-recipe-variants-description",
+          "Code": "cobbs-clockmaker-disable-recipe-variants",
+          "Default": false,
+          "Targets": [
+            {
+              "Asset": "cobbsclasses:config/class-options.json",
+              "Path": "cobbs-clockmaker-disable-recipe-variants",
+              "Side": "Both"
+            }
+          ]
+        },
+        {
+          "Type": "Boolean",
+          "Label": "cobbsclasses:disable-class-unique-recipes-label",
+          "Description": "cobbsclasses:disable-class-unique-recipes-description",
+          "Code": "cobbs-clockmaker-disable-unique-recipes",
+          "Default": false,
+          "Targets": [
+            {
+              "Asset": "cobbsclasses:config/class-options.json",
+              "Path": "cobbs-clockmaker-disable-unique-recipes",
+              "Side": "Both"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ConfigLabel": "game:characterclass-cobbs-druid",
+      "Description": "cobbsclasses:class-settings-reload-description",
+      "ConfigSource": "PatchSettings",
+      "ConfigSide": "Server",
+      "Settings": [
+        {
+          "Type": "Boolean",
+          "Label": "cobbsclasses:enable-class-setting-label",
+          "Description": "cobbsclasses:enable-class-setting-description",
+          "Code": "cobbs-druid-enabled",
+          "Default": true,
+          "Targets": [
+            {
+              "Asset": "cobbsclasses:config/class-options.json",
+              "Path": "cobbs-druid-enabled",
+              "Side": "Both"
+            }
+          ]
+        },
+        {
+          "Type": "Boolean",
+          "Label": "cobbsclasses:disable-class-recipe-variants-label",
+          "Description": "cobbsclasses:disable-class-recipe-variants-description",
+          "Code": "cobbs-druid-disable-recipe-variants",
+          "Default": false,
+          "Targets": [
+            {
+              "Asset": "cobbsclasses:config/class-options.json",
+              "Path": "cobbs-druid-disable-recipe-variants",
+              "Side": "Both"
+            }
+          ]
+        },
+        {
+          "Type": "Boolean",
+          "Label": "cobbsclasses:disable-class-unique-recipes-label",
+          "Description": "cobbsclasses:disable-class-unique-recipes-description",
+          "Code": "cobbs-druid-disable-unique-recipes",
+          "Default": false,
+          "Targets": [
+            {
+              "Asset": "cobbsclasses:config/class-options.json",
+              "Path": "cobbs-druid-disable-unique-recipes",
+              "Side": "Both"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ConfigLabel": "game:characterclass-cobbs-knight",
+      "Description": "cobbsclasses:class-settings-reload-description",
+      "ConfigSource": "PatchSettings",
+      "ConfigSide": "Server",
+      "Settings": [
+        {
+          "Type": "Boolean",
+          "Label": "cobbsclasses:enable-class-setting-label",
+          "Description": "cobbsclasses:enable-class-setting-description",
+          "Code": "cobbs-knight-enabled",
+          "Default": true,
+          "Targets": [
+            {
+              "Asset": "cobbsclasses:config/class-options.json",
+              "Path": "cobbs-knight-enabled",
+              "Side": "Both"
+            }
+          ]
+        },
+        {
+          "Type": "Boolean",
+          "Label": "cobbsclasses:disable-class-recipe-variants-label",
+          "Description": "cobbsclasses:disable-class-recipe-variants-description",
+          "Code": "cobbs-knight-disable-recipe-variants",
+          "Default": false,
+          "Targets": [
+            {
+              "Asset": "cobbsclasses:config/class-options.json",
+              "Path": "cobbs-knight-disable-recipe-variants",
+              "Side": "Both"
+            }
+          ]
+        },
+        {
+          "Type": "Boolean",
+          "Label": "cobbsclasses:disable-class-unique-recipes-label",
+          "Description": "cobbsclasses:disable-class-unique-recipes-description",
+          "Code": "cobbs-knight-disable-unique-recipes",
+          "Default": false,
+          "Targets": [
+            {
+              "Asset": "cobbsclasses:config/class-options.json",
+              "Path": "cobbs-knight-disable-unique-recipes",
+              "Side": "Both"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ConfigLabel": "game:characterclass-cobbs-ranger",
+      "Description": "cobbsclasses:class-settings-reload-description",
+      "ConfigSource": "PatchSettings",
+      "ConfigSide": "Server",
+      "Settings": [
+        {
+          "Type": "Boolean",
+          "Label": "cobbsclasses:enable-class-setting-label",
+          "Description": "cobbsclasses:enable-class-setting-description",
+          "Code": "cobbs-ranger-enabled",
+          "Default": true,
+          "Targets": [
+            {
+              "Asset": "cobbsclasses:config/class-options.json",
+              "Path": "cobbs-ranger-enabled",
+              "Side": "Both"
+            }
+          ]
+        },
+        {
+          "Type": "Boolean",
+          "Label": "cobbsclasses:disable-class-recipe-variants-label",
+          "Description": "cobbsclasses:disable-class-recipe-variants-description",
+          "Code": "cobbs-ranger-disable-recipe-variants",
+          "Default": false,
+          "Targets": [
+            {
+              "Asset": "cobbsclasses:config/class-options.json",
+              "Path": "cobbs-ranger-disable-recipe-variants",
+              "Side": "Both"
+            }
+          ]
+        },
+        {
+          "Type": "Boolean",
+          "Label": "cobbsclasses:disable-class-unique-recipes-label",
+          "Description": "cobbsclasses:disable-class-unique-recipes-description",
+          "Code": "cobbs-ranger-disable-unique-recipes",
+          "Default": false,
+          "Targets": [
+            {
+              "Asset": "cobbsclasses:config/class-options.json",
+              "Path": "cobbs-ranger-disable-unique-recipes",
+              "Side": "Both"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ConfigLabel": "game:characterclass-cobbs-rotwalker",
+      "Description": "cobbsclasses:class-settings-reload-description",
+      "ConfigSource": "PatchSettings",
+      "ConfigSide": "Server",
+      "Settings": [
+        {
+          "Type": "Boolean",
+          "Label": "cobbsclasses:enable-class-setting-label",
+          "Description": "cobbsclasses:enable-class-setting-description",
+          "Code": "cobbs-rotwalker-enabled",
+          "Default": true,
+          "Targets": [
+            {
+              "Asset": "cobbsclasses:config/class-options.json",
+              "Path": "cobbs-rotwalker-enabled",
+              "Side": "Both"
+            }
+          ]
+        },
+        {
+          "Type": "Boolean",
+          "Label": "cobbsclasses:disable-class-recipe-variants-label",
+          "Description": "cobbsclasses:disable-class-recipe-variants-description",
+          "Code": "cobbs-rotwalker-disable-recipe-variants",
+          "Default": false,
+          "Targets": [
+            {
+              "Asset": "cobbsclasses:config/class-options.json",
+              "Path": "cobbs-rotwalker-disable-recipe-variants",
+              "Side": "Both"
+            }
+          ]
+        },
+        {
+          "Type": "Boolean",
+          "Label": "cobbsclasses:disable-class-unique-recipes-label",
+          "Description": "cobbsclasses:disable-class-unique-recipes-description",
+          "Code": "cobbs-rotwalker-disable-unique-recipes",
+          "Default": false,
+          "Targets": [
+            {
+              "Asset": "cobbsclasses:config/class-options.json",
+              "Path": "cobbs-rotwalker-disable-unique-recipes",
+              "Side": "Both"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
