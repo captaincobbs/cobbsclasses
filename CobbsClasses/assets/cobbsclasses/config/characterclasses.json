@@ -352,12 +352,12 @@
   },
   {
     "enabled": true,
-    "code": "cobbs-artisan",
+    "code": "cobbs-architect",
     "traits": [
-      "artisan-painter",
-      "artisan-adornment",
-      "artisan-decorator",
-      "artisan-sculptor"
+      "architect-painter",
+      "architect-adornment",
+      "architect-decorator",
+      "architect-sculptor"
     ],
     "gear": [
       { "type": "item", "code": "game:clothes-shoulder-artisans-scarf" },

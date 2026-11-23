@@ -503,14 +503,14 @@
     }
   },
   {
-    "code": "artisan-painter",
+    "code": "architect-painter",
     "type": "positive",
     "attributes": {
       "pigmentCostReduction": -1
     }
   },
   {
-    "code": "artisan-adornment",
+    "code": "architect-adornment",
     "type": "positive",
     "attributes": {
       "artHungerRate": -0.3,
@@ -518,12 +518,12 @@
     }
   },
   {
-    "code": "artisan-decorator",
+    "code": "architect-decorator",
     "type": "positive",
     "attributes": {}
   },
   {
-    "code": "artisan-sculptor",
+    "code": "architect-sculptor",
     "type": "positive",
     "attributes": {
       "chiselDurabilityLoss": -0.5,
