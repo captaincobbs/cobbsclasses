@@ -1,6 +1,6 @@
-﻿using CobbsClasses.Source.CollectibleBehaviors;
+﻿using CobbsClasses.Source.Behaviors;
+using CobbsClasses.Source.Handlers;
 using CobbsClasses.Source.Renderers;
-using CobbsClasses.Source.Systems;
 
 using System.Linq;
 

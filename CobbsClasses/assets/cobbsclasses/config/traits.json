@@ -141,7 +141,7 @@
     "attributes": {
       "sneakSpeed": 1,
       "moveSpeedAlone": 0.2,
-      "jumpHeightAlone": 0.8,
+      "jumpHeightMulAlone": 0.6,
       "darkvisionStrength": 0.32
     }
   },
@@ -703,7 +703,7 @@
       "armorWalkSpeedAffectedness": -0.5,
       "walkspeed": 0.2,
       "armorRangedAffectedness": -1,
-      "jumpHeight": 0.5
+      "jumpHeightMul": 0.2
     }
   },
   {

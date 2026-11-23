@@ -5,7 +5,7 @@ using Vintagestory.API.Common.Entities;
 using Vintagestory.API.Datastructures;
 using Vintagestory.API.MathTools;
 
-namespace CobbsClasses.Source.CollectibleBehaviors
+namespace CobbsClasses.Source.Behaviors
 {
     public sealed class ToolTraitBehavior : CollectibleBehavior
     {

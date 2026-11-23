@@ -1,10 +1,10 @@
-﻿using CobbsClasses.Source.CollectibleBehaviors;
+﻿using CobbsClasses.Source.Behaviors;
 
 using Vintagestory.API.Common;
 using Vintagestory.API.Config;
 using Vintagestory.API.Server;
 
-namespace CobbsClasses.Source.Systems;
+namespace CobbsClasses.Source.Handlers;
 
 public static class BlockReachHandler
 {

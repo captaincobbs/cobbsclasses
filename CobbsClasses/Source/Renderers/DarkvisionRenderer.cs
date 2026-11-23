@@ -1,6 +1,7 @@
 ﻿using System;
 
 using Vintagestory.API.Client;
+using Vintagestory.API.Common;
 
 namespace CobbsClasses.Source.Renderers
 {
@@ -14,7 +15,7 @@ namespace CobbsClasses.Source.Renderers
 
         public void OnRenderFrame(float deltaTime, EnumRenderStage stage)
         {
-            var player = clientAPI.World.Player?.Entity;
+            EntityPlayer? player = clientAPI.World.Player?.Entity;
             float targetStrength = 0.0f;
 
             if (player is not null)
@@ -27,13 +28,13 @@ namespace CobbsClasses.Source.Renderers
             float blend = 1.0f - MathF.Exp(-deltaTime / fadeSeconds);
             currentStrength += (targetStrength - currentStrength) * blend;
 
-            var shader = clientAPI.Shader.GetProgram((int)EnumShaderProgram.Chunkopaque);
+            IShaderProgram? shader = clientAPI.Shader.GetProgram((int)EnumShaderProgram.Chunkopaque);
             if (shader is null || shader.LoadError || !shader.HasUniform(STRENGTH_UNIFORM))
             {
                 return;
             }
 
-            var activeShader = clientAPI.Render.CurrentActiveShader;
+            IShaderProgram? activeShader = clientAPI.Render.CurrentActiveShader;
             if (ReferenceEquals(activeShader, shader))
             {
                 shader.Uniform(STRENGTH_UNIFORM, currentStrength);
