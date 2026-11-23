@@ -1,11 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 using Vintagestory.API.Client;
-using Vintagestory.API.Common;
 
-namespace CobbsClasses
+namespace CobbsClasses.src.Renderers
 {
     internal sealed class DarkvisionRenderer(ICoreClientAPI clientAPI) : IRenderer
     {

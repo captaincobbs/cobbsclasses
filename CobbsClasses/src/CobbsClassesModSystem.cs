@@ -1,7 +1,9 @@
-﻿using Vintagestory.API.Client;
+﻿using CobbsClasses.src.Renderers;
+
+using Vintagestory.API.Client;
 using Vintagestory.API.Common;
 
-namespace CobbsClasses;
+namespace CobbsClasses.src;
 
 public class CobbsClassesModSystem : ModSystem
 {
