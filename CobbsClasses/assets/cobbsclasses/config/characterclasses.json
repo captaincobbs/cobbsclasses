@@ -446,6 +446,17 @@
   },
   {
     "enabled": true,
+    "code": "cobbs-druid",
+    "traits": [
+      "druid-lorekeeper",
+      "druid-rituals",
+      "druid-animal-kinship",
+      "druid-wildstride"
+    ],
+    "gear": []
+  },
+  {
+    "enabled": true,
     "code": "cobbs-knight",
     "traits": [
       "knight-juggernaut",

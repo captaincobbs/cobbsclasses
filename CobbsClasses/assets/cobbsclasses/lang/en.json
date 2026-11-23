@@ -152,6 +152,13 @@
   "game:trait-clockmaker-tinkering": "Tinkering",
   "game:trait-clockmaker-repurposing": "Repurposing",
 
+  "game:characterclass-cobbs-druid": "Druid",
+  "game:characterdesc-cobbs-druid": "A keeper of old lore who tends animals, enchants water, and travels light.",
+  "game:trait-druid-lorekeeper": "Lorekeeper",
+  "game:trait-druid-rituals": "Rituals",
+  "game:trait-druid-animal-kinship": "Animal Kinship",
+  "game:trait-druid-wildstride": "Wildstride",
+
   "game:characterclass-cobbs-knight": "Knight",
   "game:characterdesc-cobbs-knight": "An armored defender who stands between others and the creatures of the Rust.",
   "game:trait-knight-juggernaut": "Juggernaut",

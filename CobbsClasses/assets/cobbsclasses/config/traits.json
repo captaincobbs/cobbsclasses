@@ -4,7 +4,7 @@
     "type": "positive",
     "attributes": {
       "cropDropRate": 0.1,
-			"wildCropDropRate": 0.6,
+      "wildCropDropRate": 0.6,
       "hideMealSafety": false,
       "hideNutritionInfo": false,
       "hideCraftingInfo": false
@@ -41,7 +41,7 @@
     "type": "positive",
     "attributes": {
       "cropDropRate": 0.3,
-			"wildCropDropRate": 0.3
+      "wildCropDropRate": 0.3
     }
   },
   {
@@ -78,7 +78,7 @@
     "type": "positive",
     "attributes": {
       "animalLootDropRate": 2,
-			"animalHarvestingTime": -0.45
+      "animalHarvestingTime": -0.45
     }
   },
   {
@@ -86,8 +86,8 @@
     "type": "positive",
     "attributes": {
       "animalsDamage": 0.4,
-			"knifeDurabilityLoss": -0.25,
-			"rangedWeaponsSpeed": 0.4,
+      "knifeDurabilityLoss": -0.25,
+      "rangedWeaponsSpeed": 0.4,
       "rangedWeaponsAcc": 0.3
     }
   },
@@ -127,7 +127,7 @@
     "type": "positive",
     "attributes": {
       "saplingDropRate": 3,
-			"stickDropRate": 0.5
+      "stickDropRate": 0.5
     }
   },
   {
@@ -158,7 +158,7 @@
     "type": "positive",
     "attributes": {
       "vesselContentsDropRate": 0.35,
-			"rustyGearDropRate": 1.0
+      "rustyGearDropRate": 1.0
     }
   },
   {
@@ -656,12 +656,17 @@
     "attributes": {}
   },
   {
-    "code": "clockmaker-locust-whisperer",
+    "code": "druid-rituals",
     "type": "positive",
     "attributes": {}
   },
   {
-    "code": "clockmaker-tinkering",
+    "code": "druid-animal-kinship",
+    "type": "positive",
+    "attributes": {}
+  },
+  {
+    "code": "druid-wildstride",
     "type": "positive",
     "attributes": {}
   },
@@ -715,8 +720,8 @@
     "type": "positive",
     "attributes": {
       "rangedWeaponsDamage": 0.2,
-			"bowDrawingStrength": 0.25,
-			"rangedWeaponsSpeed": 1.0,
+      "bowDrawingStrength": 0.25,
+      "rangedWeaponsSpeed": 1.0,
       "rangedWeaponsAcc": 0.5
     }
   },
@@ -759,5 +764,5 @@
     "code": "rotwalker-recipes",
     "type": "positive",
     "attributes": {}
-    }
+  }
 ]
