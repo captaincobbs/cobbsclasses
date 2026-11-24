@@ -10,5 +10,8 @@
     "version": "1.0.0",
     "dependencies": {
         "game": "1.22.7"
-    }
+    },
+    "side": "Universal",
+    "requiredOnClient": true,
+    "requiredOnServer": true
 }

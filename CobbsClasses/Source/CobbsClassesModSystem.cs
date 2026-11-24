@@ -25,10 +25,10 @@ public class CobbsClassesModSystem : ModSystem
 
     public override void StartServerSide(ICoreServerAPI api)
     {
-        api.Event.PlayerReady += BlockReachHandler.UpdateBlockReach;
-        api.Event.PlayerRespawn += BlockReachHandler.UpdateBlockReach;
-        api.Event.PlayerSwitchGameMode += BlockReachHandler.UpdateBlockReach;
-        api.Event.AfterActiveSlotChanged += (player, _) => BlockReachHandler.UpdateBlockReach(player);
+        api.Event.PlayerReady += PlayerStatHandler.Refresh;
+        api.Event.PlayerRespawn += PlayerStatHandler.Refresh;
+        api.Event.PlayerSwitchGameMode += PlayerStatHandler.Refresh;
+        api.Event.AfterActiveSlotChanged += (player, _) => PlayerStatHandler.Refresh(player);
     }
 
     public override void Start(ICoreAPI api)

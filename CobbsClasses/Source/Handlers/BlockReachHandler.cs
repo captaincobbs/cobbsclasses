@@ -1,5 +1,6 @@
 ﻿using CobbsClasses.Source.Behaviors;
 
+using Vintagestory.API.Client;
 using Vintagestory.API.Common;
 using Vintagestory.API.Config;
 using Vintagestory.API.Server;
@@ -18,21 +19,14 @@ public static class BlockReachHandler
         return GlobalConstants.DefaultPickingRange + globalBonus + heldBonus;
     }
 
-    public static void UpdateBlockReach(IServerPlayer player)
+    public static void Refresh(IServerPlayer player)
     {
         if (player.WorldData.CurrentGameMode != EnumGameMode.Survival)
         {
             return;
         }
 
-        ItemStack? heldItem = player.InventoryManager.ActiveHotbarSlot?.Itemstack;
-        float range = GlobalConstants.DefaultPickingRange;
-
-        if (heldItem?.Collectible.Tool == EnumTool.Chisel)
-        {
-            range += player.Entity.Stats.GetBlended("chiselReach") - 1f;
-        }
-
+        float range = GetRange(player);
         if (player.WorldData.PickingRange != range)
         {
             player.WorldData.PickingRange = range;

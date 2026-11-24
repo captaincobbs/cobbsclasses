@@ -22,7 +22,7 @@
     "code": "herbalist-beekeeper",
     "type": "positive",
     "attributes": {
-      "beeDamage": -1,
+      "beeResistance": 1,
       "beeResourceMultiplier": 0.5
     }
   },
@@ -88,7 +88,9 @@
       "animalsDamage": 0.4,
       "knifeDurabilityLoss": -0.25,
       "rangedWeaponsSpeed": 0.4,
-      "rangedWeaponsAcc": 0.3
+      "rangedWeaponsAcc": 0.3,
+      "rangedWeaponsDamage": 0.15,
+      "bowDrawSpeed": 0.25
     }
   },
   {
@@ -97,7 +99,7 @@
     "attributes": {
       "animalSeekingRange": -0.7,
       "walkspeed": 0.1,
-      "crouchspeed": 1.0,
+      "sneakSpeed": 1.0,
       "trackdecay": 0.3
     }
   },
@@ -110,7 +112,7 @@
     "code": "lumberjack-treefeller",
     "type": "positive",
     "attributes": {
-      "charcoalDropRate": 0.5
+      "charcoalYieldMul": 0.5
     }
   },
   {
@@ -126,8 +128,9 @@
     "code": "lumberjack-treespeaker",
     "type": "positive",
     "attributes": {
-      "saplingDropRate": 3,
-      "stickDropRate": 0.5
+      "saplingYieldMul": 2,
+      "stickYieldMul": 0.5,
+      "cuttingYieldMul": 1
     }
   },
   {
@@ -187,7 +190,8 @@
     "code": "miner-cavedelver",
     "type": "positive",
     "attributes": {
-      "fallDamageFactor": -0.35
+      "fallDamageFactor": -0.35,
+      "crushingResistance": -0.5
     }
   },
   {
@@ -208,7 +212,7 @@
     "code": "potter-earthworks",
     "type": "positive",
     "attributes": {
-      "clayYield": 0.25,
+      "clayYieldMul": 0.25,
       "shovelSpeedMul": 0.5,
       "panningSpeedMul": 0.5,
       "panningLuck": 2
@@ -252,10 +256,10 @@
     "code": "sailor-fisherman",
     "type": "positive",
     "attributes": {
-      "fishFilletYield": 0.5,
-      "wormYield": 0.5,
+      "fishmeatYieldMul": 0.5,
+      "wormYieldMul": 0.5,
       "netSpeedMul": 0.5,
-      "fishingRodDurabilityLoss": -0.5
+      "fishingDurabilityLoss": -0.5
     }
   },
   {
@@ -424,7 +428,7 @@
     "code": "smith-hot",
     "type": "positive",
     "attributes": {
-      "fireDamage": -0.5,
+      "fireResistance": 0.5,
       "inventoryHeatRate": -0.5,
       "canHoldHotItems": 1,
       "canCraftHotItems": 1
@@ -535,6 +539,7 @@
     "type": "positive",
     "attributes": {
       "hungerrate": 0.3,
+      "maxHungerMul":  1.0,
       "globalSpeedMulWhenFull": 0.1,
       "globalSpeedMulWhenSated": 0.1
     }

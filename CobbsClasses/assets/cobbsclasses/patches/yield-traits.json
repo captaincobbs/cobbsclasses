@@ -1,0 +1,86 @@
+﻿[
+  {
+    "op": "add",
+    "file": "game:blocktypes/soil/clay.json",
+    "path": "/drops/0/dropModbyStat",
+    "value": "clayYieldMul"
+  },
+  {
+    "op": "add",
+    "file": "game:blocktypes/charcoalpile.json",
+    "path": "/drops/0/dropModbyStat",
+    "value": "charcoalYieldMul"
+  },
+  {
+    "op": "add",
+    "file": "game:blocktypes/plant/leaves/normal.json",
+    "path": "/drops/1/dropModByStat",
+    "value": "stickYieldMul"
+  },
+  {
+    "op": "add",
+    "file": "game:blocktypes/plant/leaves/narrow.json",
+    "path": "/drops/1/dropModByStat",
+    "value": "stickYieldMul"
+  },
+  {
+    "op": "add",
+    "file": "game:blocktypes/plant/leaves/branchy-birch-static.json",
+    "path": "/drops/0/dropModByStat",
+    "value": "stickYieldMul"
+  },
+  {
+    "op": "add",
+    "file": "game:blocktypes/plant/leaves/branchy.json",
+    "path": "/drops/1/dropModByStat",
+    "value": "stickYieldMul"
+  },
+  {
+    "op": "add",
+    "file": "game:blocktypes/wood/loosestick.json",
+    "path": "/drops/0/dropModByStat",
+    "value": "stickYieldMul"
+  },
+  {
+    "op": "add",
+    "file": "game:blocktypes/plant/leaves/normal.json",
+    "path": "/drops/0/dropModByStat",
+    "value": "saplingYieldMul"
+  },
+  {
+    "op": "add",
+    "file": "game:blocktypes/plant/leaves/narrow.json",
+    "path": "/drops/0/dropModByStat",
+    "value": "saplingYieldMul"
+  },
+  {
+    "op": "add",
+    "file": "game:blocktypes/plant/leaves/branchy.json",
+    "path": "/drops/0/dropModByStat",
+    "value": "saplingYieldMul"
+  },
+  {
+    "op": "add",
+    "file": "game:blocktypes/plant/leaves/bamboo.json",
+    "path": "/drops/0/dropModByStat",
+    "value": "saplingYieldMul"
+  },
+  {
+    "op": "add",
+    "file": "game:blocktypes/plant/fruittreebranch.json",
+    "path": "/dropsByType/*-branch/0/dropModByStat",
+    "value": "cuttingYieldMul"
+  },
+  {
+    "op": "add",
+    "file": "game:blocktypes/plant/mushroom.json",
+    "path": "/drops/0/dropModByStat",
+    "value": "mushroomYieldMul"
+  },
+  {
+    "op": "add",
+    "file": "game:blocktypes/plant/mushroom-side.json",
+    "path": "/drops/0/dropModByStat",
+    "value": "mushroomYieldMul"
+  }
+]
