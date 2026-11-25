@@ -14,13 +14,11 @@ namespace CobbsClasses.Source.Patches
     {
         private static TagSetFast animalTag;
         private static TagSetFast rustedTag;
-        private static TagSetFast mechanicalTag;
 
         internal static void InitializeTags(ICoreAPI api)
         {
             animalTag = api.EntityTagRegistry.CreateTagSet("animal");
             rustedTag = api.EntityTagRegistry.CreateTagSet("rust-creature");
-            mechanicalTag = api.EntityTagRegistry.CreateTagSet("mechanical");
         }
 
         private static void Prefix(EntityBehaviorHealth __instance, DamageSource damageSource, ref float damage)
@@ -42,10 +40,6 @@ namespace CobbsClasses.Source.Patches
             else if (target.Tags.Overlaps(animalTag))
             {
                 damage *= Multiplier(attacker, "animalsDamage");
-            }
-            else if (target.Tags.Overlaps(mechanicalTag))
-            {
-                damage *= Multiplier(attacker, "mechanicalDamage");
             }
         }
     }

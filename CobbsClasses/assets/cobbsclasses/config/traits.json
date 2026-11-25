@@ -1,5 +1,10 @@
 [
   {
+    "code": "commoner-test",
+    "type": "positive",
+    "attributes": { "rustedDamage": 10 }
+  },
+  {
     "code": "herbalist-greenthumb",
     "type": "positive",
     "attributes": {

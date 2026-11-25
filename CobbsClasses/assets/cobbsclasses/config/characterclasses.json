@@ -39,7 +39,7 @@
   {
     "enabled": true,
     "code": "cobbs-commoner",
-    "traits": [],
+    "traits": ["commoner-test"],
     "gear": [
       { "type": "item", "code": "game:clothes-upperbody-commoner-shirt" },
       { "type": "item", "code": "game:clothes-upperbodyover-commoner-coat" },
@@ -117,11 +117,12 @@
       "lumberjack-treespeaker"
     ],
     "gear": [
-      { "type": "item", "code": "game:clothes-upperbodyover-great-steppe-mantle" },
-      { "type": "item", "code": "game:clothes-upperbody-great-steppe-shirt" },
-      { "type": "item", "code": "game:clothes-lowerbody-homespun-pants" },
-      { "type": "item", "code": "game:clothes-hand-survivor" },
-      { "type": "item", "code": "game:clothes-foot-great-steppe-boots" }
+      { "type": "item", "code": "game:clothes-head-ruralhunter" },
+      { "type": "item", "code": "game:clothes-upperbody-warrior-tunic" },
+      { "type": "item", "code": "game:clothes-upperbodyover-furlinedvest" },
+      { "type": "item", "code": "game:clothes-lowerbody-workmans-gown" },
+      { "type": "item", "code": "game:clothes-waist-ruralfarmer" },
+      { "type": "item", "code": "game:clothes-foot-high-leather-boots" }
     ]
   },
   {

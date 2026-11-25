@@ -3,6 +3,7 @@ using System.Runtime.CompilerServices;
 
 using Vintagestory.API.Common;
 using Vintagestory.API.Common.Entities;
+using Vintagestory.API.Config;
 using Vintagestory.API.Datastructures;
 using Vintagestory.API.Server;
 using Vintagestory.GameContent;
@@ -30,7 +31,7 @@ namespace CobbsClasses.Source
         {
             serverAPI = api;
             JsonObject? configLib = ReadSettingsAsset(api, "cobbsclasses:config/conditional-traits.json");
-            JsonObject? imm =  ReadSettingsAsset(api, "cobbsclasses:config/imm-conditional-traits.json");
+            JsonObject? imm = ReadSettingsAsset(api, "cobbsclasses:config/imm-conditional-traits.json");
 
             int refreshInterval = (int)Math.Clamp(ReadSetting(configLib, imm, "RefreshInterval", DefaultRefreshInterval), 50f, 60_000f);
             satedThreshold = Math.Clamp(ReadSetting(configLib, imm, "SatedThreshold", DefaultSatedThreshold), 0f, 1f);
@@ -86,9 +87,13 @@ namespace CobbsClasses.Source
         {
             EntityStats stats = entity.Stats;
             float walk = 0f;
+            float crouch = 0f;
             float jump = 0f;
             float hunger = 0f;
             float toolSpeed = 0f;
+            float regenRate = 0f;
+            float regenFlat = 0f;
+            float detectionRange = 0f;
 
             if (IsActivePlayer(player))
             {
@@ -98,6 +103,56 @@ namespace CobbsClasses.Source
                 if ((walk != 0f || jump != 0f || hunger != 0f) && HasNearbyPlayer(player, onlinePlayers))
                 {
                     walk = jump = hunger = 0f;
+                }
+
+                float unarmoredWalk = stats.GetBlended("moveSpeedUnarmored") - 1f;
+                float unarmoredCrouch = stats.GetBlended("sneakSpeedUnarmored") - 1f;
+                float unarmoredRegenRate = stats.GetBlended("healthRegenRateUnarmored") - 1f;
+                float unarmoredRegenFlat = stats.GetBlended("healthRegenFlatUnarmored") - 1f;
+                float unarmoredDetectionRange = stats.GetBlended("animalSeekingRangeUnarmored") - 1f;
+                float lightArmorWalk = stats.GetBlended("moveSpeedLightArmor") - 1f;
+                float lightArmorCrouch = stats.GetBlended("sneakSpeedLightArmor") - 1f;
+                float lightArmorRegenRate = stats.GetBlended("healthRegenRateLightArmor") - 1f;
+                float lightArmorRegenFlat = stats.GetBlended("healthRegenFlatLightArmor") - 1f;
+                float lightArmorDetectionRange = stats.GetBlended("animalSeekingRangeLightArmor") - 1f;
+                float heavyArmorWalk = stats.GetBlended("moveSpeedHeavyArmor") - 1f;
+                float heavyArmorCrouch = stats.GetBlended("sneakSpeedHeavyArmor") - 1f;
+                float heavyArmorRegenRate = stats.GetBlended("healthRegenRateHeavyArmor") - 1f;
+                float heavyArmorRegenFlat = stats.GetBlended("healthRegenFlatHeavyArmor") - 1f;
+                float heavyArmorDetectionRange = stats.GetBlended("animalSeekingRangeHeavyArmor") - 1f;
+                if (unarmoredWalk != 0f || unarmoredCrouch != 0f || unarmoredRegenRate != 0f || unarmoredRegenFlat != 0f || lightArmorWalk != 0f || lightArmorCrouch != 0f || lightArmorRegenRate != 0f || lightArmorRegenFlat != 0f || heavyArmorWalk != 0f || heavyArmorCrouch != 0f || heavyArmorRegenRate != 0f || heavyArmorRegenFlat != 0f
+                    || unarmoredDetectionRange != 0f || lightArmorDetectionRange != 0f || heavyArmorDetectionRange != 0f)
+                {
+                    switch (GetArmorWeight(player))
+                    {
+                        case ArmorWeight.Unarmored:
+                        {
+                            walk += unarmoredWalk;
+                            crouch += unarmoredCrouch;
+                            regenRate = unarmoredRegenRate;
+                            regenFlat = unarmoredRegenFlat;
+                            detectionRange = unarmoredDetectionRange;
+                            break;
+                        }
+                        case ArmorWeight.Light:
+                        {
+                            walk += lightArmorWalk;
+                            crouch += lightArmorCrouch;
+                            regenRate = lightArmorRegenRate;
+                            regenFlat = lightArmorRegenFlat;
+                            detectionRange = lightArmorDetectionRange;
+                            break;
+                        }
+                        case ArmorWeight.Heavy:
+                        {
+                            walk += heavyArmorWalk;
+                            crouch += heavyArmorCrouch;
+                            regenRate = heavyArmorRegenRate;
+                            regenFlat = heavyArmorRegenFlat;
+                            detectionRange = heavyArmorDetectionRange;
+                            break;
+                        }
+                    }
                 }
 
                 float satedBonus = stats.GetBlended("globalSpeedMulWhenSated") - 1f;
@@ -110,7 +165,8 @@ namespace CobbsClasses.Source
 
             if (!appliedBonuses.TryGetValue(stats, out AppliedBonuses? applied))
             {
-                if (walk == 0f && jump == 0f && hunger == 0f && toolSpeed == 0f)
+                if (walk == 0f && crouch == 0f && jump == 0f && hunger == 0f && toolSpeed == 0f && regenRate == 0f && regenFlat == 0f
+                    && detectionRange == 0f)
                 {
                     return;
                 }
@@ -118,12 +174,48 @@ namespace CobbsClasses.Source
             }
 
             ApplyBonus(stats, "walkspeed", walk, ref applied.Walk);
+            ApplyBonus(stats, "sneakSpeed", crouch, ref applied.Sneak);
             ApplyBonus(stats, "jumpHeightMul", jump, ref applied.Jump);
             ApplyBonus(stats, "hungerrate", hunger, ref applied.Hunger);
             ApplyBonus(stats, "globalSpeedMul", toolSpeed, ref applied.ToolSpeed);
+            ApplyBonus(stats, "healthRegenRate", regenRate, ref applied.RegenRate);
+            ApplyBonus(stats, "healthRegenFlat", regenFlat, ref applied.RegenFlat);
+            ApplyBonus(stats, "animalSeekingRange", detectionRange, ref applied.DetectionRange);
         }
 
         private static bool IsActivePlayer(IServerPlayer player) => player.ConnectionState == EnumClientState.Playing && player.Entity is { Alive: true } && player.WorldData.CurrentGameMode == EnumGameMode.Survival;
+
+        private static ArmorWeight GetArmorWeight(IPlayer player)
+        {
+            IInventory? equipment = player.InventoryManager.GetOwnInventory(GlobalConstants.characterInvClassName);
+            if (equipment is null)
+            {
+                return ArmorWeight.Heavy;
+            }
+
+            bool hasArmor = false;
+            float movementPenalty = 0f;
+            foreach (ItemSlot slot in equipment)
+            {
+                if (slot.Itemstack?.Collectible.GetCollectibleInterface<IWearableStatsSupplier>() is not { } wearable
+                    || !wearable.IsArmorType(slot))
+                {
+                    continue;
+                }
+
+                hasArmor = true;
+                float walkSpeedModifier = wearable.GetStatModifiers(slot)?.walkSpeed ?? 0f;
+                movementPenalty += Math.Max(0f, -walkSpeedModifier);
+            }
+
+            if (!hasArmor)
+            {
+                return ArmorWeight.Unarmored;
+            }
+
+            // Class movement bonuses and positive gear modifiers do not offset armor weight.
+            return movementPenalty <= 0.10001f ? ArmorWeight.Light : ArmorWeight.Heavy;
+        }
 
         private bool HasNearbyPlayer(IServerPlayer player, IPlayer[] onlinePlayers)
         {
@@ -192,12 +284,23 @@ namespace CobbsClasses.Source
             applied = bonus;
         }
 
+        private enum ArmorWeight
+        {
+            Unarmored,
+            Light,
+            Heavy
+        }
+
         private sealed class AppliedBonuses
         {
             public float Walk;
+            public float Sneak;
             public float Jump;
             public float Hunger;
             public float ToolSpeed;
+            public float RegenRate;
+            public float RegenFlat;
+            public float DetectionRange;
         }
     }
 }

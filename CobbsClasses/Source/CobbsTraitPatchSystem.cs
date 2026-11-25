@@ -26,9 +26,12 @@ namespace CobbsClasses.Source
             harmony.CreateClassProcessor(typeof(BoatPatch)).Patch();
             harmony.CreateClassProcessor(typeof(MountPatch)).Patch();
             harmony.CreateClassProcessor(typeof(TemperatureTolerancePatch)).Patch();
+            harmony.CreateClassProcessor(typeof(ArmorPenaltyPatch)).Patch();
             harmony.CreateClassProcessor(typeof(RegenPatch)).Patch();
             harmony.CreateClassProcessor(typeof(FruitingBushCuttingPatch)).Patch();
             harmony.CreateClassProcessor(typeof(PanningLuckPatch)).Patch();
+            harmony.CreateClassProcessor(typeof(TargetDamagePatch)).Patch();
+            harmony.CreateClassProcessor(typeof(DamageResistancePatch)).Patch();
         }
 
         public override void AssetsFinalize(ICoreAPI api)

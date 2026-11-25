@@ -1,0 +1,6 @@
+{
+  "RefreshInterval": 500,
+  "SatedThreshold": 0.6,
+  "FullThreshold": 0.85,
+  "AloneRadius": 32.0
+}

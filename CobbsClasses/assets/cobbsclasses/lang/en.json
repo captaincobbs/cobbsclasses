@@ -1,6 +1,7 @@
 {
   "game:characterclass-cobbs-commoner": "Commoner",
   "game:characterdesc-cobbs-commoner": "A generalist ready to make a living wherever they settle.",
+  "game:trait-commoner-test": "Test",
 
   "game:characterclass-cobbs-herbalist": "Herbalist",
   "game:characterdesc-cobbs-herbalist": "A keeper of bees and tender of plants who gathers ingredients for natural remedies.",

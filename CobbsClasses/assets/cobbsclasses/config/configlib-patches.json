@@ -1,6 +1,13 @@
 {
   "version": 2,
   "patches": {
+    "float": {
+      "cobbsclasses:config/conditional-traits.json": {
+        "SatedThreshold": "CONDITIONAL_SATED_THRESHOLD",
+        "FullThreshold": "CONDITIONAL_FULL_THRESHOLD",
+        "AloneRadius": "CONDITIONAL_ALONE_RADIUS"
+      }
+    },
     "boolean": {
       "cobbsclasses:config/class-options.json": {
         "cobbs-commoner-disable-class": "COBBS_COMMONER_DISABLE_CLASS",
@@ -56,6 +63,9 @@
       }
     },
     "integer": {
+      "cobbsclasses:config/conditional-traits.json": {
+        "RefreshInterval": "CONDITIONAL_REFRESH_INTERVAL"
+      },
       "cobbsclasses:config/class-options.json": {
         "cobbs-commoner-unique-recipe-access": "COBBS_COMMONER_UNIQUE_RECIPE_ACCESS",
         "cobbs-herbalist-unique-recipe-access": "COBBS_HERBALIST_UNIQUE_RECIPE_ACCESS",
@@ -86,6 +96,43 @@
     }
   },
   "settings": {
+    "float": {
+      "CONDITIONAL_SATED_THRESHOLD": {
+        "name": "conditional-sated-threshold",
+        "ingui": "cobbsclasses:setting-conditional-sated-threshold",
+        "weight": 81,
+        "comment": "cobbsclasses:setting-conditional-sated-threshold-description",
+        "default": 0.6,
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        }
+      },
+      "CONDITIONAL_FULL_THRESHOLD": {
+        "name": "conditional-full-threshold",
+        "ingui": "cobbsclasses:setting-conditional-full-threshold",
+        "weight": 82,
+        "comment": "cobbsclasses:setting-conditional-full-threshold-description",
+        "default": 0.85,
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        }
+      },
+      "CONDITIONAL_ALONE_RADIUS": {
+        "name": "conditional-alone-radius",
+        "ingui": "cobbsclasses:setting-conditional-alone-radius",
+        "weight": 83,
+        "comment": "cobbsclasses:setting-conditional-alone-radius-description",
+        "default": 32,
+        "range": {
+          "min": 0,
+          "max": 1024
+        }
+      }
+    },
     "boolean": {
       "COBBS_COMMONER_DISABLE_CLASS": {
         "name": "cobbs-commoner-disable-class",
@@ -439,6 +486,17 @@
       }
     },
     "integer": {
+      "CONDITIONAL_REFRESH_INTERVAL": {
+        "name": "conditional-refresh-interval",
+        "ingui": "cobbsclasses:setting-conditional-refresh-interval",
+        "weight": 80,
+        "comment": "cobbsclasses:setting-conditional-refresh-interval-description",
+        "default": 500,
+        "range": {
+          "min": 50,
+          "max": 60000
+        }
+      },
       "COBBS_COMMONER_UNIQUE_RECIPE_ACCESS": {
         "name": "cobbs-commoner-unique-recipe-access",
         "ingui": "game:characterclass-cobbs-commoner",
@@ -742,6 +800,11 @@
     }
   },
   "formatting": [
+    {
+      "type": "separator",
+      "title": "cobbsclasses:settings-section-conditional-bonuses",
+      "weight": 79
+    },
     {
       "type": "separator",
       "title": "cobbsclasses:settings-section-disable-class",

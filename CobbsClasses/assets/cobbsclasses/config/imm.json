@@ -1,6 +1,84 @@
 {
   "Configuration": [
     {
+      "ConfigLabel": "cobbsclasses:settings-section-conditional-bonuses",
+      "Description": "cobbsclasses:conditional-settings-reload-description",
+      "ConfigSource": "PatchSettings",
+      "ConfigSide": "Server",
+      "Settings": [
+        {
+          "Type": "Integer",
+          "Label": "cobbsclasses:setting-conditional-refresh-interval",
+          "Description": "cobbsclasses:setting-conditional-refresh-interval-description",
+          "Code": "conditional-refresh-interval",
+          "Default": 500,
+          "Targets": [
+            {
+              "Asset": "cobbsclasses:config/imm-conditional-traits.json",
+              "Path": "RefreshInterval",
+              "Timing": "AfterPatches",
+              "ResultType": "Integer",
+              "Side": "Server"
+            }
+          ]
+        },
+        {
+          "Type": "Slider",
+          "Label": "cobbsclasses:setting-conditional-sated-threshold",
+          "Description": "cobbsclasses:setting-conditional-sated-threshold-description",
+          "Code": "conditional-sated-threshold",
+          "Default": 0.6,
+          "Min": 0,
+          "Max": 1,
+          "Step": 0.01,
+          "Targets": [
+            {
+              "Asset": "cobbsclasses:config/imm-conditional-traits.json",
+              "Path": "SatedThreshold",
+              "Timing": "AfterPatches",
+              "ResultType": "Decimal",
+              "Side": "Server"
+            }
+          ]
+        },
+        {
+          "Type": "Slider",
+          "Label": "cobbsclasses:setting-conditional-full-threshold",
+          "Description": "cobbsclasses:setting-conditional-full-threshold-description",
+          "Code": "conditional-full-threshold",
+          "Default": 0.85,
+          "Min": 0,
+          "Max": 1,
+          "Step": 0.01,
+          "Targets": [
+            {
+              "Asset": "cobbsclasses:config/imm-conditional-traits.json",
+              "Path": "FullThreshold",
+              "Timing": "AfterPatches",
+              "ResultType": "Decimal",
+              "Side": "Server"
+            }
+          ]
+        },
+        {
+          "Type": "Decimal",
+          "Label": "cobbsclasses:setting-conditional-alone-radius",
+          "Description": "cobbsclasses:setting-conditional-alone-radius-description",
+          "Code": "conditional-alone-radius",
+          "Default": 32,
+          "Targets": [
+            {
+              "Asset": "cobbsclasses:config/imm-conditional-traits.json",
+              "Path": "AloneRadius",
+              "Timing": "AfterPatches",
+              "ResultType": "Decimal",
+              "Side": "Server"
+            }
+          ]
+        }
+      ]
+    },
+    {
       "ConfigLabel": "cobbsclasses:settings-section-disable-class",
       "Description": "cobbsclasses:class-settings-reload-description",
       "ConfigSource": "PatchSettings",
