@@ -5,3 +5,5 @@ dotnet_diagnostic.IDE0290.severity = none
 
 # IDE0008: Use explicit type
 dotnet_diagnostic.IDE0008.severity = warning
+
+csharp_indent_case_contents_when_block = false
