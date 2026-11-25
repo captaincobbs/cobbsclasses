@@ -25,7 +25,7 @@ namespace CobbsClasses.Source.Patches
 
         private static void Prefix(EntityBehaviorHealth __instance, DamageSource damageSource, ref float damage)
         {
-            if (__instance.entity is not EntityPlayer player || player.World.Side != EnumAppSide.Server || damage <= 0f ||damageSource.Type == EnumDamageType.Heal)
+            if (__instance.entity is not EntityPlayer player || player.World.Side != EnumAppSide.Server || damage <= 0f || damageSource.Type == EnumDamageType.Heal)
             {
                 return;
             }
@@ -102,7 +102,7 @@ namespace CobbsClasses.Source.Patches
                 return 1f;
             }
 
-            return 1f - Math.Clamp(player.Stats.GetBlended(stat) - 1f, 0f, 1f);
+            return 1f - Math.Clamp(player.Stats.GetBlended(stat) - 1f, -1f, 1f);
         }
     }
 }

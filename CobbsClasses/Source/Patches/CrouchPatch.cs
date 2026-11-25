@@ -39,8 +39,8 @@ namespace CobbsClasses.Source.Patches
             if (agent is EntityPlayer player)
             {
                 // Sneak speed bonus is based on % of speed difference from walk speed, rather than a % bonus
-                float ratio = Math.Clamp(player.Stats.GetBlended("sneakSpeed") - 1f, 0f, 1f);
-                return normalSneakSpeed + (1f - normalSneakSpeed) * ratio;
+                float ratio = Math.Clamp(player.Stats.GetBlended("sneakSpeed") - 1f, -1f, 1f);
+                return ratio < 0f ? normalSneakSpeed * (1f + ratio) : normalSneakSpeed + (1f - normalSneakSpeed) * ratio;
             }
 
             return normalSneakSpeed;

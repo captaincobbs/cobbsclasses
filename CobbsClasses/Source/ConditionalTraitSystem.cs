@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Runtime.CompilerServices;
 
 using Vintagestory.API.Common;
@@ -14,12 +15,29 @@ namespace CobbsClasses.Source
     {
         private const string MODIFIER_SOURCE = "cobbsclasses-conditional";
         private const int DefaultRefreshInterval = 500;
-        private const float DefaultAloneRadius = 32 * 32;
+        private const float DefaultAloneRadius = 32f;
         private const float DefaultSatedThreshold = 0.6f;
         private const float DefaultFullThreshold = 0.85f;
 
 
-        private readonly ConditionalWeakTable<EntityStats, AppliedBonuses> appliedBonuses = [];
+        private static readonly ArmorStat[] ArmorStats =
+        [
+            new("walkspeed", "moveSpeed"),
+            new("sneakSpeed", "sneakSpeed"),
+            new("healthRegenRate", "healthRegenRate"),
+            new("healthRegenFlat", "healthRegenFlat"),
+            new("animalSeekingRange", "animalSeekingRange"),
+            new("armorProtection", "armorProtection"),
+            new("armorFlatProtection", "armorFlatProtection")
+        ];
+
+        private static readonly string[] OutputStats =
+        [
+            .. ArmorStats.Select(rule => rule.Output),
+            "jumpHeightMul", "hungerrate", "globalSpeedMul"
+        ];
+
+        private readonly ConditionalWeakTable<EntityStats, float[]> appliedBonuses = [];
         private ICoreServerAPI? serverAPI;
         private long refreshListener;
         private float satedThreshold = DefaultSatedThreshold;
@@ -86,101 +104,92 @@ namespace CobbsClasses.Source
         private void RefreshPlayer(IServerPlayer player, EntityPlayer entity, IPlayer[] onlinePlayers)
         {
             EntityStats stats = entity.Stats;
-            float walk = 0f;
-            float crouch = 0f;
-            float jump = 0f;
-            float hunger = 0f;
-            float toolSpeed = 0f;
-            float regenRate = 0f;
-            float regenFlat = 0f;
-            float detectionRange = 0f;
+            Span<float> bonuses = stackalloc float[OutputStats.Length];
+            bonuses.Clear();
 
             if (IsActivePlayer(player))
             {
-                walk = stats.GetBlended("moveSpeedAlone") - 1f;
-                jump = stats.GetBlended("jumpHeightMulAlone") - 1f;
-                hunger = stats.GetBlended("hungerrateAlone") - 1f;
-                if ((walk != 0f || jump != 0f || hunger != 0f) && HasNearbyPlayer(player, onlinePlayers))
-                {
-                    walk = jump = hunger = 0f;
-                }
-
-                float unarmoredWalk = stats.GetBlended("moveSpeedUnarmored") - 1f;
-                float unarmoredCrouch = stats.GetBlended("sneakSpeedUnarmored") - 1f;
-                float unarmoredRegenRate = stats.GetBlended("healthRegenRateUnarmored") - 1f;
-                float unarmoredRegenFlat = stats.GetBlended("healthRegenFlatUnarmored") - 1f;
-                float unarmoredDetectionRange = stats.GetBlended("animalSeekingRangeUnarmored") - 1f;
-                float lightArmorWalk = stats.GetBlended("moveSpeedLightArmor") - 1f;
-                float lightArmorCrouch = stats.GetBlended("sneakSpeedLightArmor") - 1f;
-                float lightArmorRegenRate = stats.GetBlended("healthRegenRateLightArmor") - 1f;
-                float lightArmorRegenFlat = stats.GetBlended("healthRegenFlatLightArmor") - 1f;
-                float lightArmorDetectionRange = stats.GetBlended("animalSeekingRangeLightArmor") - 1f;
-                float heavyArmorWalk = stats.GetBlended("moveSpeedHeavyArmor") - 1f;
-                float heavyArmorCrouch = stats.GetBlended("sneakSpeedHeavyArmor") - 1f;
-                float heavyArmorRegenRate = stats.GetBlended("healthRegenRateHeavyArmor") - 1f;
-                float heavyArmorRegenFlat = stats.GetBlended("healthRegenFlatHeavyArmor") - 1f;
-                float heavyArmorDetectionRange = stats.GetBlended("animalSeekingRangeHeavyArmor") - 1f;
-                if (unarmoredWalk != 0f || unarmoredCrouch != 0f || unarmoredRegenRate != 0f || unarmoredRegenFlat != 0f || lightArmorWalk != 0f || lightArmorCrouch != 0f || lightArmorRegenRate != 0f || lightArmorRegenFlat != 0f || heavyArmorWalk != 0f || heavyArmorCrouch != 0f || heavyArmorRegenRate != 0f || heavyArmorRegenFlat != 0f
-                    || unarmoredDetectionRange != 0f || lightArmorDetectionRange != 0f || heavyArmorDetectionRange != 0f)
-                {
-                    switch (GetArmorWeight(player))
-                    {
-                        case ArmorWeight.Unarmored:
-                        {
-                            walk += unarmoredWalk;
-                            crouch += unarmoredCrouch;
-                            regenRate = unarmoredRegenRate;
-                            regenFlat = unarmoredRegenFlat;
-                            detectionRange = unarmoredDetectionRange;
-                            break;
-                        }
-                        case ArmorWeight.Light:
-                        {
-                            walk += lightArmorWalk;
-                            crouch += lightArmorCrouch;
-                            regenRate = lightArmorRegenRate;
-                            regenFlat = lightArmorRegenFlat;
-                            detectionRange = lightArmorDetectionRange;
-                            break;
-                        }
-                        case ArmorWeight.Heavy:
-                        {
-                            walk += heavyArmorWalk;
-                            crouch += heavyArmorCrouch;
-                            regenRate = heavyArmorRegenRate;
-                            regenFlat = heavyArmorRegenFlat;
-                            detectionRange = heavyArmorDetectionRange;
-                            break;
-                        }
-                    }
-                }
-
-                float satedBonus = stats.GetBlended("globalSpeedMulWhenSated") - 1f;
-                float fullBonus = stats.GetBlended("globalSpeedMulWhenFull") - 1f;
-                if ((satedBonus != 0f || fullBonus != 0f) && entity.GetBehavior<EntityBehaviorHunger>() is { } food)
-                {
-                    toolSpeed = GetFoodSpeedBonus(food.Saturation, food.MaxSaturation, satedBonus, fullBonus);
-                }
+                AddAloneBonuses(player, onlinePlayers, stats, bonuses);
+                AddArmorBonuses(player, stats, bonuses);
+                AddFoodBonus(entity, stats, bonuses);
             }
 
-            if (!appliedBonuses.TryGetValue(stats, out AppliedBonuses? applied))
+            if (!appliedBonuses.TryGetValue(stats, out float[]? applied))
             {
-                if (walk == 0f && crouch == 0f && jump == 0f && hunger == 0f && toolSpeed == 0f && regenRate == 0f && regenFlat == 0f
-                    && detectionRange == 0f)
+                if (bonuses.IndexOfAnyExcept(0f) < 0)
                 {
                     return;
                 }
-                applied = appliedBonuses.GetValue(stats, static _ => new AppliedBonuses());
+
+                applied = appliedBonuses.GetValue(stats, static _ => new float[OutputStats.Length]);
             }
 
-            ApplyBonus(stats, "walkspeed", walk, ref applied.Walk);
-            ApplyBonus(stats, "sneakSpeed", crouch, ref applied.Sneak);
-            ApplyBonus(stats, "jumpHeightMul", jump, ref applied.Jump);
-            ApplyBonus(stats, "hungerrate", hunger, ref applied.Hunger);
-            ApplyBonus(stats, "globalSpeedMul", toolSpeed, ref applied.ToolSpeed);
-            ApplyBonus(stats, "healthRegenRate", regenRate, ref applied.RegenRate);
-            ApplyBonus(stats, "healthRegenFlat", regenFlat, ref applied.RegenFlat);
-            ApplyBonus(stats, "animalSeekingRange", detectionRange, ref applied.DetectionRange);
+            for (int index = 0; index < OutputStats.Length; index++)
+            {
+                ApplyBonus(stats, OutputStats[index], bonuses[index], ref applied[index]);
+            }
+        }
+
+        private void AddAloneBonuses(IServerPlayer player, IPlayer[] onlinePlayers, EntityStats stats, Span<float> bonuses)
+        {
+            float walk = stats.GetBlended("moveSpeedAlone") - 1f;
+            float jump = stats.GetBlended("jumpHeightMulAlone") - 1f;
+            float hunger = stats.GetBlended("hungerrateAlone") - 1f;
+            if ((walk != 0f || jump != 0f || hunger != 0f) && !HasNearbyPlayer(player, onlinePlayers))
+            {
+                bonuses[Array.IndexOf(OutputStats, "walkspeed")] += walk;
+                bonuses[Array.IndexOf(OutputStats, "jumpHeightMul")] += jump;
+                bonuses[Array.IndexOf(OutputStats, "hungerrate")] += hunger;
+            }
+        }
+
+        private static void AddArmorBonuses(IServerPlayer player, EntityStats stats, Span<float> bonuses)
+        {
+            if (!HasArmorBonuses(stats))
+            {
+                return;
+            }
+
+            ArmorWeight weight = GetArmorWeight(player);
+            for (int index = 0; index < ArmorStats.Length; index++)
+            {
+                ArmorStat rule = ArmorStats[index];
+                string? input = weight switch
+                {
+                    ArmorWeight.Unarmored => rule.Unarmored,
+                    ArmorWeight.Light => rule.Light,
+                    ArmorWeight.Heavy => rule.Heavy,
+                    _ => null
+                };
+                if (input is not null)
+                {
+                    bonuses[index] += stats.GetBlended(input) - 1f;
+                }
+            }
+        }
+
+        private static bool HasArmorBonuses(EntityStats stats)
+        {
+            foreach (ArmorStat rule in ArmorStats)
+            {
+                if (stats.GetBlended(rule.Unarmored) != 1f || stats.GetBlended(rule.Light) != 1f
+                    || stats.GetBlended(rule.Heavy) != 1f)
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+        private void AddFoodBonus(EntityPlayer entity, EntityStats stats, Span<float> bonuses)
+        {
+            float sated = stats.GetBlended("globalSpeedMulWhenSated") - 1f;
+            float full = stats.GetBlended("globalSpeedMulWhenFull") - 1f;
+            if ((sated != 0f || full != 0f) && entity.GetBehavior<EntityBehaviorHunger>() is { } food)
+            {
+                bonuses[Array.IndexOf(OutputStats, "globalSpeedMul")] += GetFoodSpeedBonus(food.Saturation, food.MaxSaturation, sated, full);
+            }
         }
 
         private static bool IsActivePlayer(IServerPlayer player) => player.ConnectionState == EnumClientState.Playing && player.Entity is { Alive: true } && player.WorldData.CurrentGameMode == EnumGameMode.Survival;
@@ -190,7 +199,7 @@ namespace CobbsClasses.Source
             IInventory? equipment = player.InventoryManager.GetOwnInventory(GlobalConstants.characterInvClassName);
             if (equipment is null)
             {
-                return ArmorWeight.Heavy;
+                return ArmorWeight.Unknown;
             }
 
             bool hasArmor = false;
@@ -286,21 +295,18 @@ namespace CobbsClasses.Source
 
         private enum ArmorWeight
         {
+            Unknown,
             Unarmored,
             Light,
             Heavy
         }
 
-        private sealed class AppliedBonuses
+        private sealed class ArmorStat(string output, string input)
         {
-            public float Walk;
-            public float Sneak;
-            public float Jump;
-            public float Hunger;
-            public float ToolSpeed;
-            public float RegenRate;
-            public float RegenFlat;
-            public float DetectionRange;
+            public string Output { get; } = output;
+            public string Unarmored { get; } = input + "Unarmored";
+            public string Light { get; } = input + "LightArmor";
+            public string Heavy { get; } = input + "HeavyArmor";
         }
     }
 }

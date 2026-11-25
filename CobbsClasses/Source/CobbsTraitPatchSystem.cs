@@ -27,11 +27,28 @@ namespace CobbsClasses.Source
             harmony.CreateClassProcessor(typeof(MountPatch)).Patch();
             harmony.CreateClassProcessor(typeof(TemperatureTolerancePatch)).Patch();
             harmony.CreateClassProcessor(typeof(ArmorPenaltyPatch)).Patch();
+            harmony.CreateClassProcessor(typeof(ArmorProtectionPatch)).Patch();
             harmony.CreateClassProcessor(typeof(RegenPatch)).Patch();
             harmony.CreateClassProcessor(typeof(FruitingBushCuttingPatch)).Patch();
             harmony.CreateClassProcessor(typeof(PanningLuckPatch)).Patch();
+            harmony.CreateClassProcessor(typeof(PanningSpeedPatch)).Patch();
+            harmony.CreateClassProcessor(typeof(MillingSpeedPatch)).Patch();
+            harmony.CreateClassProcessor(typeof(MechanicalRecoveryPatch)).Patch();
             harmony.CreateClassProcessor(typeof(TargetDamagePatch)).Patch();
             harmony.CreateClassProcessor(typeof(DamageResistancePatch)).Patch();
+            harmony.CreateClassProcessor(typeof(KnockbackPatch)).Patch();
+            harmony.CreateClassProcessor(typeof(AnimalHarvestYieldPatch)).Patch();
+            harmony.CreateClassProcessor(typeof(FishFilletYieldPatch)).Patch();
+            harmony.CreateClassProcessor(typeof(BloomeryCapacityPatch)).Patch();
+            harmony.CreateClassProcessor(typeof(ClayVoxelYieldPatch)).Patch();
+            ClayRecoveryPatch.Register(harmony);
+            BloomeryFuelPatch.Register(harmony);
+            harmony.CreateClassProcessor(typeof(ChiselMaterialPatch)).Patch();
+            WorkpieceCoolingPatch.Register(harmony);
+            harmony.CreateClassProcessor(typeof(HotItemPatch)).Patch();
+            CrockFreshnessPatch.Register(harmony);
+            harmony.CreateClassProcessor(typeof(SharpeningPatch)).Patch();
+            QuenchModifierPatch.Register(harmony);
         }
 
         public override void AssetsFinalize(ICoreAPI api)
@@ -39,6 +56,8 @@ namespace CobbsClasses.Source
             if (api.Side == EnumAppSide.Server)
             {
                 TargetDamagePatch.InitializeTags(api);
+                AnimalHarvestYieldPatch.InitializeTags(api);
+                DamageResistancePatch.InitializeTags(api);
             }
         }
 

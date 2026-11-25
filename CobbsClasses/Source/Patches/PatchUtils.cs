@@ -44,8 +44,7 @@ namespace CobbsClasses.Source.Patches
         {
             if (actual != expected)
             {
-                throw new InvalidOperationException(
-                    $"Expected {expected} Vintage Story code matches for {feature}, found {actual}.");
+                throw new InvalidOperationException($"Expected {expected} Vintage Story code matches for {feature}, found {actual}.");
             }
         }
     }

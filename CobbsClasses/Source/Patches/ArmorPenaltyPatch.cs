@@ -16,8 +16,7 @@ namespace CobbsClasses.Source.Patches
     {
         private static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
         {
-            MethodInfo vanillaModifiers = AccessTools.Method(
-                typeof(IWearableStatsSupplier), nameof(IWearableStatsSupplier.GetStatModifiers));
+            MethodInfo vanillaModifiers = AccessTools.Method(typeof(IWearableStatsSupplier), nameof(IWearableStatsSupplier.GetStatModifiers));
             MethodInfo adjustedModifiers = AccessTools.Method(typeof(ArmorPenaltyPatch), nameof(GetAdjustedModifiers));
             return ReplaceCall(instructions, vanillaModifiers, adjustedModifiers, OpCodes.Ldarg_2, "armor penalties");
         }
@@ -36,8 +35,7 @@ namespace CobbsClasses.Source.Patches
             float aimAccuracy = AdjustPenalty(modifiers.rangedWeaponsAcc, rangedFactor, positivePenalty: false);
             float aimSpeed = AdjustPenalty(modifiers.rangedWeaponsSpeed, rangedFactor, positivePenalty: false);
 
-            if (healing == modifiers.healingeffectivness && hunger == modifiers.hungerrate
-                && aimAccuracy == modifiers.rangedWeaponsAcc && aimSpeed == modifiers.rangedWeaponsSpeed)
+            if (healing == modifiers.healingeffectivness && hunger == modifiers.hungerrate && aimAccuracy == modifiers.rangedWeaponsAcc && aimSpeed == modifiers.rangedWeaponsSpeed)
             {
                 return modifiers;
             }
