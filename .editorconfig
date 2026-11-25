@@ -7,3 +7,8 @@ dotnet_diagnostic.IDE0290.severity = none
 dotnet_diagnostic.IDE0008.severity = warning
 
 csharp_indent_case_contents_when_block = false
+csharp_preserve_single_line_statements = true
+csharp_preserve_single_line_blocks = true
+csharp_new_line_before_members_in_object_initializers = true
+csharp_new_line_before_open_brace = all
+dotnet_diagnostic.IDE0055.severity = suggestion
