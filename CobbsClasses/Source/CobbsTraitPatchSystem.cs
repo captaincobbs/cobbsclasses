@@ -47,8 +47,16 @@ namespace CobbsClasses.Source
             WorkpieceCoolingPatch.Register(harmony);
             harmony.CreateClassProcessor(typeof(HotItemPatch)).Patch();
             CrockFreshnessPatch.Register(harmony);
+            FoodConsumptionPatch.Register(harmony);
+            CookedFoodPatch.Register(harmony);
+            harmony.CreateClassProcessor(typeof(AnimalBehaviorPatch)).Patch();
+            harmony.CreateClassProcessor(typeof(RoadSpeedPatch)).Patch();
+            SupportTraitSystem.Register(harmony);
             harmony.CreateClassProcessor(typeof(SharpeningPatch)).Patch();
             QuenchModifierPatch.Register(harmony);
+            CapacityInventoryPatch.Register(harmony);
+            HoneycombYieldPatch.Register(harmony);
+            harmony.CreateClassProcessor(typeof(PigmentUsePatch)).Patch();
         }
 
         public override void AssetsFinalize(ICoreAPI api)
@@ -58,6 +66,9 @@ namespace CobbsClasses.Source
                 TargetDamagePatch.InitializeTags(api);
                 AnimalHarvestYieldPatch.InitializeTags(api);
                 DamageResistancePatch.InitializeTags(api);
+                AnimalBehaviorPatch.InitializeTags(api);
+                HoneycombYieldPatch.RegisterOptional(new Harmony(HarmonyOwner), api.Logger);
+                CookedFoodPatch.RegisterOptionalCooking(new Harmony(HarmonyOwner));
             }
         }
 
