@@ -9,10 +9,11 @@
     "type": "positive",
     "attributes": {
       "cropDropRate": 0.1,
-      "wildCropDropRate": 0.6,
+      "wildCropDropRate": 0.5,
       "hideMealSafety": 0,
       "hideNutritionInfo": 0,
-      "hideCraftingInfo": 0
+      "hideCraftingInfo": 0,
+      "mushroomYieldMul": 0.5
     }
   },
   {
@@ -20,7 +21,7 @@
     "type": "positive",
     "attributes": {
       "cuttingSpoilageRate": -0.5,
-      "cuttingDropRate": 1
+      "cuttingYieldMul": 1
     }
   },
   {
@@ -28,7 +29,7 @@
     "type": "positive",
     "attributes": {
       "beeResistance": 1,
-      "beeResourceMultiplier": 0.5
+      "honeycombYield": 0.5
     }
   },
   {
@@ -45,7 +46,7 @@
     "code": "homesteader-greenthumb",
     "type": "positive",
     "attributes": {
-      "cropDropRate": 0.3,
+      "cropDropRate": 0.25,
       "wildCropDropRate": 0.3
     }
   },
@@ -62,12 +63,13 @@
     "type": "positive",
     "attributes": {
       "coldTemperatureRange": 3.5,
-      "hotTemperatureRange": 3.5
+      "hotTemperatureRange": 3.5,
+      "hoeDurabilityLoss": -0.25
     }
   },
   {
     "code": "homesteader-worldweary",
-    "type": "positive",
+    "type": "negative",
     "attributes": {}
   },
   {
@@ -82,15 +84,16 @@
     "code": "hunter-dressing",
     "type": "positive",
     "attributes": {
-      "animalLootDropRate": 2,
-      "animalHarvestingTime": -0.45
+      "animalLootDropRate": 0.25,
+      "animalHarvestingTime": -0.45,
+      "animalHideYield": 0.25
     }
   },
   {
     "code": "hunter-weapons",
     "type": "positive",
     "attributes": {
-      "animalsDamage": 0.4,
+      "animalsDamage": 0.25,
       "knifeDurabilityLoss": -0.25,
       "rangedWeaponsSpeed": 0.4,
       "rangedWeaponsAcc": 0.3,
@@ -102,7 +105,7 @@
     "code": "hunter-creeping",
     "type": "positive",
     "attributes": {
-      "animalSeekingRange": -0.7,
+      "animalSeekingRange": -0.6,
       "walkspeed": 0.1,
       "sneakSpeed": 1.0,
       "trackdecay": 0.3
@@ -117,7 +120,9 @@
     "code": "lumberjack-treefeller",
     "type": "positive",
     "attributes": {
-      "charcoalYieldMul": 0.5
+      "charcoalYieldMul": 0.35,
+      "axeSpeedMul": 0.5,
+      "axeDurabilityLoss": -0.25
     }
   },
   {
@@ -165,13 +170,13 @@
     "code": "malefactor-scavenging",
     "type": "positive",
     "attributes": {
-      "vesselContentsDropRate": 0.35,
+      "vesselContentsDropRate": 0.4,
       "rustyGearDropRate": 1.0
     }
   },
   {
     "code": "malefactor-isolated",
-    "type": "positive",
+    "type": "negative",
     "attributes": {
       "stabilityLossFromPlayers": -0.005
     }
@@ -195,8 +200,8 @@
     "code": "miner-cavedelver",
     "type": "positive",
     "attributes": {
-      "fallDamageFactor": -0.35,
-      "crushingResistance": -0.5
+      "crushingResistance": -0.5,
+      "gravityResistance": 0.35
     }
   },
   {
@@ -228,7 +233,7 @@
     "type": "positive",
     "attributes": {
       "clayformingPoints": 5,
-      "clayReclaimAmount": 1
+      "clayRecovery": 1
     }
   },
   {
@@ -252,8 +257,8 @@
     "code": "sailor-sealegs",
     "type": "positive",
     "attributes": {
-      "boatSpeed": 0.5,
-      "swimSpeed": 0.35,
+      "boatSpeed": 0.4,
+      "swimSpeed": 0.25,
       "breathCapacity": 0.5
     }
   },
@@ -261,10 +266,10 @@
     "code": "sailor-fisherman",
     "type": "positive",
     "attributes": {
-      "fishmeatYieldMul": 0.5,
       "wormYieldMul": 0.5,
       "netSpeedMul": 0.5,
-      "fishingDurabilityLoss": -0.5
+      "fishingDurabilityLoss": -0.5,
+      "fishMeatYield": 0.5
     }
   },
   {
@@ -272,7 +277,7 @@
     "type": "positive",
     "attributes": {
       "coldResistance": 1,
-      "wetResistance": 0.5
+      "wetResistance": 1
     }
   },
   {
@@ -300,10 +305,11 @@
     "type": "positive",
     "attributes": {
       "potionPenalty": 0,
-      "spoiltFoodPenalty": 0,
+      "spoiltFoodPenalty": 1,
       "poisonPenalty": 0,
       "intoxicationPenalty": 0,
-      "hallucinogenPenalty": 0
+      "poisonResistance": 1,
+      "hallucinationResistance": 1
     }
   },
   {
@@ -346,7 +352,7 @@
     "code": "chef-food-storage",
     "type": "positive",
     "attributes": {
-      "preservedFoodDecayRate": -0.5
+      "crockFreshness": 1
     }
   },
   {
@@ -386,7 +392,8 @@
     "code": "mason-workplace-standards",
     "type": "positive",
     "attributes": {
-      "fallDamageFactor": -0.25
+      "gravityResistance": 0.25,
+      "globalReach": 1
     }
   },
   {
@@ -399,13 +406,17 @@
     "type": "positive",
     "attributes": {
       "inkDurabilityLoss": -0.5,
-      "labelsFree": 1
+      "labelsFree": 1,
+      "hungerrate": -0.1,
+      "darkvisionStrength": 0.15
     }
   },
   {
     "code": "scholar-engraver",
     "type": "positive",
-    "attributes": {}
+    "attributes": {
+      "chiselDurabilityLoss": -0.25
+    }
   },
   {
     "code": "scholar-bookworm",
@@ -436,7 +447,8 @@
       "fireResistance": 0.5,
       "inventoryHeatRate": -0.5,
       "canHoldHotItems": 1,
-      "canCraftHotItems": 1
+      "canCraftHotItems": 1,
+      "workItemCoolingReduction": 0.5
     }
   },
   {
@@ -444,7 +456,8 @@
     "type": "positive",
     "attributes": {
       "mechanicalHarvestRate": 3,
-      "canSalvageMetal": 1
+      "canSalvageMetal": 1,
+      "weaponDamage": 0.2
     }
   },
   {
@@ -481,9 +494,10 @@
     "code": "workman-smelter",
     "type": "positive",
     "attributes": {
-      "bloomeryAmountMul": 0.5,
+      "bloomeryAmountMul": 1,
       "bloomerySpeedMul": -0.2,
-      "bloomeryRecoveryAmount": 1.0
+      "bloomeryRecoveryAmount": 1.0,
+      "bloomeryFuelEfficiency": 0.25
     }
   },
   {
@@ -492,9 +506,9 @@
     "attributes": {
       "boardProductionMultiplier": 0.25,
       "sawDurabilityLoss": -0.25,
-      "sawingSpeedMul": 0.5,
       "debarkingSpeedMul": 0.5,
-      "woodChopSpeedMul": 0.5
+      "woodChopSpeedMul": 0.5,
+      "sawSpeedMul": 0.5
     }
   },
   {
@@ -508,7 +522,9 @@
     "code": "workman-glassblower",
     "type": "positive",
     "attributes": {
-      "charcoalDropRate": 0.25
+      "charcoalYieldMul": 0.25,
+      "shovelDurabilityLoss": -0.25,
+      "shovelSpeedMul": 0.25
     }
   },
   {
@@ -554,14 +570,19 @@
     "type": "positive",
     "attributes": {
       "shieldDurabilityLoss": -0.25,
-      "meleeDurabilityLoss": -0.25
+      "bladeDurabilityLoss": -0.25,
+      "clubDurabilityLoss": -0.25,
+      "spearDurabilityLoss": -0.25,
+      "knifeDurabilityLoss": -0.25
     }
   },
   {
     "code": "blackguard-buff",
     "type": "positive",
     "attributes": {
-      "armorWalkSpeedAffectedness": -0.5
+      "armorWalkSpeedAffectedness": -0.5,
+      "knockbackReceived": -0.25,
+      "animalResistance": 0.25
     }
   },
   {
@@ -596,7 +617,6 @@
     "code": "caravaneer-well-traveled",
     "type": "positive",
     "attributes": {
-      "animalMovespeed": 0.25,
       "vehicleMovespeed": 0.25
     }
   },
@@ -627,7 +647,9 @@
     "code": "clockmaker-repurposing",
     "type": "positive",
     "attributes": {
-      "mechanicalsDamage": 0.4
+      "mechanicalsDamage": 0.4,
+      "canSalvageMetal": 1,
+      "mechanicalHarvestRate": 0.5
     }
   },
   {
@@ -643,12 +665,22 @@
   {
     "code": "druid-animal-kinship",
     "type": "positive",
-    "attributes": {}
+    "attributes": {
+      "wildAnimalPassive": 1,
+      "wildAnimalNoFlee": 1,
+      "mountSpeed": 0.25
+    }
   },
   {
     "code": "druid-wildstride",
     "type": "positive",
-    "attributes": {}
+    "attributes": {
+      "moveSpeedUnarmored": 0.2,
+      "moveSpeedLightArmor": 0.1,
+      "healthRegenRateUnarmored": 0.5,
+      "healthRegenRateLightArmor": 0.25,
+      "clubDamage": 0.25
+    }
   },
   {
     "code": "knight-juggernaut",
@@ -656,7 +688,8 @@
     "attributes": {
       "armorWalkSpeedAffectedness": -1.0,
       "armorHealingAffectedness": -1.0,
-      "armorHungerAffectedness": -0.4
+      "armorHungerAffectedness": -0.4,
+      "knockbackWhileArmor": -0.25
     }
   },
   {
@@ -666,7 +699,6 @@
       "armorDurabilityLoss": -0.2,
       "shieldDurabilityLoss": -0.2,
       "globalDurabilityLoss": -0.2,
-      "knockbackWhileArmor": -0.25,
       "knockbackWhileBlocking": -1.0
     }
   },
@@ -703,7 +735,8 @@
       "rangedWeaponsDamage": 0.2,
       "bowDrawingStrength": 0.25,
       "rangedWeaponsSpeed": 1.0,
-      "rangedWeaponsAcc": 0.5
+      "rangedWeaponsAcc": 0.5,
+      "bowDrawSpeed": 0.25
     }
   },
   {

@@ -361,12 +361,10 @@
       "architect-sculptor"
     ],
     "gear": [
-      { "type": "item", "code": "game:clothes-shoulder-artisans-scarf" },
-      { "type": "item", "code": "game:clothes-upperbody-tailor-blouse" },
-      { "type": "item", "code": "game:clothes-lowerbody-workmans-gown" },
-      { "type": "item", "code": "game:clothes-foot-aristocrat-shoes" },
-      { "type": "item", "code": "game:clothes-hand-scribe" },
-      { "type": "item", "code": "game:clothes-upperbodyover-cobalt-mantle" }
+      { "type": "item", "code": "game:clothes-upperbodyover-nomad-mantle" },
+      { "type": "item", "code": "game:clothes-lowerbody-nomad-trousers" },
+      { "type": "item", "code": "game:clothes-foot-nomad-boots" },
+      { "type": "item", "code": "game:clothes-waist-noble-sash" }
     ]
   },
   {
