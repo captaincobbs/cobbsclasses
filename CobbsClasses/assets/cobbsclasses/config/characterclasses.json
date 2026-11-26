@@ -39,7 +39,7 @@
   {
     "enabled": true,
     "code": "cobbs-commoner",
-    "traits": ["commoner-test"],
+    "traits": [],
     "gear": [
       { "type": "item", "code": "game:clothes-upperbody-commoner-shirt" },
       { "type": "item", "code": "game:clothes-upperbodyover-commoner-coat" },
@@ -118,7 +118,7 @@
     ],
     "gear": [
       { "type": "item", "code": "game:clothes-head-ruralhunter" },
-      { "type": "item", "code": "game:clothes-upperbody-warrior-tunic" },
+      { "type": "item", "code": "game:clothes-upperbody-warrior" },
       { "type": "item", "code": "game:clothes-upperbodyover-furlinedvest" },
       { "type": "item", "code": "game:clothes-lowerbody-workmans-gown" },
       { "type": "item", "code": "game:clothes-waist-ruralfarmer" },
