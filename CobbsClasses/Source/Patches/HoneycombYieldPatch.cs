@@ -21,29 +21,12 @@ namespace CobbsClasses.Source.Patches
             harmony.CreateClassProcessor(typeof(Skep)).Patch();
         }
 
-        internal static void RegisterOptional(Harmony harmony, ILogger logger)
+        internal static void RegisterOptional(OptionalModPatches integration)
         {
-            foreach ((string typeName, string methodName) in new[]
-            {
-                ("FromGoldenCombs.Blocks.ClayHiveTop", "OnBlockInteractStep"),
-                ("FromGoldenCombs.BlockEntities.BEFrameRack", "TryHarvest"),
-                ("FromGoldenCombs.BlockEntities.BEFrameRack", "OnInteract")
-            })
-            {
-                if (AccessTools.TypeByName(typeName) is not { } type || AccessTools.DeclaredMethod(type, methodName) is not { } method || Harmony.GetPatchInfo(method)?.Owners.Contains(harmony.Id) == true)
-                {
-                    continue;
-                }
-
-                try
-                {
-                    harmony.Patch(method, transpiler: new HarmonyMethod(typeof(HoneycombYieldPatch), nameof(AdjustCreatedStacks)));
-                }
-                catch (Exception exception)
-                {
-                    logger.Warning($"CobbsClasses could not patch {typeName}.{methodName} for honeycomb yield: {exception.Message}");
-                }
-            }
+            HarmonyMethod transpiler = new(typeof(HoneycombYieldPatch), nameof(AdjustCreatedStacks));
+            integration.Patch("FromGoldenCombs.Blocks.ClayHiveTop", "OnBlockInteractStep", transpiler: transpiler);
+            integration.Patch("FromGoldenCombs.BlockEntities.BEFrameRack", "TryHarvest", transpiler: transpiler);
+            integration.Patch("FromGoldenCombs.BlockEntities.BEFrameRack", "OnInteract", transpiler: transpiler);
         }
 
         private static IEnumerable<CodeInstruction> AdjustCreatedStacks(IEnumerable<CodeInstruction> instructions, MethodBase original)

@@ -32,9 +32,10 @@ namespace CobbsClasses.Source
         ];
 
         private static readonly string[] OutputStats =
-        [
-            .. ArmorStats.Select(rule => rule.Output),
-            "jumpHeightMul", "hungerrate", "globalSpeedMul"
+        [.. ArmorStats.Select(rule => rule.Output),
+            "jumpHeightMul",
+            "hungerrate",
+            "globalSpeedMul"
         ];
 
         private readonly ConditionalWeakTable<EntityStats, float[]> appliedBonuses = [];

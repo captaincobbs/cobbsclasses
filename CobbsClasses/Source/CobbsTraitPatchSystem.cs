@@ -2,6 +2,8 @@
 
 using HarmonyLib;
 
+using System;
+
 using Vintagestory.API.Common;
 
 namespace CobbsClasses.Source
@@ -11,6 +13,50 @@ namespace CobbsClasses.Source
         private const string HarmonyOwner = "cobbsclasses.player-traits";
         private Harmony? harmony;
 
+        private static readonly (string Name, Action<Harmony> Install)[] TraitPatches =
+        [
+            Patch(typeof(CrouchPatch)),
+            Patch(typeof(BowDrawSpeedPatch)),
+            Patch(typeof(SwimPatch)),
+            Patch(typeof(BoatPatch)),
+            Patch(typeof(MountPatch)),
+            Patch(typeof(TemperatureTolerancePatch)),
+            Patch(typeof(ArmorPenaltyPatch)),
+            Patch(typeof(ArmorProtectionPatch)),
+            Patch(typeof(RegenPatch)),
+            Patch(typeof(FruitingBushCuttingPatch)),
+            Patch(typeof(PanningLuckPatch)),
+            Patch(typeof(PanningSpeedPatch)),
+            Patch(typeof(MillingSpeedPatch)),
+            Patch(typeof(MechanicalRecoveryPatch)),
+            Patch(typeof(TargetDamagePatch)),
+            Patch(typeof(DamageResistancePatch)),
+            Patch(typeof(KnockbackPatch)),
+            Patch(typeof(AnimalHarvestYieldPatch)),
+            Patch(typeof(FishFilletYieldPatch)),
+            Patch(typeof(BloomeryCapacityPatch)),
+            Patch(typeof(ClayVoxelYieldPatch)),
+            (nameof(ClayRecoveryPatch), ClayRecoveryPatch.Register),
+            (nameof(BloomeryFuelPatch), BloomeryFuelPatch.Register),
+            Patch(typeof(ChiselMaterialPatch)),
+            (nameof(WorkpieceCoolingPatch), WorkpieceCoolingPatch.Register),
+            Patch(typeof(HotItemPatch)),
+            (nameof(CrockFreshnessPatch), CrockFreshnessPatch.Register),
+            (nameof(FoodConsumptionPatch), FoodConsumptionPatch.Register),
+            (nameof(CookedFoodPatch), CookedFoodPatch.Register),
+            Patch(typeof(AnimalBehaviorPatch)),
+            Patch(typeof(RoadSpeedPatch)),
+            (nameof(SupportTraitSystem), SupportTraitSystem.Register),
+            Patch(typeof(SharpeningPatch)),
+            (nameof(QuenchModifierPatch), QuenchModifierPatch.Register),
+            (nameof(CapacityInventoryPatch), CapacityInventoryPatch.Register),
+            (nameof(HoneycombYieldPatch), HoneycombYieldPatch.Register),
+            Patch(typeof(PigmentUsePatch)),
+        ];
+
+        private static (string, Action<Harmony>) Patch(Type type)
+            => (type.Name, owner => owner.CreateClassProcessor(type).Patch());
+
         public override void Start(ICoreAPI api)
         {
             if (Harmony.HasAnyPatches(HarmonyOwner))
@@ -18,45 +64,12 @@ namespace CobbsClasses.Source
                 return;
             }
 
-            harmony = new Harmony(HarmonyOwner);
-
-            harmony.CreateClassProcessor(typeof(CrouchPatch)).Patch();
-            harmony.CreateClassProcessor(typeof(BowDrawSpeedPatch)).Patch();
-            harmony.CreateClassProcessor(typeof(SwimPatch)).Patch();
-            harmony.CreateClassProcessor(typeof(BoatPatch)).Patch();
-            harmony.CreateClassProcessor(typeof(MountPatch)).Patch();
-            harmony.CreateClassProcessor(typeof(TemperatureTolerancePatch)).Patch();
-            harmony.CreateClassProcessor(typeof(ArmorPenaltyPatch)).Patch();
-            harmony.CreateClassProcessor(typeof(ArmorProtectionPatch)).Patch();
-            harmony.CreateClassProcessor(typeof(RegenPatch)).Patch();
-            harmony.CreateClassProcessor(typeof(FruitingBushCuttingPatch)).Patch();
-            harmony.CreateClassProcessor(typeof(PanningLuckPatch)).Patch();
-            harmony.CreateClassProcessor(typeof(PanningSpeedPatch)).Patch();
-            harmony.CreateClassProcessor(typeof(MillingSpeedPatch)).Patch();
-            harmony.CreateClassProcessor(typeof(MechanicalRecoveryPatch)).Patch();
-            harmony.CreateClassProcessor(typeof(TargetDamagePatch)).Patch();
-            harmony.CreateClassProcessor(typeof(DamageResistancePatch)).Patch();
-            harmony.CreateClassProcessor(typeof(KnockbackPatch)).Patch();
-            harmony.CreateClassProcessor(typeof(AnimalHarvestYieldPatch)).Patch();
-            harmony.CreateClassProcessor(typeof(FishFilletYieldPatch)).Patch();
-            harmony.CreateClassProcessor(typeof(BloomeryCapacityPatch)).Patch();
-            harmony.CreateClassProcessor(typeof(ClayVoxelYieldPatch)).Patch();
-            ClayRecoveryPatch.Register(harmony);
-            BloomeryFuelPatch.Register(harmony);
-            harmony.CreateClassProcessor(typeof(ChiselMaterialPatch)).Patch();
-            WorkpieceCoolingPatch.Register(harmony);
-            harmony.CreateClassProcessor(typeof(HotItemPatch)).Patch();
-            CrockFreshnessPatch.Register(harmony);
-            FoodConsumptionPatch.Register(harmony);
-            CookedFoodPatch.Register(harmony);
-            harmony.CreateClassProcessor(typeof(AnimalBehaviorPatch)).Patch();
-            harmony.CreateClassProcessor(typeof(RoadSpeedPatch)).Patch();
-            SupportTraitSystem.Register(harmony);
-            harmony.CreateClassProcessor(typeof(SharpeningPatch)).Patch();
-            QuenchModifierPatch.Register(harmony);
-            CapacityInventoryPatch.Register(harmony);
-            HoneycombYieldPatch.Register(harmony);
-            harmony.CreateClassProcessor(typeof(PigmentUsePatch)).Patch();
+            Harmony owner = new(HarmonyOwner);
+            harmony = owner;
+            foreach ((string? name, Action<Harmony>? install) in TraitPatches)
+            {
+                Apply(name, () => install(owner), api.Logger);
+            }
         }
 
         public override void AssetsFinalize(ICoreAPI api)
@@ -67,8 +80,19 @@ namespace CobbsClasses.Source
                 AnimalHarvestYieldPatch.InitializeTags(api);
                 DamageResistancePatch.InitializeTags(api);
                 AnimalBehaviorPatch.InitializeTags(api);
-                HoneycombYieldPatch.RegisterOptional(new Harmony(HarmonyOwner), api.Logger);
-                CookedFoodPatch.RegisterOptionalCooking(new Harmony(HarmonyOwner));
+                OptionalModPatches.Apply(api, new Harmony(HarmonyOwner));
+            }
+        }
+
+        private static void Apply(string feature, Action install, ILogger logger)
+        {
+            try
+            {
+                install();
+            }
+            catch (Exception exception)
+            {
+                logger.Warning($"CobbsClasses could not fully install {feature}. Other features will still load. {exception}");
             }
         }
 
