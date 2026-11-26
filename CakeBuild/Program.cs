@@ -6,10 +6,13 @@ using Cake.Common.Tools.DotNet;
 using Cake.Common.Tools.DotNet.Clean;
 using Cake.Common.Tools.DotNet.Publish;
 using Cake.Core;
+using Cake.Core.IO;
 using Cake.Frosting;
 using Cake.Json;
+
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+
 using Vintagestory.API.Common;
 
 namespace CakeBuild;
@@ -18,9 +21,7 @@ public static class Program
 {
     public static int Main(string[] args)
     {
-        return new CakeHost()
-            .UseContext<BuildContext>()
-            .Run(args);
+        return new CakeHost().UseContext<BuildContext>().Run(args);
     }
 }
 
@@ -32,12 +33,11 @@ public class BuildContext : FrostingContext
     public string Name { get; }
     public bool SkipJsonValidation { get; }
 
-    public BuildContext(ICakeContext context)
-        : base(context)
+    public BuildContext(ICakeContext context) : base(context)
     {
         BuildConfiguration = context.Argument("configuration", "Release");
         SkipJsonValidation = context.Argument("skipJsonValidation", false);
-        var modInfo = context.DeserializeJsonFromFile<ModInfo>($"../{ProjectName}/modinfo.json");
+        ModInfo modInfo = context.DeserializeJsonFromFile<ModInfo>($"../{ProjectName}/modinfo.json");
         Version = modInfo.Version;
         Name = modInfo.ModID;
     }
@@ -52,12 +52,12 @@ public sealed class ValidateJsonTask : FrostingTask<BuildContext>
         {
             return;
         }
-        var jsonFiles = context.GetFiles($"../{BuildContext.ProjectName}/assets/**/*.json");
-        foreach (var file in jsonFiles)
+        FilePathCollection jsonFiles = context.GetFiles($"../{BuildContext.ProjectName}/assets/**/*.json");
+        foreach (FilePath file in jsonFiles)
         {
             try
             {
-                var json = File.ReadAllText(file.FullPath);
+                string json = File.ReadAllText(file.FullPath);
                 JToken.Parse(json);
             }
             catch (JsonException ex)

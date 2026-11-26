@@ -23,20 +23,9 @@ namespace CobbsClasses.Source.Patches
             }
         }
 
-        internal static void RegisterOptionalCooking(Harmony harmony)
+        internal static void RegisterOptionalCooking(OptionalModPatches integration)
         {
-            Type? mixingBowl = AccessTools.TypeByName("ACulinaryArtillery.BlockEntityMixingBowl");
-            if (mixingBowl is null || AccessTools.DeclaredMethod(mixingBowl, "mixInput") is not { } mix || AccessTools.PropertyGetter(mixingBowl, "OutputSlot") is null || AccessTools.Field(mixingBowl, "playersMixing")?.FieldType != typeof(Dictionary<string, long>))
-            {
-                return;
-            }
-
-            if (Harmony.GetPatchInfo(mix)?.Owners.Contains(harmony.Id) == true)
-            {
-                return;
-            }
-
-            harmony.Patch(mix, prefix: new HarmonyMethod(typeof(MixingBowl), nameof(MixingBowl.BeforeMix)), postfix: new HarmonyMethod(typeof(MixingBowl), nameof(MixingBowl.AfterMix)));
+            integration.Patch("ACulinaryArtillery.BlockEntityMixingBowl", "mixInput", prefix: new HarmonyMethod(typeof(MixingBowl), nameof(MixingBowl.BeforeMix)), postfix: new HarmonyMethod(typeof(MixingBowl), nameof(MixingBowl.AfterMix)), compatible: type => AccessTools.PropertyGetter(type, "OutputSlot") is not null && AccessTools.Field(type, "playersMixing")?.FieldType == typeof(Dictionary<string, long>));
         }
 
         private static void Attribute(ItemSlot slot, IPlayer player)
@@ -141,9 +130,7 @@ namespace CobbsClasses.Source.Patches
             }
         }
 
-        [HarmonyPatch(typeof(ItemSlot), nameof(ItemSlot.TryPutInto),
-            [typeof(ItemSlot), typeof(ItemStackMoveOperation)],
-            [ArgumentType.Normal, ArgumentType.Ref])]
+        [HarmonyPatch(typeof(ItemSlot), nameof(ItemSlot.TryPutInto), [typeof(ItemSlot), typeof(ItemStackMoveOperation)], [ArgumentType.Normal, ArgumentType.Ref])]
         private static class FirepitTransfer
         {
             private static void Postfix(ItemSlot __0, ItemStackMoveOperation __1, int __result)
@@ -181,8 +168,7 @@ namespace CobbsClasses.Source.Patches
                     return;
                 }
                 ItemSlot output = GetOutput(__instance);
-                __state = new Batch(output.StackSize, cook.Entity.Stats.GetBlended("foodExtraServings"),
-                    Math.Clamp(cook.Entity.Stats.GetBlended("foodDecayRate"), 0.01f, 1f));
+                __state = new Batch(output.StackSize, cook.Entity.Stats.GetBlended("foodExtraServings"), Math.Clamp(cook.Entity.Stats.GetBlended("foodDecayRate"), 0.01f, 1f));
             }
 
             public static void AfterMix(BlockEntityContainer __instance, Batch __state)

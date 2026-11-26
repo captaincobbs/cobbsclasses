@@ -110,8 +110,7 @@ namespace CobbsClasses.Source.Patches
         [HarmonyPatch(typeof(BlockCrock), "GetContainingTransitionModifierPlaced")]
         private static class PlacedRate
         {
-            private static void Postfix(IWorldAccessor __0, Vintagestory.API.MathTools.BlockPos __1,
-                EnumTransitionType __2, ref float __result)
+            private static void Postfix(IWorldAccessor __0, Vintagestory.API.MathTools.BlockPos __1, EnumTransitionType __2, ref float __result)
             {
                 if (__2 == EnumTransitionType.Perish && __0?.BlockAccessor.GetBlockEntity(__1) is BlockEntityCrock { Sealed: true } crock && Placed.TryGetValue(crock, out Freshness? bonus))
                 {

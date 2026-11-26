@@ -22,8 +22,7 @@ namespace CobbsClasses.Source.Patches
             return ReplaceCall(instructions, getDrops, adjust, OpCodes.Ldarg_2, "mechanical recovery");
         }
 
-        private static ItemStack[]? GetDropsWithRecovery(Entity target, IWorldAccessor world, BlockPos position,
-            IPlayer? vanillaPlayer, DamageSource? cause)
+        private static ItemStack[]? GetDropsWithRecovery(Entity target, IWorldAccessor world, BlockPos position, IPlayer? vanillaPlayer, DamageSource? cause)
         {
             ItemStack[]? drops = target.GetDrops(world, position, vanillaPlayer);
             if (world.Side != EnumAppSide.Server || target.Properties.Attributes?["isMechanical"].AsBool() != true || cause?.GetCauseEntity() is not EntityPlayer killer)

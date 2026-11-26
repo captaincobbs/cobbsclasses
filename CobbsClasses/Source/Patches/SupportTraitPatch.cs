@@ -154,10 +154,10 @@ namespace CobbsClasses.Source.Patches
         [HarmonyPatch(typeof(EntityBehaviorHealth), nameof(EntityBehaviorHealth.OnEntityReceiveDamage))]
         private static class Incoming
         {
-            private static void Prefix(EntityBehaviorHealth __instance, DamageSource __0, ref float __1)
+            private static void Prefix(EntityBehaviorHealth __instance, DamageSource? __0, ref float __1)
             {
                 Entity victim = __instance.entity;
-                if (__1 <= 0f || __0.Type == EnumDamageType.Heal || victim.World.Side != EnumAppSide.Server)
+                if (__1 <= 0f || __0 is null || __0.Type == EnumDamageType.Heal || victim.World.Side != EnumAppSide.Server)
                 {
                     return;
                 }
@@ -184,9 +184,9 @@ namespace CobbsClasses.Source.Patches
         [HarmonyPatch(typeof(EntityPlayer), nameof(EntityPlayer.OnHurt))]
         private static class PlayerHurt
         {
-            private static void Postfix(EntityPlayer __instance, DamageSource __0, float __1)
+            private static void Postfix(EntityPlayer __instance, DamageSource? __0, float __1)
             {
-                if (__1 <= 0f || __0.Type == EnumDamageType.Heal || __instance.World.Side != EnumAppSide.Server || __0.GetCauseEntity() is not EntityAgent attacker || attacker is EntityPlayer || attacker == __instance)
+                if (__1 <= 0f || __0 is null || __0.Type == EnumDamageType.Heal || __instance.World.Side != EnumAppSide.Server || __0.GetCauseEntity() is not EntityAgent attacker || attacker is EntityPlayer || attacker == __instance)
                 {
                     return;
                 }
@@ -228,9 +228,9 @@ namespace CobbsClasses.Source.Patches
         [HarmonyPatch(typeof(Entity), nameof(Entity.OnHurt))]
         private static class AnimalHurt
         {
-            private static void Postfix(Entity __instance, DamageSource __0, float __1)
+            private static void Postfix(Entity __instance, DamageSource? __0, float __1)
             {
-                if (__1 > 0f && __0.Type != EnumDamageType.Heal && __instance.World.Side == EnumAppSide.Server && __0.GetCauseEntity() is EntityPlayer player)
+                if (__1 > 0f && __0 is not null && __0.Type != EnumDamageType.Heal && __instance.World.Side == EnumAppSide.Server && __0.GetCauseEntity() is EntityPlayer player)
                 {
                     AnimalBehaviorPatch.RecordHit(__instance, player);
                 }

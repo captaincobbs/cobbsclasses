@@ -23,9 +23,9 @@ namespace CobbsClasses.Source.Patches
             mechanicalTag = api.EntityTagRegistry.CreateTagSet("mechanical");
         }
 
-        private static void Prefix(EntityBehaviorHealth __instance, DamageSource damageSource, ref float damage)
+        private static void Prefix(EntityBehaviorHealth __instance, DamageSource? damageSource, ref float damage)
         {
-            if (__instance.entity is not EntityPlayer player || player.World.Side != EnumAppSide.Server || damage <= 0f || damageSource.Type == EnumDamageType.Heal)
+            if (__instance.entity is not EntityPlayer player || player.World.Side != EnumAppSide.Server || damage <= 0f || damageSource is null || damageSource.Type == EnumDamageType.Heal)
             {
                 return;
             }

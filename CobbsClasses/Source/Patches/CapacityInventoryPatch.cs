@@ -26,8 +26,7 @@ namespace CobbsClasses.Source.Patches
 
         internal static void Register(Harmony harmony)
         {
-            foreach (Type patch in new[] { typeof(OpenAttachedBag), typeof(RefreshAttachedSlots), typeof(BuildBagSlots),
-                typeof(ActivateSlot), typeof(MoveInto), typeof(CanTakeFrom), typeof(Swap), typeof(NetworkSwap) })
+            foreach (Type patch in new[] { typeof(OpenAttachedBag), typeof(RefreshAttachedSlots), typeof(BuildBagSlots), typeof(ActivateSlot), typeof(MoveInto), typeof(CanTakeFrom), typeof(Swap), typeof(NetworkSwap) })
             {
                 harmony.CreateClassProcessor(patch).Patch();
             }

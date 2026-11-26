@@ -21,10 +21,10 @@ namespace CobbsClasses.Source.Patches
             rustedTag = api.EntityTagRegistry.CreateTagSet("rust-creature");
         }
 
-        private static void Prefix(EntityBehaviorHealth __instance, DamageSource damageSource, ref float damage)
+        private static void Prefix(EntityBehaviorHealth __instance, DamageSource? damageSource, ref float damage)
         {
             Entity target = __instance.entity;
-            if (target.World.Side != EnumAppSide.Server || damage <= 0f || damageSource.Type == EnumDamageType.Heal || damageSource.GetCauseEntity() is not EntityPlayer attacker || attacker == target)
+            if (target.World.Side != EnumAppSide.Server || damage <= 0f || damageSource is null || damageSource.Type == EnumDamageType.Heal || damageSource.GetCauseEntity() is not EntityPlayer attacker || attacker == target)
             {
                 return;
             }

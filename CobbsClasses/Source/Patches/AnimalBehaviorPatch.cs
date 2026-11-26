@@ -51,11 +51,11 @@ namespace CobbsClasses.Source.Patches
             yield return AccessTools.DeclaredMethod(typeof(AiTaskBaseTargetableR), "CanSense");
         }
 
-        private static bool Prefix(object __instance, EntityAgent ___entity, Entity __0, ref bool __result)
+        private static void Postfix(object __instance, EntityAgent ___entity, Entity? __0, ref bool __result)
         {
-            if (__0 is not EntityPlayer player || ___entity.World.Side != EnumAppSide.Server || !___entity.Tags.Overlaps(animals) || ___entity.WatchedAttributes.GetInt("generation") > 0)
+            if (!__result || __0 is not EntityPlayer player || ___entity.World.Side != EnumAppSide.Server || !___entity.Tags.Overlaps(animals) || ___entity.WatchedAttributes.GetInt("generation") > 0)
             {
-                return true;
+                return;
             }
 
             bool flee = __instance is AiTaskFleeEntity or AiTaskFleeEntityR;
@@ -64,11 +64,10 @@ namespace CobbsClasses.Source.Patches
             string? stat = predator && attack ? "wildAnimalPassive" : !predator && flee ? "wildAnimalNoFlee" : null;
             if (stat is null || player.Stats.GetBlended(stat) <= 1f || (player.PlayerUID is { } uid && Provocations.TryGetValue(___entity, out Dictionary<string, long>? recent) && recent.TryGetValue(uid, out long expiry) && expiry > ___entity.World.ElapsedMilliseconds))
             {
-                return true;
+                return;
             }
 
             __result = false;
-            return false;
         }
     }
 }
