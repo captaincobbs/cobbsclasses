@@ -13,56 +13,69 @@ namespace CobbsClasses.Source
         private const string HarmonyOwner = "cobbsclasses.player-traits";
         private Harmony? harmony;
 
-        private static readonly (string Name, Action<Harmony> Install)[] TraitPatches =
+        private static readonly ITraitPatch[] TraitPatches =
         [
-            Patch(typeof(CrouchPatch)),
-            Patch(typeof(BowDrawSpeedPatch)),
-            Patch(typeof(SwimPatch)),
-            Patch(typeof(BoatPatch)),
-            Patch(typeof(MountPatch)),
-            Patch(typeof(TemperatureTolerancePatch)),
-            Patch(typeof(TemporalStabilityPatch)),
-            Patch(typeof(ArmorPenaltyPatch)),
-            Patch(typeof(ArmorProtectionPatch)),
-            Patch(typeof(RegenPatch)),
-            Patch(typeof(FruitingBushCuttingPatch)),
-            (nameof(GatheringTraitPatch), GatheringTraitPatch.Register),
-            (nameof(EggYieldPatch), EggYieldPatch.Register),
-            (nameof(MerchantPricePatch), MerchantPricePatch.Register),
-            (nameof(MerchantSpecialStockPatch), MerchantSpecialStockPatch.Register),
-            Patch(typeof(PanningLuckPatch)),
-            Patch(typeof(PanningSpeedPatch)),
-            Patch(typeof(MillingSpeedPatch)),
-            Patch(typeof(MechanicalRecoveryPatch)),
-            Patch(typeof(TargetDamagePatch)),
-            Patch(typeof(DamageResistancePatch)),
-            Patch(typeof(KnockbackPatch)),
-            Patch(typeof(AnimalHarvestYieldPatch)),
-            Patch(typeof(FishFilletYieldPatch)),
-            Patch(typeof(BloomeryCapacityPatch)),
-            Patch(typeof(ClayVoxelYieldPatch)),
-            (nameof(ClayRecoveryPatch), ClayRecoveryPatch.Register),
-            (nameof(BloomeryFuelPatch), BloomeryFuelPatch.Register),
-            (nameof(FiringSpeedPatch), FiringSpeedPatch.Register),
-            Patch(typeof(ChiselMaterialPatch)),
-            (nameof(WorkpieceCoolingPatch), WorkpieceCoolingPatch.Register),
-            Patch(typeof(HotItemPatch)),
-            (nameof(CrockFreshnessPatch), CrockFreshnessPatch.Register),
-            (nameof(FoodConsumptionPatch), FoodConsumptionPatch.Register),
-            Patch(typeof(IntoxicationPatch)),
-            (nameof(CookedFoodPatch), CookedFoodPatch.Register),
-            Patch(typeof(AnimalBehaviorPatch)),
-            Patch(typeof(RoadSpeedPatch)),
-            (nameof(SupportTraitSystem), SupportTraitSystem.Register),
-            Patch(typeof(SharpeningPatch)),
-            (nameof(QuenchModifierPatch), QuenchModifierPatch.Register),
-            (nameof(CapacityInventoryPatch), CapacityInventoryPatch.Register),
-            (nameof(HoneycombYieldPatch), HoneycombYieldPatch.Register),
-            Patch(typeof(PigmentUsePatch)),
+            new AttributedPatch(typeof(CrouchPatch)),
+            new AttributedPatch(typeof(DryingPatch)),
+            new AttributedPatch(typeof(HealingItemEffectivenessPatch)),
+            new AttributedPatch(typeof(HealingItemSpeedPatch)),
+            new AttributedPatch(typeof(WateringPatch)),
+            new AttributedPatch(typeof(BerryYieldPatch)),
+            new AttributedPatch(typeof(FruitYieldPatch)),
+            new AttributedPatch(typeof(FruitingBushHarvestSpeedPatch)),
+            new AttributedPatch(typeof(FertilizerPatch)),
+            new AttributedPatch(typeof(NutritionDecayPatch)),
+            new AttributedPatch(typeof(WormYieldPatch)),
+            new AttributedPatch(typeof(ManualHarvestSpeedPatch)),
+            new AttributedPatch(typeof(ResinYieldPatch)),
+            new AttributedPatch(typeof(ShieldProtectionPatch)),
+            new AttributedPatch(typeof(WearableRepairPatch)),
+            new AttributedPatch(typeof(ArrowBreakChancePatch)),
+            new AttributedPatch(typeof(BowDrawSpeedPatch)),
+            new AttributedPatch(typeof(SwimPatch)),
+            new AttributedPatch(typeof(BoatPatch)),
+            new AttributedPatch(typeof(MountPatch)),
+            new AttributedPatch(typeof(TemperatureTolerancePatch)),
+            new AttributedPatch(typeof(TemporalStabilityPatch)),
+            new AttributedPatch(typeof(ArmorPenaltyPatch)),
+            new AttributedPatch(typeof(ArmorProtectionPatch)),
+            new AttributedPatch(typeof(RegenPatch)),
+            new AttributedPatch(typeof(FruitingBushCuttingPatch)),
+            new RegisteredPatch(nameof(GatheringTraitPatch), GatheringTraitPatch.Register),
+            new RegisteredPatch(nameof(EggYieldPatch), EggYieldPatch.Register),
+            new RegisteredPatch(nameof(MerchantPricePatch), MerchantPricePatch.Register),
+            new RegisteredPatch(nameof(MerchantSpecialStockPatch), MerchantSpecialStockPatch.Register),
+            new AttributedPatch(typeof(PanningLuckPatch)),
+            new AttributedPatch(typeof(PanningSpeedPatch)),
+            new AttributedPatch(typeof(MillingSpeedPatch)),
+            new AttributedPatch(typeof(MechanicalRecoveryPatch)),
+            new AttributedPatch(typeof(TargetDamagePatch)),
+            new AttributedPatch(typeof(DamageResistancePatch)),
+            new AttributedPatch(typeof(KnockbackPatch)),
+            new AttributedPatch(typeof(AnimalHarvestYieldPatch)),
+            new AttributedPatch(typeof(FishFilletYieldPatch)),
+            new AttributedPatch(typeof(BloomeryCapacityPatch)),
+            new AttributedPatch(typeof(ClayVoxelYieldPatch)),
+            new RegisteredPatch(nameof(ClayRecoveryPatch), ClayRecoveryPatch.Register),
+            new RegisteredPatch(nameof(BloomeryFuelPatch), BloomeryFuelPatch.Register),
+            new RegisteredPatch(nameof(FiringSpeedPatch), FiringSpeedPatch.Register),
+            new AttributedPatch(typeof(ChiselMaterialPatch)),
+            new RegisteredPatch(nameof(WorkpieceCoolingPatch), WorkpieceCoolingPatch.Register),
+            new AttributedPatch(typeof(HotItemPatch)),
+            new RegisteredPatch(nameof(CrockFreshnessPatch), CrockFreshnessPatch.Register),
+            new RegisteredPatch(nameof(FoodConsumptionPatch), FoodConsumptionPatch.Register),
+            new AttributedPatch(typeof(IntoxicationPatch)),
+            new RegisteredPatch(nameof(CookedFoodPatch), CookedFoodPatch.Register),
+            new AttributedPatch(typeof(AnimalBehaviorPatch)),
+            new AttributedPatch(typeof(RoadSpeedPatch)),
+            new RegisteredPatch(nameof(SupportTraitSystem), SupportTraitSystem.Register),
+            new AttributedPatch(typeof(SharpeningPatch)),
+            new RegisteredPatch(nameof(QuenchModifierPatch), QuenchModifierPatch.Register),
+            new RegisteredPatch(nameof(CapacityInventoryPatch), CapacityInventoryPatch.Register),
+            new RegisteredPatch(nameof(HoneycombYieldPatch), HoneycombYieldPatch.Register),
+            new AttributedPatch(typeof(PigmentUsePatch)),
         ];
 
-        private static (string, Action<Harmony>) Patch(Type type)
-            => (type.Name, owner => owner.CreateClassProcessor(type).Patch());
 
         public override void Start(ICoreAPI api)
         {
@@ -73,9 +86,9 @@ namespace CobbsClasses.Source
 
             Harmony owner = new(HarmonyOwner);
             harmony = owner;
-            foreach ((string? name, Action<Harmony>? install) in TraitPatches)
+            foreach (ITraitPatch patch in TraitPatches)
             {
-                Apply(name, () => install(owner), api.Logger);
+                Apply(patch.Name, () => patch.Register(owner), api.Logger);
             }
         }
 
@@ -87,7 +100,6 @@ namespace CobbsClasses.Source
                 AnimalHarvestYieldPatch.InitializeTags(api);
                 DamageResistancePatch.InitializeTags(api);
                 AnimalBehaviorPatch.InitializeTags(api);
-                OptionalModPatches.Apply(api, new Harmony(HarmonyOwner));
             }
         }
 
@@ -109,4 +121,3 @@ namespace CobbsClasses.Source
         }
     }
 }
-

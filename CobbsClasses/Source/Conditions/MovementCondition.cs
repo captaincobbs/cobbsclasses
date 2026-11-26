@@ -1,4 +1,4 @@
-﻿using Vintagestory.GameContent;
+using Vintagestory.GameContent;
 
 namespace CobbsClasses.Source.Conditions
 {
@@ -15,7 +15,7 @@ namespace CobbsClasses.Source.Conditions
             if (entity.Controls.Sprint)
             {
                 Sprinting.Apply(context.Stats, modifiers);
-                modifiers.Add("hungerrate", context.Stats.GetBlended("sprintHungerRate") - 1f);
+                modifiers.Add(TraitAttributes.Survival.Hungerrate, context.Stats.GetBlended(TraitAttributes.Survival.SprintHungerRate) - 1f);
             }
 
             if (entity.Controls.Sneak)

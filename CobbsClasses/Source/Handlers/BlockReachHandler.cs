@@ -1,4 +1,4 @@
-﻿using CobbsClasses.Source.Behaviors;
+using CobbsClasses.Source.Behaviors;
 
 using Vintagestory.API.Common;
 using Vintagestory.API.Config;
@@ -13,7 +13,7 @@ public static class BlockReachHandler
         ItemStack? heldItem = player.InventoryManager.ActiveHotbarSlot?.Itemstack;
         ToolTraitBehavior? toolTraits = heldItem?.Collectible.GetCollectibleBehavior<ToolTraitBehavior>(false);
 
-        float globalBonus = player.Entity.Stats.GetBlended("globalReach") - 1f;
+        float globalBonus = player.Entity.Stats.GetBlended(TraitAttributes.Tools.GlobalReach) - 1f;
         float heldBonus = toolTraits?.GetReachBonus(player.Entity) ?? 0f;
         return GlobalConstants.DefaultPickingRange + globalBonus + heldBonus;
     }

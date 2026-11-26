@@ -1,4 +1,4 @@
-﻿using Vintagestory.API.Common;
+using Vintagestory.API.Common;
 using Vintagestory.API.Common.Entities;
 using Vintagestory.API.Server;
 
@@ -8,14 +8,14 @@ namespace CobbsClasses.Source.Conditions
     {
         private readonly double radiusSquared = radius * radius;
         private static readonly ConditionRules Alone = new(
-            ("moveSpeedAlone", "walkspeed"),
-            ("jumpHeightMulAlone", "jumpHeightMul"),
-            ("hungerrateAlone", "hungerrate"));
+            (TraitAttributes.Movement.MoveSpeedAlone, TraitAttributes.Movement.Walkspeed),
+            (TraitAttributes.Movement.JumpHeightMulAlone, TraitAttributes.Movement.JumpHeightMul),
+            (TraitAttributes.Survival.HungerrateAlone, TraitAttributes.Survival.Hungerrate));
 
         public void Evaluate(in ConditionContext context, ConditionalModifiers modifiers)
         {
             bool hasAloneBonus = Alone.HasAny(context.Stats);
-            float nearbyLoss = context.Stats.GetBlended("stabilityLossFromPlayers") - 1f;
+            float nearbyLoss = context.Stats.GetBlended(TraitAttributes.Survival.StabilityLossFromPlayers) - 1f;
             if (!hasAloneBonus && nearbyLoss == 0f)
             {
                 return;
@@ -30,9 +30,9 @@ namespace CobbsClasses.Source.Conditions
                 }
 
                 hasNearbyPlayer = true;
-                if (nearbyLoss != 0f && other.Entity.Stats.GetBlended("stabilityLossFromPlayers") == 1f)
+                if (nearbyLoss != 0f && other.Entity.Stats.GetBlended(TraitAttributes.Survival.StabilityLossFromPlayers) == 1f)
                 {
-                    modifiers.Add("environmentStabilityChange", nearbyLoss);
+                    modifiers.Add(TraitAttributes.Survival.EnvironmentStabilityChange, nearbyLoss);
                 }
 
                 if (nearbyLoss == 0f)

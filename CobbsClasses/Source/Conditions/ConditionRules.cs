@@ -1,4 +1,4 @@
-﻿using Vintagestory.API.Common;
+using Vintagestory.API.Common;
 
 namespace CobbsClasses.Source.Conditions
 {
@@ -7,16 +7,16 @@ namespace CobbsClasses.Source.Conditions
     {
         private static readonly (string Input, string Output)[] StandardStats =
         [
-            ("moveSpeed", "walkspeed"),
-            ("globalDamage", "globalDamage"),
-            ("globalSpeedMul", "globalSpeedMul"),
-            ("miningSpeedMul", "miningSpeedMul"),
-            ("healthRegenRate", "healthRegenRate"),
-            ("hungerrate", "hungerrate"),
-            ("rangedWeaponsAcc", "rangedWeaponsAcc"),
-            ("damageResistance", "damageResistance"),
-            ("coldTemperatureRange", "coldTemperatureRange"),
-            ("swimSpeed", "swimSpeed")
+            (TraitAttributes.Movement.MoveSpeed, TraitAttributes.Movement.Walkspeed),
+            (TraitAttributes.Combat.GlobalDamage, TraitAttributes.Combat.GlobalDamage),
+            (TraitAttributes.Tools.GlobalSpeedMul, TraitAttributes.Tools.GlobalSpeedMul),
+            (TraitAttributes.Tools.MiningSpeedMul, TraitAttributes.Tools.MiningSpeedMul),
+            (TraitAttributes.Survival.HealthRegenRate, TraitAttributes.Survival.HealthRegenRate),
+            (TraitAttributes.Survival.Hungerrate, TraitAttributes.Survival.Hungerrate),
+            (TraitAttributes.Combat.RangedWeaponsAcc, TraitAttributes.Combat.RangedWeaponsAcc),
+            (TraitAttributes.Combat.DamageResistance, TraitAttributes.Combat.DamageResistance),
+            (TraitAttributes.Survival.ColdTemperatureRange, TraitAttributes.Survival.ColdTemperatureRange),
+            (TraitAttributes.Movement.SwimSpeed, TraitAttributes.Movement.SwimSpeed)
         ];
 
         private readonly (string Input, string Output)[] rules;

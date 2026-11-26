@@ -7,7 +7,7 @@ namespace CobbsClasses.Source.Renderers
 {
     internal sealed class DarkvisionRenderer(ICoreClientAPI clientAPI) : IRenderer
     {
-        private const string STRENGTH_UNIFORM = "darkvisionStrength";
+        private const string STRENGTH_UNIFORM = TraitAttributes.Survival.DarkvisionStrength;
         private float currentStrength;
 
         public double RenderOrder => 0.5;
@@ -21,7 +21,7 @@ namespace CobbsClasses.Source.Renderers
             if (player is not null)
             {
                 targetStrength = Math.Clamp(
-                    player.Stats.GetBlended("darkvisionStrength") - 1.0f, 0.0f, 1.0f);
+                    player.Stats.GetBlended(TraitAttributes.Survival.DarkvisionStrength) - 1.0f, 0.0f, 1.0f);
             }
 
             float fadeSeconds = targetStrength > currentStrength ? 2.0f : 0.6f;

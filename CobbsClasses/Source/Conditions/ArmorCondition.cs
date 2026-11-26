@@ -1,8 +1,7 @@
-﻿using System;
+using System;
 
 using Vintagestory.API.Common;
 using Vintagestory.API.Config;
-using Vintagestory.GameContent;
 
 namespace CobbsClasses.Source.Conditions
 {
@@ -10,21 +9,21 @@ namespace CobbsClasses.Source.Conditions
     {
         private static readonly (string Input, string Output)[] Stats =
         [
-            ("moveSpeed", "walkspeed"),
-            ("sneakSpeed", "sneakSpeed"),
-            ("healthRegenRate", "healthRegenRate"),
-            ("healthRegenFlat", "healthRegenFlat"),
-            ("animalSeekingRange", "animalSeekingRange"),
-            ("armorProtection", "armorProtection"),
-            ("armorFlatProtection", "armorFlatProtection"),
-            ("armorWalkSpeedAffectedness", "armorWalkSpeedAffectedness"),
-            ("armorHungerAffectedness", "armorHungerAffectedness"),
-            ("armorHealingAffectedness", "armorHealingAffectedness"),
-            ("armorRangedAffectedness", "armorRangedAffectedness"),
-            ("toolSpeed", "toolSpeedMul"),
-            ("globalDamage", "globalDamage"),
-            ("hungerrate", "hungerrate"),
-            ("swimSpeed", "swimSpeed")
+            (TraitAttributes.Movement.MoveSpeed, TraitAttributes.Movement.Walkspeed),
+            (TraitAttributes.Movement.SneakSpeed, TraitAttributes.Movement.SneakSpeed),
+            (TraitAttributes.Survival.HealthRegenRate, TraitAttributes.Survival.HealthRegenRate),
+            (TraitAttributes.Survival.HealthRegenFlat, TraitAttributes.Survival.HealthRegenFlat),
+            (TraitAttributes.Gathering.AnimalSeekingRange, TraitAttributes.Gathering.AnimalSeekingRange),
+            (TraitAttributes.Equipment.ArmorProtection, TraitAttributes.Equipment.ArmorProtection),
+            (TraitAttributes.Equipment.ArmorFlatProtection, TraitAttributes.Equipment.ArmorFlatProtection),
+            (TraitAttributes.Equipment.ArmorWalkSpeedAffectedness, TraitAttributes.Equipment.ArmorWalkSpeedAffectedness),
+            (TraitAttributes.Equipment.ArmorHungerAffectedness, TraitAttributes.Equipment.ArmorHungerAffectedness),
+            (TraitAttributes.Equipment.ArmorHealingAffectedness, TraitAttributes.Equipment.ArmorHealingAffectedness),
+            (TraitAttributes.Equipment.ArmorRangedAffectedness, TraitAttributes.Equipment.ArmorRangedAffectedness),
+            (TraitAttributes.Tools.ToolSpeed, TraitAttributes.Tools.ToolSpeedMul),
+            (TraitAttributes.Combat.GlobalDamage, TraitAttributes.Combat.GlobalDamage),
+            (TraitAttributes.Survival.Hungerrate, TraitAttributes.Survival.Hungerrate),
+            (TraitAttributes.Movement.SwimSpeed, TraitAttributes.Movement.SwimSpeed)
         ];
 
         private static readonly ConditionRules Unarmored = ConditionRules.WithSuffix("Unarmored", Stats);

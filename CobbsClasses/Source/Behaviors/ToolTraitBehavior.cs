@@ -48,7 +48,7 @@ namespace CobbsClasses.Source.Behaviors
             float bonus = 0f;
             foreach (string? statName in reachTraits)
             {
-                if (!string.IsNullOrWhiteSpace(statName) && statName != "globalReach")
+                if (!string.IsNullOrWhiteSpace(statName) && statName != TraitAttributes.Tools.GlobalReach)
                 {
                     bonus += player.Stats.GetBlended(statName) - 1f;
                 }

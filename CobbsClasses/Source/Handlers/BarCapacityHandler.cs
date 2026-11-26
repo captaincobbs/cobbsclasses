@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 using Vintagestory.API.Common;
 using Vintagestory.API.Server;
@@ -18,7 +18,7 @@ namespace CobbsClasses.Source.Handlers
             if (entity.GetBehavior<EntityBehaviorBreathe>() is { } breathing)
             {
                 int baseOxygen = entity.World.Config.GetAsInt("lungCapacity", BASE_LUNG_CAPACITY);
-                float maximum = baseOxygen * Math.Max(0.01f, entity.Stats.GetBlended("breathCapacity"));
+                float maximum = baseOxygen * Math.Max(0.01f, entity.Stats.GetBlended(TraitAttributes.Survival.BreathCapacity));
                 if (breathing.MaxOxygen != maximum)
                 {
                     breathing.MaxOxygen = maximum;
@@ -28,7 +28,7 @@ namespace CobbsClasses.Source.Handlers
 
             if (entity.GetBehavior<EntityBehaviorHunger>() is { } hunger)
             {
-                float maximum = BASE_HUNGER_CAPACITY * Math.Max(0.01f, entity.Stats.GetBlended("maxHungerMul"));
+                float maximum = BASE_HUNGER_CAPACITY * Math.Max(0.01f, entity.Stats.GetBlended(TraitAttributes.Survival.MaxHungerMul));
                 if (hunger.MaxSaturation != maximum)
                 {
                     hunger.MaxSaturation = maximum;
@@ -38,7 +38,7 @@ namespace CobbsClasses.Source.Handlers
 
             if (entity.GetBehavior<EntityBehaviorHealth>() is { } health)
             {
-                float bonusHealth = health.BaseMaxHealth * ((float)Math.Max(0.01f, entity.Stats.GetBlended("maxHealthmul")) - 1);
+                float bonusHealth = health.BaseMaxHealth * ((float)Math.Max(0.01f, entity.Stats.GetBlended(TraitAttributes.Survival.MaxHealthmul)) - 1);
                 health.SetMaxHealthModifiers(HEALTH_MODIFIER_KEY, bonusHealth);
             }
         }
