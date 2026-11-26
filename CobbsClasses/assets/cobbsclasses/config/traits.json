@@ -46,6 +46,7 @@
     "code": "homesteader-greenthumb",
     "type": "positive",
     "attributes": {
+      "seedYieldMul": 0.25,
       "cropDropRate": 0.25,
       "wildCropDropRate": 0.3
     }
@@ -55,7 +56,8 @@
     "type": "positive",
     "attributes": {
       "domesticatedAnimalFear": 0,
-      "animalHarvestRate": 0.5
+      "animalHarvestRate": 0.5,
+      "eggYieldMul": 0.5
     }
   },
   {
@@ -107,7 +109,7 @@
     "attributes": {
       "animalSeekingRange": -0.6,
       "walkspeed": 0.1,
-      "sneakSpeed": 1.0,
+      "sneakSpeed": -1,
       "trackdecay": 0.3
     }
   },
@@ -120,6 +122,7 @@
     "code": "lumberjack-treefeller",
     "type": "positive",
     "attributes": {
+      "logYieldMul": 0.25,
       "charcoalYieldMul": 0.35,
       "axeSpeedMul": 0.5,
       "axeDurabilityLoss": -0.25
@@ -152,7 +155,7 @@
     "code": "malefactor-sneaking",
     "type": "positive",
     "attributes": {
-      "sneakSpeed": 1,
+      "sneakSpeed": -1,
       "moveSpeedAlone": 0.2,
       "jumpHeightMulAlone": 0.6,
       "darkvisionStrength": 0.32
@@ -200,6 +203,7 @@
     "code": "miner-cavedelver",
     "type": "positive",
     "attributes": {
+      "undergroundStabilityResistance": 1,
       "crushingResistance": -0.5,
       "gravityResistance": 0.35
     }
@@ -208,7 +212,7 @@
     "code": "miner-light",
     "type": "positive",
     "attributes": {
-      "darkvisionStrength": 0.4
+      "darkvisionStrengthUnderground": 0.4
     }
   },
   {
@@ -307,7 +311,7 @@
       "potionPenalty": 0,
       "spoiltFoodPenalty": 1,
       "poisonPenalty": 0,
-      "intoxicationPenalty": 0,
+      "intoxicationPenalty": -0.5,
       "poisonResistance": 1,
       "hallucinationResistance": 1
     }
@@ -445,7 +449,6 @@
     "type": "positive",
     "attributes": {
       "fireResistance": 0.5,
-      "inventoryHeatRate": -0.5,
       "canHoldHotItems": 1,
       "canCraftHotItems": 1,
       "workItemCoolingReduction": 0.5
@@ -495,7 +498,7 @@
     "type": "positive",
     "attributes": {
       "bloomeryAmountMul": 1,
-      "bloomerySpeedMul": -0.2,
+      "bloomerySpeedMul": 0.25,
       "bloomeryRecoveryAmount": 1.0,
       "bloomeryFuelEfficiency": 0.25
     }
@@ -538,8 +541,6 @@
     "code": "architect-adornment",
     "type": "positive",
     "attributes": {
-      "artHungerRate": -0.3,
-      "artMoveSpeed": 0.1
     }
   },
   {
@@ -561,8 +562,11 @@
     "attributes": {
       "hungerrate": 0.3,
       "maxHungerMul":  1.0,
-      "globalSpeedMulWhenFull": 0.1,
-      "globalSpeedMulWhenSated": 0.1
+      "globalDamageWhenSated": 0.15,
+      "globalSpeedMulWhenSated": 0.1,
+      "moveSpeedWhenSated": 0.1,
+      "healthRegenRateWhenSated": 0.5,
+      "satedBonusFullMultiplier": 1
     }
   },
   {
@@ -743,7 +747,8 @@
     "code": "ranger-fleetfoot",
     "type": "positive",
     "attributes": {
-      "armorWalkSpeedAffectedness": -0.5,
+      "armorWalkSpeedAffectednessLightArmor": -1,
+      "armorHungerAffectednessLightArmor": -1,
       "walkspeed": 0.2,
       "armorRangedAffectedness": -1,
       "jumpHeightMul": 0.2

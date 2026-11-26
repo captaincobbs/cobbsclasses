@@ -29,6 +29,8 @@ namespace CobbsClasses.Source.Patches
                 return;
             }
 
+            damage *= Multiplier(attacker, "globalDamage");
+
             if (target is EntityPlayer)
             {
                 damage *= Multiplier(attacker, "playersDamage");

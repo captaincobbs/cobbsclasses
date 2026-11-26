@@ -39,6 +39,7 @@
 </ItemGroup>
 
 <ItemGroup>
+  <Folder Include="Source\Compatibility\" />
   <Folder Include="Source\Utilities\" />
 </ItemGroup>
 

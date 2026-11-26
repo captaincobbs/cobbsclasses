@@ -21,10 +21,15 @@ namespace CobbsClasses.Source
             Patch(typeof(BoatPatch)),
             Patch(typeof(MountPatch)),
             Patch(typeof(TemperatureTolerancePatch)),
+            Patch(typeof(TemporalStabilityPatch)),
             Patch(typeof(ArmorPenaltyPatch)),
             Patch(typeof(ArmorProtectionPatch)),
             Patch(typeof(RegenPatch)),
             Patch(typeof(FruitingBushCuttingPatch)),
+            (nameof(GatheringTraitPatch), GatheringTraitPatch.Register),
+            (nameof(EggYieldPatch), EggYieldPatch.Register),
+            (nameof(MerchantPricePatch), MerchantPricePatch.Register),
+            (nameof(MerchantSpecialStockPatch), MerchantSpecialStockPatch.Register),
             Patch(typeof(PanningLuckPatch)),
             Patch(typeof(PanningSpeedPatch)),
             Patch(typeof(MillingSpeedPatch)),
@@ -38,11 +43,13 @@ namespace CobbsClasses.Source
             Patch(typeof(ClayVoxelYieldPatch)),
             (nameof(ClayRecoveryPatch), ClayRecoveryPatch.Register),
             (nameof(BloomeryFuelPatch), BloomeryFuelPatch.Register),
+            (nameof(FiringSpeedPatch), FiringSpeedPatch.Register),
             Patch(typeof(ChiselMaterialPatch)),
             (nameof(WorkpieceCoolingPatch), WorkpieceCoolingPatch.Register),
             Patch(typeof(HotItemPatch)),
             (nameof(CrockFreshnessPatch), CrockFreshnessPatch.Register),
             (nameof(FoodConsumptionPatch), FoodConsumptionPatch.Register),
+            Patch(typeof(IntoxicationPatch)),
             (nameof(CookedFoodPatch), CookedFoodPatch.Register),
             Patch(typeof(AnimalBehaviorPatch)),
             Patch(typeof(RoadSpeedPatch)),
@@ -102,3 +109,4 @@ namespace CobbsClasses.Source
         }
     }
 }
+

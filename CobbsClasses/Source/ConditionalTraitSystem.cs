@@ -6,6 +6,7 @@ using Vintagestory.API.Common;
 using Vintagestory.API.Common.Entities;
 using Vintagestory.API.Config;
 using Vintagestory.API.Datastructures;
+using Vintagestory.API.MathTools;
 using Vintagestory.API.Server;
 using Vintagestory.GameContent;
 
@@ -19,7 +20,6 @@ namespace CobbsClasses.Source
         private const float DefaultSatedThreshold = 0.6f;
         private const float DefaultFullThreshold = 0.85f;
 
-
         private static readonly ArmorStat[] ArmorStats =
         [
             new("walkspeed", "moveSpeed"),
@@ -28,14 +28,30 @@ namespace CobbsClasses.Source
             new("healthRegenFlat", "healthRegenFlat"),
             new("animalSeekingRange", "animalSeekingRange"),
             new("armorProtection", "armorProtection"),
-            new("armorFlatProtection", "armorFlatProtection")
+            new("armorFlatProtection", "armorFlatProtection"),
+            new("armorWalkSpeedAffectedness", "armorWalkSpeedAffectedness"),
+            new("armorHungerAffectedness", "armorHungerAffectedness"),
+            new("armorHealingAffectedness", "armorHealingAffectedness"),
+            new("armorRangedAffectedness", "armorRangedAffectedness")
         ];
 
         private static readonly string[] OutputStats =
         [.. ArmorStats.Select(rule => rule.Output),
             "jumpHeightMul",
             "hungerrate",
-            "globalSpeedMul"
+            "globalSpeedMul",
+            "globalDamage",
+            "environmentStabilityChange",
+            "environmentStabilityResistance",
+            "darkvisionStrength"
+        ];
+
+        private static readonly (string Input, string Output)[] SatedStats =
+        [
+            ("globalDamageWhenSated", "globalDamage"),
+            ("globalSpeedMulWhenSated", "globalSpeedMul"),
+            ("moveSpeedWhenSated", "walkspeed"),
+            ("healthRegenRateWhenSated", "healthRegenRate")
         ];
 
         private readonly ConditionalWeakTable<EntityStats, float[]> appliedBonuses = [];
@@ -113,6 +129,7 @@ namespace CobbsClasses.Source
                 AddAloneBonuses(player, onlinePlayers, stats, bonuses);
                 AddArmorBonuses(player, stats, bonuses);
                 AddFoodBonus(entity, stats, bonuses);
+                AddEnvironmentBonuses(player, onlinePlayers, stats, bonuses);
             }
 
             if (!appliedBonuses.TryGetValue(stats, out float[]? applied))
@@ -185,14 +202,73 @@ namespace CobbsClasses.Source
 
         private void AddFoodBonus(EntityPlayer entity, EntityStats stats, Span<float> bonuses)
         {
-            float sated = stats.GetBlended("globalSpeedMulWhenSated") - 1f;
-            float full = stats.GetBlended("globalSpeedMulWhenFull") - 1f;
-            if ((sated != 0f || full != 0f) && entity.GetBehavior<EntityBehaviorHunger>() is { } food)
+            if (entity.GetBehavior<EntityBehaviorHunger>() is not { } food || food.MaxSaturation <= 0f)
             {
-                bonuses[Array.IndexOf(OutputStats, "globalSpeedMul")] += GetFoodSpeedBonus(food.Saturation, food.MaxSaturation, sated, full);
+                return;
+            }
+
+            float fullness = food.Saturation / food.MaxSaturation;
+            if (fullness < satedThreshold)
+            {
+                return;
+            }
+
+            float multiplier = fullness >= fullThreshold
+                ? Math.Max(0f, stats.GetBlended("satedBonusFullMultiplier"))
+                : 1f;
+            foreach ((string input, string output) in SatedStats)
+            {
+                bonuses[Array.IndexOf(OutputStats, output)] += (stats.GetBlended(input) - 1f) * multiplier;
+            }
+
+            // Preserve existing configurations with a separate full-only speed bonus
+            if (fullness >= fullThreshold)
+            {
+                bonuses[Array.IndexOf(OutputStats, "globalSpeedMul")] += stats.GetBlended("globalSpeedMulWhenFull") - 1f;
             }
         }
+        private void AddEnvironmentBonuses(IServerPlayer player, IPlayer[] onlinePlayers, EntityStats stats, Span<float> bonuses)
+        {
+            float hunger = stats.GetBlended("hungerrateOutside") - 1f;
+            float surface = stats.GetBlended("surfaceStabilityLoss") - 1f;
+            float underground = stats.GetBlended("undergroundStabilityResistance") - 1f;
+            float nearby = stats.GetBlended("stabilityLossFromPlayers") - 1f;
+            float darkvision = stats.GetBlended("darkvisionStrengthUnderground") - 1f;
+            if (hunger == 0f && surface == 0f && underground == 0f && nearby == 0f && darkvision == 0f)
+            {
+                return;
+            }
 
+            EntityPos position = player.Entity.Pos;
+            BlockPos blockPosition = position.AsBlockPos;
+            IBlockAccessor blocks = player.Entity.World.BlockAccessor;
+            if (hunger != 0f && position.Y + 1 >= blocks.GetRainMapHeightAt(blockPosition))
+            {
+                bonuses[Array.IndexOf(OutputStats, "hungerrate")] += hunger;
+            }
+
+            bool belowTerrain = position.Y + 2 < blocks.GetTerrainMapheightAt(blockPosition);
+            if (belowTerrain)
+            {
+                bonuses[Array.IndexOf(OutputStats, "environmentStabilityResistance")] += underground;
+                bonuses[Array.IndexOf(OutputStats, "darkvisionStrength")] += darkvision;
+            }
+            else
+            {
+                bonuses[Array.IndexOf(OutputStats, "environmentStabilityChange")] += surface;
+            }
+
+            if (nearby != 0f)
+            {
+                foreach (IPlayer other in onlinePlayers)
+                {
+                    if (other is IServerPlayer candidate && candidate.PlayerUID != player.PlayerUID && IsActivePlayer(candidate) && IsWithinAloneRadius(position, candidate.Entity.Pos) && candidate.Entity.Stats.GetBlended("stabilityLossFromPlayers") == 1f)
+                    {
+                        bonuses[Array.IndexOf(OutputStats, "environmentStabilityChange")] += nearby;
+                    }
+                }
+            }
+        }
         private static bool IsActivePlayer(IServerPlayer player) => player.ConnectionState == EnumClientState.Playing && player.Entity is { Alive: true } && player.WorldData.CurrentGameMode == EnumGameMode.Survival;
 
         private static ArmorWeight GetArmorWeight(IPlayer player)
@@ -257,22 +333,6 @@ namespace CobbsClasses.Source
             double y = position.Y - otherPosition.Y;
             double z = position.Z - otherPosition.Z;
             return x * x + y * y + z * z <= aloneRadiusSquared;
-        }
-
-        private float GetFoodSpeedBonus(float saturation, float maximum, float satedBonus, float fullBonus)
-        {
-            if (maximum <= 0f)
-            {
-                return 0f;
-            }
-
-            float fullness = saturation / maximum;
-            if (fullness >= fullThreshold)
-            {
-                return satedBonus + fullBonus;
-            }
-
-            return fullness >= satedThreshold ? satedBonus : 0f;
         }
 
         private static void ApplyBonus(EntityStats stats, string stat, float bonus, ref float applied)

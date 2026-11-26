@@ -12,7 +12,6 @@ using Vintagestory.API.MathTools;
 
 using static CobbsClasses.Source.Patches.PatchUtils;
 
-
 namespace CobbsClasses.Source.Patches
 {
     [HarmonyPatch(typeof(BlockPan), nameof(BlockPan.OnHeldInteractStop))]

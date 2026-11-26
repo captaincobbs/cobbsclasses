@@ -75,7 +75,29 @@ namespace CobbsClasses.Source.Patches
                 JsonObject? option = collectible.Attributes?["cobbsclassesRawIngredient"];
                 string path = collectible.Code.Path;
                 bool raw = option?.Exists == true ? option.AsBool() : collectible.Code.Domain == "game" && (path.StartsWith("fruit-", StringComparison.Ordinal) || path.StartsWith("vegetable-", StringComparison.Ordinal) || path.StartsWith("legume-", StringComparison.Ordinal) || path is "bambooshoot" or "rawcassava" || path.StartsWith("grain-", StringComparison.Ordinal) || path.StartsWith("mushroom-", StringComparison.Ordinal) && path.EndsWith("-normal", StringComparison.Ordinal) || path is "redmeat-raw" or "bushmeat-raw" or "poultry-raw" or "fish-raw");
-                return raw ? amount * Multiplier(eater, "rawFoodSatiety") : amount;
+                JsonObject? basicOption = collectible.Attributes?["cobbsclassesBasicFood"];
+                bool basic = basicOption?.Exists == true ? basicOption.AsBool() : raw
+                    || collectible.Code.Domain == "game" && (
+                        path.StartsWith("redmeat-", StringComparison.Ordinal)
+                        || path.StartsWith("bushmeat-", StringComparison.Ordinal)
+                        || path.StartsWith("poultry-", StringComparison.Ordinal)
+                        || path.StartsWith("fish-", StringComparison.Ordinal)
+                        || path.StartsWith("fishchunk-", StringComparison.Ordinal)
+                        || path.StartsWith("fishraw-", StringComparison.Ordinal)
+                        || path is "fishchunk" or "fishraw" or "egg"
+                        || path.StartsWith("mushroom-", StringComparison.Ordinal)
+                        || path.StartsWith("egg-", StringComparison.Ordinal)
+                        || path.StartsWith("bread-", StringComparison.Ordinal)
+                        || path.StartsWith("pickledvegetable-", StringComparison.Ordinal)
+                        || path.StartsWith("pickledlegume-", StringComparison.Ordinal)
+                        || path.StartsWith("vegetable-", StringComparison.Ordinal)
+                        || path.StartsWith("fruit-", StringComparison.Ordinal));
+                if (raw)
+                {
+                    amount *= Multiplier(eater, "rawFoodSatiety");
+                }
+
+                return basic ? amount * Multiplier(eater, "basicFoodSatiety") : amount;
             }
 
             private static float AdjustPsychedelic(float amount, EntityAgent eater)
@@ -91,3 +113,5 @@ namespace CobbsClasses.Source.Patches
         }
     }
 }
+
+
