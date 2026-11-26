@@ -125,7 +125,7 @@ namespace CobbsClasses.Source.Patches
                     return;
                 }
 
-                float speed = Speed(__0?.Entity, "potteryCookSpeed");
+                float speed = Speed(__0?.Entity, "potterySpeedMul");
                 if (speed != 1f)
                 {
                     double now = __instance.Api.World.Calendar.TotalHours;
@@ -171,7 +171,7 @@ namespace CobbsClasses.Source.Patches
 
             // Record all ignitions
             FiringCycle cycle = Cycles.GetOrCreateValue(state);
-            cycle.Speed = Speed(entity, "potteryCookSpeed");
+            cycle.Speed = Speed(entity, "potterySpeedMul");
             cycle.Ignition = FuelStart(state);
             state.MarkDirty();
         }

@@ -19,8 +19,8 @@ namespace CobbsClasses.Source.Patches
         private const string Personal = "backpackInventoryMultiplier";
         private const string Mount = "animalInventoryMultiplier";
         private const string Vehicle = "vehicleInventoryMultiplier";
-        private static readonly ConditionalWeakTable<ItemSlot, Overflow> RestrictedSlots = new();
-        private static readonly ConditionalWeakTable<ItemSlot, CursorOrigin> CursorOrigins = new();
+        private static readonly ConditionalWeakTable<ItemSlot, Overflow> RestrictedSlots = [];
+        private static readonly ConditionalWeakTable<ItemSlot, CursorOrigin> CursorOrigins = [];
         [ThreadStatic]
         private static IPlayer? actingPlayer;
 
@@ -40,7 +40,7 @@ namespace CobbsClasses.Source.Patches
                 return;
             }
 
-            int expanded = GetCapacity(normal, factor);
+            int expanded = GetCapacity(normal, factor, stat == Personal);
             if (expanded > normal && expanded >= bag.Attributes.GetInt(CapacityKey))
             {
                 bag.Attributes.SetInt(CapacityKey, expanded);
@@ -48,14 +48,15 @@ namespace CobbsClasses.Source.Patches
             }
         }
 
-        private static int GetCapacity(int normal, float factor)
+        private static int GetCapacity(int normal, float factor, bool roundUp)
         {
             if (!float.IsFinite(factor) || factor <= 1f)
             {
                 return normal;
             }
 
-            return normal + (int)Math.Clamp(Math.Floor(normal * (double)(factor - 1f) + 0.00001d), 0d, 64d);
+            double bonus = normal * (double)(factor - 1f);
+            return normal + (int)Math.Clamp(roundUp ? Math.Ceiling(bonus - 0.00001d) : Math.Floor(bonus + 0.00001d), 0d, 64d);
         }
 
         [HarmonyPatch(typeof(AttachedContainerWorkspace), nameof(AttachedContainerWorkspace.OnInteract))]
@@ -176,7 +177,7 @@ namespace CobbsClasses.Source.Patches
             {
                 actor = personal.Player;
             }
-            return actor?.Entity is { } player && restriction.Index < GetCapacity(restriction.Normal, Multiplier(player, restriction.Stat));
+            return actor?.Entity is { } player && restriction.Index < GetCapacity(restriction.Normal, Multiplier(player, restriction.Stat), restriction.Stat == Personal);
         }
 
         [HarmonyPatch(typeof(InventoryBase), nameof(InventoryBase.ActivateSlot))]

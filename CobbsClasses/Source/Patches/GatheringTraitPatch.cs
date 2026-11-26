@@ -41,13 +41,25 @@ namespace CobbsClasses.Source.Patches
         {
             private static void Postfix(Block __instance, IWorldAccessor __0, IPlayer? __2, ref ItemStack[] __result)
             {
-                if (__0.Side == EnumAppSide.Server && __2?.Entity is { } player && __instance is BlockLog && __instance.Variant["type"] == "grown")
+                if (__0.Side != EnumAppSide.Server || __2?.Entity is not { } player || __instance.Code.Domain != "game")
                 {
-                    ScaleDrops(__0, player, ref __result, "logYieldMul");
+                    return;
+                }
+
+                string path = __instance.Code.Path;
+                string? stat = __instance is BlockLog && __instance.Variant["type"] == "grown" ? "logYieldMul"
+                    : path.StartsWith("peat-", StringComparison.Ordinal) || path == "peat" ? "peatYieldMul"
+                    : path.StartsWith("loosestones-", StringComparison.Ordinal) || path.StartsWith("rock-", StringComparison.Ordinal) ? "stoneYieldMul"
+                    : path.StartsWith("tallgrass-", StringComparison.Ordinal) ? "grassYieldMul"
+                    : path.StartsWith("reed", StringComparison.Ordinal) ? "reedsYieldMul"
+                    : path.StartsWith("flower-", StringComparison.Ordinal) || path.StartsWith("flowerlupine-", StringComparison.Ordinal) ? "flowerYieldMul"
+                    : null;
+                if (stat is not null)
+                {
+                    ScaleDrops(__0, player, ref __result, stat);
                 }
             }
         }
-
         private static void ScaleDrops(IWorldAccessor world, EntityPlayer player, ref ItemStack[] drops,
             string stat, string? seedStat = null)
         {
@@ -94,7 +106,7 @@ namespace CobbsClasses.Source.Patches
                 __state = ___yieldLitres;
                 if (__instance.entity.World.Side == EnumAppSide.Server)
                 {
-                    ___yieldLitres *= Multiplier(__1, "animalHarvestRate");
+                    ___yieldLitres *= Multiplier(__1, "milkYieldMul");
                 }
             }
 

@@ -53,7 +53,7 @@ namespace CobbsClasses.Source.Patches
 
         private static void Postfix(object __instance, EntityAgent ___entity, Entity? __0, ref bool __result)
         {
-            if (!__result || __0 is not EntityPlayer player || ___entity.World.Side != EnumAppSide.Server || !___entity.Tags.Overlaps(animals) || ___entity.WatchedAttributes.GetInt("generation") > 0)
+            if (!__result || __0 is not EntityPlayer player || ___entity.World.Side != EnumAppSide.Server || !___entity.Tags.Overlaps(animals))
             {
                 return;
             }
@@ -61,7 +61,8 @@ namespace CobbsClasses.Source.Patches
             bool flee = __instance is AiTaskFleeEntity or AiTaskFleeEntityR;
             bool attack = __instance is AiTaskSeekEntity or AiTaskSeekEntityR or AiTaskMeleeAttack or AiTaskMeleeAttackR;
             bool predator = ___entity.Tags.Overlaps(predators);
-            string? stat = predator && attack ? "wildAnimalPassive" : !predator && flee ? "wildAnimalNoFlee" : null;
+            bool domesticated = ___entity.WatchedAttributes.GetInt("generation") > 0;
+            string? stat = domesticated ? (flee && !predator ? "domesticatedAnimalNoFlee" : null) : predator && attack ? "wildAnimalPassive" : !predator && flee ? "wildAnimalNoFlee" : null;
             if (stat is null || player.Stats.GetBlended(stat) <= 1f || (player.PlayerUID is { } uid && Provocations.TryGetValue(___entity, out Dictionary<string, long>? recent) && recent.TryGetValue(uid, out long expiry) && expiry > ___entity.World.ElapsedMilliseconds))
             {
                 return;
@@ -71,3 +72,4 @@ namespace CobbsClasses.Source.Patches
         }
     }
 }
+

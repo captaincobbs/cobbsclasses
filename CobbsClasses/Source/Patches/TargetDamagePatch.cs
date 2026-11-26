@@ -30,6 +30,10 @@ namespace CobbsClasses.Source.Patches
             }
 
             damage *= Multiplier(attacker, "globalDamage");
+            if (damageSource.SourceEntity == attacker && attacker.Player?.InventoryManager.ActiveHotbarSlot.Empty == true)
+            {
+                damage *= Multiplier(attacker, "bareHandDamage");
+            }
 
             if (target is EntityPlayer)
             {

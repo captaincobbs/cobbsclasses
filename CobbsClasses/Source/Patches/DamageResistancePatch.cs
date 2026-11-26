@@ -30,6 +30,7 @@ namespace CobbsClasses.Source.Patches
                 return;
             }
 
+            damage *= RemainingDamage(player, "damageResistance");
             damage *= RemainingDamage(player, GetSourceResistance(damageSource));
             if (damageSource.Duration <= TimeSpan.Zero)
             {
