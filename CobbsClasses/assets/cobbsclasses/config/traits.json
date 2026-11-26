@@ -13,7 +13,10 @@
       "hideMealSafety": 0,
       "hideNutritionInfo": 0,
       "hideCraftingInfo": 0,
-      "mushroomYieldMul": 0.5
+      "mushroomYieldMul": 0.5,
+      "berryYieldMul": 0.5,
+      "fruitYieldMul": 0.5,
+      "flowerYieldMul": 0.5
     }
   },
   {
@@ -55,8 +58,8 @@
     "code": "homesteader-farmhand",
     "type": "positive",
     "attributes": {
-      "domesticatedAnimalFear": 0,
-      "animalHarvestRate": 0.5,
+      "domesticatedAnimalNoFlee": 1,
+      "milkYieldMul": 0.5,
       "eggYieldMul": 0.5
     }
   },
@@ -66,7 +69,8 @@
     "attributes": {
       "coldTemperatureRange": 3.5,
       "hotTemperatureRange": 3.5,
-      "hoeDurabilityLoss": -0.25
+      "hoeDurabilityLoss": -0.25,
+      "wateringConsumption": -0.25
     }
   },
   {
@@ -249,7 +253,7 @@
     "code": "potter-ceramicist",
     "type": "positive",
     "attributes": {
-      "potteryCookSpeed": 0.3
+      "potterySpeedMul": 0.3
     }
   },
   {
@@ -281,7 +285,8 @@
     "type": "positive",
     "attributes": {
       "coldResistance": 1,
-      "wetResistance": 1
+      "wetResistance": 1,
+      "dryingSpeedMul": 0.5
     }
   },
   {
@@ -475,7 +480,7 @@
   {
     "code": "tailor-patching",
     "type": "positive",
-    "attributes": {}
+    "attributes": { "clothingRepairEfficiency": 0.5 }
   },
   {
     "code": "tailor-professional-dress",
@@ -664,7 +669,9 @@
   {
     "code": "druid-rituals",
     "type": "positive",
-    "attributes": {}
+    "attributes": {
+      "healingItemEffectiveness": 0.25
+    }
   },
   {
     "code": "druid-animal-kinship",
@@ -690,6 +697,7 @@
     "code": "knight-juggernaut",
     "type": "positive",
     "attributes": {
+      "armorDurabilityLoss": 0.3,
       "armorWalkSpeedAffectedness": -1.0,
       "armorHealingAffectedness": -1.0,
       "armorHungerAffectedness": -0.4,
@@ -700,7 +708,7 @@
     "code": "knight-bulwark",
     "type": "positive",
     "attributes": {
-      "armorDurabilityLoss": -0.2,
+      
       "shieldDurabilityLoss": -0.2,
       "globalDurabilityLoss": -0.2,
       "knockbackWhileBlocking": -1.0
@@ -740,7 +748,8 @@
       "bowDrawingStrength": 0.25,
       "rangedWeaponsSpeed": 1.0,
       "rangedWeaponsAcc": 0.5,
-      "bowDrawSpeed": 0.25
+      "bowDrawSpeed": 0.25,
+      "arrowBreakChance": 0.3
     }
   },
   {
