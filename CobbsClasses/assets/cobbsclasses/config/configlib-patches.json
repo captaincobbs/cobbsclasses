@@ -31,7 +31,6 @@
         "cobbs-blackguard-disable-class": "COBBS_BLACKGUARD_DISABLE_CLASS",
         "cobbs-caravaneer-disable-class": "COBBS_CARAVANEER_DISABLE_CLASS",
         "cobbs-clockmaker-disable-class": "COBBS_CLOCKMAKER_DISABLE_CLASS",
-        "cobbs-druid-disable-class": "COBBS_DRUID_DISABLE_CLASS",
         "cobbs-knight-disable-class": "COBBS_KNIGHT_DISABLE_CLASS",
         "cobbs-ranger-disable-class": "COBBS_RANGER_DISABLE_CLASS",
         "cobbs-rotwalker-disable-class": "COBBS_ROTWALKER_DISABLE_CLASS",
@@ -56,10 +55,10 @@
         "cobbs-blackguard-disable-recipe-variants": "COBBS_BLACKGUARD_DISABLE_RECIPE_VARIANTS",
         "cobbs-caravaneer-disable-recipe-variants": "COBBS_CARAVANEER_DISABLE_RECIPE_VARIANTS",
         "cobbs-clockmaker-disable-recipe-variants": "COBBS_CLOCKMAKER_DISABLE_RECIPE_VARIANTS",
-        "cobbs-druid-disable-recipe-variants": "COBBS_DRUID_DISABLE_RECIPE_VARIANTS",
         "cobbs-knight-disable-recipe-variants": "COBBS_KNIGHT_DISABLE_RECIPE_VARIANTS",
         "cobbs-ranger-disable-recipe-variants": "COBBS_RANGER_DISABLE_RECIPE_VARIANTS",
-        "cobbs-rotwalker-disable-recipe-variants": "COBBS_ROTWALKER_DISABLE_RECIPE_VARIANTS"
+        "cobbs-rotwalker-disable-recipe-variants": "COBBS_ROTWALKER_DISABLE_RECIPE_VARIANTS",
+        "ignore-class-mod-requirements": "IGNORE_CLASS_MOD_REQUIREMENTS"
       }
     },
     "integer": {
@@ -88,7 +87,6 @@
         "cobbs-blackguard-unique-recipe-access": "COBBS_BLACKGUARD_UNIQUE_RECIPE_ACCESS",
         "cobbs-caravaneer-unique-recipe-access": "COBBS_CARAVANEER_UNIQUE_RECIPE_ACCESS",
         "cobbs-clockmaker-unique-recipe-access": "COBBS_CLOCKMAKER_UNIQUE_RECIPE_ACCESS",
-        "cobbs-druid-unique-recipe-access": "COBBS_DRUID_UNIQUE_RECIPE_ACCESS",
         "cobbs-knight-unique-recipe-access": "COBBS_KNIGHT_UNIQUE_RECIPE_ACCESS",
         "cobbs-ranger-unique-recipe-access": "COBBS_RANGER_UNIQUE_RECIPE_ACCESS",
         "cobbs-rotwalker-unique-recipe-access": "COBBS_ROTWALKER_UNIQUE_RECIPE_ACCESS"
@@ -138,175 +136,144 @@
         "name": "cobbs-commoner-disable-class",
         "ingui": "game:characterclass-cobbs-commoner",
         "weight": 2,
-        "comment": "cobbsclasses:setting-cobbs-commoner-disable-class-description",
         "default": false
       },
       "COBBS_HERBALIST_DISABLE_CLASS": {
         "name": "cobbs-herbalist-disable-class",
         "ingui": "game:characterclass-cobbs-herbalist",
         "weight": 3,
-        "comment": "cobbsclasses:setting-cobbs-herbalist-disable-class-description",
         "default": false
       },
       "COBBS_HOMESTEADER_DISABLE_CLASS": {
         "name": "cobbs-homesteader-disable-class",
         "ingui": "game:characterclass-cobbs-homesteader",
         "weight": 4,
-        "comment": "cobbsclasses:setting-cobbs-homesteader-disable-class-description",
         "default": false
       },
       "COBBS_HUNTER_DISABLE_CLASS": {
         "name": "cobbs-hunter-disable-class",
         "ingui": "game:characterclass-cobbs-hunter",
         "weight": 5,
-        "comment": "cobbsclasses:setting-cobbs-hunter-disable-class-description",
         "default": false
       },
       "COBBS_LUMBERJACK_DISABLE_CLASS": {
         "name": "cobbs-lumberjack-disable-class",
         "ingui": "game:characterclass-cobbs-lumberjack",
         "weight": 6,
-        "comment": "cobbsclasses:setting-cobbs-lumberjack-disable-class-description",
         "default": false
       },
       "COBBS_MALEFACTOR_DISABLE_CLASS": {
         "name": "cobbs-malefactor-disable-class",
         "ingui": "game:characterclass-cobbs-malefactor",
         "weight": 7,
-        "comment": "cobbsclasses:setting-cobbs-malefactor-disable-class-description",
         "default": false
       },
       "COBBS_MINER_DISABLE_CLASS": {
         "name": "cobbs-miner-disable-class",
         "ingui": "game:characterclass-cobbs-miner",
         "weight": 8,
-        "comment": "cobbsclasses:setting-cobbs-miner-disable-class-description",
         "default": false
       },
       "COBBS_POTTER_DISABLE_CLASS": {
         "name": "cobbs-potter-disable-class",
         "ingui": "game:characterclass-cobbs-potter",
         "weight": 9,
-        "comment": "cobbsclasses:setting-cobbs-potter-disable-class-description",
         "default": false
       },
       "COBBS_SAILOR_DISABLE_CLASS": {
         "name": "cobbs-sailor-disable-class",
         "ingui": "game:characterclass-cobbs-sailor",
         "weight": 10,
-        "comment": "cobbsclasses:setting-cobbs-sailor-disable-class-description",
         "default": false
       },
       "COBBS_ALCHEMIST_DISABLE_CLASS": {
         "name": "cobbs-alchemist-disable-class",
         "ingui": "game:characterclass-cobbs-alchemist",
         "weight": 11,
-        "comment": "cobbsclasses:setting-cobbs-alchemist-disable-class-description",
         "default": false
       },
       "COBBS_BUTCHER_DISABLE_CLASS": {
         "name": "cobbs-butcher-disable-class",
         "ingui": "game:characterclass-cobbs-butcher",
         "weight": 12,
-        "comment": "cobbsclasses:setting-cobbs-butcher-disable-class-description",
         "default": false
       },
       "COBBS_CHEF_DISABLE_CLASS": {
         "name": "cobbs-chef-disable-class",
         "ingui": "game:characterclass-cobbs-chef",
         "weight": 13,
-        "comment": "cobbsclasses:setting-cobbs-chef-disable-class-description",
         "default": false
       },
       "COBBS_MASON_DISABLE_CLASS": {
         "name": "cobbs-mason-disable-class",
         "ingui": "game:characterclass-cobbs-mason",
         "weight": 14,
-        "comment": "cobbsclasses:setting-cobbs-mason-disable-class-description",
         "default": false
       },
       "COBBS_SCHOLAR_DISABLE_CLASS": {
         "name": "cobbs-scholar-disable-class",
         "ingui": "game:characterclass-cobbs-scholar",
         "weight": 15,
-        "comment": "cobbsclasses:setting-cobbs-scholar-disable-class-description",
         "default": false
       },
       "COBBS_SMITH_DISABLE_CLASS": {
         "name": "cobbs-smith-disable-class",
         "ingui": "game:characterclass-cobbs-smith",
         "weight": 16,
-        "comment": "cobbsclasses:setting-cobbs-smith-disable-class-description",
         "default": false
       },
       "COBBS_TAILOR_DISABLE_CLASS": {
         "name": "cobbs-tailor-disable-class",
         "ingui": "game:characterclass-cobbs-tailor",
         "weight": 17,
-        "comment": "cobbsclasses:setting-cobbs-tailor-disable-class-description",
         "default": false
       },
       "COBBS_WORKMAN_DISABLE_CLASS": {
         "name": "cobbs-workman-disable-class",
         "ingui": "game:characterclass-cobbs-workman",
         "weight": 18,
-        "comment": "cobbsclasses:setting-cobbs-workman-disable-class-description",
         "default": false
       },
       "COBBS_ARCHITECT_DISABLE_CLASS": {
         "name": "cobbs-architect-disable-class",
         "ingui": "game:characterclass-cobbs-architect",
         "weight": 19,
-        "comment": "cobbsclasses:setting-cobbs-architect-disable-class-description",
         "default": false
       },
       "COBBS_BLACKGUARD_DISABLE_CLASS": {
         "name": "cobbs-blackguard-disable-class",
         "ingui": "game:characterclass-cobbs-blackguard",
         "weight": 20,
-        "comment": "cobbsclasses:setting-cobbs-blackguard-disable-class-description",
         "default": false
       },
       "COBBS_CARAVANEER_DISABLE_CLASS": {
         "name": "cobbs-caravaneer-disable-class",
         "ingui": "game:characterclass-cobbs-caravaneer",
         "weight": 21,
-        "comment": "cobbsclasses:setting-cobbs-caravaneer-disable-class-description",
         "default": false
       },
       "COBBS_CLOCKMAKER_DISABLE_CLASS": {
         "name": "cobbs-clockmaker-disable-class",
         "ingui": "game:characterclass-cobbs-clockmaker",
         "weight": 22,
-        "comment": "cobbsclasses:setting-cobbs-clockmaker-disable-class-description",
-        "default": false
-      },
-      "COBBS_DRUID_DISABLE_CLASS": {
-        "name": "cobbs-druid-disable-class",
-        "ingui": "game:characterclass-cobbs-druid",
-        "weight": 23,
-        "comment": "cobbsclasses:setting-cobbs-druid-disable-class-description",
         "default": false
       },
       "COBBS_KNIGHT_DISABLE_CLASS": {
         "name": "cobbs-knight-disable-class",
         "ingui": "game:characterclass-cobbs-knight",
         "weight": 24,
-        "comment": "cobbsclasses:setting-cobbs-knight-disable-class-description",
         "default": false
       },
       "COBBS_RANGER_DISABLE_CLASS": {
         "name": "cobbs-ranger-disable-class",
         "ingui": "game:characterclass-cobbs-ranger",
         "weight": 25,
-        "comment": "cobbsclasses:setting-cobbs-ranger-disable-class-description",
         "default": false
       },
       "COBBS_ROTWALKER_DISABLE_CLASS": {
         "name": "cobbs-rotwalker-disable-class",
         "ingui": "game:characterclass-cobbs-rotwalker",
         "weight": 26,
-        "comment": "cobbsclasses:setting-cobbs-rotwalker-disable-class-description",
         "default": false
       },
       "COBBS_COMMONER_DISABLE_RECIPE_VARIANTS": {
@@ -456,13 +423,6 @@
         "comment": "cobbsclasses:setting-cobbs-clockmaker-disable-recipe-variants-description",
         "default": false
       },
-      "COBBS_DRUID_DISABLE_RECIPE_VARIANTS": {
-        "name": "cobbs-druid-disable-recipe-variants",
-        "ingui": "game:characterclass-cobbs-druid",
-        "weight": 49,
-        "comment": "cobbsclasses:setting-cobbs-druid-disable-recipe-variants-description",
-        "default": false
-      },
       "COBBS_KNIGHT_DISABLE_RECIPE_VARIANTS": {
         "name": "cobbs-knight-disable-recipe-variants",
         "ingui": "game:characterclass-cobbs-knight",
@@ -483,6 +443,13 @@
         "weight": 52,
         "comment": "cobbsclasses:setting-cobbs-rotwalker-disable-recipe-variants-description",
         "default": false
+      },
+      "IGNORE_CLASS_MOD_REQUIREMENTS": {
+        "default": false,
+        "ingui": "cobbsclasses:setting-ignore-class-mod-requirements",
+        "weight": 0,
+        "comment": "cobbsclasses:setting-ignore-class-mod-requirements-description",
+        "name": "ignore-class-mod-requirements"
       }
     },
     "integer": {
@@ -742,18 +709,6 @@
         "ingui": "game:characterclass-cobbs-clockmaker",
         "weight": 74,
         "comment": "cobbsclasses:setting-cobbs-clockmaker-unique-recipe-access-description",
-        "default": "cobbsclasses:unique-recipe-access-class-only",
-        "mapping": {
-          "cobbsclasses:unique-recipe-access-disabled": 0,
-          "cobbsclasses:unique-recipe-access-class-only": 1,
-          "cobbsclasses:unique-recipe-access-everyone": 2
-        }
-      },
-      "COBBS_DRUID_UNIQUE_RECIPE_ACCESS": {
-        "name": "cobbs-druid-unique-recipe-access",
-        "ingui": "game:characterclass-cobbs-druid",
-        "weight": 75,
-        "comment": "cobbsclasses:setting-cobbs-druid-unique-recipe-access-description",
         "default": "cobbsclasses:unique-recipe-access-class-only",
         "mapping": {
           "cobbsclasses:unique-recipe-access-disabled": 0,

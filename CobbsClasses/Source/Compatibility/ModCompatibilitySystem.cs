@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 
 using CobbsClasses.Source.Compatibility.Integrations;
 
@@ -12,7 +13,7 @@ namespace CobbsClasses.Source.Compatibility;
 public sealed class ModCompatibilitySystem : ModSystem
 {
     private const string HarmonyOwner = "cobbsclasses.compatibility";
-    private static readonly object PatchLock = new();
+    private static readonly Lock PatchLock = new();
     private static int activeSystems;
     private Harmony? harmony;
 
@@ -27,7 +28,13 @@ public sealed class ModCompatibilitySystem : ModSystem
         new ButcheringIntegration(),
         new GlassmakingIntegration(),
         new FibercraftIntegration(),
-        new FootprintsIntegration()
+        new FootprintsIntegration(),
+        new WoodworkingIntegration(),
+        new StoneQuarryIntegration(),
+        new FishingIntegration(),
+        new TailorsDelightIntegration(),
+        new AlchemyIntegration(),
+        new ForagersGambleIntegration()
     ];
 
     public override void StartClientSide(ICoreClientAPI api)

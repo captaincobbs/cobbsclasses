@@ -2,7 +2,9 @@
   {
     "code": "commoner-test",
     "type": "positive",
-    "attributes": { "rustedDamage": 10 }
+    "attributes": {
+      "rustedDamage": 10
+    }
   },
   {
     "code": "herbalist-greenthumb",
@@ -10,14 +12,25 @@
     "attributes": {
       "cropDropRate": 0.1,
       "wildCropDropRate": 0.5,
-      "hideMealSafety": 0,
-      "hideNutritionInfo": 0,
-      "hideCraftingInfo": 0,
       "mushroomYieldMul": 0.5,
       "berryYieldMul": 0.5,
       "fruitYieldMul": 0.5,
       "flowerYieldMul": 0.5
-    }
+    },
+    "modifiers": [
+      {
+        "requiresMods": {
+          "allOf": [
+            "foragersgamble"
+          ]
+        },
+        "attributes": {
+          "hideMealSafety": -1,
+          "hideNutritionInfo": -1,
+          "hideCraftingInfo": -1
+        }
+      }
+    ]
   },
   {
     "code": "herbalist-transplanting",
@@ -76,7 +89,12 @@
   {
     "code": "homesteader-worldweary",
     "type": "negative",
-    "attributes": {}
+    "attributes": {
+      "unrestedSpeedPenalty": 1
+    },
+    "attributeDescriptions": {
+      "unrestedSpeedPenalty": "cobbsclasses:trait-effect-unrested"
+    }
   },
   {
     "code": "hunter-recipes",
@@ -113,9 +131,20 @@
     "attributes": {
       "animalSeekingRange": -0.6,
       "walkspeed": 0.1,
-      "sneakSpeed": -1,
-      "trackdecay": 0.3
-    }
+      "sneakSpeed": -1
+    },
+    "modifiers": [
+      {
+        "requiresMods": {
+          "anyOf": [
+            "footprints"
+          ]
+        },
+        "attributes": {
+          "trackdecay": 0.3
+        }
+      }
+    ]
   },
   {
     "code": "lumberjack-recipes",
@@ -186,6 +215,9 @@
     "type": "negative",
     "attributes": {
       "stabilityLossFromPlayers": -0.005
+    },
+    "attributeDescriptions": {
+      "stabilityLossFromPlayers": "cobbsclasses:trait-effect-isolation"
     }
   },
   {
@@ -224,6 +256,9 @@
     "type": "negative",
     "attributes": {
       "surfaceStabilityLoss": -0.008
+    },
+    "attributeDescriptions": {
+      "surfaceStabilityLoss": "cobbsclasses:trait-effect-surface-stability"
     }
   },
   {
@@ -275,10 +310,21 @@
     "type": "positive",
     "attributes": {
       "wormYieldMul": 0.5,
-      "netSpeedMul": 0.5,
       "fishingDurabilityLoss": -0.5,
       "fishMeatYield": 0.5
-    }
+    },
+    "modifiers": [
+      {
+        "requiresMods": {
+          "anyOf": [
+            "ithaniaexpandedfishing"
+          ]
+        },
+        "attributes": {
+          "fishTrapSpeedMul": 0.5
+        }
+      }
+    ]
   },
   {
     "code": "sailor-dryoff",
@@ -307,19 +353,35 @@
     "attributes": {
       "potionBrewTime": 0.5,
       "potionDuration": 0.5
+    },
+    "requiresMods": {
+      "anyOf": [
+        "alchemy"
+      ]
     }
   },
   {
     "code": "alchemist-built-immunity",
     "type": "positive",
     "attributes": {
-      "potionPenalty": 0,
       "spoiltFoodPenalty": 1,
-      "poisonPenalty": 0,
       "intoxicationPenalty": -0.5,
       "poisonResistance": 1,
       "hallucinationResistance": 1
-    }
+    },
+    "modifiers": [
+      {
+        "requiresMods": {
+          "anyOf": [
+            "alchemy"
+          ]
+        },
+        "attributes": {
+          "potionPenalty": -1,
+          "poisonPenalty": 0
+        }
+      }
+    ]
   },
   {
     "code": "butcher-clean-cut",
@@ -328,6 +390,11 @@
       "butcherBonus": 0.3,
       "ruinedCarcassPenalty": -0.5,
       "butcherSpeedMul": 1.0
+    },
+    "requiresMods": {
+      "anyOf": [
+        "butchering"
+      ]
     }
   },
   {
@@ -338,6 +405,11 @@
       "carcassDrainRate": 0.4,
       "skinningBonus": 0.5,
       "skinningSpeedMul": 1.0
+    },
+    "requiresMods": {
+      "anyOf": [
+        "butchering"
+      ]
     }
   },
   {
@@ -380,7 +452,29 @@
   {
     "code": "mason-quarrier",
     "type": "positive",
-    "attributes": {}
+    "requiresMods": {
+      "anyOf": [
+        "stonequarry",
+        "stonequarryrepckfipil"
+      ]
+    },
+    "attributes": {
+      "plugWorkModifier": 0.5
+    }
+  },
+  {
+    "code": "mason-stonecutter",
+    "type": "positive",
+    "requiresMods": {
+      "noneOf": [
+        "stonequarry",
+        "stonequarryrepckfipil"
+      ]
+    },
+    "attributes": {
+      "stoneYieldMul": 0.5,
+      "pickaxeSpeedMul": 0.25
+    }
   },
   {
     "code": "mason-bricklayer",
@@ -475,12 +569,19 @@
       "spinningWheelSpeedMul": 1.0,
       "spindleSpeedMul": 0.5,
       "loomSpeedMul": 0.5
+    },
+    "requiresMods": {
+      "anyOf": [
+        "spinningwheel"
+      ]
     }
   },
   {
     "code": "tailor-patching",
     "type": "positive",
-    "attributes": { "clothingRepairEfficiency": 0.5 }
+    "attributes": {
+      "clothingRepairEfficiency": 0.5
+    }
   },
   {
     "code": "tailor-professional-dress",
@@ -493,10 +594,21 @@
     "code": "tailor-adornment",
     "type": "positive",
     "attributes": {
-      "clothesPaintMul": -0.5,
-      "sewingDurabilityLoss": -0.3,
-      "sewingThreadMul": -0.4
-    }
+      "clothesPaintMul": -0.5
+    },
+    "modifiers": [
+      {
+        "requiresMods": {
+          "anyOf": [
+            "tailorsdelight"
+          ]
+        },
+        "attributes": {
+          "sewingDurabilityLoss": -0.3,
+          "sewingThreadMul": -0.4
+        }
+      }
+    ]
   },
   {
     "code": "workman-smelter",
@@ -512,12 +624,33 @@
     "code": "workman-sawyer",
     "type": "positive",
     "attributes": {
-      "boardProductionMultiplier": 0.25,
       "sawDurabilityLoss": -0.25,
-      "debarkingSpeedMul": 0.5,
-      "woodChopSpeedMul": 0.5,
       "sawSpeedMul": 0.5
-    }
+    },
+    "modifiers": [
+      {
+        "requiresMods": {
+          "anyOf": [
+            "immersivewoodworking"
+          ]
+        },
+        "attributes": {
+          "boardProductionMultiplier": 0.25,
+          "debarkingSpeedMul": 0.5,
+          "woodChopSpeedMul": 0.5
+        }
+      },
+      {
+        "requiresMods": {
+          "noneOf": [
+            "immersivewoodworking"
+          ]
+        },
+        "attributes": {
+          "axeSpeedMul": 0.25
+        }
+      }
+    ]
   },
   {
     "code": "workman-carpenter",
@@ -530,11 +663,22 @@
     "code": "workman-glassblower",
     "type": "positive",
     "attributes": {
-      "glassworkingSpeedMul": 0.25,
       "charcoalYieldMul": 0.25,
       "shovelDurabilityLoss": -0.25,
       "shovelSpeedMul": 0.25
-    }
+    },
+    "modifiers": [
+      {
+        "requiresMods": {
+          "anyOf": [
+            "glassmaking"
+          ]
+        },
+        "attributes": {
+          "glassworkingSpeedMul": 0.25
+        }
+      }
+    ]
   },
   {
     "code": "architect-painter",
@@ -546,8 +690,7 @@
   {
     "code": "architect-adornment",
     "type": "positive",
-    "attributes": {
-    }
+    "attributes": {}
   },
   {
     "code": "architect-decorator",
@@ -567,7 +710,7 @@
     "type": "positive",
     "attributes": {
       "hungerrate": 0.3,
-      "maxHungerMul":  1.0,
+      "maxHungerMul": 1.0,
       "globalDamageWhenSated": 0.15,
       "globalSpeedMulWhenSated": 0.1,
       "moveSpeedWhenSated": 0.1,
@@ -664,38 +807,6 @@
     }
   },
   {
-    "code": "druid-lorekeeper",
-    "type": "positive",
-    "attributes": {}
-  },
-  {
-    "code": "druid-rituals",
-    "type": "positive",
-    "attributes": {
-      "healingItemEffectiveness": 0.25
-    }
-  },
-  {
-    "code": "druid-animal-kinship",
-    "type": "positive",
-    "attributes": {
-      "wildAnimalPassive": 1,
-      "wildAnimalNoFlee": 1,
-      "mountSpeed": 0.25
-    }
-  },
-  {
-    "code": "druid-wildstride",
-    "type": "positive",
-    "attributes": {
-      "moveSpeedUnarmored": 0.2,
-      "moveSpeedLightArmor": 0.1,
-      "healthRegenRateUnarmored": 0.5,
-      "healthRegenRateLightArmor": 0.25,
-      "clubDamage": 0.25
-    }
-  },
-  {
     "code": "knight-juggernaut",
     "type": "positive",
     "attributes": {
@@ -710,7 +821,6 @@
     "code": "knight-bulwark",
     "type": "positive",
     "attributes": {
-      
       "shieldDurabilityLoss": -0.2,
       "globalDurabilityLoss": -0.2,
       "knockbackWhileBlocking": -1.0
@@ -768,12 +878,22 @@
   {
     "code": "ranger-knowing-mushrooms",
     "type": "positive",
-    "attributes": {
-      "eatReagents": 1,
-      "coatRaw": 1,
-      "coatingDuration": 2,
-      "potionDuration": 0.5
-    }
+    "attributes": {},
+    "modifiers": [
+      {
+        "requiresMods": {
+          "anyOf": [
+            "alchemy"
+          ]
+        },
+        "attributes": {
+          "eatReagents": 1,
+          "coatRaw": 1,
+          "coatingDuration": 2,
+          "potionDuration": 0.5
+        }
+      }
+    ]
   },
   {
     "code": "rotwalker-embrace-the-storm",

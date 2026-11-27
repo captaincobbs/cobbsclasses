@@ -35,7 +35,6 @@
     "traits": [],
     "gear": []
   },
-
   {
     "enabled": true,
     "code": "cobbs-commoner",
@@ -78,14 +77,14 @@
       "homesteader-worldweary"
     ],
     "gear": [
-			{ "type": "item", "code": "game:clothes-head-straw-hat" },
-			{ "type": "item", "code": "game:clothes-upperbody-commoner-shirt" },
-			{ "type": "item", "code": "game:clothes-lowerbody-workmans-gown" },
-			{ "type": "item", "code": "game:clothes-foot-worn-leather-boots" },
-			{ "type": "item", "code": "game:clothes-hand-heavy-leather-gloves" },
-			{ "type": "item", "code": "game:clothes-waist-linen-rope" },
-			{ "type": "item", "code": "game:clothes-nadiya-face-grain" },
-			{ "type": "item", "code": "game:clothes-upperbodyover-commoner-coat" }
+      { "type": "item", "code": "game:clothes-head-straw-hat" },
+      { "type": "item", "code": "game:clothes-upperbody-commoner-shirt" },
+      { "type": "item", "code": "game:clothes-lowerbody-workmans-gown" },
+      { "type": "item", "code": "game:clothes-foot-worn-leather-boots" },
+      { "type": "item", "code": "game:clothes-hand-heavy-leather-gloves" },
+      { "type": "item", "code": "game:clothes-waist-linen-rope" },
+      { "type": "item", "code": "game:clothes-nadiya-face-grain" },
+      { "type": "item", "code": "game:clothes-upperbodyover-commoner-coat" }
     ]
   },
   {
@@ -187,8 +186,7 @@
     ]
   },
   {
-    "enabled": true,
-    "code": "cobbs-sailor",
+    "enabled": true, "code": "cobbs-sailor",
     "traits": [
       "sailor-recipes",
       "sailor-sealegs",
@@ -219,7 +217,12 @@
       { "type": "Item", "code": "game:clothes-lowerbody-alchemist" },
       { "type": "Item", "code": "game:clothes-head-alchemist" },
       { "type": "Item", "code": "game:clothes-foot-alchemist" }
-    ]
+    ],
+    "requiresMods": {
+      "allOf": [
+        "alchemy"
+      ]
+    }
   },
   {
     "enabled": true,
@@ -235,7 +238,12 @@
       { "type": "item", "code": "game:clothes-upperbody-surgeon" },
       { "type": "item", "code": "game:clothes-lowerbody-marketeer" },
       { "type": "item", "code": "game:clothes-foot-surgeon" }
-    ]
+    ],
+    "requiresMods": {
+      "allOf": [
+        "butchering"
+      ]
+    }
   },
   {
     "enabled": true,
@@ -247,14 +255,14 @@
       "chef-personal-touch"
     ],
     "gear": [
-			{ "type": "item", "code": "game:clothes-lowerbody-pastoral-pants" },
-			{ "type": "item", "code": "game:clothes-upperbody-scribe" },
-			{ "type": "item", "code": "game:clothes-waist-peasant-strap" },
-			{ "type": "item", "code": "game:clothes-foot-high-leather-boots" },
-			{ "type": "item", "code": "game:clothes-upperbodyover-surgeon" },
-			{ "type": "item", "code": "game:clothes-head-minstrel-hat" },
-			{ "type": "item", "code": "game:clothes-hand-minstrel-gloves" },
-			{ "type": "item", "code": "game:clothes-face-survivor" }
+      { "type": "item", "code": "game:clothes-lowerbody-pastoral-pants" },
+      { "type": "item", "code": "game:clothes-upperbody-scribe" },
+      { "type": "item", "code": "game:clothes-waist-peasant-strap" },
+      { "type": "item", "code": "game:clothes-foot-high-leather-boots" },
+      { "type": "item", "code": "game:clothes-upperbodyover-surgeon" },
+      { "type": "item", "code": "game:clothes-head-minstrel-hat" },
+      { "type": "item", "code": "game:clothes-hand-minstrel-gloves" },
+      { "type": "item", "code": "game:clothes-face-survivor" }
     ]
   },
   {
@@ -262,6 +270,7 @@
     "code": "cobbs-mason",
     "traits": [
       "mason-quarrier",
+      "mason-stonecutter",
       "mason-bricklayer",
       "mason-earthshaker",
       "mason-workplace-standards"
@@ -292,7 +301,15 @@
       { "type": "Item", "code": "game:clothes-lowerbody-scribe" },
       { "type": "Item", "code": "game:clothes-waist-scribe" },
       { "type": "Item", "code": "game:clothes-foot-scribe" }
-    ]
+    ],
+    "requiresMods": {
+      "anyOf": [
+        "advancedresearch",
+        "runicmagic",
+        "canjewelry",
+        "sigils"
+      ]
+    }
   },
   {
     "enabled": true,
@@ -422,25 +439,6 @@
       { "type": "item", "code": "game:clothes-waist-clockmaker-belt" },
       { "type": "item", "code": "game:clothes-hand-clockmaker-wristguard" },
       { "type": "item", "code": "game:clothes-face-glasses-clockmaker" }
-    ]
-  },
-  {
-    "enabled": true,
-    "code": "cobbs-druid",
-    "traits": [
-      "druid-lorekeeper",
-      "druid-rituals",
-      "druid-animal-kinship",
-      "druid-wildstride"
-    ],
-    "gear": [
-      { "type": "item", "code": "game:clothes-head-wreathflower" },
-      { "type": "item", "code": "game:clothes-shoulder-ruralhunter" },
-      { "type": "item", "code": "game:clothes-neck-acorn-amulet" },
-      { "type": "item", "code": "game:clothes-upperbodyover-rotwalker" },
-      { "type": "item", "code": "game:clothes-foot-clockmaker-shoes" },
-      { "type": "item", "code": "game:clothes-lowerbody-wanderer" },
-      { "type": "item", "code": "game:clothes-foot-rotwalker" }
     ]
   },
   {

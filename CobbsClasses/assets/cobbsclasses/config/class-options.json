@@ -20,7 +20,6 @@
   "cobbs-blackguard-disable-class": false,
   "cobbs-caravaneer-disable-class": false,
   "cobbs-clockmaker-disable-class": false,
-  "cobbs-druid-disable-class": false,
   "cobbs-knight-disable-class": false,
   "cobbs-ranger-disable-class": false,
   "cobbs-rotwalker-disable-class": false,
@@ -45,7 +44,6 @@
   "cobbs-blackguard-disable-recipe-variants": false,
   "cobbs-caravaneer-disable-recipe-variants": false,
   "cobbs-clockmaker-disable-recipe-variants": false,
-  "cobbs-druid-disable-recipe-variants": false,
   "cobbs-knight-disable-recipe-variants": false,
   "cobbs-ranger-disable-recipe-variants": false,
   "cobbs-rotwalker-disable-recipe-variants": false,
@@ -70,8 +68,8 @@
   "cobbs-blackguard-unique-recipe-access": 1,
   "cobbs-caravaneer-unique-recipe-access": 1,
   "cobbs-clockmaker-unique-recipe-access": 1,
-  "cobbs-druid-unique-recipe-access": 1,
   "cobbs-knight-unique-recipe-access": 1,
   "cobbs-ranger-unique-recipe-access": 1,
-  "cobbs-rotwalker-unique-recipe-access": 1
+  "cobbs-rotwalker-unique-recipe-access": 1,
+  "ignore-class-mod-requirements": false
 }

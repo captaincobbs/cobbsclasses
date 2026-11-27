@@ -52,6 +52,10 @@ internal static class TraitAttributes
         public const string SpindleSpeedMul = "spindleSpeedMul";
         public const string SpinningWheelSpeedMul = "spinningWheelSpeedMul";
         public const string LoomSpeedMul = "loomSpeedMul";
+        public const string BoardProductionMultiplier = "boardProductionMultiplier";
+        public const string DebarkingSpeedMul = "debarkingSpeedMul";
+        public const string WoodChopSpeedMul = "woodChopSpeedMul";
+        public const string PlugWorkModifier = "plugWorkModifier";
         public const string BloomeryAmountMul = "bloomeryAmountMul";
         public const string BloomeryFuelEfficiency = "bloomeryFuelEfficiency";
         public const string BloomeryRecoveryAmount = "bloomeryRecoveryAmount";
@@ -62,6 +66,14 @@ internal static class TraitAttributes
         public const string ClayformingPoints = "clayformingPoints";
         public const string ClayRecovery = "clayRecovery";
         public const string LabelsFree = "labelsFree";
+        public const string SewingDurabilityLoss = "sewingDurabilityLoss";
+        public const string SewingThreadMul = "sewingThreadMul";
+        public const string PotionBrewTime = "potionBrewTime";
+        public const string PotionDuration = "potionDuration";
+        public const string PotionPenalty = "potionPenalty";
+        public const string CoatingDuration = "coatingDuration";
+        public const string FishTrapSpeedMul = "fishTrapSpeedMul";
+        public const string FishingDurabilityLoss = "fishingDurabilityLoss";
         public const string MillingSpeedMul = "millingSpeedMul";
         public const string PigmentCostReduction = "pigmentCostReduction";
         public const string PotterySpeedMul = "potterySpeedMul";
@@ -89,6 +101,9 @@ internal static class TraitAttributes
 
     public static class Food
     {
+        public const string HideMealSafety = "hideMealSafety";
+        public const string HideNutritionInfo = "hideNutritionInfo";
+        public const string HideCraftingInfo = "hideCraftingInfo";
         public const string BasicFoodSatiety = "basicFoodSatiety";
         public const string CrockFreshness = "crockFreshness";
         public const string FoodDecayRate = "foodDecayRate";
@@ -179,6 +194,7 @@ internal static class TraitAttributes
         public const string HealthRegenRate = "healthRegenRate";
         public const string HealthRegenRateWhenSated = "healthRegenRateWhenSated";
         public const string HungerDamageResistance = "hungerDamageResistance";
+        public const string UnrestedSpeedPenalty = "unrestedSpeedPenalty";
         public const string Hungerrate = "hungerrate";
         public const string HungerrateAlone = "hungerrateAlone";
         public const string IntoxicationPenalty = "intoxicationPenalty";

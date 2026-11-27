@@ -9,7 +9,7 @@ namespace CobbsClasses.Source.Compatibility
 {
     internal sealed class OptionalPatchRegistrar(ICoreAPI api, Harmony harmony, string modId)
     {
-        internal void Patch(string typeName, string methodName, HarmonyMethod? prefix = null, HarmonyMethod? postfix = null, HarmonyMethod? transpiler = null, Type[]? arguments = null, Predicate<Type>? compatible = null)
+        internal void Patch(string typeName, string methodName, HarmonyMethod? prefix = null, HarmonyMethod? postfix = null, HarmonyMethod? transpiler = null, Type[]? arguments = null, Predicate<Type>? compatible = null, HarmonyMethod? finalizer = null)
         {
             try
             {
@@ -23,7 +23,7 @@ namespace CobbsClasses.Source.Compatibility
 
                 if (Harmony.GetPatchInfo(target)?.Owners.Contains(harmony.Id) != true)
                 {
-                    harmony.Patch(target, prefix: prefix, postfix: postfix, transpiler: transpiler);
+                    harmony.Patch(target, prefix: prefix, postfix: postfix, transpiler: transpiler, finalizer: finalizer);
                 }
             }
             catch (Exception exception)

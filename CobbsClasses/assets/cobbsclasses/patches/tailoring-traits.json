@@ -1,0 +1,16 @@
+[
+  {
+    "op": "addmerge",
+    "file": "tailorsdelight:itemtypes/tool/awl.json",
+    "path": "/behaviors",
+    "dependsOn": [{ "modid": "tailorsdelight" }],
+    "value": [
+      {
+        "name": "CobbsToolTraits",
+        "properties": {
+          "durabilityLossStat": ["globalDurabilityLoss", "toolDurabilityLoss", "sewingDurabilityLoss"]
+        }
+      }
+    ]
+  }
+]

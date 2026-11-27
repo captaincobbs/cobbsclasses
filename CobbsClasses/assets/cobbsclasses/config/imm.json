@@ -86,8 +86,23 @@
       "Settings": [
         {
           "Type": "Boolean",
+          "Default": false,
+          "Code": "ignore-class-mod-requirements",
+          "Description": "cobbsclasses:setting-ignore-class-mod-requirements-description",
+          "Label": "cobbsclasses:setting-ignore-class-mod-requirements",
+          "Targets": [
+            {
+              "ResultType": "Boolean",
+              "Path": "ignore-class-mod-requirements",
+              "Asset": "cobbsclasses:config/imm-class-options.json",
+              "Timing": "AfterPatches",
+              "Side": "Server"
+            }
+          ]
+        },
+        {
+          "Type": "Boolean",
           "Label": "game:characterclass-cobbs-commoner",
-          "Description": "cobbsclasses:setting-cobbs-commoner-disable-class-description",
           "Code": "cobbs-commoner-disable-class",
           "Default": false,
           "Targets": [
@@ -101,7 +116,6 @@
         {
           "Type": "Boolean",
           "Label": "game:characterclass-cobbs-herbalist",
-          "Description": "cobbsclasses:setting-cobbs-herbalist-disable-class-description",
           "Code": "cobbs-herbalist-disable-class",
           "Default": false,
           "Targets": [
@@ -115,7 +129,6 @@
         {
           "Type": "Boolean",
           "Label": "game:characterclass-cobbs-homesteader",
-          "Description": "cobbsclasses:setting-cobbs-homesteader-disable-class-description",
           "Code": "cobbs-homesteader-disable-class",
           "Default": false,
           "Targets": [
@@ -129,7 +142,6 @@
         {
           "Type": "Boolean",
           "Label": "game:characterclass-cobbs-hunter",
-          "Description": "cobbsclasses:setting-cobbs-hunter-disable-class-description",
           "Code": "cobbs-hunter-disable-class",
           "Default": false,
           "Targets": [
@@ -143,7 +155,6 @@
         {
           "Type": "Boolean",
           "Label": "game:characterclass-cobbs-lumberjack",
-          "Description": "cobbsclasses:setting-cobbs-lumberjack-disable-class-description",
           "Code": "cobbs-lumberjack-disable-class",
           "Default": false,
           "Targets": [
@@ -157,7 +168,6 @@
         {
           "Type": "Boolean",
           "Label": "game:characterclass-cobbs-malefactor",
-          "Description": "cobbsclasses:setting-cobbs-malefactor-disable-class-description",
           "Code": "cobbs-malefactor-disable-class",
           "Default": false,
           "Targets": [
@@ -171,7 +181,6 @@
         {
           "Type": "Boolean",
           "Label": "game:characterclass-cobbs-miner",
-          "Description": "cobbsclasses:setting-cobbs-miner-disable-class-description",
           "Code": "cobbs-miner-disable-class",
           "Default": false,
           "Targets": [
@@ -185,7 +194,6 @@
         {
           "Type": "Boolean",
           "Label": "game:characterclass-cobbs-potter",
-          "Description": "cobbsclasses:setting-cobbs-potter-disable-class-description",
           "Code": "cobbs-potter-disable-class",
           "Default": false,
           "Targets": [
@@ -199,7 +207,6 @@
         {
           "Type": "Boolean",
           "Label": "game:characterclass-cobbs-sailor",
-          "Description": "cobbsclasses:setting-cobbs-sailor-disable-class-description",
           "Code": "cobbs-sailor-disable-class",
           "Default": false,
           "Targets": [
@@ -213,7 +220,6 @@
         {
           "Type": "Boolean",
           "Label": "game:characterclass-cobbs-alchemist",
-          "Description": "cobbsclasses:setting-cobbs-alchemist-disable-class-description",
           "Code": "cobbs-alchemist-disable-class",
           "Default": false,
           "Targets": [
@@ -227,7 +233,6 @@
         {
           "Type": "Boolean",
           "Label": "game:characterclass-cobbs-butcher",
-          "Description": "cobbsclasses:setting-cobbs-butcher-disable-class-description",
           "Code": "cobbs-butcher-disable-class",
           "Default": false,
           "Targets": [
@@ -241,7 +246,6 @@
         {
           "Type": "Boolean",
           "Label": "game:characterclass-cobbs-chef",
-          "Description": "cobbsclasses:setting-cobbs-chef-disable-class-description",
           "Code": "cobbs-chef-disable-class",
           "Default": false,
           "Targets": [
@@ -255,7 +259,6 @@
         {
           "Type": "Boolean",
           "Label": "game:characterclass-cobbs-mason",
-          "Description": "cobbsclasses:setting-cobbs-mason-disable-class-description",
           "Code": "cobbs-mason-disable-class",
           "Default": false,
           "Targets": [
@@ -269,7 +272,6 @@
         {
           "Type": "Boolean",
           "Label": "game:characterclass-cobbs-scholar",
-          "Description": "cobbsclasses:setting-cobbs-scholar-disable-class-description",
           "Code": "cobbs-scholar-disable-class",
           "Default": false,
           "Targets": [
@@ -283,7 +285,6 @@
         {
           "Type": "Boolean",
           "Label": "game:characterclass-cobbs-smith",
-          "Description": "cobbsclasses:setting-cobbs-smith-disable-class-description",
           "Code": "cobbs-smith-disable-class",
           "Default": false,
           "Targets": [
@@ -297,7 +298,6 @@
         {
           "Type": "Boolean",
           "Label": "game:characterclass-cobbs-tailor",
-          "Description": "cobbsclasses:setting-cobbs-tailor-disable-class-description",
           "Code": "cobbs-tailor-disable-class",
           "Default": false,
           "Targets": [
@@ -311,7 +311,6 @@
         {
           "Type": "Boolean",
           "Label": "game:characterclass-cobbs-workman",
-          "Description": "cobbsclasses:setting-cobbs-workman-disable-class-description",
           "Code": "cobbs-workman-disable-class",
           "Default": false,
           "Targets": [
@@ -325,7 +324,6 @@
         {
           "Type": "Boolean",
           "Label": "game:characterclass-cobbs-architect",
-          "Description": "cobbsclasses:setting-cobbs-architect-disable-class-description",
           "Code": "cobbs-architect-disable-class",
           "Default": false,
           "Targets": [
@@ -339,7 +337,6 @@
         {
           "Type": "Boolean",
           "Label": "game:characterclass-cobbs-blackguard",
-          "Description": "cobbsclasses:setting-cobbs-blackguard-disable-class-description",
           "Code": "cobbs-blackguard-disable-class",
           "Default": false,
           "Targets": [
@@ -353,7 +350,6 @@
         {
           "Type": "Boolean",
           "Label": "game:characterclass-cobbs-caravaneer",
-          "Description": "cobbsclasses:setting-cobbs-caravaneer-disable-class-description",
           "Code": "cobbs-caravaneer-disable-class",
           "Default": false,
           "Targets": [
@@ -367,7 +363,6 @@
         {
           "Type": "Boolean",
           "Label": "game:characterclass-cobbs-clockmaker",
-          "Description": "cobbsclasses:setting-cobbs-clockmaker-disable-class-description",
           "Code": "cobbs-clockmaker-disable-class",
           "Default": false,
           "Targets": [
@@ -380,22 +375,7 @@
         },
         {
           "Type": "Boolean",
-          "Label": "game:characterclass-cobbs-druid",
-          "Description": "cobbsclasses:setting-cobbs-druid-disable-class-description",
-          "Code": "cobbs-druid-disable-class",
-          "Default": false,
-          "Targets": [
-            {
-              "Asset": "cobbsclasses:config/imm-class-options.json",
-              "Path": "cobbs-druid-disable-class",
-              "Side": "Both"
-            }
-          ]
-        },
-        {
-          "Type": "Boolean",
           "Label": "game:characterclass-cobbs-knight",
-          "Description": "cobbsclasses:setting-cobbs-knight-disable-class-description",
           "Code": "cobbs-knight-disable-class",
           "Default": false,
           "Targets": [
@@ -409,7 +389,6 @@
         {
           "Type": "Boolean",
           "Label": "game:characterclass-cobbs-ranger",
-          "Description": "cobbsclasses:setting-cobbs-ranger-disable-class-description",
           "Code": "cobbs-ranger-disable-class",
           "Default": false,
           "Targets": [
@@ -423,7 +402,6 @@
         {
           "Type": "Boolean",
           "Label": "game:characterclass-cobbs-rotwalker",
-          "Description": "cobbsclasses:setting-cobbs-rotwalker-disable-class-description",
           "Code": "cobbs-rotwalker-disable-class",
           "Default": false,
           "Targets": [
@@ -732,20 +710,6 @@
             {
               "Asset": "cobbsclasses:config/imm-class-options.json",
               "Path": "cobbs-clockmaker-disable-recipe-variants",
-              "Side": "Both"
-            }
-          ]
-        },
-        {
-          "Type": "Boolean",
-          "Label": "game:characterclass-cobbs-druid",
-          "Description": "cobbsclasses:setting-cobbs-druid-disable-recipe-variants-description",
-          "Code": "cobbs-druid-disable-recipe-variants",
-          "Default": false,
-          "Targets": [
-            {
-              "Asset": "cobbsclasses:config/imm-class-options.json",
-              "Path": "cobbs-druid-disable-recipe-variants",
               "Side": "Both"
             }
           ]
@@ -1390,35 +1354,6 @@
             {
               "Asset": "cobbsclasses:config/imm-class-options.json",
               "Path": "cobbs-clockmaker-unique-recipe-access",
-              "Side": "Both",
-              "ResultType": "Integer"
-            }
-          ],
-          "Options": [
-            {
-              "Label": "cobbsclasses:unique-recipe-access-disabled",
-              "Value": 0
-            },
-            {
-              "Label": "cobbsclasses:unique-recipe-access-class-only",
-              "Value": 1
-            },
-            {
-              "Label": "cobbsclasses:unique-recipe-access-everyone",
-              "Value": 2
-            }
-          ]
-        },
-        {
-          "Type": "Dropdown",
-          "Label": "game:characterclass-cobbs-druid",
-          "Description": "cobbsclasses:setting-cobbs-druid-unique-recipe-access-description",
-          "Code": "cobbs-druid-unique-recipe-access",
-          "Default": 1,
-          "Targets": [
-            {
-              "Asset": "cobbsclasses:config/imm-class-options.json",
-              "Path": "cobbs-druid-unique-recipe-access",
               "Side": "Both",
               "ResultType": "Integer"
             }

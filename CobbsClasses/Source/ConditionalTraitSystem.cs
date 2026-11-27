@@ -23,10 +23,17 @@ namespace CobbsClasses.Source
         private IConditionalTrait[] conditions = [];
         private ICoreServerAPI? serverAPI;
         private long refreshListener;
+        private RestCondition? restCondition;
 
         public override bool ShouldLoad(EnumAppSide side) => side == EnumAppSide.Server;
 
         public override void StartServerSide(ICoreServerAPI api)
+        {
+            // Read the settings after both configuration providers have patched the assets.
+            api.Event.ServerRunPhase(EnumServerRunPhase.GameReady, () => Initialize(api));
+        }
+
+        private void Initialize(ICoreServerAPI api)
         {
             serverAPI = api;
             JsonObject? configLib = ReadSettingsAsset(api, "cobbsclasses:config/conditional-traits.json");
@@ -37,6 +44,12 @@ namespace CobbsClasses.Source
             float fullThreshold = Math.Clamp(ReadSetting(configLib, imm, "FullThreshold", DefaultFullThreshold), satedThreshold, 1f);
             double aloneRadius = Math.Clamp(ReadSetting(configLib, imm, "AloneRadius", DefaultAloneRadius), 0f, 1024f);
 
+            restCondition = new RestCondition(
+                Math.Clamp(ReadSetting(configLib, imm, "UnrestedMaximumPenalty", 0.2f), 0f, 0.95f),
+                Math.Clamp(ReadSetting(configLib, imm, "UnrestedPenaltyPerDay", 0.04f), 0f, 1f),
+                Math.Clamp(ReadSetting(configLib, imm, "MinimumRestHours", 1f), 0.1f, 24f));
+            api.Event.PlayerDisconnect += ForgetRestSession;
+
             conditions =
             [
                 new ProximityCondition(aloneRadius),
@@ -44,10 +57,19 @@ namespace CobbsClasses.Source
                 new SatietyCondition(satedThreshold, fullThreshold),
                 new EnvironmentCondition(),
                 new MovementCondition(),
-                new HealthCondition()
+                new HealthCondition(),
+                restCondition
             ];
 
             refreshListener = api.Event.RegisterGameTickListener(RefreshPlayers, refreshInterval);
+        }
+
+        private void ForgetRestSession(IServerPlayer player)
+        {
+            if (player.Entity is { } entity)
+            {
+                restCondition?.Forget(entity);
+            }
         }
 
         private static JsonObject? ReadSettingsAsset(ICoreServerAPI api, string location)
@@ -96,6 +118,11 @@ namespace CobbsClasses.Source
                 }
             }
 
+            else
+            {
+                restCondition?.Forget(context.Entity);
+            }
+
             ApplyModifiers(context.Stats);
         }
 
@@ -141,7 +168,13 @@ namespace CobbsClasses.Source
 
         public override void Dispose()
         {
-            serverAPI?.Event.UnregisterGameTickListener(refreshListener);
+            if (serverAPI is not null)
+            {
+                serverAPI.Event.PlayerDisconnect -= ForgetRestSession;
+                serverAPI.Event.UnregisterGameTickListener(refreshListener);
+            }
+
+            restCondition = null;
             serverAPI = null;
 
             foreach ((EntityStats? stats, Dictionary<string, float>? previous) in appliedBonuses)

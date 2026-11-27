@@ -35,9 +35,7 @@ internal sealed class FootprintsIntegration : IModIntegration
     private static List<CodeInstruction> AdjustLifetime(IEnumerable<CodeInstruction> instructions)
     {
         List<CodeInstruction> code = [.. instructions];
-        int index = code.FindIndex(instruction => instruction.operand is MethodInfo method
-            && method.DeclaringType?.FullName == "Footprints.src.Config.ConfigClient"
-            && method.Name == "get_AnimalFootprintLifespan");
+        int index = code.FindIndex(instruction => instruction.operand is MethodInfo method && method.DeclaringType?.FullName == "Footprints.src.Config.ConfigClient" && method.Name == "get_AnimalFootprintLifespan");
         if (index < 0 || code.Find(instruction => instruction.operand is FieldInfo field && field.IsStatic && field.FieldType == typeof(ICoreClientAPI))?.operand is not FieldInfo clientField || code[index + 1].opcode != OpCodes.Br_S)
         {
             throw new InvalidOperationException("Unexpected Footprints lifetime calculation.");
