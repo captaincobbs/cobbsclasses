@@ -48,5 +48,7 @@
 	</VisualStudio>
   </ProjectExtensions>
 
+  <ItemGroup>
+	<InternalsVisibleTo Include="CobbsClasses.Tests" />
+  </ItemGroup>
 </Project>
-
