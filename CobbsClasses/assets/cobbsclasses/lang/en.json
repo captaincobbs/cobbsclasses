@@ -471,5 +471,13 @@
   "game:charattribute-shieldBlockChance-0.25": "+25% Shield block chance",
   "game:charattribute-sprintHungerRate-0.25": "+25% Hunger rate while sprinting",
   "game:charattribute-clothingRepairEfficiency-0.5": "+50% Clothing repair effectiveness",
-  "game:charattribute-repairEfficiency-0.25": "+25% Wearable repair effectiveness"
+  "game:charattribute-repairEfficiency-0.25": "+25% Wearable repair effectiveness",
+  "game:charattribute-spindleSpeedMul-0.5": "+50% drop spindle speed",
+  "game:charattribute-skinningBonus-0.5": "+50% skinning yield",
+  "game:charattribute-spinningWheelSpeedMul-1": "+100% spinning wheel speed",
+  "game:charattribute-glassworkingSpeedMul-0.25": "+25% glassworking speed",
+  "game:charattribute-skinningSpeedMul-1": "+100% skinning speed",
+  "game:charattribute-butcherBonus-0.3": "+30% butchering yield",
+  "game:charattribute-loomSpeedMul-0.5": "+50% loom speed",
+  "game:charattribute-butcherSpeedMul-1": "+100% butchering speed"
 }
