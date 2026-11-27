@@ -32,7 +32,7 @@ namespace CobbsClasses.Source.Patches
             private static void Prefix(BlockEntityGroundStorage __instance, IPlayer __0, out HashSet<ItemStack>? __state)
             {
                 __state = null;
-                if (__instance.Api?.Side != EnumAppSide.Server || __0.InventoryManager.ActiveHotbarSlot?.Itemstack?.Collectible .GetBehavior<CollectibleBehaviorQuenchable>() is null)
+                if (__instance.Api?.Side != EnumAppSide.Server || __0.InventoryManager.ActiveHotbarSlot?.Itemstack?.Collectible.GetBehavior<CollectibleBehaviorQuenchable>() is null)
                 {
                     return;
                 }

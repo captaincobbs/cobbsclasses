@@ -1,4 +1,5 @@
 using System;
+
 using HarmonyLib;
 
 namespace CobbsClasses.Source.Patches

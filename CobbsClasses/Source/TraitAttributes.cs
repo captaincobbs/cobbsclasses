@@ -44,6 +44,14 @@ internal static class TraitAttributes
 
     public static class Crafting
     {
+        public const string ButcherBonus = "butcherBonus";
+        public const string ButcherSpeedMul = "butcherSpeedMul";
+        public const string SkinningBonus = "skinningBonus";
+        public const string SkinningSpeedMul = "skinningSpeedMul";
+        public const string GlassworkingSpeedMul = "glassworkingSpeedMul";
+        public const string SpindleSpeedMul = "spindleSpeedMul";
+        public const string SpinningWheelSpeedMul = "spinningWheelSpeedMul";
+        public const string LoomSpeedMul = "loomSpeedMul";
         public const string BloomeryAmountMul = "bloomeryAmountMul";
         public const string BloomeryFuelEfficiency = "bloomeryFuelEfficiency";
         public const string BloomeryRecoveryAmount = "bloomeryRecoveryAmount";

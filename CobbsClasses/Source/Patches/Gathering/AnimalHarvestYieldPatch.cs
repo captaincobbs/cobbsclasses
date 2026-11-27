@@ -69,7 +69,7 @@ namespace CobbsClasses.Source.Patches
                     {
                         "redmeat-raw" or "bushmeat-raw" or "poultry-raw" => TraitAttributes.Gathering.AnimalMeatYield,
                         "bone" or "bone-fish" or "bone-tiny" => TraitAttributes.Gathering.AnimalBoneYield,
-                        "fat" => TraitAttributes.Gathering.AnimalFatYield, 
+                        "fat" => TraitAttributes.Gathering.AnimalFatYield,
                         _ when itemCode.Path.StartsWith("hide-raw-", StringComparison.Ordinal) => TraitAttributes.Gathering.AnimalHideYield,
                         _ => null
                     };
