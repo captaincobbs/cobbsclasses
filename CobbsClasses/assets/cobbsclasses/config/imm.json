@@ -75,6 +75,135 @@
               "Side": "Server"
             }
           ]
+        },
+        {
+          "Step": 0.01,
+          "Code": "unrested-maximum-penalty",
+          "Targets": [
+            {
+              "Path": "UnrestedMaximumPenalty",
+              "ResultType": "Decimal",
+              "Asset": "cobbsclasses:config/imm-conditional-traits.json",
+              "Side": "Server",
+              "Timing": "AfterPatches"
+            }
+          ],
+          "Label": "cobbsclasses:setting-unrested-maximum-penalty",
+          "Type": "Slider",
+          "Default": 0.2,
+          "Max": 0.95,
+          "Description": "cobbsclasses:setting-unrested-maximum-penalty-description",
+          "Min": 0
+        },
+        {
+          "Step": 0.01,
+          "Code": "unrested-penalty-per-day",
+          "Targets": [
+            {
+              "Path": "UnrestedPenaltyPerDay",
+              "ResultType": "Decimal",
+              "Asset": "cobbsclasses:config/imm-conditional-traits.json",
+              "Side": "Server",
+              "Timing": "AfterPatches"
+            }
+          ],
+          "Label": "cobbsclasses:setting-unrested-penalty-per-day",
+          "Type": "Slider",
+          "Default": 0.04,
+          "Max": 1,
+          "Description": "cobbsclasses:setting-unrested-penalty-per-day-description",
+          "Min": 0
+        },
+        {
+          "Step": 0.1,
+          "Code": "minimum-rest-hours",
+          "Targets": [
+            {
+              "Path": "MinimumRestHours",
+              "ResultType": "Decimal",
+              "Asset": "cobbsclasses:config/imm-conditional-traits.json",
+              "Side": "Server",
+              "Timing": "AfterPatches"
+            }
+          ],
+          "Label": "cobbsclasses:setting-minimum-rest-hours",
+          "Type": "Slider",
+          "Default": 1,
+          "Max": 24,
+          "Description": "cobbsclasses:setting-minimum-rest-hours-description",
+          "Min": 0.1
+        },
+        {
+          "Min": 0,
+          "Label": "cobbsclasses:setting-revive-protection-seconds",
+          "Code": "revive-protection-seconds",
+          "Targets": [
+            {
+              "ResultType": "Integer",
+              "Side": "Server",
+              "Path": "ReviveProtectionSeconds",
+              "Asset": "cobbsclasses:config/imm-conditional-traits.json",
+              "Timing": "AfterPatches"
+            }
+          ],
+          "Description": "cobbsclasses:setting-revive-protection-seconds-description",
+          "Max": 3600,
+          "Type": "Integer",
+          "Default": 120
+        },
+        {
+          "Min": 0,
+          "Label": "cobbsclasses:setting-protector-retaliation-seconds",
+          "Code": "protector-retaliation-seconds",
+          "Targets": [
+            {
+              "ResultType": "Integer",
+              "Side": "Server",
+              "Path": "ProtectorRetaliationSeconds",
+              "Asset": "cobbsclasses:config/imm-conditional-traits.json",
+              "Timing": "AfterPatches"
+            }
+          ],
+          "Description": "cobbsclasses:setting-protector-retaliation-seconds-description",
+          "Max": 3600,
+          "Type": "Integer",
+          "Default": 120
+        },
+        {
+          "Min": 0,
+          "Label": "cobbsclasses:setting-protector-sprint-seconds",
+          "Code": "protector-sprint-seconds",
+          "Targets": [
+            {
+              "ResultType": "Integer",
+              "Side": "Server",
+              "Path": "ProtectorSprintSeconds",
+              "Asset": "cobbsclasses:config/imm-conditional-traits.json",
+              "Timing": "AfterPatches"
+            }
+          ],
+          "Description": "cobbsclasses:setting-protector-sprint-seconds-description",
+          "Max": 3600,
+          "Type": "Integer",
+          "Default": 5
+        },
+        {
+          "Min": 0,
+          "Label": "cobbsclasses:setting-targeted-regen-seconds",
+          "Code": "targeted-regen-seconds",
+          "Targets": [
+            {
+              "ResultType": "Integer",
+              "Side": "Server",
+              "Path": "TargetedRegenSeconds",
+              "Asset": "cobbsclasses:config/imm-conditional-traits.json",
+              "Timing": "AfterPatches"
+            }
+          ],
+          "Description": "cobbsclasses:setting-targeted-regen-seconds-description",
+          "Max": 3600,
+          "Type": "Integer",
+          "Default": 10
         }
       ]
     },

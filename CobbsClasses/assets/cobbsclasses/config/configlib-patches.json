@@ -5,7 +5,10 @@
       "cobbsclasses:config/conditional-traits.json": {
         "SatedThreshold": "CONDITIONAL_SATED_THRESHOLD",
         "FullThreshold": "CONDITIONAL_FULL_THRESHOLD",
-        "AloneRadius": "CONDITIONAL_ALONE_RADIUS"
+        "AloneRadius": "CONDITIONAL_ALONE_RADIUS",
+        "UnrestedMaximumPenalty": "UNRESTEDMAXIMUMPENALTY",
+        "UnrestedPenaltyPerDay": "UNRESTEDPENALTYPERDAY",
+        "MinimumRestHours": "MINIMUMRESTHOURS"
       }
     },
     "boolean": {
@@ -63,7 +66,11 @@
     },
     "integer": {
       "cobbsclasses:config/conditional-traits.json": {
-        "RefreshInterval": "CONDITIONAL_REFRESH_INTERVAL"
+        "RefreshInterval": "CONDITIONAL_REFRESH_INTERVAL",
+        "ReviveProtectionSeconds": "REVIVEPROTECTIONSECONDS",
+        "ProtectorRetaliationSeconds": "PROTECTORRETALIATIONSECONDS",
+        "ProtectorSprintSeconds": "PROTECTORSPRINTSECONDS",
+        "TargetedRegenSeconds": "TARGETEDREGENSECONDS"
       },
       "cobbsclasses:config/class-options.json": {
         "cobbs-commoner-unique-recipe-access": "COBBS_COMMONER_UNIQUE_RECIPE_ACCESS",
@@ -128,6 +135,42 @@
         "range": {
           "min": 0,
           "max": 1024
+        }
+      },
+      "UNRESTEDMAXIMUMPENALTY": {
+        "weight": 84,
+        "default": 0.2,
+        "comment": "cobbsclasses:setting-unrested-maximum-penalty-description",
+        "name": "unrested-maximum-penalty",
+        "ingui": "cobbsclasses:setting-unrested-maximum-penalty",
+        "range": {
+          "max": 0.95,
+          "step": 0.01,
+          "min": 0
+        }
+      },
+      "UNRESTEDPENALTYPERDAY": {
+        "weight": 85,
+        "default": 0.04,
+        "comment": "cobbsclasses:setting-unrested-penalty-per-day-description",
+        "name": "unrested-penalty-per-day",
+        "ingui": "cobbsclasses:setting-unrested-penalty-per-day",
+        "range": {
+          "max": 1,
+          "step": 0.01,
+          "min": 0
+        }
+      },
+      "MINIMUMRESTHOURS": {
+        "weight": 86,
+        "default": 1,
+        "comment": "cobbsclasses:setting-minimum-rest-hours-description",
+        "name": "minimum-rest-hours",
+        "ingui": "cobbsclasses:setting-minimum-rest-hours",
+        "range": {
+          "max": 24,
+          "step": 0.1,
+          "min": 0.1
         }
       }
     },
@@ -751,6 +794,50 @@
           "cobbsclasses:unique-recipe-access-class-only": 1,
           "cobbsclasses:unique-recipe-access-everyone": 2
         }
+      },
+      "REVIVEPROTECTIONSECONDS": {
+        "default": 120,
+        "comment": "cobbsclasses:setting-revive-protection-seconds-description",
+        "range": {
+          "min": 0,
+          "max": 3600
+        },
+        "weight": 87,
+        "name": "revive-protection-seconds",
+        "ingui": "cobbsclasses:setting-revive-protection-seconds"
+      },
+      "PROTECTORRETALIATIONSECONDS": {
+        "default": 120,
+        "comment": "cobbsclasses:setting-protector-retaliation-seconds-description",
+        "range": {
+          "min": 0,
+          "max": 3600
+        },
+        "weight": 88,
+        "name": "protector-retaliation-seconds",
+        "ingui": "cobbsclasses:setting-protector-retaliation-seconds"
+      },
+      "PROTECTORSPRINTSECONDS": {
+        "default": 5,
+        "comment": "cobbsclasses:setting-protector-sprint-seconds-description",
+        "range": {
+          "min": 0,
+          "max": 3600
+        },
+        "weight": 89,
+        "name": "protector-sprint-seconds",
+        "ingui": "cobbsclasses:setting-protector-sprint-seconds"
+      },
+      "TARGETEDREGENSECONDS": {
+        "default": 10,
+        "comment": "cobbsclasses:setting-targeted-regen-seconds-description",
+        "range": {
+          "min": 0,
+          "max": 3600
+        },
+        "weight": 90,
+        "name": "targeted-regen-seconds",
+        "ingui": "cobbsclasses:setting-targeted-regen-seconds"
       }
     }
   },

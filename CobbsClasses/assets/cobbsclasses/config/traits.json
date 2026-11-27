@@ -831,9 +831,7 @@
     "type": "positive",
     "attributes": {
       "damageToHostiles": 0.4,
-      "damageToHostilesDuration": 120.0,
-      "movespeedFromProtector": 0.2,
-      "movespeedFromProtectionDuration": 5.0
+      "movespeedFromProtector": 0.2
     }
   },
   {
@@ -843,8 +841,7 @@
       "rustedDamage": 0.4,
       "stabilityLossResistance": 0.4,
       "damageReductionPostRevive": 0.5,
-      "damageReductionTemporalStorm": 0.3,
-      "damageReductionReviveDuration": 120.0
+      "damageReductionTemporalStorm": 0.3
     }
   },
   {

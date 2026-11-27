@@ -2,5 +2,12 @@
   "RefreshInterval": 500,
   "SatedThreshold": 0.5,
   "FullThreshold": 0.9,
-  "AloneRadius": 32.0
+  "AloneRadius": 32.0,
+  "UnrestedMaximumPenalty": 0.2,
+  "UnrestedPenaltyPerDay": 0.04,
+  "MinimumRestHours": 1,
+  "ReviveProtectionSeconds": 120,
+  "ProtectorRetaliationSeconds": 120,
+  "ProtectorSprintSeconds": 5,
+  "TargetedRegenSeconds": 10
 }
