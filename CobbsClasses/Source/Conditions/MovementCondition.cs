@@ -1,3 +1,4 @@
+using Vintagestory.API.Common;
 using Vintagestory.GameContent;
 
 namespace CobbsClasses.Source.Conditions
@@ -11,7 +12,7 @@ namespace CobbsClasses.Source.Conditions
 
         public void Evaluate(in ConditionContext context, ConditionalModifiers modifiers)
         {
-            var entity = context.Entity;
+            EntityPlayer entity = context.Entity;
             if (entity.Controls.Sprint)
             {
                 Sprinting.Apply(context.Stats, modifiers);

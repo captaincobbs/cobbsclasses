@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace CobbsClasses.Source.Conditions
 {
-    internal sealed class ConditionalModifiers
+    public sealed class ConditionalModifiers
     {
         private readonly Dictionary<string, float> values = new(StringComparer.Ordinal);
 

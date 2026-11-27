@@ -1,8 +1,8 @@
-﻿using CobbsClasses.Source.Behaviors;
+﻿using System.Linq;
+
+using CobbsClasses.Source.Behaviors;
 using CobbsClasses.Source.Handlers;
 using CobbsClasses.Source.Renderers;
-
-using System.Linq;
 
 using Vintagestory.API.Client;
 using Vintagestory.API.Common;
@@ -13,6 +13,8 @@ namespace CobbsClasses.Source;
 
 public class CobbsClassesModSystem : ModSystem
 {
+    public API.CobbsClassesAPI ClassesAPI { get; } = new();
+
     public override double ExecuteOrder() => 0.6;
 
     private DarkvisionRenderer? darkvisionRenderer;

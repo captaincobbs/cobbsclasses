@@ -1,9 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading;
-using System.Reflection;
+
+using CobbsClasses.Source.API;
+using CobbsClasses.Source.Core;
 
 using HarmonyLib;
 
@@ -90,9 +94,10 @@ public sealed class ModRequirementSystem : ModSystem
                     return;
                 }
 
-                JObject resolved = JObject.Parse(definitions);
+                JObject resolved = ResolvedDefinitionEncoding.Decode(definitions);
                 JArray traits = (JArray)resolved["traits"]!;
                 JArray classes = (JArray)resolved["classes"]!;
+                PublishClasses(___api, classes);
                 TraitDescriptionOverrides.Load(traits);
                 WriteAssets(traitAsset, classAsset, traits, classes);
                 return;
@@ -111,15 +116,18 @@ public sealed class ModRequirementSystem : ModSystem
             bool Option(string key) => (bool?)configLib[key] == true || (bool?)imm[key] == true;
             bool IsEnabled(string modId) => ___api.ModLoader.IsModEnabled(modId);
 
+            DefinitionValidation.Validate(serverTraits, serverClasses, CobbsClassesAPI.For(___api)?.Attributes ?? new TraitRegistry(), message => ___api.Logger.Warning("CobbsClasses: " + message), ExternalTraitCodes(___api));
             HashSet<string> unavailable = TraitCompatibilityResolver.Resolve(serverTraits, IsEnabled);
             ClassCompatibilityResolver.Resolve(serverClasses, unavailable, IsEnabled, code => Option(code + "-disable-class"), Option("ignore-class-mod-requirements"));
 
+            DefinitionValidation.EnsureAvailable(serverClasses, message => ___api.Logger.Warning("CobbsClasses: " + message));
+            PublishClasses(___api, serverClasses);
             JObject payload = new()
             {
                 ["traits"] = serverTraits,
                 ["classes"] = serverClasses
             };
-            ___api.World.Config.SetString(WorldKey, payload.ToString(Formatting.None));
+            ___api.World.Config.SetString(WorldKey, ResolvedDefinitionEncoding.Encode(payload));
             WriteAssets(traitAsset, classAsset, serverTraits, serverClasses);
         }
         catch (Exception exception)
@@ -133,6 +141,44 @@ public sealed class ModRequirementSystem : ModSystem
         }
     }
 
+    private static IEnumerable<string> ExternalTraitCodes(ICoreAPI api)
+    {
+        foreach (IAsset asset in api.Assets.GetMany("config/traits", null))
+        {
+            if (asset.Location.Domain == "cobbsclasses")
+            {
+                continue;
+            }
+
+            JArray? entries = null;
+            try
+            {
+                entries = JArray.Parse(asset.ToText());
+            }
+            catch (JsonException)
+            {
+                api.Logger.Warning($"CobbsClasses could not inspect external traits in {asset.Location}.");
+            }
+
+            if (entries is not null)
+            {
+                foreach (JObject entry in entries.OfType<JObject>())
+                {
+                    if ((string?)entry["code"] is string code)
+                    {
+                        yield return code;
+                    }
+                }
+            }
+        }
+    }
+
+    private static void PublishClasses(ICoreAPI api, JArray classes)
+    {
+        CobbsClassesAPI.For(api)?.SetClasses(classes.OfType<JObject>().Where(entry => (bool?)entry["enabled"] != false)
+            .Select(entry => (string)entry["code"]!));
+    }
+
     private static JObject ReadOptions(ICoreAPI api, string file)
     {
         IAsset? asset = api.Assets.TryGet(new AssetLocation("cobbsclasses:config/" + file));
@@ -141,8 +187,8 @@ public sealed class ModRequirementSystem : ModSystem
 
     private static void WriteAssets(IAsset traitAsset, IAsset classAsset, JArray traits, JArray classes)
     {
-        traitAsset.Data = Encoding.UTF8.GetBytes(traits.ToString(Formatting.None));
-        classAsset.Data = Encoding.UTF8.GetBytes(classes.ToString(Formatting.None));
+        traitAsset.Data = Encoding.UTF8.GetBytes(traits.ToString(Formatting.None, Array.Empty<JsonConverter>()));
+        classAsset.Data = Encoding.UTF8.GetBytes(classes.ToString(Formatting.None, Array.Empty<JsonConverter>()));
     }
 
     public override void Dispose()

@@ -1,6 +1,6 @@
-using HarmonyLib;
-
 using System;
+
+using HarmonyLib;
 
 using Vintagestory.API.Common;
 using Vintagestory.API.MathTools;

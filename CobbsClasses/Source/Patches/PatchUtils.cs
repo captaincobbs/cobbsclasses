@@ -1,10 +1,12 @@
-﻿using HarmonyLib;
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Reflection.Emit;
+
+using CobbsClasses.Source.API;
+
+using HarmonyLib;
 
 using Vintagestory.API.Common;
 using Vintagestory.API.Common.Entities;
@@ -13,7 +15,7 @@ namespace CobbsClasses.Source.Patches
 {
     internal static class PatchUtils
     {
-        internal static float Multiplier(Entity? entity, string stat) => entity is EntityPlayer player ? Math.Max(0f, player.Stats.GetBlended(stat)) : 1f;
+        internal static float Multiplier(Entity? entity, string stat) => entity is EntityPlayer player ? TraitMath.GetMultiplier(player.Stats, stat) : 1f;
 
         internal static IEnumerable<CodeInstruction> ReplaceCall(IEnumerable<CodeInstruction> instructions, MethodInfo original, MethodInfo replacement, OpCode additionalArgument, string feature)
         {

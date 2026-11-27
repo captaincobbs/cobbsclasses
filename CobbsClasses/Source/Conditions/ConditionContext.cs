@@ -3,7 +3,7 @@ using Vintagestory.API.Server;
 
 namespace CobbsClasses.Source.Conditions
 {
-    internal readonly record struct ConditionContext(IServerPlayer Player, EntityPlayer Entity, IPlayer[] OnlinePlayers)
+    public readonly record struct ConditionContext(IServerPlayer Player, EntityPlayer Entity, IPlayer[] OnlinePlayers)
     {
         public EntityStats Stats => Entity.Stats;
 

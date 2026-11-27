@@ -1,8 +1,8 @@
-﻿using CobbsClasses.Source.Patches;
+﻿using System;
+
+using CobbsClasses.Source.Patches;
 
 using HarmonyLib;
-
-using System;
 
 using Vintagestory.API.Common;
 

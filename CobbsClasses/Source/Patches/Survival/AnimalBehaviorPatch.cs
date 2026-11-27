@@ -1,8 +1,8 @@
-using HarmonyLib;
-
 using System.Collections.Generic;
 using System.Reflection;
 using System.Runtime.CompilerServices;
+
+using HarmonyLib;
 
 using Vintagestory.API.Common;
 using Vintagestory.API.Common.Entities;

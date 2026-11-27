@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 
+using CobbsClasses.Source.API;
 using CobbsClasses.Source.Conditions;
 
 using Vintagestory.API.Common;
@@ -29,7 +30,7 @@ namespace CobbsClasses.Source
 
         public override void StartServerSide(ICoreServerAPI api)
         {
-            // Read the settings after both configuration providers have patched the assets.
+            // Read settings AFTER they've been patched
             api.Event.ServerRunPhase(EnumServerRunPhase.GameReady, () => Initialize(api));
         }
 
@@ -61,6 +62,28 @@ namespace CobbsClasses.Source
                 restCondition
             ];
 
+            IEnumerable<KeyValuePair<string, Func<IConditionalTrait>>>? extensions = CobbsClassesAPI.For(api)?.Conditions();
+            if (extensions is not null)
+            {
+                List<IConditionalTrait> combined = [.. conditions];
+                foreach (KeyValuePair<string, Func<IConditionalTrait>> extension in extensions)
+                {
+                    try
+                    {
+                        if (extension.Value() is IConditionalTrait condition)
+                        {
+                            combined.Add(condition);
+                        }
+                    }
+                    catch (Exception exception)
+                    {
+                        api.Logger.Warning($"CobbsClasses condition {extension.Key} failed to initialize: {exception.Message}");
+                    }
+                }
+
+                conditions = [.. combined];
+            }
+
             refreshListener = api.Event.RegisterGameTickListener(RefreshPlayers, refreshInterval);
         }
 
@@ -72,13 +95,13 @@ namespace CobbsClasses.Source
             }
         }
 
-        private static JsonObject? ReadSettingsAsset(ICoreServerAPI api, string location)
+        internal static JsonObject? ReadSettingsAsset(ICoreServerAPI api, string location)
         {
             IAsset? asset = api.Assets.TryGet(new AssetLocation(location));
             return asset is null ? null : JsonObject.FromJson(asset.ToText());
         }
 
-        private static float ReadSetting(JsonObject? configLib, JsonObject? imm, string name, float fallback)
+        internal static float ReadSetting(JsonObject? configLib, JsonObject? imm, string name, float fallback)
         {
             float immValue = imm?[name].AsFloat(fallback) ?? fallback;
             if (float.IsFinite(immValue) && immValue != fallback)

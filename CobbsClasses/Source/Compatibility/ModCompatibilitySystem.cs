@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Threading;
 
+using CobbsClasses.Source.API;
 using CobbsClasses.Source.Compatibility.Integrations;
 
 using HarmonyLib;
@@ -66,6 +68,25 @@ public sealed class ModCompatibilitySystem : ModSystem
                 Register(api, integration);
             }
 
+            IEnumerable<KeyValuePair<string, Func<IModIntegration>>>? extensions = CobbsClassesAPI.For(api)?.Integrations();
+            if (extensions is not null)
+            {
+                foreach (KeyValuePair<string, Func<IModIntegration>> extension in extensions)
+                {
+                    try
+                    {
+                        if (extension.Value() is IModIntegration integration)
+                        {
+                            Register(api, integration);
+                        }
+                    }
+                    catch (Exception exception)
+                    {
+                        CobbsClassesAPI.For(api)?.Record(new PatchDiagnostic(extension.Key, "factory", PatchStatus.Failed, exception.Message));
+                    }
+                }
+            }
+
             if (api.Side == EnumAppSide.Server)
             {
                 foreach (IModIntegration integration in serverIntegrations)
@@ -80,6 +101,7 @@ public sealed class ModCompatibilitySystem : ModSystem
     {
         if (!api.ModLoader.IsModEnabled(integration.ModId))
         {
+            CobbsClassesAPI.For(api)?.Record(new PatchDiagnostic(integration.ModId, "integration", PatchStatus.NotRequired));
             return;
         }
 
@@ -89,6 +111,7 @@ public sealed class ModCompatibilitySystem : ModSystem
         }
         catch (Exception exception)
         {
+            CobbsClassesAPI.For(api)?.Record(new PatchDiagnostic(integration.ModId, "integration", PatchStatus.Failed, exception.Message));
             api.Logger.Warning($"CobbsClasses integration for {integration.ModId} could not load: {exception}");
         }
     }

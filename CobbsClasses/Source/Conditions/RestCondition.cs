@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Runtime.CompilerServices;
 
+using CobbsClasses.Source.API;
+
 using Vintagestory.API.Common;
 using Vintagestory.GameContent;
 
@@ -35,7 +37,8 @@ internal sealed class RestCondition(float maximumPenalty, float penaltyPerDay, f
         RestState state;
         if (!states.TryGetValue(context.Entity, out state!))
         {
-            double last = context.Player.GetModData(LastRestKey, double.NaN);
+            double last = TraitPersistence.ReadTimestamp(context.Player, LastRestKey, now);
+            context.Player.SetModData(LastRestKey, last);
             if (!double.IsFinite(last) || last > now)
             {
                 last = now;
@@ -44,6 +47,14 @@ internal sealed class RestCondition(float maximumPenalty, float penaltyPerDay, f
 
             state = new RestState { LastRest = last };
             states.Add(context.Entity, state);
+        }
+
+        if (now < state.LastRest)
+        {
+            state.LastRest = now;
+            state.SleepStarted = null;
+            state.QualifiedSleep = false;
+            context.Player.SetModData(LastRestKey, now);
         }
 
         bool sleeping = context.Entity.GetBehavior<EntityBehaviorTiredness>()?.IsSleeping == true;

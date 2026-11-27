@@ -1,10 +1,13 @@
-using HarmonyLib;
-
 using System;
 using System.Collections.Generic;
 using System.Reflection;
 using System.Reflection.Emit;
 using System.Runtime.CompilerServices;
+
+using HarmonyLib;
+
+using CobbsClasses.Source.Configuration;
+using CobbsClasses.Source.API;
 
 using Vintagestory.API.Common;
 using Vintagestory.API.Common.Entities;
@@ -22,12 +25,14 @@ namespace CobbsClasses.Source.Patches
         private ICoreServerAPI? server;
         private static SystemTemporalStability? serverSideStorm;
         private long listener;
+        private SupportDurationSettings durations = SupportDurationSettings.Defaults;
 
         public override bool ShouldLoad(EnumAppSide side) => side == EnumAppSide.Server;
 
         public override void StartServerSide(ICoreServerAPI api)
         {
             server = api;
+            api.Event.ServerRunPhase(EnumServerRunPhase.GameReady, () => durations = SupportDurationSettings.Load(api));
             serverSideStorm = api.ModLoader.GetModSystem<SystemTemporalStability>();
             api.Event.PlayerRespawn += Respawn;
             listener = api.Event.RegisterGameTickListener(Tick, 250);
@@ -67,7 +72,7 @@ namespace CobbsClasses.Source.Patches
         private static void StartReviveProtection(EntityPlayer entity)
         {
             Clear(entity);
-            double duration = Duration(entity, TraitAttributes.Combat.DamageReductionReviveDuration);
+            double duration = SupportDurationSettings.Milliseconds(Settings(entity).ReviveProtectionSeconds);
             if (duration > 0d && Bonus(entity, TraitAttributes.Combat.DamageReductionPostRevive) > 0f)
             {
                 Active.GetOrCreateValue(entity).ReviveUntil = entity.World.ElapsedMilliseconds + duration;
@@ -123,8 +128,8 @@ namespace CobbsClasses.Source.Patches
             }
         }
 
-        private static float Bonus(EntityPlayer player, string stat) => player.Stats.GetBlended(stat) - 1f;
-        private static double Duration(EntityPlayer player, string stat) => 1000d * Math.Clamp(Bonus(player, stat), 0f, 3600f);
+        private static float Bonus(EntityPlayer player, string stat) => TraitMath.GetAdditive(player.Stats, stat);
+        private static SupportDurationSettings Settings(EntityPlayer player) => player.Api?.ModLoader.GetModSystem<SupportTraitSystem>()?.durations ?? SupportDurationSettings.Defaults;
 
         private static bool Nearby(EntityPlayer center, IPlayer candidate, double radius)
         {
@@ -199,8 +204,8 @@ namespace CobbsClasses.Source.Patches
                     }
 
                     float speed = Bonus(defender, TraitAttributes.Movement.MovespeedFromProtector);
-                    double sprintDuration = Duration(defender, TraitAttributes.Movement.MovespeedFromProtectionDuration);
-                    double retaliation = Bonus(defender, TraitAttributes.Combat.DamageToHostiles) > 0f ? Duration(defender, TraitAttributes.Combat.DamageToHostilesDuration) : 0d;
+                    double sprintDuration = SupportDurationSettings.Milliseconds(Settings(defender).ProtectorSprintSeconds);
+                    double retaliation = Bonus(defender, TraitAttributes.Combat.DamageToHostiles) > 0f ? SupportDurationSettings.Milliseconds(Settings(defender).ProtectorRetaliationSeconds) : 0d;
                     if ((speed <= 0f || sprintDuration <= 0d) && retaliation <= 0d)
                     {
                         continue;
@@ -259,7 +264,7 @@ namespace CobbsClasses.Source.Patches
             private static void GrantAura(EntityPlayer healer, EntityPlayer target)
             {
                 float rate = Bonus(healer, TraitAttributes.Survival.TargetedRegenPerSecond);
-                double duration = Duration(healer, TraitAttributes.Survival.TargetedRegenDuration);
+                double duration = SupportDurationSettings.Milliseconds(Settings(healer).TargetedRegenSeconds);
                 if (rate <= 0f || duration <= 0d)
                 {
                     return;

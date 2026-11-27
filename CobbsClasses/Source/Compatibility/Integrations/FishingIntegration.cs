@@ -3,10 +3,14 @@ using System.Collections.Generic;
 using System.Reflection;
 using System.Reflection.Emit;
 using System.Runtime.CompilerServices;
-using Vintagestory.API.Datastructures;
+
+using CobbsClasses.Source.API;
+
 using HarmonyLib;
+
 using Vintagestory.API.Common;
 using Vintagestory.API.Common.Entities;
+using Vintagestory.API.Datastructures;
 
 namespace CobbsClasses.Source.Compatibility.Integrations;
 
@@ -19,7 +23,7 @@ internal sealed class FishingIntegration : IModIntegration
     {
         public float Speed = 1f;
     }
-    private static readonly ConditionalWeakTable<BlockEntity, TrapState> Traps = new();
+    private static readonly ConditionalWeakTable<BlockEntity, TrapState> Traps = [];
 
     public void Register(ICoreAPI api, Harmony harmony)
     {
@@ -29,23 +33,19 @@ internal sealed class FishingIntegration : IModIntegration
         registrar.Patch(trap, "OnServerTick", transpiler: new(typeof(FishingIntegration), nameof(TrapTick)));
         registrar.Patch(trap, "ToTreeAttributes", postfix: new(typeof(FishingIntegration), nameof(SaveTrap)));
         registrar.Patch(trap, "FromTreeAttributes", postfix: new(typeof(FishingIntegration), nameof(LoadTrap)));
-        registrar.Patch("IthaniaExpandedFishing.Common.Items.ItemFishNet", "TryPickupFish",
-            transpiler: new(typeof(FishingIntegration), nameof(NetWear)));
-        registrar.Patch("Vintagestory.GameContent.EntityBehaviorRightClickPickup", "OnInteract",
-            prefix: new(typeof(FishingIntegration), nameof(BeginWormPickup)),
-            finalizer: new(typeof(FishingIntegration), nameof(EndWormPickup)));
+        registrar.Patch("IthaniaExpandedFishing.Common.Items.ItemFishNet", "TryPickupFish", transpiler: new(typeof(FishingIntegration), nameof(NetWear)));
+        registrar.Patch("Vintagestory.GameContent.EntityBehaviorRightClickPickup", "OnInteract", prefix: new(typeof(FishingIntegration), nameof(BeginWormPickup)), finalizer: new(typeof(FishingIntegration), nameof(EndWormPickup)));
     }
 
-    private static IEnumerable<CodeInstruction> BaitTrap(IEnumerable<CodeInstruction> instructions)
+    private static List<CodeInstruction> BaitTrap(IEnumerable<CodeInstruction> instructions)
     {
-        List<CodeInstruction> code = new(instructions);
+        List<CodeInstruction> code = [.. instructions];
         int matches = 0;
         for (int index = code.Count - 1; index >= 0; index--)
         {
             if (code[index].opcode == OpCodes.Stfld && code[index].operand is FieldInfo field && field.Name == "lastCatchHours")
             {
-                code.InsertRange(index + 1, [new CodeInstruction(OpCodes.Ldarg_0), new CodeInstruction(OpCodes.Ldarg_1),
-                    new CodeInstruction(OpCodes.Call, AccessTools.Method(typeof(FishingIntegration), nameof(RecordBait)))]);
+                code.InsertRange(index + 1, [new CodeInstruction(OpCodes.Ldarg_0), new CodeInstruction(OpCodes.Ldarg_1), new CodeInstruction(OpCodes.Call, AccessTools.Method(typeof(FishingIntegration), nameof(RecordBait)))]);
                 matches++;
             }
         }
@@ -66,17 +66,16 @@ internal sealed class FishingIntegration : IModIntegration
         }
     }
 
-    private static IEnumerable<CodeInstruction> TrapTick(IEnumerable<CodeInstruction> instructions)
+    private static List<CodeInstruction> TrapTick(IEnumerable<CodeInstruction> instructions)
     {
-        List<CodeInstruction> code = new(instructions);
+        List<CodeInstruction> code = [.. instructions];
         int index = code.FindIndex(instruction => instruction.opcode == OpCodes.Ldfld && instruction.operand is FieldInfo field && field.Name == "CatchIntervalHours");
         if (index < 0)
         {
             throw new InvalidOperationException("Expected fish trap interval not found.");
         }
 
-        code.InsertRange(index + 1, [new CodeInstruction(OpCodes.Ldarg_0),
-            new CodeInstruction(OpCodes.Call, AccessTools.Method(typeof(FishingIntegration), nameof(TrapInterval)))]);
+        code.InsertRange(index + 1, [new CodeInstruction(OpCodes.Ldarg_0), new CodeInstruction(OpCodes.Call, AccessTools.Method(typeof(FishingIntegration), nameof(TrapInterval)))]);
         return code;
     }
 
@@ -89,26 +88,25 @@ internal sealed class FishingIntegration : IModIntegration
     {
         if (Traps.TryGetValue(__instance, out TrapState? state))
         {
-            __0.SetFloat(TrapSpeedKey, state.Speed);
+            TraitPersistence.WriteVersionedFloat(__0, TrapSpeedKey, state.Speed, 1f, 0.05f, float.MaxValue);
         }
     }
 
     private static void LoadTrap(BlockEntity __instance, ITreeAttribute __0)
     {
-        Traps.GetOrCreateValue(__instance).Speed = Math.Max(0.05f, __0.GetFloat(TrapSpeedKey, 1f));
+        Traps.GetOrCreateValue(__instance).Speed = TraitPersistence.ReadVersionedFloat(__0, TrapSpeedKey, 1f, 0.05f, float.MaxValue);
     }
 
-    private static IEnumerable<CodeInstruction> NetWear(IEnumerable<CodeInstruction> instructions)
+    private static List<CodeInstruction> NetWear(IEnumerable<CodeInstruction> instructions)
     {
-        List<CodeInstruction> code = new(instructions);
+        List<CodeInstruction> code = [.. instructions];
         int index = code.FindIndex(instruction => instruction.operand is MethodInfo method && method.Name == "DamageItem");
         if (index < 2 || code[index - 2].opcode != OpCodes.Ldc_I4_5 || code[index - 1].opcode != OpCodes.Ldc_I4_1)
         {
             throw new InvalidOperationException("Expected fishing net wear calculation not found.");
         }
 
-        code.InsertRange(index - 1, [new CodeInstruction(OpCodes.Ldarg_2),
-            new CodeInstruction(OpCodes.Call, AccessTools.Method(typeof(FishingIntegration), nameof(AdjustWear)))]);
+        code.InsertRange(index - 1, [new CodeInstruction(OpCodes.Ldarg_2), new CodeInstruction(OpCodes.Call, AccessTools.Method(typeof(FishingIntegration), nameof(AdjustWear)))]);
         return code;
     }
 
@@ -126,8 +124,7 @@ internal sealed class FishingIntegration : IModIntegration
     private static void BeginWormPickup(EntityBehavior __instance, EntityAgent __0, ref ItemStack ___collectedStack, out ItemStack? __state)
     {
         __state = null;
-        if (__0 is not EntityPlayer player || player.World.Side != EnumAppSide.Server || __instance.entity.Code?.Domain != "ithaniaexpandedfishing"
-            || __instance.entity.Code.Path.StartsWith("wormbin-", StringComparison.Ordinal) != true || ___collectedStack is null)
+        if (__0 is not EntityPlayer player || player.World.Side != EnumAppSide.Server || __instance.entity.Code?.Domain != "ithaniaexpandedfishing" || __instance.entity.Code.Path.StartsWith("wormbin-", StringComparison.Ordinal) != true || ___collectedStack is null)
         {
             return;
         }
@@ -152,4 +149,3 @@ internal sealed class FishingIntegration : IModIntegration
         }
     }
 }
-

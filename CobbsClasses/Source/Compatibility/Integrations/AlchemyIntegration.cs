@@ -1,14 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Reflection;
 using System.Reflection.Emit;
 using System.Runtime.CompilerServices;
-using System.Linq;
-using Vintagestory.API.Datastructures;
-using Vintagestory.GameContent;
+
+using CobbsClasses.Source.API;
+
 using HarmonyLib;
+
 using Vintagestory.API.Common;
 using Vintagestory.API.Common.Entities;
+using Vintagestory.API.Datastructures;
+using Vintagestory.GameContent;
 
 namespace CobbsClasses.Source.Compatibility.Integrations;
 
@@ -22,7 +26,7 @@ internal sealed class AlchemyIntegration : IModIntegration
         public float Speed = 1f;
     }
 
-    private static readonly ConditionalWeakTable<BlockEntity, BrewState> Brews = new();
+    private static readonly ConditionalWeakTable<BlockEntity, BrewState> Brews = [];
 
     public void Register(ICoreAPI api, Harmony harmony)
     {
@@ -54,8 +58,7 @@ internal sealed class AlchemyIntegration : IModIntegration
             return null;
         }
 
-        return string.Join("|", inventory.CookingSlots.Select(slot =>
-            slot?.Itemstack is ItemStack stack ? $"{stack.Collectible.Code}:{stack.StackSize}" : ""));
+        return string.Join("|", inventory.CookingSlots.Select(slot => slot?.Itemstack is ItemStack stack ? $"{stack.Collectible.Code}:{stack.StackSize}" : ""));
     }
 
     private static void BeforeIngredients(BlockEntityFirepit __instance, out string? __state)
@@ -90,7 +93,7 @@ internal sealed class AlchemyIntegration : IModIntegration
     {
         if (IsCauldron(__instance) && Brews.TryGetValue(__instance, out BrewState? state))
         {
-            __0.SetFloat(BrewSpeedKey, state.Speed);
+            TraitPersistence.WriteVersionedFloat(__0, BrewSpeedKey, state.Speed, 1f, 0.05f, float.MaxValue);
         }
     }
 
@@ -98,23 +101,23 @@ internal sealed class AlchemyIntegration : IModIntegration
     {
         if (IsCauldron(__instance))
         {
-            Brews.GetOrCreateValue(__instance).Speed = Math.Max(0.05f, __0.GetFloat(BrewSpeedKey, 1f));
+            Brews.GetOrCreateValue(__instance).Speed = TraitPersistence.ReadVersionedFloat(__0, BrewSpeedKey, 1f, 0.05f, float.MaxValue);
         }
     }
 
-    private static IEnumerable<CodeInstruction> Duration(IEnumerable<CodeInstruction> instructions)
+    private static List<CodeInstruction> Duration(IEnumerable<CodeInstruction> instructions)
     {
         return InsertAfter(instructions, "Build", nameof(AdjustDuration), 0);
     }
 
-    private static IEnumerable<CodeInstruction> Penalty(IEnumerable<CodeInstruction> instructions)
+    private static List<CodeInstruction> Penalty(IEnumerable<CodeInstruction> instructions)
     {
         return InsertAfter(instructions, "GetDrinkingSideEffectTotals", nameof(AdjustPenalty), 0);
     }
 
-    private static IEnumerable<CodeInstruction> InsertAfter(IEnumerable<CodeInstruction> instructions, string target, string helper, int playerArgument)
+    private static List<CodeInstruction> InsertAfter(IEnumerable<CodeInstruction> instructions, string target, string helper, int playerArgument)
     {
-        List<CodeInstruction> code = new(instructions);
+        List<CodeInstruction> code = [.. instructions];
         int index = code.FindIndex(instruction => instruction.operand is MethodInfo method && method.Name == target);
         if (index < 0)
         {
@@ -123,13 +126,11 @@ internal sealed class AlchemyIntegration : IModIntegration
 
         if (target == "Build")
         {
-            code.InsertRange(index + 1, [new CodeInstruction(OpCodes.Dup), CodeInstruction.LoadArgument(playerArgument),
-                new CodeInstruction(OpCodes.Call, AccessTools.Method(typeof(AlchemyIntegration), helper))]);
+            code.InsertRange(index + 1, [new CodeInstruction(OpCodes.Dup), CodeInstruction.LoadArgument(playerArgument), new CodeInstruction(OpCodes.Call, AccessTools.Method(typeof(AlchemyIntegration), helper))]);
         }
         else
         {
-            code.InsertRange(index + 1, [CodeInstruction.LoadArgument(playerArgument),
-                new CodeInstruction(OpCodes.Call, AccessTools.Method(typeof(AlchemyIntegration), helper))]);
+            code.InsertRange(index + 1, [CodeInstruction.LoadArgument(playerArgument), new CodeInstruction(OpCodes.Call, AccessTools.Method(typeof(AlchemyIntegration), helper))]);
         }
 
         return code;
@@ -160,17 +161,16 @@ internal sealed class AlchemyIntegration : IModIntegration
         return (original.Item1 * multiplier, original.Item2 * multiplier, original.Item3 * multiplier, original.Item4 * multiplier);
     }
 
-    private static IEnumerable<CodeInstruction> Coating(IEnumerable<CodeInstruction> instructions)
+    private static List<CodeInstruction> Coating(IEnumerable<CodeInstruction> instructions)
     {
-        List<CodeInstruction> code = new(instructions);
+        List<CodeInstruction> code = [.. instructions];
         int index = code.FindIndex(instruction => instruction.operand is MethodInfo method && method.Name == "SetWeaponCoat");
         if (index < 0)
         {
             throw new InvalidOperationException("Expected weapon coating hit count not found.");
         }
 
-        code.InsertRange(index, [new CodeInstruction(OpCodes.Ldarg_2),
-            new CodeInstruction(OpCodes.Call, AccessTools.Method(typeof(AlchemyIntegration), nameof(AdjustCoating)))]);
+        code.InsertRange(index, [new CodeInstruction(OpCodes.Ldarg_2), new CodeInstruction(OpCodes.Call, AccessTools.Method(typeof(AlchemyIntegration), nameof(AdjustCoating)))]);
         return code;
     }
 
@@ -179,4 +179,3 @@ internal sealed class AlchemyIntegration : IModIntegration
         return player is EntityPlayer ? (int)Math.Clamp(Math.Round(original * (double)player.Stats.GetBlended(TraitAttributes.Crafting.CoatingDuration)), 1, int.MaxValue) : original;
     }
 }
-

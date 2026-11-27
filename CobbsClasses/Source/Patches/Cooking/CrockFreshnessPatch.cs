@@ -1,7 +1,7 @@
-using HarmonyLib;
-
 using System;
 using System.Runtime.CompilerServices;
+
+using HarmonyLib;
 
 using Vintagestory.API.Common;
 using Vintagestory.API.Datastructures;

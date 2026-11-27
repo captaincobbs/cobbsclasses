@@ -1,9 +1,8 @@
-﻿using System;
+﻿using CobbsClasses.Source.API;
 
 using Vintagestory.API.Common;
 using Vintagestory.API.Common.Entities;
 using Vintagestory.API.Datastructures;
-using Vintagestory.API.MathTools;
 
 namespace CobbsClasses.Source.Behaviors
 {
@@ -39,7 +38,7 @@ namespace CobbsClasses.Source.Behaviors
             float multiplier = GetMultiplier(player, durabilityLossTraits);
             if (multiplier != 1f)
             {
-                amount = GameMath.RoundRandom(world.Rand, amount * multiplier);
+                amount = TraitMath.ScaleDurabilityLoss(world.Rand, amount, multiplier);
             }
         }
 
@@ -50,7 +49,7 @@ namespace CobbsClasses.Source.Behaviors
             {
                 if (!string.IsNullOrWhiteSpace(statName) && statName != TraitAttributes.Tools.GlobalReach)
                 {
-                    bonus += player.Stats.GetBlended(statName) - 1f;
+                    bonus += TraitMath.GetAdditive(player.Stats, statName);
                 }
             }
 
@@ -58,17 +57,6 @@ namespace CobbsClasses.Source.Behaviors
         }
 
         private static float GetMultiplier(EntityPlayer player, string?[] statNames)
-        {
-            float multiplier = 1f;
-            foreach (string? statName in statNames)
-            {
-                if (!string.IsNullOrWhiteSpace(statName))
-                {
-                    multiplier += player.Stats.GetBlended(statName) - 1f;
-                }
-            }
-
-            return Math.Max(0f, multiplier);
-        }
+            => TraitMath.Combine(player.Stats, statNames);
     }
 }
