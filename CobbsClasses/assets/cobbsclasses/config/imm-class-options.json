@@ -71,5 +71,7 @@
   "cobbs-knight-unique-recipe-access": 1,
   "cobbs-ranger-unique-recipe-access": 1,
   "cobbs-rotwalker-unique-recipe-access": 1,
-  "ignore-class-mod-requirements": false
+  "ignore-class-mod-requirements": false,
+  "framework-only-mode": false,
+  "disable-vanilla-classes": true
 }

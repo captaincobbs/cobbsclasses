@@ -1,4 +1,4 @@
-﻿using System.Linq;
+using System.Linq;
 
 using CobbsClasses.Source.Behaviors;
 using CobbsClasses.Source.Handlers;
@@ -18,6 +18,7 @@ public class CobbsClassesModSystem : ModSystem
     public override double ExecuteOrder() => 0.6;
 
     private DarkvisionRenderer? darkvisionRenderer;
+    private ICoreServerAPI? serverAPI;
 
     public override void StartClientSide(ICoreClientAPI api)
     {
@@ -27,11 +28,14 @@ public class CobbsClassesModSystem : ModSystem
 
     public override void StartServerSide(ICoreServerAPI api)
     {
+        serverAPI = api;
         api.Event.PlayerReady += PlayerStatHandler.Refresh;
         api.Event.PlayerRespawn += PlayerStatHandler.Refresh;
         api.Event.PlayerSwitchGameMode += PlayerStatHandler.Refresh;
-        api.Event.AfterActiveSlotChanged += (player, _) => PlayerStatHandler.Refresh(player);
+        api.Event.AfterActiveSlotChanged += OnActiveSlotChanged;
     }
+
+    private static void OnActiveSlotChanged(IServerPlayer player, ActiveSlotChangeEventArgs slot) => PlayerStatHandler.Refresh(player);
 
     public override void Start(ICoreAPI api)
     {
@@ -68,7 +72,16 @@ public class CobbsClassesModSystem : ModSystem
 
     public override void Dispose()
     {
+        if (serverAPI is not null)
+        {
+            serverAPI.Event.PlayerReady -= PlayerStatHandler.Refresh;
+            serverAPI.Event.PlayerRespawn -= PlayerStatHandler.Refresh;
+            serverAPI.Event.PlayerSwitchGameMode -= PlayerStatHandler.Refresh;
+            serverAPI.Event.AfterActiveSlotChanged -= OnActiveSlotChanged;
+            serverAPI = null;
+        }
         darkvisionRenderer?.Dispose();
+        darkvisionRenderer = null;
         base.Dispose();
     }
 }

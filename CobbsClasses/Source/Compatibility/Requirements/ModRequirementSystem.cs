@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
@@ -49,6 +49,19 @@ public sealed class ModRequirementSystem : ModSystem
             {
                 Harmony harmony = new(HarmonyOwner);
                 harmony.Patch(AccessTools.Method(typeof(CharacterSystem), "loadCharacterClasses"), prefix: new HarmonyMethod(typeof(ModRequirementSystem), nameof(BeforeClassLoad)));
+                harmony.Patch(AccessTools.Method(typeof(CharacterSystem), "applyTraitAttributes"), prefix: new HarmonyMethod(typeof(ClassMigration), nameof(ClassMigration.BeforeApplyTraits)));
+                MethodInfo? join = AccessTools.Method(typeof(CharacterSystem), "Event_PlayerJoinServer");
+                if (join is not null)
+                {
+                    try
+                    {
+                        harmony.Patch(join, prefix: new HarmonyMethod(typeof(ClassMigration), nameof(ClassMigration.BeforePlayerJoin)));
+                    }
+                    catch (Exception exception)
+                    {
+                        api.Logger.Warning($"CobbsClasses could not install join-time class migration: {exception.Message}");
+                    }
+                }
             }
 
             if (api.Side == EnumAppSide.Client)
@@ -97,6 +110,7 @@ public sealed class ModRequirementSystem : ModSystem
                 JObject resolved = ResolvedDefinitionEncoding.Decode(definitions);
                 JArray traits = (JArray)resolved["traits"]!;
                 JArray classes = (JArray)resolved["classes"]!;
+                ApplyVanillaPolicy(___api, (bool?)resolved["disableVanillaClasses"] ?? true);
                 PublishClasses(___api, classes);
                 TraitDescriptionOverrides.Load(traits);
                 WriteAssets(traitAsset, classAsset, traits, classes);
@@ -120,12 +134,22 @@ public sealed class ModRequirementSystem : ModSystem
             HashSet<string> unavailable = TraitCompatibilityResolver.Resolve(serverTraits, IsEnabled);
             ClassCompatibilityResolver.Resolve(serverClasses, unavailable, IsEnabled, code => Option(code + "-disable-class"), Option("ignore-class-mod-requirements"));
 
-            DefinitionValidation.EnsureAvailable(serverClasses, message => ___api.Logger.Warning("CobbsClasses: " + message));
+            bool frameworkOnly = Option("framework-only-mode");
+            bool disableVanilla = !frameworkOnly && ((bool?)configLib["disable-vanilla-classes"] ?? true) && ((bool?)imm["disable-vanilla-classes"] ?? true);
+            ApplyVanillaPolicy(___api, disableVanilla);
+            string[] externalClasses = [.. ExternalClassCodes(___api).Distinct(StringComparer.Ordinal)];
+            ClassRosterPolicy.ApplyLocal(serverClasses, frameworkOnly, externalClasses);
+            if (externalClasses.Length == 0)
+            {
+                DefinitionValidation.EnsureAvailable(serverClasses, message => ___api.Logger.Warning("CobbsClasses: " + message));
+            }
+            ClassMigration.Load(___api);
             PublishClasses(___api, serverClasses);
             JObject payload = new()
             {
                 ["traits"] = serverTraits,
-                ["classes"] = serverClasses
+                ["classes"] = serverClasses,
+                ["disableVanillaClasses"] = disableVanilla
             };
             ___api.World.Config.SetString(WorldKey, ResolvedDefinitionEncoding.Encode(payload));
             WriteAssets(traitAsset, classAsset, serverTraits, serverClasses);
@@ -138,6 +162,48 @@ public sealed class ModRequirementSystem : ModSystem
             }
 
             ___api.Logger.Error($"CobbsClasses mod requirement resolution failed: {exception}");
+        }
+    }
+
+    private static void ApplyVanillaPolicy(ICoreAPI api, bool disableVanilla)
+    {
+        IAsset? asset = api.Assets.TryGet(new AssetLocation("game:config/characterclasses.json"));
+        if (asset is null || !disableVanilla)
+        {
+            return;
+        }
+
+        JArray vanilla = JArray.Parse(asset.ToText());
+        ClassRosterPolicy.ApplyVanilla(vanilla, true);
+        asset.Data = Encoding.UTF8.GetBytes(vanilla.ToString(Formatting.None, []));
+    }
+
+    private static IEnumerable<string> ExternalClassCodes(ICoreAPI api)
+    {
+        foreach (IAsset asset in api.Assets.GetMany("config/characterclasses", null))
+        {
+            if (asset.Location.Domain == "cobbsclasses")
+            {
+                continue;
+            }
+
+            JArray? classes = null;
+            try
+            {
+                classes = JArray.Parse(asset.ToText());
+            }
+            catch (JsonException)
+            {
+                api.Logger.Warning($"CobbsClasses could not inspect external classes in {asset.Location}.");
+            }
+
+            if (classes is not null)
+            {
+                foreach (string code in ClassRosterPolicy.EnabledCodes(classes))
+                {
+                    yield return code;
+                }
+            }
         }
     }
 
@@ -187,8 +253,8 @@ public sealed class ModRequirementSystem : ModSystem
 
     private static void WriteAssets(IAsset traitAsset, IAsset classAsset, JArray traits, JArray classes)
     {
-        traitAsset.Data = Encoding.UTF8.GetBytes(traits.ToString(Formatting.None, Array.Empty<JsonConverter>()));
-        classAsset.Data = Encoding.UTF8.GetBytes(classes.ToString(Formatting.None, Array.Empty<JsonConverter>()));
+        traitAsset.Data = Encoding.UTF8.GetBytes(traits.ToString(Formatting.None, []));
+        classAsset.Data = Encoding.UTF8.GetBytes(classes.ToString(Formatting.None, []));
     }
 
     public override void Dispose()

@@ -1,4 +1,4 @@
-﻿using CobbsClasses.Source.API;
+using CobbsClasses.Source.API;
 
 using Vintagestory.API.Common;
 using Vintagestory.API.Common.Entities;
@@ -56,7 +56,6 @@ namespace CobbsClasses.Source.Behaviors
             return bonus;
         }
 
-        private static float GetMultiplier(EntityPlayer player, string?[] statNames)
-            => TraitMath.Combine(player.Stats, statNames);
+        private static float GetMultiplier(EntityPlayer? player, string?[] statNames) => TraitMath.Combine(player?.Stats, statNames);
     }
 }

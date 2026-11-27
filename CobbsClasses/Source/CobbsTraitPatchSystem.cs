@@ -1,4 +1,5 @@
-﻿using System;
+using System;
+using System.Threading;
 
 using CobbsClasses.Source.Patches;
 
@@ -11,7 +12,9 @@ namespace CobbsClasses.Source
     public sealed class CobbsTraitPatchSystem : ModSystem
     {
         private const string HarmonyOwner = "cobbsclasses.player-traits";
-        private Harmony? harmony;
+        private static readonly Lock PatchLock = new();
+        private static int users;
+        private bool registered;
 
         private static readonly ITraitPatch[] TraitPatches =
         [
@@ -79,16 +82,24 @@ namespace CobbsClasses.Source
 
         public override void Start(ICoreAPI api)
         {
-            if (Harmony.HasAnyPatches(HarmonyOwner))
+            lock (PatchLock)
             {
-                return;
-            }
+                if (registered)
+                {
+                    return;
+                }
 
-            Harmony owner = new(HarmonyOwner);
-            harmony = owner;
-            foreach (ITraitPatch patch in TraitPatches)
-            {
-                Apply(patch.Name, () => patch.Register(owner), api.Logger);
+                if (users == 0)
+                {
+                    Harmony owner = new(HarmonyOwner);
+                    foreach (ITraitPatch patch in TraitPatches)
+                    {
+                        Apply(patch.Name, () => patch.Register(owner), api.Logger);
+                    }
+                }
+
+                users++;
+                registered = true;
             }
         }
 
@@ -117,7 +128,18 @@ namespace CobbsClasses.Source
 
         public override void Dispose()
         {
-            harmony?.UnpatchAll(HarmonyOwner);
+            lock (PatchLock)
+            {
+                if (registered)
+                {
+                    registered = false;
+                    if (--users == 0)
+                    {
+                        new Harmony(HarmonyOwner).UnpatchAll(HarmonyOwner);
+                    }
+                }
+            }
+            base.Dispose();
         }
     }
 }

@@ -540,6 +540,38 @@
               "Side": "Both"
             }
           ]
+        },
+        {
+          "Label": "cobbsclasses:setting-framework-only-mode",
+          "Targets": [
+            {
+              "Asset": "cobbsclasses:config/imm-class-options.json",
+              "Timing": "AfterPatches",
+              "Path": "framework-only-mode",
+              "Side": "Server",
+              "ResultType": "Boolean"
+            }
+          ],
+          "Description": "cobbsclasses:setting-framework-only-mode-description",
+          "Default": false,
+          "Type": "Boolean",
+          "Code": "framework-only-mode"
+        },
+        {
+          "Label": "cobbsclasses:setting-disable-vanilla-classes",
+          "Targets": [
+            {
+              "Asset": "cobbsclasses:config/imm-class-options.json",
+              "Timing": "AfterPatches",
+              "Path": "disable-vanilla-classes",
+              "Side": "Server",
+              "ResultType": "Boolean"
+            }
+          ],
+          "Description": "cobbsclasses:setting-disable-vanilla-classes-description",
+          "Default": true,
+          "Type": "Boolean",
+          "Code": "disable-vanilla-classes"
         }
       ]
     },

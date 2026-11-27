@@ -15,6 +15,7 @@ namespace CobbsClasses.Source.Patches
     internal static class CapacityInventoryPatch
     {
         private const string CapacityKey = "cobbsclasses:bagCapacity";
+        private const string FirstOwnedKey = "cobbsclasses:bagCapacityFirstOwned";
         private const string StatKey = "cobbsclasses:bagCapacityStat";
         private const string Personal = TraitAttributes.Inventory.BackpackInventoryMultiplier;
         private const string Mount = TraitAttributes.Inventory.AnimalInventoryMultiplier;
@@ -64,7 +65,7 @@ namespace CobbsClasses.Source.Patches
         {
             private static void Prefix(ItemSlot __0, Entity __2, EntityAgent __3)
             {
-                if (__3 is not EntityPlayer player || __0.Itemstack is not { } bag
+                if (__3 is not EntityPlayer player || __0?.Itemstack is not { } bag
                     || bag.Collectible.GetCollectibleInterface<IHeldBag>() is not { } heldBag)
                 {
                     return;
@@ -110,6 +111,19 @@ namespace CobbsClasses.Source.Patches
                 }
 
                 BagInventory bags = __instance.BagInventory;
+                bool hasRestrictedSlots = false;
+                for (int index = 0; index < bags.Count; index++)
+                {
+                    if (RestrictedSlots.TryGetValue(bags[index], out _))
+                    {
+                        hasRestrictedSlots = true;
+                        break;
+                    }
+                }
+                if (!hasRestrictedSlots)
+                {
+                    return;
+                }
                 if (bags.Count > inventory.Count)
                 {
                     inventory.AddSlots(bags.Count - inventory.Count);
@@ -128,6 +142,7 @@ namespace CobbsClasses.Source.Patches
             private static void Postfix(CollectibleBehaviorHeldBag __instance, ItemStack __0, InventoryBase __1, int __2, List<ItemSlotBagContent> __result)
             {
                 int normal = __instance.GetQuantitySlots(__0);
+                int priorCapacity = __0.Attributes.GetInt(CapacityKey);
                 if (__1 is InventoryBasePlayer personal && personal.Api is not null && personal.Player?.Entity is { } owner)
                 {
                     SetCapacity(__0, Personal, owner, normal);
@@ -136,11 +151,18 @@ namespace CobbsClasses.Source.Patches
                 int expanded = Math.Clamp(__0.Attributes.GetInt(CapacityKey), normal, normal + 64);
                 string? storedStat = __0.Attributes.GetString(StatKey);
                 string? stat = __1 is InventoryBasePlayer ? Personal : storedStat;
-                if (stat is not (Personal or Mount or Vehicle) || __result.Count == 0)
+                if (storedStat is not (Personal or Mount or Vehicle) || stat is not (Personal or Mount or Vehicle) || expanded <= normal || __result.Count == 0)
                 {
                     return;
                 }
 
+                int firstOwned = __0.Attributes.GetInt(FirstOwnedKey, -1);
+                if (firstOwned < normal)
+                {
+                    // Do not claim slots another mod has supplied, existing saved capacities without ownership data retain their legacy range
+                    firstOwned = priorCapacity > normal ? normal : Math.Max(normal, __result.Count);
+                    __0.Attributes.SetInt(FirstOwnedKey, firstOwned);
+                }
                 ItemSlotBagContent template = __result[0];
                 while (__result.Count < expanded)
                 {
@@ -150,7 +172,7 @@ namespace CobbsClasses.Source.Patches
                     });
                 }
 
-                for (int index = normal; index < __result.Count; index++)
+                for (int index = firstOwned; index < Math.Min(expanded, __result.Count); index++)
                 {
                     ItemSlot slot = __result[index];
                     RestrictedSlots.Remove(slot);

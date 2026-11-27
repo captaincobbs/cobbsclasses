@@ -250,6 +250,10 @@
   "setting-protector-sprint-seconds-description": "Seconds of bonus movement speed after a nearby player is harmed. Zero disables this timed effect.",
   "setting-targeted-regen-seconds": "Targeted regeneration duration",
   "setting-targeted-regen-seconds-description": "Seconds of regeneration after treating another player, if the healer has the relevant trait. Zero disables this timed effect.",
+  "setting-framework-only-mode": "Framework-only mode",
+  "setting-framework-only-mode-description": "Disable bundled classes while keeping trait mechanics available to other mods. Overrides Disable vanilla classes.",
+  "setting-disable-vanilla-classes": "Disable vanilla classes",
+  "setting-disable-vanilla-classes-description": "Disable the six original classes, without disabling classes added by other mods.",
 
   "game:charattribute-animalSeekingRange--0.7": "-70% Animal detection range",
   "game:charattribute-animalSeekingRange--0.6": "-60% Animal detection range",

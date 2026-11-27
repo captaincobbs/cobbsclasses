@@ -1,0 +1,10 @@
+{
+  "cobbs-hunter": "hunter",
+  "cobbs-tailor": "tailor",
+  "cobbs-clockmaker": "clockmaker",
+  "cobbs-blackguard": "blackguard",
+  "cobbs-knight": "blackguard",
+  "cobbs-ranger": "hunter",
+  "cobbs-malefactor": "malefactor",
+  "cobbs-commoner": "commoner"
+}
