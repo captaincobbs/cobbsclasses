@@ -284,7 +284,7 @@
     "code": "sailor-dryoff",
     "type": "positive",
     "attributes": {
-      "coldResistance": 1,
+      "coldTemperatureRange": 3.5,
       "wetResistance": 1,
       "dryingSpeedMul": 0.5
     }
@@ -530,6 +530,7 @@
     "code": "workman-glassblower",
     "type": "positive",
     "attributes": {
+      "glassworkingSpeedMul": 0.25,
       "charcoalYieldMul": 0.25,
       "shovelDurabilityLoss": -0.25,
       "shovelSpeedMul": 0.25
@@ -626,7 +627,8 @@
     "code": "caravaneer-well-traveled",
     "type": "positive",
     "attributes": {
-      "vehicleMovespeed": 0.25
+      "vehicleMovespeed": 0.25,
+      "roadSpeedBonus": 0.1
     }
   },
   {
