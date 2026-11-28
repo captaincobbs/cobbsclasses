@@ -1,7 +1,7 @@
 {
-  "game:trait-wip": "WIP",
-  "trait-effect-wip": "Still in progress!",
-  "game:charattribute-workInProgress-0": "Still in progress!",
+  "game:trait-wip": "<font color=\"#FF0000\">WIP</font>",
+  "trait-effect-wip": "<font color=\"#FF0000\">This class is still a work in progress and is missing most of its content!</font>",
+  "game:charattribute-workInProgress-0": "<font color=\"#FF0000\">Still in progress!</font>",
 
   "game:characterclass-cobbs-commoner": "Commoner",
   "game:characterdesc-cobbs-commoner": "A generalist ready to make a living wherever they settle.",
@@ -295,7 +295,8 @@
   "game:charattribute-bowDrawingStrength-0.25": "+25% Bow drawing strength",
   "game:charattribute-bowDrawSpeed-0.25": "+25% Bow draw speed",
   "game:charattribute-damageToHostiles-0.4": "+40% Damage against the creature that harmed a nearby player",
-  "game:charattribute-globalDamageWhenSated-0.15": "+15% Damage when sated",
+  "game:charattribute-weaponDamageWhenSated-0.15": "+15% Weapon Damage when sated",
+  "game:charattribute-toolSpeedMulWhenSated-0.1": "+10% Tool speed when sated",
   "game:charattribute-mechanicalsDamage-0.4": "+40% Damage against mechanical enemies",
   "game:charattribute-rangedWeaponsAcc-0.3": "+30% Ranged weapon accuracy",
   "game:charattribute-rangedWeaponsAcc-0.5": "+50% Ranged weapon accuracy",
@@ -346,6 +347,7 @@
   "game:charattribute-weaponDurabilityLoss--0.25": "-25% Weapon durability loss",
   "game:charattribute-shovelDurabilityLoss--0.25": "-25% Shovel durability loss",
   "game:charattribute-spearDurabilityLoss--0.25": "-25% Spear durability loss",
+  "game:charattribute-toolDurabilityLoss--0.2": "-20% Tool durability loss",
 
   "game:charattribute-crockFreshness-1": "+100% Sealed crock shelf life",
   "game:charattribute-cuttingSpoilageRate--0.5": "-50% Cutting spoilage rate",
