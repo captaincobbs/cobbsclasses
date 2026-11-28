@@ -216,6 +216,7 @@
     "enabled": true,
     "code": "cobbs-chef",
     "traits": [
+      "wip",
       "chef-secret-ingredient",
       "chef-food-storage",
       "chef-mealboxes",
@@ -272,6 +273,7 @@
     ],
     "requiresMods": {
       "anyOf": [
+        "wip",
         "advancedresearch",
         "runicmagic",
         "canjewelry",
@@ -396,6 +398,7 @@
     "enabled": true,
     "code": "cobbs-clockmaker",
     "traits": [
+      "wip",
       "clockmaker-mechanic",
       "clockmaker-locust-whisperer",
       "clockmaker-tinkering",

@@ -1,3 +1,7 @@
+using System.Linq;
+
+using CobbsClasses.Source.Behaviors;
+
 using HarmonyLib;
 
 using Vintagestory.API.Common;
@@ -30,6 +34,14 @@ namespace CobbsClasses.Source.Patches
             }
 
             damage *= Multiplier(attacker, TraitAttributes.Combat.GlobalDamage);
+            // Do not read the held item for a projectile, it could have changed since firing
+            if (damageSource.SourceEntity is EntityProjectileBase ||
+                (damageSource.SourceEntity == attacker &&
+                 attacker.Player?.InventoryManager.ActiveHotbarSlot?.Itemstack?.Collectible.CollectibleBehaviors.OfType<ToolTraitBehavior>().Any(behavior => behavior.IsWeapon) == true))
+            {
+                damage *= Multiplier(attacker, TraitAttributes.Combat.WeaponDamage);
+            }
+
             if (damageSource.SourceEntity == attacker && attacker.Player?.InventoryManager.ActiveHotbarSlot.Empty == true)
             {
                 damage *= Multiplier(attacker, TraitAttributes.Combat.BareHandDamage);

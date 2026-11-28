@@ -8,7 +8,9 @@ namespace CobbsClasses.Source.Conditions
     {
         private static readonly ConditionRules Sated = new(
             (TraitAttributes.Combat.GlobalDamageWhenSated, TraitAttributes.Combat.GlobalDamage),
+            (TraitAttributes.Combat.WeaponDamageWhenSated, TraitAttributes.Combat.WeaponDamage),
             (TraitAttributes.Tools.GlobalSpeedMulWhenSated, TraitAttributes.Tools.GlobalSpeedMul),
+            (TraitAttributes.Tools.ToolSpeedMulWhenSated, TraitAttributes.Tools.ToolSpeedMul),
             (TraitAttributes.Movement.MoveSpeedWhenSated, TraitAttributes.Movement.Walkspeed),
             (TraitAttributes.Survival.HealthRegenRateWhenSated, TraitAttributes.Survival.HealthRegenRate));
 

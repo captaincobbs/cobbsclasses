@@ -22,6 +22,36 @@ namespace CobbsClasses.Source.API
                 }
             }
 
+            // Item behavior attributes use fractional modifiers; reach is measured in blocks.
+            foreach (FieldInfo field in typeof(TraitAttributes.Tools).GetFields(BindingFlags.Public | BindingFlags.Static))
+            {
+                if (field.GetRawConstantValue() is not string code)
+                {
+                    continue;
+                }
+
+                if (code.EndsWith("DurabilityLoss", StringComparison.Ordinal))
+                {
+                    Define(code, AttributeKind.Multiplier, -1, double.MaxValue);
+                }
+                else if (code.EndsWith("SpeedMul", StringComparison.Ordinal))
+                {
+                    Define(code, AttributeKind.Multiplier, -0.95, double.MaxValue);
+                }
+                else if (code.EndsWith("Reach", StringComparison.Ordinal))
+                {
+                    Define(code, AttributeKind.Additive, -100, 100);
+                }
+            }
+
+            Define("hotTemperatureRange", AttributeKind.Temperature, -100, 100);
+            Define("trackdecay", AttributeKind.Multiplier, -1, double.MaxValue, ["footprints"]);
+            Define("carcassDrainRate", AttributeKind.Additive, -double.MaxValue, double.MaxValue, ["butchering"]);
+            Define("heavyCarryMovespeedAffectedness", AttributeKind.Additive, -double.MaxValue, double.MaxValue, ["butchering"]);
+            Define("ruinedCarcassPenalty", AttributeKind.Additive, -double.MaxValue, double.MaxValue, ["butchering"]);
+            Define("coatRaw", AttributeKind.Boolean, 0, 1, ["alchemy"]);
+            Define("eatReagents", AttributeKind.Boolean, 0, 1, ["alchemy"]);
+            Define("poisonPenalty", AttributeKind.Additive, -double.MaxValue, double.MaxValue, ["alchemy"]);
             Define("wetResistance", AttributeKind.Probability, 0, 1);
             Define("unrestedSpeedPenalty", AttributeKind.Boolean, 0, 1);
             Define("coldTemperatureRange", AttributeKind.Temperature, -100, 100);
@@ -34,12 +64,12 @@ namespace CobbsClasses.Source.API
             Define("globalReach", AttributeKind.Additive, -100, 100);
         }
 
-        private void Define(string code, AttributeKind kind, double minimum, double maximum)
+        private void Define(string code, AttributeKind kind, double minimum, double maximum, string[]? requiredMods = null)
         {
-            definitions[code] = new TraitAttributeDefinition(code, kind, 0, minimum, maximum);
+            definitions[code] = new TraitAttributeDefinition(code, kind, 0, minimum, maximum, requiredMods);
         }
 
-        public IReadOnlyList<TraitAttributeDefinition> Definitions => definitions.Values.Select(Clone).ToArray();
+        public IReadOnlyList<TraitAttributeDefinition> Definitions => [.. definitions.Values.Select(Clone)];
 
         public bool TryGet(string code, out TraitAttributeDefinition? definition)
         {

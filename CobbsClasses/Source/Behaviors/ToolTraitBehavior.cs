@@ -40,7 +40,7 @@ namespace CobbsClasses.Source.Behaviors
             {
                 durabilityLossTraits = [.. durabilityLossTraits, TraitAttributes.Tools.WeaponDurabilityLoss];
             }
-            durabilityLossTraits = durabilityLossTraits.Distinct().ToArray();
+            durabilityLossTraits = [.. durabilityLossTraits.Distinct()];
         }
 
         public override float GetMiningSpeed(ItemStack itemstack, BlockSelection blockSel, Block block, IPlayer player, ref EnumHandling bhHandling)
@@ -62,6 +62,8 @@ namespace CobbsClasses.Source.Behaviors
                 amount = TraitMath.ScaleDurabilityLoss(world.Rand, amount, multiplier);
             }
         }
+
+        internal bool IsWeapon => durabilityLossTraits.Contains(TraitAttributes.Tools.WeaponDurabilityLoss);
 
         public float GetReachBonus(EntityPlayer player)
         {

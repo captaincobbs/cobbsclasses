@@ -4,6 +4,8 @@
     {
         public static class Combat
         {
+            public const string WeaponDamage = "weaponDamage";
+            public const string WeaponDamageWhenSated = "weaponDamageWhenSated";
             public const string AcidResistance = "acidResistance";
             public const string AnimalResistance = "animalResistance";
             public const string AnimalsDamage = "animalsDamage";
@@ -44,6 +46,9 @@
 
         public static class Crafting
         {
+            public const string CuttingSpoilageRate = "cuttingSpoilageRate";
+            public const string DismantleFurniture = "dismantleFurniture";
+            public const string SeasoningSlot = "seasoningSlot";
             public const string ButcherBonus = "butcherBonus";
             public const string ButcherSpeedMul = "butcherSpeedMul";
             public const string SkinningBonus = "skinningBonus";
@@ -82,6 +87,12 @@
 
         public static class Equipment
         {
+            public const string ArmorDurabilityLoss = "armorDurabilityLoss";
+            public const string ArmorHungerAffectednessLightArmor = "armorHungerAffectednessLightArmor";
+            public const string ArmorWalkSpeedAffectednessLightArmor = "armorWalkSpeedAffectednessLightArmor";
+            public const string ClothesPaintMul = "clothesPaintMul";
+            public const string ClothesProfessionBonus = "clothesProfessionBonus";
+            public const string ShieldDurabilityLoss = "shieldDurabilityLoss";
             public const string ArmorFlatProtection = "armorFlatProtection";
             public const string ArmorHealingAffectedness = "armorHealingAffectedness";
             public const string ArmorHungerAffectedness = "armorHungerAffectedness";
@@ -101,6 +112,7 @@
 
         public static class Food
         {
+            public const string FoodBuffRate = "foodBuffRate";
             public const string HideMealSafety = "hideMealSafety";
             public const string HideNutritionInfo = "hideNutritionInfo";
             public const string HideCraftingInfo = "hideCraftingInfo";
@@ -115,6 +127,13 @@
 
         public static class Gathering
         {
+            public const string AnimalHarvestingTime = "animalHarvestingTime";
+            public const string CharcoalYieldMul = "charcoalYieldMul";
+            public const string ClayYieldMul = "clayYieldMul";
+            public const string MushroomYieldMul = "mushroomYieldMul";
+            public const string SaplingYieldMul = "saplingYieldMul";
+            public const string StickYieldMul = "stickYieldMul";
+            public const string WildCropDropRate = "wildCropDropRate";
             public const string AnimalAllYield = "animalAllYield";
             public const string AnimalBoneYield = "animalBoneYield";
             public const string AnimalFatYield = "animalFatYield";
@@ -179,6 +198,9 @@
 
         public static class Survival
         {
+            public const string HotTemperatureRange = "hotTemperatureRange";
+            public const string HungerrateOutside = "hungerrateOutside";
+            public const string TemporalGearTLRepairCost = "temporalGearTLRepairCost";
             public const string BreathCapacity = "breathCapacity";
             public const string ColdTemperatureRange = "coldTemperatureRange";
             public const string DarkvisionStrength = "darkvisionStrength";
@@ -213,6 +235,57 @@
 
         public static class Tools
         {
+            public const string AxeDurabilityLoss = "axeDurabilityLoss";
+            public const string AxeReach = "axeReach";
+            public const string AxeSpeedMul = "axeSpeedMul";
+            public const string BladeDamage = "bladeDamage";
+            public const string BladeDurabilityLoss = "bladeDurabilityLoss";
+            public const string BowDurabilityLoss = "bowDurabilityLoss";
+            public const string ChiselDurabilityLoss = "chiselDurabilityLoss";
+            public const string ChiselReach = "chiselReach";
+            public const string ChiselSpeedMul = "chiselSpeedMul";
+            public const string ClubDamage = "clubDamage";
+            public const string ClubDurabilityLoss = "clubDurabilityLoss";
+            public const string FishingReach = "fishingReach";
+            public const string FishingSpeedMul = "fishingSpeedMul";
+            public const string HammerDurabilityLoss = "hammerDurabilityLoss";
+            public const string HammerReach = "hammerReach";
+            public const string HammerSpeedMul = "hammerSpeedMul";
+            public const string HoeDurabilityLoss = "hoeDurabilityLoss";
+            public const string HoeReach = "hoeReach";
+            public const string HoeSpeedMul = "hoeSpeedMul";
+            public const string InkDurabilityLoss = "inkDurabilityLoss";
+            public const string KnifeDamage = "knifeDamage";
+            public const string KnifeDurabilityLoss = "knifeDurabilityLoss";
+            public const string PickaxeDurabilityLoss = "pickaxeDurabilityLoss";
+            public const string PickaxeReach = "pickaxeReach";
+            public const string PickaxeSpeedMul = "pickaxeSpeedMul";
+            public const string SawDurabilityLoss = "sawDurabilityLoss";
+            public const string SawReach = "sawReach";
+            public const string SawSpeedMul = "sawSpeedMul";
+            public const string ScytheDurabilityLoss = "scytheDurabilityLoss";
+            public const string ScytheReach = "scytheReach";
+            public const string ScytheSpeedMul = "scytheSpeedMul";
+            public const string ShieldDamage = "shieldDamage";
+            public const string ShovelDurabilityLoss = "shovelDurabilityLoss";
+            public const string ShovelReach = "shovelReach";
+            public const string ShovelSpeedMul = "shovelSpeedMul";
+            public const string SpearDamage = "spearDamage";
+            public const string SpearDurabilityLoss = "spearDurabilityLoss";
+            public const string TongsDurabilityLoss = "tongsDurabilityLoss";
+            public const string TongsReach = "tongsReach";
+            public const string TongsSpeedMul = "tongsSpeedMul";
+            public const string ToolDamage = "toolDamage";
+            public const string ToolReach = "toolReach";
+            public const string ToolSpeedMulWhenSated = "toolSpeedMulWhenSated";
+            public const string WormgrunterDurabilityLoss = "wormgrunterDurabilityLoss";
+            public const string WormgrunterReach = "wormgrunterReach";
+            public const string WormgrunterSpeedMul = "wormgrunterSpeedMul";
+            public const string WrenchDurabilityLoss = "wrenchDurabilityLoss";
+            public const string WrenchReach = "wrenchReach";
+            public const string WrenchSpeedMul = "wrenchSpeedMul";
+            public const string WritingDurabilityLoss = "writingDurabilityLoss";
+            public const string WritingReach = "writingReach";
             public const string GlobalReach = "globalReach";
             public const string GlobalDurabilityLoss = "globalDurabilityLoss";
             public const string ToolDurabilityLoss = "toolDurabilityLoss";
@@ -228,9 +301,34 @@
 
         public static class Trading
         {
+            public const string CanMerchantRelation = "canMerchantRelation";
             public const string MerchantBuyModifier = "merchantBuyModifier";
             public const string MerchantSellModifier = "merchantSellModifier";
             public const string MerchantSpecialStock = "merchantSpecialStock";
+        }
+
+        public static class Vanilla
+        {
+            public const string AnimalLootDropRate = "animalLootDropRate";
+            public const string BowDrawingStrength = "bowDrawingStrength";
+            public const string MaxhealthExtraPoints = "maxhealthExtraPoints";
+            public const string MechanicalsDamage = "mechanicalsDamage";
+            public const string OreDropRate = "oreDropRate";
+            public const string RangedWeaponsDamage = "rangedWeaponsDamage";
+            public const string RangedWeaponsSpeed = "rangedWeaponsSpeed";
+            public const string RustyGearDropRate = "rustyGearDropRate";
+            public const string VesselContentsDropRate = "vesselContentsDropRate";
+        }
+
+        public static class ModIntegration
+        {
+            public const string CarcassDrainRate = "carcassDrainRate";
+            public const string CoatRaw = "coatRaw";
+            public const string EatReagents = "eatReagents";
+            public const string HeavyCarryMovespeedAffectedness = "heavyCarryMovespeedAffectedness";
+            public const string PoisonPenalty = "poisonPenalty";
+            public const string RuinedCarcassPenalty = "ruinedCarcassPenalty";
+            public const string Trackdecay = "trackdecay";
         }
 
     }

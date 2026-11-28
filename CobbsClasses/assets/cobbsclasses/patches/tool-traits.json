@@ -262,7 +262,7 @@
       {
         "name": "CobbsToolTraits",
         "properties": {
-          "durabilityLossStat": ["globalDurabilityLoss", "toolDurabilityLoss", "writingDurabilityLoss"],
+          "durabilityLossStat": ["globalDurabilityLoss", "toolDurabilityLoss", "writingDurabilityLoss", "inkDurabilityLoss"],
           "reachStat":  ["globalReach", "toolReach", "writingReach"]
         }
       }
