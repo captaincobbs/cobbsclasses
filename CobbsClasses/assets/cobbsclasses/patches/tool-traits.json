@@ -276,7 +276,7 @@
       {
         "name": "CobbsToolTraits",
         "properties": {
-          "durabilityLossStat": ["globalDurabilityLoss", "toolDurabilityLoss", "knifeDurabilityLoss"],
+          "durabilityLossStat": ["globalDurabilityLoss", "toolDurabilityLoss", "weaponDurabilityLoss", "knifeDurabilityLoss"],
           "damageStat":  ["globalDamage", "toolDamage", "knifeDamage"]
         }
       }
@@ -290,7 +290,7 @@
       {
         "name": "CobbsToolTraits",
         "properties": {
-          "durabilityLossStat": ["globalDurabilityLoss", "toolDurabilityLoss", "knifeDurabilityLoss"],
+          "durabilityLossStat": ["globalDurabilityLoss", "toolDurabilityLoss", "weaponDurabilityLoss", "knifeDurabilityLoss"],
           "damageStat":  ["globalDamage", "toolDamage", "knifeDamage"]
         }
       }

@@ -4,32 +4,33 @@ using Vintagestory.API.Common;
 using Vintagestory.API.Config;
 using Vintagestory.API.Server;
 
-namespace CobbsClasses.Source.Handlers;
-
-public static class BlockReachHandler
+namespace CobbsClasses.Source.Handlers
 {
-    public static float GetRange(IServerPlayer player)
+    public static class BlockReachHandler
     {
-        ItemStack? heldItem = player.InventoryManager.ActiveHotbarSlot?.Itemstack;
-        ToolTraitBehavior? toolTraits = heldItem?.Collectible.GetCollectibleBehavior<ToolTraitBehavior>(false);
-
-        float globalBonus = player.Entity.Stats.GetBlended(TraitAttributes.Tools.GlobalReach) - 1f;
-        float heldBonus = toolTraits?.GetReachBonus(player.Entity) ?? 0f;
-        return GlobalConstants.DefaultPickingRange + globalBonus + heldBonus;
-    }
-
-    public static void Refresh(IServerPlayer player)
-    {
-        if (player.WorldData.CurrentGameMode != EnumGameMode.Survival)
+        public static float GetRange(IServerPlayer player)
         {
-            return;
+            ItemStack? heldItem = player.InventoryManager.ActiveHotbarSlot?.Itemstack;
+            ToolTraitBehavior? toolTraits = heldItem?.Collectible.GetCollectibleBehavior<ToolTraitBehavior>(false);
+
+            float globalBonus = player.Entity.Stats.GetBlended(TraitAttributes.Tools.GlobalReach) - 1f;
+            float heldBonus = toolTraits?.GetReachBonus(player.Entity) ?? 0f;
+            return GlobalConstants.DefaultPickingRange + globalBonus + heldBonus;
         }
 
-        float range = GetRange(player);
-        if (player.WorldData.PickingRange != range)
+        public static void Refresh(IServerPlayer player)
         {
-            player.WorldData.PickingRange = range;
-            player.BroadcastPlayerData();
+            if (player.WorldData.CurrentGameMode != EnumGameMode.Survival)
+            {
+                return;
+            }
+
+            float range = GetRange(player);
+            if (player.WorldData.PickingRange != range)
+            {
+                player.WorldData.PickingRange = range;
+                player.BroadcastPlayerData();
+            }
         }
     }
 }

@@ -711,8 +711,8 @@
     "attributes": {
       "hungerrate": 0.3,
       "maxHungerMul": 1.0,
-      "globalDamageWhenSated": 0.15,
-      "globalSpeedMulWhenSated": 0.1,
+      "weaponDamageWhenSated": 0.15,
+      "toolSpeedMulWhenSated": 0.1,
       "moveSpeedWhenSated": 0.1,
       "healthRegenRateWhenSated": 0.5,
       "satedBonusFullMultiplier": 1
@@ -723,10 +723,7 @@
     "type": "positive",
     "attributes": {
       "shieldDurabilityLoss": -0.25,
-      "bladeDurabilityLoss": -0.25,
-      "clubDurabilityLoss": -0.25,
-      "spearDurabilityLoss": -0.25,
-      "knifeDurabilityLoss": -0.25
+      "weaponDurabilityLoss": -0.25
     }
   },
   {
@@ -822,7 +819,7 @@
     "type": "positive",
     "attributes": {
       "shieldDurabilityLoss": -0.2,
-      "globalDurabilityLoss": -0.2,
+      "toolDurabilityLoss": -0.2,
       "knockbackWhileBlocking": -1.0
     }
   },
@@ -911,5 +908,15 @@
     "code": "rotwalker-recipes",
     "type": "positive",
     "attributes": {}
+  },
+  {
+    "code": "wip",
+    "type": "negative",
+    "attributes": {
+      "workInProgress": 0
+    },
+    "attributeDescriptions": {
+      "workInProgress": "cobbsclasses:trait-effect-wip"
+    }
   }
 ]

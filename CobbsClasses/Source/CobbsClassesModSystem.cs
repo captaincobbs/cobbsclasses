@@ -9,79 +9,83 @@ using Vintagestory.API.Common;
 using Vintagestory.API.Datastructures;
 using Vintagestory.API.Server;
 
-namespace CobbsClasses.Source;
-
-public class CobbsClassesModSystem : ModSystem
+namespace CobbsClasses.Source
 {
-    public API.CobbsClassesAPI ClassesAPI { get; } = new();
-
-    public override double ExecuteOrder() => 0.6;
-
-    private DarkvisionRenderer? darkvisionRenderer;
-    private ICoreServerAPI? serverAPI;
-
-    public override void StartClientSide(ICoreClientAPI api)
+    public class CobbsClassesModSystem : ModSystem
     {
-        darkvisionRenderer = new(api);
-        api.Event.RegisterRenderer(darkvisionRenderer, EnumRenderStage.Before, "cobbsclasses-darkvision");
-    }
+        public API.CobbsClassesAPI ClassesAPI { get; } = new();
 
-    public override void StartServerSide(ICoreServerAPI api)
-    {
-        serverAPI = api;
-        api.Event.PlayerReady += PlayerStatHandler.Refresh;
-        api.Event.PlayerRespawn += PlayerStatHandler.Refresh;
-        api.Event.PlayerSwitchGameMode += PlayerStatHandler.Refresh;
-        api.Event.AfterActiveSlotChanged += OnActiveSlotChanged;
-    }
+        public override double ExecuteOrder() => 0.6;
 
-    private static void OnActiveSlotChanged(IServerPlayer player, ActiveSlotChangeEventArgs slot) => PlayerStatHandler.Refresh(player);
+        private DarkvisionRenderer? darkvisionRenderer;
+        private ICoreServerAPI? serverAPI;
 
-    public override void Start(ICoreAPI api)
-    {
-        api.RegisterCollectibleBehaviorClass("CobbsToolTraits", typeof(ToolTraitBehavior));
-    }
-
-    public override void AssetsFinalize(ICoreAPI api)
-    {
-        if (api.Side != EnumAppSide.Server)
+        public override void StartClientSide(ICoreClientAPI api)
         {
-            return;
+            darkvisionRenderer = new(api);
+            api.Event.RegisterRenderer(darkvisionRenderer, EnumRenderStage.Before, "cobbsclasses-darkvision");
         }
 
-        TagSet toolTag = api.CollectibleTagRegistry.CreateTagSet(["tool"]);
-        TagSet weaponTag = api.CollectibleTagRegistry.CreateTagSet(["weapon"]);
-
-        foreach (Item item in api.World.Items)
+        public override void StartServerSide(ICoreServerAPI api)
         {
-            if (item?.Code is null || item.CollectibleBehaviors.OfType<ToolTraitBehavior>().Any())
+            serverAPI = api;
+            api.Event.PlayerReady += PlayerStatHandler.Refresh;
+            api.Event.PlayerRespawn += PlayerStatHandler.Refresh;
+            api.Event.PlayerSwitchGameMode += PlayerStatHandler.Refresh;
+            api.Event.AfterActiveSlotChanged += OnActiveSlotChanged;
+        }
+
+        private static void OnActiveSlotChanged(IServerPlayer player, ActiveSlotChangeEventArgs slot) => PlayerStatHandler.Refresh(player);
+
+        public override void Start(ICoreAPI api)
+        {
+            api.RegisterCollectibleBehaviorClass("CobbsToolTraits", typeof(ToolTraitBehavior));
+        }
+
+        public override void AssetsFinalize(ICoreAPI api)
+        {
+            if (api.Side != EnumAppSide.Server)
             {
-                continue;
+                return;
             }
 
-            if (!(item.Tool.HasValue || toolTag.IsFullyContainedIn(item.Tags) || weaponTag.IsFullyContainedIn(item.Tags)))
+            TagSet toolTag = api.CollectibleTagRegistry.CreateTagSet(["tool"]);
+            TagSet weaponTag = api.CollectibleTagRegistry.CreateTagSet(["weapon"]);
+
+            foreach (Item item in api.World.Items)
             {
-                continue;
+                if (item?.Code is null || item.CollectibleBehaviors.OfType<ToolTraitBehavior>().Any())
+                {
+                    continue;
+                }
+
+                if (!(item.Tool.HasValue || toolTag.IsFullyContainedIn(item.Tags) || weaponTag.IsFullyContainedIn(item.Tags)))
+                {
+                    continue;
+                }
+
+                ToolTraitBehavior behavior = new(item);
+                bool isWeapon = weaponTag.IsFullyContainedIn(item.Tags);
+                bool isTool = toolTag.IsFullyContainedIn(item.Tags) || (item.Tool.HasValue && !isWeapon);
+                behavior.Initialize(JsonObject.FromJson("{}"));
+                behavior.ConfigureDurabilityCategories(isTool, isWeapon);
+                item.CollectibleBehaviors = [.. item.CollectibleBehaviors, behavior];
             }
-
-            ToolTraitBehavior behavior = new(item);
-            behavior.Initialize(JsonObject.FromJson("{}"));
-            item.CollectibleBehaviors = [.. item.CollectibleBehaviors, behavior];
         }
-    }
 
-    public override void Dispose()
-    {
-        if (serverAPI is not null)
+        public override void Dispose()
         {
-            serverAPI.Event.PlayerReady -= PlayerStatHandler.Refresh;
-            serverAPI.Event.PlayerRespawn -= PlayerStatHandler.Refresh;
-            serverAPI.Event.PlayerSwitchGameMode -= PlayerStatHandler.Refresh;
-            serverAPI.Event.AfterActiveSlotChanged -= OnActiveSlotChanged;
-            serverAPI = null;
+            if (serverAPI is not null)
+            {
+                serverAPI.Event.PlayerReady -= PlayerStatHandler.Refresh;
+                serverAPI.Event.PlayerRespawn -= PlayerStatHandler.Refresh;
+                serverAPI.Event.PlayerSwitchGameMode -= PlayerStatHandler.Refresh;
+                serverAPI.Event.AfterActiveSlotChanged -= OnActiveSlotChanged;
+                serverAPI = null;
+            }
+            darkvisionRenderer?.Dispose();
+            darkvisionRenderer = null;
+            base.Dispose();
         }
-        darkvisionRenderer?.Dispose();
-        darkvisionRenderer = null;
-        base.Dispose();
     }
 }

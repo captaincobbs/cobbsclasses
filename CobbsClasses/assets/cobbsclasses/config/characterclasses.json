@@ -204,7 +204,7 @@
       { "type": "item", "code": "game:clothes-lowerbody-marketeer" },
       { "type": "item", "code": "game:clothes-foot-surgeon" }
     ],
-    "requiresMods": {
+    "mandatoryMods": {
       "allOf": [
         "butchering"
       ]
@@ -445,7 +445,7 @@
     ]
   },
   {
-    "enabled": true,
+    "enabled": false,
     "code": "cobbs-rotwalker",
     "traits": [
       "rotwalker-embrace-the-storm",

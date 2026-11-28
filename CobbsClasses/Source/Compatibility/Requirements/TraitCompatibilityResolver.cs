@@ -4,49 +4,50 @@ using System.Linq;
 
 using Newtonsoft.Json.Linq;
 
-namespace CobbsClasses.Source.Compatibility.Requirements;
-
-internal static class TraitCompatibilityResolver
+namespace CobbsClasses.Source.Compatibility.Requirements
 {
-    public static HashSet<string> Resolve(JArray traits, Func<string, bool> isEnabled)
+    internal static class TraitCompatibilityResolver
     {
-        HashSet<string> unavailable = new(StringComparer.Ordinal);
-        foreach (JObject trait in traits.OfType<JObject>())
+        public static HashSet<string> Resolve(JArray traits, Func<string, bool> isEnabled)
         {
-            string code = (string?)trait["code"] ?? throw new FormatException("Trait code missing.");
-            if (trait["attributes"] is not JObject attributes)
+            HashSet<string> unavailable = new(StringComparer.Ordinal);
+            foreach (JObject trait in traits.OfType<JObject>())
             {
-                attributes = [];
-                trait["attributes"] = attributes;
-            }
-            if (!ModRequirementEvaluator.Matches(trait["requiresMods"], isEnabled))
-            {
-                unavailable.Add(code);
-                attributes.RemoveAll();
-            }
-            else if (trait["modifiers"] is JArray modifiers)
-            {
-                foreach (JObject modifier in modifiers.OfType<JObject>())
+                string code = (string?)trait["code"] ?? throw new FormatException("Trait code missing.");
+                if (trait["attributes"] is not JObject attributes)
                 {
-                    if (!ModRequirementEvaluator.Matches(modifier["requiresMods"], isEnabled))
+                    attributes = [];
+                    trait["attributes"] = attributes;
+                }
+                if (!ModRequirementEvaluator.Matches(trait["requiresMods"], isEnabled))
+                {
+                    unavailable.Add(code);
+                    attributes.RemoveAll();
+                }
+                else if (trait["modifiers"] is JArray modifiers)
+                {
+                    foreach (JObject modifier in modifiers.OfType<JObject>())
                     {
-                        continue;
-                    }
-
-                    if (modifier["attributes"] is JObject additions)
-                    {
-                        foreach (JProperty attribute in additions.Properties())
+                        if (!ModRequirementEvaluator.Matches(modifier["requiresMods"], isEnabled))
                         {
-                            attributes[attribute.Name] = attribute.Value.DeepClone();
+                            continue;
+                        }
+
+                        if (modifier["attributes"] is JObject additions)
+                        {
+                            foreach (JProperty attribute in additions.Properties())
+                            {
+                                attributes[attribute.Name] = attribute.Value.DeepClone();
+                            }
                         }
                     }
                 }
+
+                trait.Remove("requiresMods");
+                trait.Remove("modifiers");
             }
 
-            trait.Remove("requiresMods");
-            trait.Remove("modifiers");
+            return unavailable;
         }
-
-        return unavailable;
     }
 }

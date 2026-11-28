@@ -1,3 +1,5 @@
+using System.Linq;
+
 using CobbsClasses.Source.API;
 
 using Vintagestory.API.Common;
@@ -20,6 +22,25 @@ namespace CobbsClasses.Source.Behaviors
             speedTraits = properties["speedStat"].AsArray<string>() ?? [];
             durabilityLossTraits = properties["durabilityLossStat"].AsArray<string>() ?? [];
             reachTraits = properties["reachStat"].AsArray<string>() ?? [];
+        }
+
+        internal void ConfigureDurabilityCategories(bool isTool, bool isWeapon)
+        {
+            if (!isTool && !isWeapon)
+            {
+                return;
+            }
+
+            durabilityLossTraits = [.. durabilityLossTraits, TraitAttributes.Tools.GlobalDurabilityLoss];
+            if (isTool)
+            {
+                durabilityLossTraits = [.. durabilityLossTraits, TraitAttributes.Tools.ToolDurabilityLoss];
+            }
+            if (isWeapon)
+            {
+                durabilityLossTraits = [.. durabilityLossTraits, TraitAttributes.Tools.WeaponDurabilityLoss];
+            }
+            durabilityLossTraits = durabilityLossTraits.Distinct().ToArray();
         }
 
         public override float GetMiningSpeed(ItemStack itemstack, BlockSelection blockSel, Block block, IPlayer player, ref EnumHandling bhHandling)

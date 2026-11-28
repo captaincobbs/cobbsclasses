@@ -3,70 +3,70 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 
-namespace CobbsClasses.Source.API;
-
-
-public sealed class TraitRegistry
+namespace CobbsClasses.Source.API
 {
-    private readonly Dictionary<string, TraitAttributeDefinition> definitions = new(StringComparer.Ordinal);
-
-    public TraitRegistry()
+    public sealed class TraitRegistry
     {
-        foreach (Type category in typeof(TraitAttributes).GetNestedTypes(BindingFlags.Public))
+        private readonly Dictionary<string, TraitAttributeDefinition> definitions = new(StringComparer.Ordinal);
+
+        public TraitRegistry()
         {
-            foreach (FieldInfo field in category.GetFields(BindingFlags.Public | BindingFlags.Static))
+            foreach (Type category in typeof(TraitAttributes).GetNestedTypes(BindingFlags.Public))
             {
-                if (field.IsLiteral && field.GetRawConstantValue() is string code)
+                foreach (FieldInfo field in category.GetFields(BindingFlags.Public | BindingFlags.Static))
                 {
-                    definitions.TryAdd(code, new TraitAttributeDefinition(code, AttributeKind.Additive, 0, -double.MaxValue, double.MaxValue));
+                    if (field.IsLiteral && field.GetRawConstantValue() is string code)
+                    {
+                        definitions.TryAdd(code, new TraitAttributeDefinition(code, AttributeKind.Additive, 0, -double.MaxValue, double.MaxValue));
+                    }
                 }
             }
+
+            Define("wetResistance", AttributeKind.Probability, 0, 1);
+            Define("unrestedSpeedPenalty", AttributeKind.Boolean, 0, 1);
+            Define("coldTemperatureRange", AttributeKind.Temperature, -100, 100);
+            Define("toolSpeedMul", AttributeKind.Multiplier, -0.95, double.MaxValue);
+            Define("globalSpeedMul", AttributeKind.Multiplier, -0.95, double.MaxValue);
+            Define("maxHealthmul", AttributeKind.Multiplier, -0.95, double.MaxValue);
+            Define("weaponDurabilityLoss", AttributeKind.Multiplier, -1, double.MaxValue);
+            Define("toolDurabilityLoss", AttributeKind.Multiplier, -1, double.MaxValue);
+            Define("globalDurabilityLoss", AttributeKind.Multiplier, -1, double.MaxValue);
+            Define("globalReach", AttributeKind.Additive, -100, 100);
         }
 
-        Define("wetResistance", AttributeKind.Probability, 0, 1);
-        Define("unrestedSpeedPenalty", AttributeKind.Boolean, 0, 1);
-        Define("coldTemperatureRange", AttributeKind.Temperature, -100, 100);
-        Define("toolSpeedMul", AttributeKind.Multiplier, -0.95, double.MaxValue);
-        Define("globalSpeedMul", AttributeKind.Multiplier, -0.95, double.MaxValue);
-        Define("maxHealthmul", AttributeKind.Multiplier, -0.95, double.MaxValue);
-        Define("globalReach", AttributeKind.Additive, -100, 100);
-    }
-
-    private void Define(string code, AttributeKind kind, double minimum, double maximum)
-    {
-        definitions[code] = new TraitAttributeDefinition(code, kind, 0, minimum, maximum);
-    }
-
-    public IReadOnlyList<TraitAttributeDefinition> Definitions => definitions.Values.Select(Clone).ToArray();
-
-    public bool TryGet(string code, out TraitAttributeDefinition? definition)
-    {
-        if (definitions.TryGetValue(code, out TraitAttributeDefinition? stored))
+        private void Define(string code, AttributeKind kind, double minimum, double maximum)
         {
-            definition = Clone(stored);
-            return true;
+            definitions[code] = new TraitAttributeDefinition(code, kind, 0, minimum, maximum);
         }
 
-        definition = null;
-        return false;
-    }
+        public IReadOnlyList<TraitAttributeDefinition> Definitions => definitions.Values.Select(Clone).ToArray();
 
-    private static TraitAttributeDefinition Clone(TraitAttributeDefinition definition)
-        => definition with { RequiredMods = definition.RequiredMods?.ToArray() };
-
-    public void Register(TraitAttributeDefinition definition)
-    {
-        ArgumentNullException.ThrowIfNull(definition);
-        if (string.IsNullOrWhiteSpace(definition.Code) || !double.IsFinite(definition.DefaultValue) || double.IsNaN(definition.Minimum) || double.IsNaN(definition.Maximum) || definition.Minimum > definition.Maximum || definition.DefaultValue < definition.Minimum || definition.DefaultValue > definition.Maximum)
+        public bool TryGet(string code, out TraitAttributeDefinition? definition)
         {
-            throw new ArgumentException("Invalid attribute definition.", nameof(definition));
+            if (definitions.TryGetValue(code, out TraitAttributeDefinition? stored))
+            {
+                definition = Clone(stored);
+                return true;
+            }
+
+            definition = null;
+            return false;
         }
 
-        if (!definitions.TryAdd(definition.Code, Clone(definition)))
+        private static TraitAttributeDefinition Clone(TraitAttributeDefinition definition) => definition with { RequiredMods = definition.RequiredMods?.ToArray() };
+
+        public void Register(TraitAttributeDefinition definition)
         {
-            throw new InvalidOperationException($"Attribute {definition.Code} is already registered.");
+            ArgumentNullException.ThrowIfNull(definition);
+            if (string.IsNullOrWhiteSpace(definition.Code) || !double.IsFinite(definition.DefaultValue) || double.IsNaN(definition.Minimum) || double.IsNaN(definition.Maximum) || definition.Minimum > definition.Maximum || definition.DefaultValue < definition.Minimum || definition.DefaultValue > definition.Maximum)
+            {
+                throw new ArgumentException("Invalid attribute definition.", nameof(definition));
+            }
+
+            if (!definitions.TryAdd(definition.Code, Clone(definition)))
+            {
+                throw new InvalidOperationException($"Attribute {definition.Code} is already registered.");
+            }
         }
     }
 }
-
-
